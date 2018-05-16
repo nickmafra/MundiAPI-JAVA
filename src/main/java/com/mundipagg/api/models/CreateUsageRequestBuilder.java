@@ -41,6 +41,14 @@ public class CreateUsageRequestBuilder {
         createUsageRequest.setCode(code);
         return this;
     }
+
+    /**
+     * identification group in the client system
+     */
+    public CreateUsageRequestBuilder group(String group) {
+        createUsageRequest.setGroup(group);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

@@ -27,7 +27,7 @@ import org.joda.time.DateTime;
 @JsonInclude(Include.ALWAYS)
 public class GetSafetyPayTransactionResponse 
         extends GetTransactionResponse {
-    private static final long serialVersionUID = 4876149526905458595L;
+    private static final long serialVersionUID = 4658131491851149711L;
     private String url;
     private String bankTid;
     private DateTime paidAt;

@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class GetUsageResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5761611642295225674L;
+    private static final long serialVersionUID = 4863971526344975819L;
     private String id;
     private int quantity;
     private String description;
@@ -25,6 +25,7 @@ public class GetUsageResponse
     private GetSubscriptionItemResponse subscriptionItem;
     private DateTime deletedAt;
     private String code;
+    private String group;
     /** GETTER
      * Id
      */
@@ -173,6 +174,22 @@ public class GetUsageResponse
     @JsonSetter("code")
     public void setCode (String value) { 
         this.code = value;
+    }
+ 
+    /** GETTER
+     * Identification group in the client system
+     */
+    @JsonGetter("group")
+    public String getGroup ( ) { 
+        return this.group;
+    }
+    
+    /** SETTER
+     * Identification group in the client system
+     */
+    @JsonSetter("group")
+    public void setGroup (String value) { 
+        this.group = value;
     }
  
 }
