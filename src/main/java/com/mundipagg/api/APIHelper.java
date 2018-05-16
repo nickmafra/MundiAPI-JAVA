@@ -19,7 +19,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
- 
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.core.JsonParser;
@@ -33,7 +33,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 
 import com.mundipagg.api.exceptions.APIException;
-import com.mashape.unirest.http.Unirest;
+
 public class APIHelper {
     /* used for async execution of API calls using a thread pool */
     private static ExecutorService scheduler = null;
@@ -58,11 +58,6 @@ public class APIHelper {
         if(null != scheduler) {
             scheduler.shutdown();
         }
-        try {
-            Unirest.shutdown();
-        } catch (IOException e) {
-            //do nothing
-        }
     }
 
     /* used for deserialization of json data */
@@ -75,28 +70,28 @@ public class APIHelper {
         }
     };
 
-	/**
+    /**
      * Get a JsonSerializer instance from the provided annotation.
      * @param  serializerAnnotation The Annotation containing information about the serializer
      * @return The JsonSerializer instance of the required type
      */
     private static JsonSerializer getSerializer(Annotation serializerAnnotation)
     {
-    	String sa = serializerAnnotation.toString();
+        String sa = serializerAnnotation.toString();
         sa = sa.substring(sa.indexOf("using=class ") + 12);
-		sa = sa.substring(0, sa.indexOf(','));
+        sa = sa.substring(0, sa.indexOf(','));
         try {
-        	return (JsonSerializer) Class.forName(sa).newInstance();
-		} catch (InstantiationException e) {
-			e.printStackTrace();
-			return null;
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
-			return null;
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-			return null;
-		}
+            return (JsonSerializer) Class.forName(sa).newInstance();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+            return null;
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+            return null;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     /**
@@ -112,7 +107,7 @@ public class APIHelper {
         return mapper.writeValueAsString(obj);
     }
 
-	/**
+    /**
      * JSON Serialization of a given object using a specified JsonSerializer.
      * @param  obj The object to serialize into JSON
      * @param  serializer The instance of JsonSerializer to use
@@ -123,30 +118,30 @@ public class APIHelper {
         if(null == obj || null == serializer)
             return null;
         
-        if (obj.getClass().getName().equals("java.util.ArrayList"))		// need to find the generic type if it's an ArrayList
+        if (obj.getClass().getName().equals("java.util.ArrayList"))     // need to find the generic type if it's an ArrayList
         {
-        	final Class<? extends Object> cls = ((ArrayList) obj).get(0).getClass();
-        	
-    		return new ObjectMapper() {
-    			private static final long serialVersionUID = -1639089569991988232L;
-    			{
-    				SimpleModule module = new SimpleModule();
-    				module.addSerializer(cls, serializer);
-    				this.registerModule(module);
-    			}
-    		}.writeValueAsString(obj);
+            final Class<? extends Object> cls = ((ArrayList) obj).get(0).getClass();
+
+            return new ObjectMapper() {
+                private static final long serialVersionUID = -1639089569991988232L;
+                {
+                    SimpleModule module = new SimpleModule();
+                    module.addSerializer(cls, serializer);
+                    this.registerModule(module);
+                }
+}.writeValueAsString(obj);
         }
         else {
             final Class<? extends Object> cls = obj.getClass();
 
-			return new ObjectMapper() {
-				private static final long serialVersionUID = -1639089569991988232L;
-				{
-					SimpleModule module = new SimpleModule();
-					module.addSerializer(cls, serializer);
-					this.registerModule(module);
-				}
-			}.writeValueAsString(obj);
+            return new ObjectMapper() {
+                private static final long serialVersionUID = -1639089569991988232L;
+                {
+                    SimpleModule module = new SimpleModule();
+                    module.addSerializer(cls, serializer);
+                    this.registerModule(module);
+}
+            }.writeValueAsString(obj);
         }
     }
 
@@ -172,21 +167,21 @@ public class APIHelper {
      * @param   deserializer  The deserializer to use
      * @return  The deserialized object
      */
-	public static <T extends Object> List<T> deserialize(String json, final TypeReference<List<T>> typeReference,
-			final Class<T> cls, final JsonDeserializer<T> deserializer) throws IOException {
-		if (isNullOrWhiteSpace(json))
-			return null;
-		
-		return new ObjectMapper() {
-			private static final long serialVersionUID = -1639089569991988232L;
+    public static <T extends Object> List<T> deserialize(String json, final TypeReference<List<T>> typeReference,
+            final Class<T> cls, final JsonDeserializer<T> deserializer) throws IOException {
+        if (isNullOrWhiteSpace(json))
+            return null;
+        
+        return new ObjectMapper() {
+            private static final long serialVersionUID = -1639089569991988232L;
 
-			{
-				SimpleModule module = new SimpleModule();
-				module.addDeserializer(cls, deserializer);
-				this.registerModule(module);
-			}
-		}.readValue(json, typeReference);
-	}
+            {
+                SimpleModule module = new SimpleModule();
+                module.addDeserializer(cls, deserializer);
+                this.registerModule(module);
+            }
+        }.readValue(json, typeReference);
+    }
 
     /**
      * JSON Deserialization of the given json string.
@@ -353,7 +348,7 @@ public class APIHelper {
      * @param   value   Value for the form fields
      * @return  Dictionary of form fields created from array elements
      */
-	public static List<SimpleEntry<String, Object>> prepareFormFields(Object value) {
+    public static List<SimpleEntry<String, Object>> prepareFormFields(Object value) {
         List<SimpleEntry<String, Object>> formFields = new ArrayList<SimpleEntry<String, Object>>();
         if(value != null) {
             try {
@@ -371,7 +366,7 @@ public class APIHelper {
      * @param objBuilder
      */
     private static void encodeObjectAsQueryString(String name, Object obj, StringBuilder objBuilder) {
-    	try {
+        try {
             if(obj == null)
                 return;
 
@@ -379,7 +374,7 @@ public class APIHelper {
             objectToList(name, obj, objectList, new HashSet<Integer>());
             boolean hasParam = false;
 
-			List<String> arrays = new ArrayList<String>();
+            List<String> arrays = new ArrayList<String>();
                         
             for (SimpleEntry<String, Object> pair : objectList) {
                 String paramKeyValPair;
@@ -391,8 +386,8 @@ public class APIHelper {
 
                 hasParam = true;
                 //load element value as string
-	            paramKeyValPair = String.format("%s=%s&", accessor, tryUrlEncode(value.toString()));
-	            objBuilder.append(paramKeyValPair);
+                paramKeyValPair = String.format("%s=%s&", accessor, tryUrlEncode(value.toString()));
+                objBuilder.append(paramKeyValPair);
 
             }
 
@@ -481,8 +476,8 @@ public class APIHelper {
             //append all elements in the array into a string
             int index = 0;
             for (Object element : array) {
-            	//load key value pair
-				String key = String.format("%s[%d]", objName, index++);
+                //load key value pair
+                String key = String.format("%s[%d]", objName, index++);
                 loadKeyValuePairForEncoding(key, element, objectList, processed);
             }
         } else if(obj.getClass().isArray()) {
@@ -499,7 +494,7 @@ public class APIHelper {
                 loadKeyValuePairForEncoding(key, element, objectList, processed);
             }
          } else if(obj instanceof Map) {
-        	 //process map
+             //process map
             Map<?, ?> map = (Map<?, ?>) obj;
             //append all elements in the array into a string
             for (Map.Entry<?, ?> pair : map.entrySet()) {
@@ -586,7 +581,7 @@ public class APIHelper {
             objectToList(key, value, objectList, processed);
     }
 
-	/**
+    /**
      * While processing objects to map, loads value after serializing
      * @param key The key to used for creating key value pair
      * @param value The value to process against the given key
@@ -602,13 +597,13 @@ public class APIHelper {
         if(value == null)
             return;
         try {
-    		value = serialize(value, getSerializer(serializerAnnotation));
-    		if (value.toString().startsWith("\""))
-        		value = value.toString().substring(1, value.toString().length()-1);
-    		objectList.add( new SimpleEntry<String, Object>(key, value));
-		} catch (JsonProcessingException e) {
-			e.printStackTrace();
-		}
+            value = serialize(value, getSerializer(serializerAnnotation));
+            if (value.toString().startsWith("\""))
+                value = value.toString().substring(1, value.toString().length()-1);
+            objectList.add( new SimpleEntry<String, Object>(key, value));
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
     }
 
     /**

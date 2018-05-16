@@ -87,6 +87,14 @@ public class GetUsageResponseBuilder {
         getUsageResponse.setCode(code);
         return this;
     }
+
+    /**
+     * Identification group in the client system
+     */
+    public GetUsageResponseBuilder group(String group) {
+        getUsageResponse.setGroup(group);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

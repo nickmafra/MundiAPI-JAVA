@@ -15,11 +15,12 @@ import org.joda.time.DateTime;
 
 public class CreateUsageRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4932355556140178014L;
+    private static final long serialVersionUID = 5706106196054825846L;
     private int quantity;
     private String description;
     private DateTime usedAt;
     private String code;
+    private String group;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -84,6 +85,22 @@ public class CreateUsageRequest
     @JsonSetter("code")
     public void setCode (String value) { 
         this.code = value;
+    }
+ 
+    /** GETTER
+     * identification group in the client system
+     */
+    @JsonGetter("group")
+    public String getGroup ( ) { 
+        return this.group;
+    }
+    
+    /** SETTER
+     * identification group in the client system
+     */
+    @JsonSetter("group")
+    public void setGroup (String value) { 
+        this.group = value;
     }
  
 }

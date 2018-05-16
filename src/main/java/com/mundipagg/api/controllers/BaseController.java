@@ -9,7 +9,7 @@ import com.mundipagg.api.exceptions.*;
 import com.mundipagg.api.http.client.HttpClient;
 import com.mundipagg.api.http.client.HttpContext;
 import com.mundipagg.api.http.client.HttpCallBack;
-import com.mundipagg.api.http.client.UnirestClient;
+import com.mundipagg.api.http.client.OkClient;
 import com.mundipagg.api.http.response.HttpResponse;
 
 public abstract class BaseController {
@@ -47,7 +47,7 @@ public abstract class BaseController {
     public static HttpClient getClientInstance() {
         synchronized (syncObject) {
             if (null == clientInstance) {
-                clientInstance = UnirestClient.getSharedInstance();
+                clientInstance = OkClient.getSharedInstance();
     }
         }
         return clientInstance;
