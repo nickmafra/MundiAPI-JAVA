@@ -10,6 +10,14 @@ import com.mundipagg.api.http.client.HttpClient;
 
 public class MundiAPIClient {
     /**
+     * Singleton access to Subscriptions controller
+     * @return	Returns the SubscriptionsController instance 
+     */
+    public SubscriptionsController getSubscriptions() {
+        return SubscriptionsController.getInstance();
+    }
+
+    /**
      * Singleton access to Charges controller
      * @return	Returns the ChargesController instance 
      */
@@ -39,14 +47,6 @@ public class MundiAPIClient {
      */
     public PlansController getPlans() {
         return PlansController.getInstance();
-    }
-
-    /**
-     * Singleton access to Subscriptions controller
-     * @return	Returns the SubscriptionsController instance 
-     */
-    public SubscriptionsController getSubscriptions() {
-        return SubscriptionsController.getInstance();
     }
 
     /**

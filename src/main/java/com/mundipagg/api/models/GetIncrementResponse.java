@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class GetIncrementResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5576835821768369111L;
+    private static final long serialVersionUID = 5346969355013607364L;
     private String id;
     private double value;
     private String incrementType;

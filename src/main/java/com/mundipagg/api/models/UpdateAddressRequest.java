@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class UpdateAddressRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5278058302353717054L;
+    private static final long serialVersionUID = 4802368108857888397L;
     private String number;
     private String complement;
     private LinkedHashMap<String, String> metadata;

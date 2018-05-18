@@ -105,15 +105,1182 @@ MundiAPIClient client = new MundiAPIClient(basicAuthUserName, basicAuthPassword)
 
 ## <a name="list_of_controllers"></a>List of Controllers
 
+* [SubscriptionsController](#subscriptions_controller)
 * [ChargesController](#charges_controller)
 * [CustomersController](#customers_controller)
 * [InvoicesController](#invoices_controller)
 * [PlansController](#plans_controller)
-* [SubscriptionsController](#subscriptions_controller)
 * [OrdersController](#orders_controller)
 * [TokensController](#tokens_controller)
 * [RecipientsController](#recipients_controller)
 * [SellersController](#sellers_controller)
+
+## <a name="subscriptions_controller"></a>![Class: ](https://apidocs.io/img/class.png "com.mundipagg.api.controllers.SubscriptionsController") SubscriptionsController
+
+### Get singleton instance
+
+The singleton instance of the ``` SubscriptionsController ``` class can be accessed from the API Client.
+
+```java
+SubscriptionsController subscriptions = client.getSubscriptions();
+```
+
+### <a name="get_increment_by_id_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.getIncrementByIdAsync") getIncrementByIdAsync
+
+> TODO: Add a method description
+
+
+```java
+void getIncrementByIdAsync(
+        final String subscriptionId,
+        final String incrementId,
+        final APICallBack<GetIncrementResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| subscriptionId |  ``` Required ```  | The subscription Id |
+| incrementId |  ``` Required ```  | The increment Id |
+
+
+#### Example Usage
+
+```java
+String subscriptionId = "subscription_id";
+String incrementId = "increment_id";
+// Invoking the API call with sample inputs
+subscriptions.getIncrementByIdAsync(subscriptionId, incrementId, new APICallBack<GetIncrementResponse>() {
+    public void onSuccess(HttpContext context, GetIncrementResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
+
+```
+
+
+### <a name="update_subscription_item_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.updateSubscriptionItemAsync") updateSubscriptionItemAsync
+
+> Updates a subscription item
+
+
+```java
+void updateSubscriptionItemAsync(
+        final String subscriptionId,
+        final String itemId,
+        final UpdateSubscriptionItemRequest body,
+        final APICallBack<GetSubscriptionItemResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| subscriptionId |  ``` Required ```  | Subscription Id |
+| itemId |  ``` Required ```  | Item id |
+| body |  ``` Required ```  | Request for updating a subscription item |
+
+
+#### Example Usage
+
+```java
+try {
+    String subscriptionId = "subscription_id";
+    String itemId = "item_id";
+    UpdateSubscriptionItemRequest body = new UpdateSubscriptionItemRequest();
+    // Invoking the API call with sample inputs
+    subscriptions.updateSubscriptionItemAsync(subscriptionId, itemId, body, new APICallBack<GetSubscriptionItemResponse>() {
+        public void onSuccess(HttpContext context, GetSubscriptionItemResponse response) {
+            // TODO success callback handler
+        }
+        public void onFailure(HttpContext context, Throwable error) {
+            // TODO failure callback handler
+        }
+    });
+} catch(JsonProcessingException e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+}
+```
+
+
+### <a name="create_usage_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.createUsageAsync") createUsageAsync
+
+> Creates a usage
+
+
+```java
+void createUsageAsync(
+        final String subscriptionId,
+        final String itemId,
+        final CreateUsageRequest body,
+        final APICallBack<GetUsageResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| subscriptionId |  ``` Required ```  | Subscription Id |
+| itemId |  ``` Required ```  | Item id |
+| body |  ``` Required ```  | Request for creating a usage |
+
+
+#### Example Usage
+
+```java
+try {
+    String subscriptionId = "subscription_id";
+    String itemId = "item_id";
+    CreateUsageRequest body = new CreateUsageRequest();
+    // Invoking the API call with sample inputs
+    subscriptions.createUsageAsync(subscriptionId, itemId, body, new APICallBack<GetUsageResponse>() {
+        public void onSuccess(HttpContext context, GetUsageResponse response) {
+            // TODO success callback handler
+        }
+        public void onFailure(HttpContext context, Throwable error) {
+            // TODO failure callback handler
+        }
+    });
+} catch(JsonProcessingException e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+}
+```
+
+
+### <a name="update_subscription_billing_date_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.updateSubscriptionBillingDateAsync") updateSubscriptionBillingDateAsync
+
+> Updates the billing date from a subscription
+
+
+```java
+void updateSubscriptionBillingDateAsync(
+        final String subscriptionId,
+        final UpdateSubscriptionBillingDateRequest request,
+        final APICallBack<GetSubscriptionResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| subscriptionId |  ``` Required ```  | The subscription id |
+| request |  ``` Required ```  | Request for updating the subscription billing date |
+
+
+#### Example Usage
+
+```java
+try {
+    String subscriptionId = "subscription_id";
+    UpdateSubscriptionBillingDateRequest request = new UpdateSubscriptionBillingDateRequest();
+    // Invoking the API call with sample inputs
+    subscriptions.updateSubscriptionBillingDateAsync(subscriptionId, request, new APICallBack<GetSubscriptionResponse>() {
+        public void onSuccess(HttpContext context, GetSubscriptionResponse response) {
+            // TODO success callback handler
+        }
+        public void onFailure(HttpContext context, Throwable error) {
+            // TODO failure callback handler
+        }
+    });
+} catch(JsonProcessingException e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+}
+```
+
+
+### <a name="update_subscription_card_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.updateSubscriptionCardAsync") updateSubscriptionCardAsync
+
+> Updates the credit card from a subscription
+
+
+```java
+void updateSubscriptionCardAsync(
+        final String subscriptionId,
+        final UpdateSubscriptionCardRequest request,
+        final APICallBack<GetSubscriptionResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| subscriptionId |  ``` Required ```  | Subscription id |
+| request |  ``` Required ```  | Request for updating a card |
+
+
+#### Example Usage
+
+```java
+try {
+    String subscriptionId = "subscription_id";
+    UpdateSubscriptionCardRequest request = new UpdateSubscriptionCardRequest();
+    // Invoking the API call with sample inputs
+    subscriptions.updateSubscriptionCardAsync(subscriptionId, request, new APICallBack<GetSubscriptionResponse>() {
+        public void onSuccess(HttpContext context, GetSubscriptionResponse response) {
+            // TODO success callback handler
+        }
+        public void onFailure(HttpContext context, Throwable error) {
+            // TODO failure callback handler
+        }
+    });
+} catch(JsonProcessingException e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+}
+```
+
+
+### <a name="create_subscription_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.createSubscriptionAsync") createSubscriptionAsync
+
+> Creates a new subscription
+
+
+```java
+void createSubscriptionAsync(
+        final CreateSubscriptionRequest body,
+        final APICallBack<GetSubscriptionResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| body |  ``` Required ```  | Request for creating a subscription |
+
+
+#### Example Usage
+
+```java
+try {
+    CreateSubscriptionRequest body = new CreateSubscriptionRequest();
+    // Invoking the API call with sample inputs
+    subscriptions.createSubscriptionAsync(body, new APICallBack<GetSubscriptionResponse>() {
+        public void onSuccess(HttpContext context, GetSubscriptionResponse response) {
+            // TODO success callback handler
+        }
+        public void onFailure(HttpContext context, Throwable error) {
+            // TODO failure callback handler
+        }
+    });
+} catch(JsonProcessingException e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+}
+```
+
+
+### <a name="create_subscription_item_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.createSubscriptionItemAsync") createSubscriptionItemAsync
+
+> Creates a new Subscription item
+
+
+```java
+void createSubscriptionItemAsync(
+        final String subscriptionId,
+        final CreateSubscriptionItemRequest request,
+        final APICallBack<GetSubscriptionItemResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| subscriptionId |  ``` Required ```  | Subscription id |
+| request |  ``` Required ```  | Request for creating a subscription item |
+
+
+#### Example Usage
+
+```java
+try {
+    String subscriptionId = "subscription_id";
+    CreateSubscriptionItemRequest request = new CreateSubscriptionItemRequest();
+    // Invoking the API call with sample inputs
+    subscriptions.createSubscriptionItemAsync(subscriptionId, request, new APICallBack<GetSubscriptionItemResponse>() {
+        public void onSuccess(HttpContext context, GetSubscriptionItemResponse response) {
+            // TODO success callback handler
+        }
+        public void onFailure(HttpContext context, Throwable error) {
+            // TODO failure callback handler
+        }
+    });
+} catch(JsonProcessingException e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+}
+```
+
+
+### <a name="create_discount_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.createDiscountAsync") createDiscountAsync
+
+> Creates a discount
+
+
+```java
+void createDiscountAsync(
+        final String subscriptionId,
+        final CreateDiscountRequest request,
+        final APICallBack<GetDiscountResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| subscriptionId |  ``` Required ```  | Subscription id |
+| request |  ``` Required ```  | Request for creating a discount |
+
+
+#### Example Usage
+
+```java
+try {
+    String subscriptionId = "subscription_id";
+    CreateDiscountRequest request = new CreateDiscountRequest();
+    // Invoking the API call with sample inputs
+    subscriptions.createDiscountAsync(subscriptionId, request, new APICallBack<GetDiscountResponse>() {
+        public void onSuccess(HttpContext context, GetDiscountResponse response) {
+            // TODO success callback handler
+        }
+        public void onFailure(HttpContext context, Throwable error) {
+            // TODO failure callback handler
+        }
+    });
+} catch(JsonProcessingException e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+}
+```
+
+
+### <a name="get_subscription_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.getSubscriptionAsync") getSubscriptionAsync
+
+> Gets a subscription
+
+
+```java
+void getSubscriptionAsync(
+        final String subscriptionId,
+        final APICallBack<GetSubscriptionResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| subscriptionId |  ``` Required ```  | Subscription id |
+
+
+#### Example Usage
+
+```java
+String subscriptionId = "subscription_id";
+// Invoking the API call with sample inputs
+subscriptions.getSubscriptionAsync(subscriptionId, new APICallBack<GetSubscriptionResponse>() {
+    public void onSuccess(HttpContext context, GetSubscriptionResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
+
+```
+
+
+### <a name="update_subscription_payment_method_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.updateSubscriptionPaymentMethodAsync") updateSubscriptionPaymentMethodAsync
+
+> Updates the payment method from a subscription
+
+
+```java
+void updateSubscriptionPaymentMethodAsync(
+        final String subscriptionId,
+        final UpdateSubscriptionPaymentMethodRequest request,
+        final APICallBack<GetSubscriptionResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| subscriptionId |  ``` Required ```  | Subscription id |
+| request |  ``` Required ```  | Request for updating the paymentmethod from a subscription |
+
+
+#### Example Usage
+
+```java
+try {
+    String subscriptionId = "subscription_id";
+    UpdateSubscriptionPaymentMethodRequest request = new UpdateSubscriptionPaymentMethodRequest();
+    // Invoking the API call with sample inputs
+    subscriptions.updateSubscriptionPaymentMethodAsync(subscriptionId, request, new APICallBack<GetSubscriptionResponse>() {
+        public void onSuccess(HttpContext context, GetSubscriptionResponse response) {
+            // TODO success callback handler
+        }
+        public void onFailure(HttpContext context, Throwable error) {
+            // TODO failure callback handler
+        }
+    });
+} catch(JsonProcessingException e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+}
+```
+
+
+### <a name="delete_discount_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.deleteDiscountAsync") deleteDiscountAsync
+
+> Deletes a discount
+
+
+```java
+void deleteDiscountAsync(
+        final String subscriptionId,
+        final String discountId,
+        final APICallBack<GetDiscountResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| subscriptionId |  ``` Required ```  | Subscription id |
+| discountId |  ``` Required ```  | Discount Id |
+
+
+#### Example Usage
+
+```java
+String subscriptionId = "subscription_id";
+String discountId = "discount_id";
+// Invoking the API call with sample inputs
+subscriptions.deleteDiscountAsync(subscriptionId, discountId, new APICallBack<GetDiscountResponse>() {
+    public void onSuccess(HttpContext context, GetDiscountResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
+
+```
+
+
+### <a name="cancel_subscription_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.cancelSubscriptionAsync") cancelSubscriptionAsync
+
+> Cancels a subscription
+
+
+```java
+void cancelSubscriptionAsync(
+        final String subscriptionId,
+        final CreateCancelSubscriptionRequest request,
+        final APICallBack<GetSubscriptionResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| subscriptionId |  ``` Required ```  | Subscription id |
+| request |  ``` Optional ```  | Request for cancelling a subscription |
+
+
+#### Example Usage
+
+```java
+try {
+    String subscriptionId = "subscription_id";
+    CreateCancelSubscriptionRequest request = new CreateCancelSubscriptionRequest();
+    // Invoking the API call with sample inputs
+    subscriptions.cancelSubscriptionAsync(subscriptionId, request, new APICallBack<GetSubscriptionResponse>() {
+        public void onSuccess(HttpContext context, GetSubscriptionResponse response) {
+            // TODO success callback handler
+        }
+        public void onFailure(HttpContext context, Throwable error) {
+            // TODO failure callback handler
+        }
+    });
+} catch(JsonProcessingException e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+}
+```
+
+
+### <a name="delete_subscription_item_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.deleteSubscriptionItemAsync") deleteSubscriptionItemAsync
+
+> Deletes a subscription item
+
+
+```java
+void deleteSubscriptionItemAsync(
+        final String subscriptionId,
+        final String subscriptionItemId,
+        final APICallBack<GetSubscriptionItemResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| subscriptionId |  ``` Required ```  | Subscription id |
+| subscriptionItemId |  ``` Required ```  | Subscription item id |
+
+
+#### Example Usage
+
+```java
+String subscriptionId = "subscription_id";
+String subscriptionItemId = "subscription_item_id";
+// Invoking the API call with sample inputs
+subscriptions.deleteSubscriptionItemAsync(subscriptionId, subscriptionItemId, new APICallBack<GetSubscriptionItemResponse>() {
+    public void onSuccess(HttpContext context, GetSubscriptionItemResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
+
+```
+
+
+### <a name="delete_usage_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.deleteUsageAsync") deleteUsageAsync
+
+> Deletes a usage
+
+
+```java
+void deleteUsageAsync(
+        final String subscriptionId,
+        final String itemId,
+        final String usageId,
+        final APICallBack<GetUsageResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| subscriptionId |  ``` Required ```  | The subscription id |
+| itemId |  ``` Required ```  | The subscription item id |
+| usageId |  ``` Required ```  | The usage id |
+
+
+#### Example Usage
+
+```java
+String subscriptionId = "subscription_id";
+String itemId = "item_id";
+String usageId = "usage_id";
+// Invoking the API call with sample inputs
+subscriptions.deleteUsageAsync(subscriptionId, itemId, usageId, new APICallBack<GetUsageResponse>() {
+    public void onSuccess(HttpContext context, GetUsageResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
+
+```
+
+
+### <a name="update_subscription_metadata_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.updateSubscriptionMetadataAsync") updateSubscriptionMetadataAsync
+
+> Updates the metadata from a subscription
+
+
+```java
+void updateSubscriptionMetadataAsync(
+        final String subscriptionId,
+        final UpdateMetadataRequest request,
+        final APICallBack<GetSubscriptionResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| subscriptionId |  ``` Required ```  | The subscription id |
+| request |  ``` Required ```  | Request for updating the subscrption metadata |
+
+
+#### Example Usage
+
+```java
+try {
+    String subscriptionId = "subscription_id";
+    UpdateMetadataRequest request = new UpdateMetadataRequest();
+    // Invoking the API call with sample inputs
+    subscriptions.updateSubscriptionMetadataAsync(subscriptionId, request, new APICallBack<GetSubscriptionResponse>() {
+        public void onSuccess(HttpContext context, GetSubscriptionResponse response) {
+            // TODO success callback handler
+        }
+        public void onFailure(HttpContext context, Throwable error) {
+            // TODO failure callback handler
+        }
+    });
+} catch(JsonProcessingException e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+}
+```
+
+
+### <a name="get_subscriptions_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.getSubscriptionsAsync") getSubscriptionsAsync
+
+> Gets all subscriptions
+
+
+```java
+void getSubscriptionsAsync(
+        final Integer page,
+        final Integer size,
+        final String code,
+        final String billingType,
+        final String customerId,
+        final String planId,
+        final String cardId,
+        final String status,
+        final DateTime nextBillingSince,
+        final DateTime nextBillingUntil,
+        final DateTime createdSince,
+        final DateTime createdUntil,
+        final APICallBack<ListSubscriptionsResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| page |  ``` Optional ```  | Page number |
+| size |  ``` Optional ```  | Page size |
+| code |  ``` Optional ```  | Filter for subscription's code |
+| billingType |  ``` Optional ```  | Filter for subscription's billing type |
+| customerId |  ``` Optional ```  | Filter for subscription's customer id |
+| planId |  ``` Optional ```  | Filter for subscription's plan id |
+| cardId |  ``` Optional ```  | Filter for subscription's card id |
+| status |  ``` Optional ```  | Filter for subscription's status |
+| nextBillingSince |  ``` Optional ```  | Filter for subscription's next billing date start range |
+| nextBillingUntil |  ``` Optional ```  | Filter for subscription's next billing date end range |
+| createdSince |  ``` Optional ```  | Filter for subscription's creation date start range |
+| createdUntil |  ``` Optional ```  | Filter for subscriptions creation date end range |
+
+
+#### Example Usage
+
+```java
+Integer page = 82;
+Integer size = 82;
+String code = "code";
+String billingType = "billing_type";
+String customerId = "customer_id";
+String planId = "plan_id";
+String cardId = "card_id";
+String status = "status";
+DateTime nextBillingSince = new Date();
+DateTime nextBillingUntil = new Date();
+DateTime createdSince = new Date();
+DateTime createdUntil = new Date();
+// Invoking the API call with sample inputs
+subscriptions.getSubscriptionsAsync(page, size, code, billingType, customerId, planId, cardId, status, nextBillingSince, nextBillingUntil, createdSince, createdUntil, new APICallBack<ListSubscriptionsResponse>() {
+    public void onSuccess(HttpContext context, ListSubscriptionsResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
+
+```
+
+
+### <a name="create_an_usage_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.createAnUsageAsync") createAnUsageAsync
+
+> Create Usage
+
+
+```java
+void createAnUsageAsync(
+        final String subscriptionId,
+        final String itemId,
+        final APICallBack<GetUsageResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| subscriptionId |  ``` Required ```  | Subscription id |
+| itemId |  ``` Required ```  | Item id |
+
+
+#### Example Usage
+
+```java
+String subscriptionId = "subscription_id";
+String itemId = "item_id";
+// Invoking the API call with sample inputs
+subscriptions.createAnUsageAsync(subscriptionId, itemId, new APICallBack<GetUsageResponse>() {
+    public void onSuccess(HttpContext context, GetUsageResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
+
+```
+
+
+### <a name="get_subscription_item_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.getSubscriptionItemAsync") getSubscriptionItemAsync
+
+> Get Subscription Item
+
+
+```java
+void getSubscriptionItemAsync(
+        final String subscriptionId,
+        final String itemId,
+        final APICallBack<GetSubscriptionItemResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| subscriptionId |  ``` Required ```  | Subscription Id |
+| itemId |  ``` Required ```  | Item id |
+
+
+#### Example Usage
+
+```java
+String subscriptionId = "subscription_id";
+String itemId = "item_id";
+// Invoking the API call with sample inputs
+subscriptions.getSubscriptionItemAsync(subscriptionId, itemId, new APICallBack<GetSubscriptionItemResponse>() {
+    public void onSuccess(HttpContext context, GetSubscriptionItemResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
+
+```
+
+
+### <a name="update_subscription_affiliation_id_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.updateSubscriptionAffiliationIdAsync") updateSubscriptionAffiliationIdAsync
+
+> TODO: Add a method description
+
+
+```java
+void updateSubscriptionAffiliationIdAsync(
+        final String subscriptionId,
+        final UpdateSubscriptionAffiliationIdRequest request,
+        final APICallBack<GetSubscriptionResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| subscriptionId |  ``` Required ```  | TODO: Add a parameter description |
+| request |  ``` Required ```  | Request for updating a subscription affiliation id |
+
+
+#### Example Usage
+
+```java
+try {
+    String subscriptionId = "subscription_id";
+    UpdateSubscriptionAffiliationIdRequest request = new UpdateSubscriptionAffiliationIdRequest();
+    // Invoking the API call with sample inputs
+    subscriptions.updateSubscriptionAffiliationIdAsync(subscriptionId, request, new APICallBack<GetSubscriptionResponse>() {
+        public void onSuccess(HttpContext context, GetSubscriptionResponse response) {
+            // TODO success callback handler
+        }
+        public void onFailure(HttpContext context, Throwable error) {
+            // TODO failure callback handler
+        }
+    });
+} catch(JsonProcessingException e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+}
+```
+
+
+### <a name="get_discount_by_id_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.getDiscountByIdAsync") getDiscountByIdAsync
+
+> TODO: Add a method description
+
+
+```java
+void getDiscountByIdAsync(
+        final String subscriptionId,
+        final String discountId,
+        final APICallBack<GetDiscountResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| subscriptionId |  ``` Required ```  | The subscription id |
+| discountId |  ``` Required ```  | TODO: Add a parameter description |
+
+
+#### Example Usage
+
+```java
+String subscriptionId = "subscription_id";
+String discountId = "discountId";
+// Invoking the API call with sample inputs
+subscriptions.getDiscountByIdAsync(subscriptionId, discountId, new APICallBack<GetDiscountResponse>() {
+    public void onSuccess(HttpContext context, GetDiscountResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
+
+```
+
+
+### <a name="get_discounts_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.getDiscountsAsync") getDiscountsAsync
+
+> TODO: Add a method description
+
+
+```java
+void getDiscountsAsync(
+        final String subscriptionId,
+        final int page,
+        final int size,
+        final APICallBack<ListDiscountsResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| subscriptionId |  ``` Required ```  | The subscription id |
+| page |  ``` Required ```  | Page number |
+| size |  ``` Required ```  | Page size |
+
+
+#### Example Usage
+
+```java
+String subscriptionId = "subscription_id";
+int page = 173;
+int size = 173;
+// Invoking the API call with sample inputs
+subscriptions.getDiscountsAsync(subscriptionId, page, size, new APICallBack<ListDiscountsResponse>() {
+    public void onSuccess(HttpContext context, ListDiscountsResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
+
+```
+
+
+### <a name="create_increment_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.createIncrementAsync") createIncrementAsync
+
+> Creates a increment
+
+
+```java
+void createIncrementAsync(
+        final String subscriptionId,
+        final CreateIncrementRequest request,
+        final APICallBack<GetIncrementResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| subscriptionId |  ``` Required ```  | Subscription id |
+| request |  ``` Required ```  | Request for creating a increment |
+
+
+#### Example Usage
+
+```java
+try {
+    String subscriptionId = "subscription_id";
+    CreateIncrementRequest request = new CreateIncrementRequest();
+    // Invoking the API call with sample inputs
+    subscriptions.createIncrementAsync(subscriptionId, request, new APICallBack<GetIncrementResponse>() {
+        public void onSuccess(HttpContext context, GetIncrementResponse response) {
+            // TODO success callback handler
+        }
+        public void onFailure(HttpContext context, Throwable error) {
+            // TODO failure callback handler
+        }
+    });
+} catch(JsonProcessingException e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+}
+```
+
+
+### <a name="get_increments_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.getIncrementsAsync") getIncrementsAsync
+
+> TODO: Add a method description
+
+
+```java
+void getIncrementsAsync(
+        final String subscriptionId,
+        final Integer page,
+        final Integer size,
+        final APICallBack<ListIncrementsResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| subscriptionId |  ``` Required ```  | The subscription id |
+| page |  ``` Optional ```  | Page number |
+| size |  ``` Optional ```  | Page size |
+
+
+#### Example Usage
+
+```java
+String subscriptionId = "subscription_id";
+Integer page = 173;
+Integer size = 173;
+// Invoking the API call with sample inputs
+subscriptions.getIncrementsAsync(subscriptionId, page, size, new APICallBack<ListIncrementsResponse>() {
+    public void onSuccess(HttpContext context, ListIncrementsResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
+
+```
+
+
+### <a name="delete_increment_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.deleteIncrementAsync") deleteIncrementAsync
+
+> Deletes a increment
+
+
+```java
+void deleteIncrementAsync(
+        final String subscriptionId,
+        final String incrementId,
+        final APICallBack<GetIncrementResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| subscriptionId |  ``` Required ```  | Subscription id |
+| incrementId |  ``` Required ```  | Increment id |
+
+
+#### Example Usage
+
+```java
+String subscriptionId = "subscription_id";
+String incrementId = "increment_id";
+// Invoking the API call with sample inputs
+subscriptions.deleteIncrementAsync(subscriptionId, incrementId, new APICallBack<GetIncrementResponse>() {
+    public void onSuccess(HttpContext context, GetIncrementResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
+
+```
+
+
+### <a name="get_usages_details_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.getUsagesDetailsAsync") getUsagesDetailsAsync
+
+> TODO: Add a method description
+
+
+```java
+void getUsagesDetailsAsync(
+        final String subscriptionId,
+        final String cycleId,
+        final Integer size,
+        final Integer page,
+        final String itemId,
+        final APICallBack<GetUsagesDetailsResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| subscriptionId |  ``` Required ```  | Subscription Identifier |
+| cycleId |  ``` Optional ```  | Cycle id |
+| size |  ``` Optional ```  | Page size |
+| page |  ``` Optional ```  | Page number |
+| itemId |  ``` Optional ```  | Identificador do item |
+
+
+#### Example Usage
+
+```java
+String subscriptionId = "subscription_id";
+String cycleId = "cycle_id";
+Integer size = 173;
+Integer page = 173;
+String itemId = "item_id";
+// Invoking the API call with sample inputs
+subscriptions.getUsagesDetailsAsync(subscriptionId, cycleId, size, page, itemId, new APICallBack<GetUsagesDetailsResponse>() {
+    public void onSuccess(HttpContext context, GetUsagesDetailsResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
+
+```
+
+
+### <a name="get_usages_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.getUsagesAsync") getUsagesAsync
+
+> Lists all usages from a subscription item
+
+
+```java
+void getUsagesAsync(
+        final String subscriptionId,
+        final String itemId,
+        final Integer page,
+        final Integer size,
+        final String code,
+        final String group,
+        final APICallBack<ListUsagesResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| subscriptionId |  ``` Required ```  | The subscription id |
+| itemId |  ``` Required ```  | The subscription item id |
+| page |  ``` Optional ```  | Page number |
+| size |  ``` Optional ```  | Page size |
+| code |  ``` Optional ```  | Identification code in the client system |
+| group |  ``` Optional ```  | Identification group in the client system |
+
+
+#### Example Usage
+
+```java
+String subscriptionId = "subscription_id";
+String itemId = "item_id";
+Integer page = 173;
+Integer size = 173;
+String code = "code";
+String group = "group";
+// Invoking the API call with sample inputs
+subscriptions.getUsagesAsync(subscriptionId, itemId, page, size, code, group, new APICallBack<ListUsagesResponse>() {
+    public void onSuccess(HttpContext context, ListUsagesResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
+
+```
+
+
+### <a name="get_subscription_items_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.getSubscriptionItemsAsync") getSubscriptionItemsAsync
+
+> Get Subscription Items
+
+
+```java
+void getSubscriptionItemsAsync(
+        final String subscriptionId,
+        final Integer page,
+        final Integer size,
+        final String name,
+        final String code,
+        final String status,
+        final String description,
+        final String createdSince,
+        final String createdUntil,
+        final APICallBack<ListSubscriptionItemsResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| subscriptionId |  ``` Required ```  | The subscription id |
+| page |  ``` Optional ```  | Page number |
+| size |  ``` Optional ```  | Page size |
+| name |  ``` Optional ```  | The item name |
+| code |  ``` Optional ```  | Identification code in the client system |
+| status |  ``` Optional ```  | The item statis |
+| description |  ``` Optional ```  | The item description |
+| createdSince |  ``` Optional ```  | Filter for item's creation date start range |
+| createdUntil |  ``` Optional ```  | Filter for item's creation date end range |
+
+
+#### Example Usage
+
+```java
+String subscriptionId = "subscription_id";
+Integer page = 173;
+Integer size = 173;
+String name = "name";
+String code = "code";
+String status = "status";
+String description = "description";
+String createdSince = "created_since";
+String createdUntil = "created_until";
+// Invoking the API call with sample inputs
+subscriptions.getSubscriptionItemsAsync(subscriptionId, page, size, name, code, status, description, createdSince, createdUntil, new APICallBack<ListSubscriptionItemsResponse>() {
+    public void onSuccess(HttpContext context, ListSubscriptionItemsResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
+
+```
+
+
+[Back to List of Controllers](#list_of_controllers)
 
 ## <a name="charges_controller"></a>![Class: ](https://apidocs.io/img/class.png "com.mundipagg.api.controllers.ChargesController") ChargesController
 
@@ -481,8 +1648,8 @@ void getChargesAsync(
 #### Example Usage
 
 ```java
-Integer page = 159;
-Integer size = 159;
+Integer page = 173;
+Integer size = 173;
 String code = "code";
 String status = "status";
 String paymentMethod = "payment_method";
@@ -1220,8 +2387,8 @@ void getAccessTokensAsync(
 
 ```java
 String customerId = "customer_id";
-Integer page = 251;
-Integer size = 251;
+Integer page = 173;
+Integer size = 173;
 // Invoking the API call with sample inputs
 customers.getAccessTokensAsync(customerId, page, size, new APICallBack<ListAccessTokensResponse>() {
     public void onSuccess(HttpContext context, ListAccessTokensResponse response) {
@@ -1261,8 +2428,8 @@ void getAddressesAsync(
 
 ```java
 String customerId = "customer_id";
-Integer page = 251;
-Integer size = 251;
+Integer page = 173;
+Integer size = 173;
 // Invoking the API call with sample inputs
 customers.getAddressesAsync(customerId, page, size, new APICallBack<ListAddressesResponse>() {
     public void onSuccess(HttpContext context, ListAddressesResponse response) {
@@ -1302,8 +2469,8 @@ void getCardsAsync(
 
 ```java
 String customerId = "customer_id";
-Integer page = 251;
-Integer size = 251;
+Integer page = 173;
+Integer size = 173;
 // Invoking the API call with sample inputs
 customers.getCardsAsync(customerId, page, size, new APICallBack<ListCardsResponse>() {
     public void onSuccess(HttpContext context, ListCardsResponse response) {
@@ -1530,8 +2697,8 @@ void getInvoicesAsync(
 #### Example Usage
 
 ```java
-Integer page = 251;
-Integer size = 251;
+Integer page = 173;
+Integer size = 173;
 String code = "code";
 String customerId = "customer_id";
 String subscriptionId = "subscription_id";
@@ -2034,8 +3201,8 @@ void getPlansAsync(
 #### Example Usage
 
 ```java
-Integer page = 251;
-Integer size = 251;
+Integer page = 10;
+Integer size = 10;
 String name = "name";
 String status = "status";
 String billingType = "billing_type";
@@ -2044,1076 +3211,6 @@ DateTime createdUntil = new Date();
 // Invoking the API call with sample inputs
 plans.getPlansAsync(page, size, name, status, billingType, createdSince, createdUntil, new APICallBack<ListPlansResponse>() {
     public void onSuccess(HttpContext context, ListPlansResponse response) {
-        // TODO success callback handler
-    }
-    public void onFailure(HttpContext context, Throwable error) {
-        // TODO failure callback handler
-    }
-});
-
-```
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="subscriptions_controller"></a>![Class: ](https://apidocs.io/img/class.png "com.mundipagg.api.controllers.SubscriptionsController") SubscriptionsController
-
-### Get singleton instance
-
-The singleton instance of the ``` SubscriptionsController ``` class can be accessed from the API Client.
-
-```java
-SubscriptionsController subscriptions = client.getSubscriptions();
-```
-
-### <a name="update_subscription_item_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.updateSubscriptionItemAsync") updateSubscriptionItemAsync
-
-> Updates a subscription item
-
-
-```java
-void updateSubscriptionItemAsync(
-        final String subscriptionId,
-        final String itemId,
-        final UpdateSubscriptionItemRequest body,
-        final APICallBack<GetSubscriptionItemResponse> callBack)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| subscriptionId |  ``` Required ```  | Subscription Id |
-| itemId |  ``` Required ```  | Item id |
-| body |  ``` Required ```  | Request for updating a subscription item |
-
-
-#### Example Usage
-
-```java
-try {
-    String subscriptionId = "subscription_id";
-    String itemId = "item_id";
-    UpdateSubscriptionItemRequest body = new UpdateSubscriptionItemRequest();
-    // Invoking the API call with sample inputs
-    subscriptions.updateSubscriptionItemAsync(subscriptionId, itemId, body, new APICallBack<GetSubscriptionItemResponse>() {
-        public void onSuccess(HttpContext context, GetSubscriptionItemResponse response) {
-            // TODO success callback handler
-        }
-        public void onFailure(HttpContext context, Throwable error) {
-            // TODO failure callback handler
-        }
-    });
-} catch(JsonProcessingException e) {
-    // TODO Auto-generated catch block
-    e.printStackTrace();
-}
-```
-
-
-### <a name="create_usage_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.createUsageAsync") createUsageAsync
-
-> Creates a usage
-
-
-```java
-void createUsageAsync(
-        final String subscriptionId,
-        final String itemId,
-        final CreateUsageRequest body,
-        final APICallBack<GetUsageResponse> callBack)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| subscriptionId |  ``` Required ```  | Subscription Id |
-| itemId |  ``` Required ```  | Item id |
-| body |  ``` Required ```  | Request for creating a usage |
-
-
-#### Example Usage
-
-```java
-try {
-    String subscriptionId = "subscription_id";
-    String itemId = "item_id";
-    CreateUsageRequest body = new CreateUsageRequest();
-    // Invoking the API call with sample inputs
-    subscriptions.createUsageAsync(subscriptionId, itemId, body, new APICallBack<GetUsageResponse>() {
-        public void onSuccess(HttpContext context, GetUsageResponse response) {
-            // TODO success callback handler
-        }
-        public void onFailure(HttpContext context, Throwable error) {
-            // TODO failure callback handler
-        }
-    });
-} catch(JsonProcessingException e) {
-    // TODO Auto-generated catch block
-    e.printStackTrace();
-}
-```
-
-
-### <a name="update_subscription_billing_date_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.updateSubscriptionBillingDateAsync") updateSubscriptionBillingDateAsync
-
-> Updates the billing date from a subscription
-
-
-```java
-void updateSubscriptionBillingDateAsync(
-        final String subscriptionId,
-        final UpdateSubscriptionBillingDateRequest request,
-        final APICallBack<GetSubscriptionResponse> callBack)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| subscriptionId |  ``` Required ```  | The subscription id |
-| request |  ``` Required ```  | Request for updating the subscription billing date |
-
-
-#### Example Usage
-
-```java
-try {
-    String subscriptionId = "subscription_id";
-    UpdateSubscriptionBillingDateRequest request = new UpdateSubscriptionBillingDateRequest();
-    // Invoking the API call with sample inputs
-    subscriptions.updateSubscriptionBillingDateAsync(subscriptionId, request, new APICallBack<GetSubscriptionResponse>() {
-        public void onSuccess(HttpContext context, GetSubscriptionResponse response) {
-            // TODO success callback handler
-        }
-        public void onFailure(HttpContext context, Throwable error) {
-            // TODO failure callback handler
-        }
-    });
-} catch(JsonProcessingException e) {
-    // TODO Auto-generated catch block
-    e.printStackTrace();
-}
-```
-
-
-### <a name="update_subscription_card_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.updateSubscriptionCardAsync") updateSubscriptionCardAsync
-
-> Updates the credit card from a subscription
-
-
-```java
-void updateSubscriptionCardAsync(
-        final String subscriptionId,
-        final UpdateSubscriptionCardRequest request,
-        final APICallBack<GetSubscriptionResponse> callBack)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| subscriptionId |  ``` Required ```  | Subscription id |
-| request |  ``` Required ```  | Request for updating a card |
-
-
-#### Example Usage
-
-```java
-try {
-    String subscriptionId = "subscription_id";
-    UpdateSubscriptionCardRequest request = new UpdateSubscriptionCardRequest();
-    // Invoking the API call with sample inputs
-    subscriptions.updateSubscriptionCardAsync(subscriptionId, request, new APICallBack<GetSubscriptionResponse>() {
-        public void onSuccess(HttpContext context, GetSubscriptionResponse response) {
-            // TODO success callback handler
-        }
-        public void onFailure(HttpContext context, Throwable error) {
-            // TODO failure callback handler
-        }
-    });
-} catch(JsonProcessingException e) {
-    // TODO Auto-generated catch block
-    e.printStackTrace();
-}
-```
-
-
-### <a name="create_subscription_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.createSubscriptionAsync") createSubscriptionAsync
-
-> Creates a new subscription
-
-
-```java
-void createSubscriptionAsync(
-        final CreateSubscriptionRequest body,
-        final APICallBack<GetSubscriptionResponse> callBack)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| body |  ``` Required ```  | Request for creating a subscription |
-
-
-#### Example Usage
-
-```java
-try {
-    CreateSubscriptionRequest body = new CreateSubscriptionRequest();
-    // Invoking the API call with sample inputs
-    subscriptions.createSubscriptionAsync(body, new APICallBack<GetSubscriptionResponse>() {
-        public void onSuccess(HttpContext context, GetSubscriptionResponse response) {
-            // TODO success callback handler
-        }
-        public void onFailure(HttpContext context, Throwable error) {
-            // TODO failure callback handler
-        }
-    });
-} catch(JsonProcessingException e) {
-    // TODO Auto-generated catch block
-    e.printStackTrace();
-}
-```
-
-
-### <a name="create_subscription_item_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.createSubscriptionItemAsync") createSubscriptionItemAsync
-
-> Creates a new Subscription item
-
-
-```java
-void createSubscriptionItemAsync(
-        final String subscriptionId,
-        final CreateSubscriptionItemRequest request,
-        final APICallBack<GetSubscriptionItemResponse> callBack)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| subscriptionId |  ``` Required ```  | Subscription id |
-| request |  ``` Required ```  | Request for creating a subscription item |
-
-
-#### Example Usage
-
-```java
-try {
-    String subscriptionId = "subscription_id";
-    CreateSubscriptionItemRequest request = new CreateSubscriptionItemRequest();
-    // Invoking the API call with sample inputs
-    subscriptions.createSubscriptionItemAsync(subscriptionId, request, new APICallBack<GetSubscriptionItemResponse>() {
-        public void onSuccess(HttpContext context, GetSubscriptionItemResponse response) {
-            // TODO success callback handler
-        }
-        public void onFailure(HttpContext context, Throwable error) {
-            // TODO failure callback handler
-        }
-    });
-} catch(JsonProcessingException e) {
-    // TODO Auto-generated catch block
-    e.printStackTrace();
-}
-```
-
-
-### <a name="create_discount_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.createDiscountAsync") createDiscountAsync
-
-> Creates a discount
-
-
-```java
-void createDiscountAsync(
-        final String subscriptionId,
-        final CreateDiscountRequest request,
-        final APICallBack<GetDiscountResponse> callBack)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| subscriptionId |  ``` Required ```  | Subscription id |
-| request |  ``` Required ```  | Request for creating a discount |
-
-
-#### Example Usage
-
-```java
-try {
-    String subscriptionId = "subscription_id";
-    CreateDiscountRequest request = new CreateDiscountRequest();
-    // Invoking the API call with sample inputs
-    subscriptions.createDiscountAsync(subscriptionId, request, new APICallBack<GetDiscountResponse>() {
-        public void onSuccess(HttpContext context, GetDiscountResponse response) {
-            // TODO success callback handler
-        }
-        public void onFailure(HttpContext context, Throwable error) {
-            // TODO failure callback handler
-        }
-    });
-} catch(JsonProcessingException e) {
-    // TODO Auto-generated catch block
-    e.printStackTrace();
-}
-```
-
-
-### <a name="get_subscription_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.getSubscriptionAsync") getSubscriptionAsync
-
-> Gets a subscription
-
-
-```java
-void getSubscriptionAsync(
-        final String subscriptionId,
-        final APICallBack<GetSubscriptionResponse> callBack)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| subscriptionId |  ``` Required ```  | Subscription id |
-
-
-#### Example Usage
-
-```java
-String subscriptionId = "subscription_id";
-// Invoking the API call with sample inputs
-subscriptions.getSubscriptionAsync(subscriptionId, new APICallBack<GetSubscriptionResponse>() {
-    public void onSuccess(HttpContext context, GetSubscriptionResponse response) {
-        // TODO success callback handler
-    }
-    public void onFailure(HttpContext context, Throwable error) {
-        // TODO failure callback handler
-    }
-});
-
-```
-
-
-### <a name="update_subscription_payment_method_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.updateSubscriptionPaymentMethodAsync") updateSubscriptionPaymentMethodAsync
-
-> Updates the payment method from a subscription
-
-
-```java
-void updateSubscriptionPaymentMethodAsync(
-        final String subscriptionId,
-        final UpdateSubscriptionPaymentMethodRequest request,
-        final APICallBack<GetSubscriptionResponse> callBack)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| subscriptionId |  ``` Required ```  | Subscription id |
-| request |  ``` Required ```  | Request for updating the paymentmethod from a subscription |
-
-
-#### Example Usage
-
-```java
-try {
-    String subscriptionId = "subscription_id";
-    UpdateSubscriptionPaymentMethodRequest request = new UpdateSubscriptionPaymentMethodRequest();
-    // Invoking the API call with sample inputs
-    subscriptions.updateSubscriptionPaymentMethodAsync(subscriptionId, request, new APICallBack<GetSubscriptionResponse>() {
-        public void onSuccess(HttpContext context, GetSubscriptionResponse response) {
-            // TODO success callback handler
-        }
-        public void onFailure(HttpContext context, Throwable error) {
-            // TODO failure callback handler
-        }
-    });
-} catch(JsonProcessingException e) {
-    // TODO Auto-generated catch block
-    e.printStackTrace();
-}
-```
-
-
-### <a name="delete_discount_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.deleteDiscountAsync") deleteDiscountAsync
-
-> Deletes a discount
-
-
-```java
-void deleteDiscountAsync(
-        final String subscriptionId,
-        final String discountId,
-        final APICallBack<GetDiscountResponse> callBack)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| subscriptionId |  ``` Required ```  | Subscription id |
-| discountId |  ``` Required ```  | Discount Id |
-
-
-#### Example Usage
-
-```java
-String subscriptionId = "subscription_id";
-String discountId = "discount_id";
-// Invoking the API call with sample inputs
-subscriptions.deleteDiscountAsync(subscriptionId, discountId, new APICallBack<GetDiscountResponse>() {
-    public void onSuccess(HttpContext context, GetDiscountResponse response) {
-        // TODO success callback handler
-    }
-    public void onFailure(HttpContext context, Throwable error) {
-        // TODO failure callback handler
-    }
-});
-
-```
-
-
-### <a name="cancel_subscription_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.cancelSubscriptionAsync") cancelSubscriptionAsync
-
-> Cancels a subscription
-
-
-```java
-void cancelSubscriptionAsync(
-        final String subscriptionId,
-        final CreateCancelSubscriptionRequest request,
-        final APICallBack<GetSubscriptionResponse> callBack)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| subscriptionId |  ``` Required ```  | Subscription id |
-| request |  ``` Optional ```  | Request for cancelling a subscription |
-
-
-#### Example Usage
-
-```java
-try {
-    String subscriptionId = "subscription_id";
-    CreateCancelSubscriptionRequest request = new CreateCancelSubscriptionRequest();
-    // Invoking the API call with sample inputs
-    subscriptions.cancelSubscriptionAsync(subscriptionId, request, new APICallBack<GetSubscriptionResponse>() {
-        public void onSuccess(HttpContext context, GetSubscriptionResponse response) {
-            // TODO success callback handler
-        }
-        public void onFailure(HttpContext context, Throwable error) {
-            // TODO failure callback handler
-        }
-    });
-} catch(JsonProcessingException e) {
-    // TODO Auto-generated catch block
-    e.printStackTrace();
-}
-```
-
-
-### <a name="delete_subscription_item_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.deleteSubscriptionItemAsync") deleteSubscriptionItemAsync
-
-> Deletes a subscription item
-
-
-```java
-void deleteSubscriptionItemAsync(
-        final String subscriptionId,
-        final String subscriptionItemId,
-        final APICallBack<GetSubscriptionItemResponse> callBack)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| subscriptionId |  ``` Required ```  | Subscription id |
-| subscriptionItemId |  ``` Required ```  | Subscription item id |
-
-
-#### Example Usage
-
-```java
-String subscriptionId = "subscription_id";
-String subscriptionItemId = "subscription_item_id";
-// Invoking the API call with sample inputs
-subscriptions.deleteSubscriptionItemAsync(subscriptionId, subscriptionItemId, new APICallBack<GetSubscriptionItemResponse>() {
-    public void onSuccess(HttpContext context, GetSubscriptionItemResponse response) {
-        // TODO success callback handler
-    }
-    public void onFailure(HttpContext context, Throwable error) {
-        // TODO failure callback handler
-    }
-});
-
-```
-
-
-### <a name="delete_usage_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.deleteUsageAsync") deleteUsageAsync
-
-> Deletes a usage
-
-
-```java
-void deleteUsageAsync(
-        final String subscriptionId,
-        final String itemId,
-        final String usageId,
-        final APICallBack<GetUsageResponse> callBack)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| subscriptionId |  ``` Required ```  | The subscription id |
-| itemId |  ``` Required ```  | The subscription item id |
-| usageId |  ``` Required ```  | The usage id |
-
-
-#### Example Usage
-
-```java
-String subscriptionId = "subscription_id";
-String itemId = "item_id";
-String usageId = "usage_id";
-// Invoking the API call with sample inputs
-subscriptions.deleteUsageAsync(subscriptionId, itemId, usageId, new APICallBack<GetUsageResponse>() {
-    public void onSuccess(HttpContext context, GetUsageResponse response) {
-        // TODO success callback handler
-    }
-    public void onFailure(HttpContext context, Throwable error) {
-        // TODO failure callback handler
-    }
-});
-
-```
-
-
-### <a name="update_subscription_metadata_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.updateSubscriptionMetadataAsync") updateSubscriptionMetadataAsync
-
-> Updates the metadata from a subscription
-
-
-```java
-void updateSubscriptionMetadataAsync(
-        final String subscriptionId,
-        final UpdateMetadataRequest request,
-        final APICallBack<GetSubscriptionResponse> callBack)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| subscriptionId |  ``` Required ```  | The subscription id |
-| request |  ``` Required ```  | Request for updating the subscrption metadata |
-
-
-#### Example Usage
-
-```java
-try {
-    String subscriptionId = "subscription_id";
-    UpdateMetadataRequest request = new UpdateMetadataRequest();
-    // Invoking the API call with sample inputs
-    subscriptions.updateSubscriptionMetadataAsync(subscriptionId, request, new APICallBack<GetSubscriptionResponse>() {
-        public void onSuccess(HttpContext context, GetSubscriptionResponse response) {
-            // TODO success callback handler
-        }
-        public void onFailure(HttpContext context, Throwable error) {
-            // TODO failure callback handler
-        }
-    });
-} catch(JsonProcessingException e) {
-    // TODO Auto-generated catch block
-    e.printStackTrace();
-}
-```
-
-
-### <a name="get_subscriptions_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.getSubscriptionsAsync") getSubscriptionsAsync
-
-> Gets all subscriptions
-
-
-```java
-void getSubscriptionsAsync(
-        final Integer page,
-        final Integer size,
-        final String code,
-        final String billingType,
-        final String customerId,
-        final String planId,
-        final String cardId,
-        final String status,
-        final DateTime nextBillingSince,
-        final DateTime nextBillingUntil,
-        final DateTime createdSince,
-        final DateTime createdUntil,
-        final APICallBack<ListSubscriptionsResponse> callBack)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| page |  ``` Optional ```  | Page number |
-| size |  ``` Optional ```  | Page size |
-| code |  ``` Optional ```  | Filter for subscription's code |
-| billingType |  ``` Optional ```  | Filter for subscription's billing type |
-| customerId |  ``` Optional ```  | Filter for subscription's customer id |
-| planId |  ``` Optional ```  | Filter for subscription's plan id |
-| cardId |  ``` Optional ```  | Filter for subscription's card id |
-| status |  ``` Optional ```  | Filter for subscription's status |
-| nextBillingSince |  ``` Optional ```  | Filter for subscription's next billing date start range |
-| nextBillingUntil |  ``` Optional ```  | Filter for subscription's next billing date end range |
-| createdSince |  ``` Optional ```  | Filter for subscription's creation date start range |
-| createdUntil |  ``` Optional ```  | Filter for subscriptions creation date end range |
-
-
-#### Example Usage
-
-```java
-Integer page = 251;
-Integer size = 251;
-String code = "code";
-String billingType = "billing_type";
-String customerId = "customer_id";
-String planId = "plan_id";
-String cardId = "card_id";
-String status = "status";
-DateTime nextBillingSince = new Date();
-DateTime nextBillingUntil = new Date();
-DateTime createdSince = new Date();
-DateTime createdUntil = new Date();
-// Invoking the API call with sample inputs
-subscriptions.getSubscriptionsAsync(page, size, code, billingType, customerId, planId, cardId, status, nextBillingSince, nextBillingUntil, createdSince, createdUntil, new APICallBack<ListSubscriptionsResponse>() {
-    public void onSuccess(HttpContext context, ListSubscriptionsResponse response) {
-        // TODO success callback handler
-    }
-    public void onFailure(HttpContext context, Throwable error) {
-        // TODO failure callback handler
-    }
-});
-
-```
-
-
-### <a name="create_an_usage_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.createAnUsageAsync") createAnUsageAsync
-
-> Create Usage
-
-
-```java
-void createAnUsageAsync(
-        final String subscriptionId,
-        final String itemId,
-        final APICallBack<GetUsageResponse> callBack)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| subscriptionId |  ``` Required ```  | Subscription id |
-| itemId |  ``` Required ```  | Item id |
-
-
-#### Example Usage
-
-```java
-String subscriptionId = "subscription_id";
-String itemId = "item_id";
-// Invoking the API call with sample inputs
-subscriptions.createAnUsageAsync(subscriptionId, itemId, new APICallBack<GetUsageResponse>() {
-    public void onSuccess(HttpContext context, GetUsageResponse response) {
-        // TODO success callback handler
-    }
-    public void onFailure(HttpContext context, Throwable error) {
-        // TODO failure callback handler
-    }
-});
-
-```
-
-
-### <a name="get_subscription_item_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.getSubscriptionItemAsync") getSubscriptionItemAsync
-
-> Get Subscription Item
-
-
-```java
-void getSubscriptionItemAsync(
-        final String subscriptionId,
-        final String itemId,
-        final APICallBack<GetSubscriptionItemResponse> callBack)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| subscriptionId |  ``` Required ```  | Subscription Id |
-| itemId |  ``` Required ```  | Item id |
-
-
-#### Example Usage
-
-```java
-String subscriptionId = "subscription_id";
-String itemId = "item_id";
-// Invoking the API call with sample inputs
-subscriptions.getSubscriptionItemAsync(subscriptionId, itemId, new APICallBack<GetSubscriptionItemResponse>() {
-    public void onSuccess(HttpContext context, GetSubscriptionItemResponse response) {
-        // TODO success callback handler
-    }
-    public void onFailure(HttpContext context, Throwable error) {
-        // TODO failure callback handler
-    }
-});
-
-```
-
-
-### <a name="update_subscription_affiliation_id_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.updateSubscriptionAffiliationIdAsync") updateSubscriptionAffiliationIdAsync
-
-> TODO: Add a method description
-
-
-```java
-void updateSubscriptionAffiliationIdAsync(
-        final String subscriptionId,
-        final UpdateSubscriptionAffiliationIdRequest request,
-        final APICallBack<GetSubscriptionResponse> callBack)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| subscriptionId |  ``` Required ```  | TODO: Add a parameter description |
-| request |  ``` Required ```  | Request for updating a subscription affiliation id |
-
-
-#### Example Usage
-
-```java
-try {
-    String subscriptionId = "subscription_id";
-    UpdateSubscriptionAffiliationIdRequest request = new UpdateSubscriptionAffiliationIdRequest();
-    // Invoking the API call with sample inputs
-    subscriptions.updateSubscriptionAffiliationIdAsync(subscriptionId, request, new APICallBack<GetSubscriptionResponse>() {
-        public void onSuccess(HttpContext context, GetSubscriptionResponse response) {
-            // TODO success callback handler
-        }
-        public void onFailure(HttpContext context, Throwable error) {
-            // TODO failure callback handler
-        }
-    });
-} catch(JsonProcessingException e) {
-    // TODO Auto-generated catch block
-    e.printStackTrace();
-}
-```
-
-
-### <a name="get_discount_by_id_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.getDiscountByIdAsync") getDiscountByIdAsync
-
-> TODO: Add a method description
-
-
-```java
-void getDiscountByIdAsync(
-        final String subscriptionId,
-        final String discountId,
-        final APICallBack<GetDiscountResponse> callBack)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| subscriptionId |  ``` Required ```  | TODO: Add a parameter description |
-| discountId |  ``` Required ```  | TODO: Add a parameter description |
-
-
-#### Example Usage
-
-```java
-String subscriptionId = "subscription_id";
-String discountId = "discountId";
-// Invoking the API call with sample inputs
-subscriptions.getDiscountByIdAsync(subscriptionId, discountId, new APICallBack<GetDiscountResponse>() {
-    public void onSuccess(HttpContext context, GetDiscountResponse response) {
-        // TODO success callback handler
-    }
-    public void onFailure(HttpContext context, Throwable error) {
-        // TODO failure callback handler
-    }
-});
-
-```
-
-
-### <a name="get_discounts_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.getDiscountsAsync") getDiscountsAsync
-
-> TODO: Add a method description
-
-
-```java
-void getDiscountsAsync(
-        final String subscriptionId,
-        final int page,
-        final int size,
-        final APICallBack<ListDiscountsResponse> callBack)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| subscriptionId |  ``` Required ```  | The subscription id |
-| page |  ``` Required ```  | Page number |
-| size |  ``` Required ```  | Page size |
-
-
-#### Example Usage
-
-```java
-String subscriptionId = "subscription_id";
-int page = 87;
-int size = 87;
-// Invoking the API call with sample inputs
-subscriptions.getDiscountsAsync(subscriptionId, page, size, new APICallBack<ListDiscountsResponse>() {
-    public void onSuccess(HttpContext context, ListDiscountsResponse response) {
-        // TODO success callback handler
-    }
-    public void onFailure(HttpContext context, Throwable error) {
-        // TODO failure callback handler
-    }
-});
-
-```
-
-
-### <a name="create_increment_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.createIncrementAsync") createIncrementAsync
-
-> Creates a increment
-
-
-```java
-void createIncrementAsync(
-        final String subscriptionId,
-        final CreateIncrementRequest request,
-        final APICallBack<GetIncrementResponse> callBack)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| subscriptionId |  ``` Required ```  | Subscription id |
-| request |  ``` Required ```  | Request for creating a increment |
-
-
-#### Example Usage
-
-```java
-try {
-    String subscriptionId = "subscription_id";
-    CreateIncrementRequest request = new CreateIncrementRequest();
-    // Invoking the API call with sample inputs
-    subscriptions.createIncrementAsync(subscriptionId, request, new APICallBack<GetIncrementResponse>() {
-        public void onSuccess(HttpContext context, GetIncrementResponse response) {
-            // TODO success callback handler
-        }
-        public void onFailure(HttpContext context, Throwable error) {
-            // TODO failure callback handler
-        }
-    });
-} catch(JsonProcessingException e) {
-    // TODO Auto-generated catch block
-    e.printStackTrace();
-}
-```
-
-
-### <a name="get_increments_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.getIncrementsAsync") getIncrementsAsync
-
-> TODO: Add a method description
-
-
-```java
-void getIncrementsAsync(
-        final String subscriptionId,
-        final Integer page,
-        final Integer size,
-        final APICallBack<ListIncrementsResponse> callBack)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| subscriptionId |  ``` Required ```  | The subscription id |
-| page |  ``` Optional ```  | Page number |
-| size |  ``` Optional ```  | Page size |
-
-
-#### Example Usage
-
-```java
-String subscriptionId = "subscription_id";
-Integer page = 87;
-Integer size = 87;
-// Invoking the API call with sample inputs
-subscriptions.getIncrementsAsync(subscriptionId, page, size, new APICallBack<ListIncrementsResponse>() {
-    public void onSuccess(HttpContext context, ListIncrementsResponse response) {
-        // TODO success callback handler
-    }
-    public void onFailure(HttpContext context, Throwable error) {
-        // TODO failure callback handler
-    }
-});
-
-```
-
-
-### <a name="delete_increment_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.deleteIncrementAsync") deleteIncrementAsync
-
-> Deletes a increment
-
-
-```java
-void deleteIncrementAsync(
-        final String subscriptionId,
-        final String incrementId,
-        final APICallBack<GetIncrementResponse> callBack)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| subscriptionId |  ``` Required ```  | Subscription id |
-| incrementId |  ``` Required ```  | Increment id |
-
-
-#### Example Usage
-
-```java
-String subscriptionId = "subscription_id";
-String incrementId = "increment_id";
-// Invoking the API call with sample inputs
-subscriptions.deleteIncrementAsync(subscriptionId, incrementId, new APICallBack<GetIncrementResponse>() {
-    public void onSuccess(HttpContext context, GetIncrementResponse response) {
-        // TODO success callback handler
-    }
-    public void onFailure(HttpContext context, Throwable error) {
-        // TODO failure callback handler
-    }
-});
-
-```
-
-
-### <a name="get_usages_details_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.getUsagesDetailsAsync") getUsagesDetailsAsync
-
-> TODO: Add a method description
-
-
-```java
-void getUsagesDetailsAsync(
-        final String subscriptionId,
-        final String cycleId,
-        final Integer size,
-        final Integer page,
-        final String itemId,
-        final APICallBack<GetUsagesDetailsResponse> callBack)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| subscriptionId |  ``` Required ```  | Subscription Identifier |
-| cycleId |  ``` Optional ```  | Cycle id |
-| size |  ``` Optional ```  | Page size |
-| page |  ``` Optional ```  | Page number |
-| itemId |  ``` Optional ```  | Identificador do item |
-
-
-#### Example Usage
-
-```java
-String subscriptionId = "subscription_id";
-String cycleId = "cycle_id";
-Integer size = 87;
-Integer page = 87;
-String itemId = "item_id";
-// Invoking the API call with sample inputs
-subscriptions.getUsagesDetailsAsync(subscriptionId, cycleId, size, page, itemId, new APICallBack<GetUsagesDetailsResponse>() {
-    public void onSuccess(HttpContext context, GetUsagesDetailsResponse response) {
-        // TODO success callback handler
-    }
-    public void onFailure(HttpContext context, Throwable error) {
-        // TODO failure callback handler
-    }
-});
-
-```
-
-
-### <a name="get_usages_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.getUsagesAsync") getUsagesAsync
-
-> Lists all usages from a subscription item
-
-
-```java
-void getUsagesAsync(
-        final String subscriptionId,
-        final String itemId,
-        final Integer page,
-        final Integer size,
-        final String code,
-        final String group,
-        final APICallBack<ListUsagesResponse> callBack)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| subscriptionId |  ``` Required ```  | The subscription id |
-| itemId |  ``` Required ```  | The subscription item id |
-| page |  ``` Optional ```  | Page number |
-| size |  ``` Optional ```  | Page size |
-| code |  ``` Optional ```  | Identification code in the client system |
-| group |  ``` Optional ```  | Identification group in the client system |
-
-
-#### Example Usage
-
-```java
-String subscriptionId = "subscription_id";
-String itemId = "item_id";
-Integer page = 87;
-Integer size = 87;
-String code = "code";
-String group = "group";
-// Invoking the API call with sample inputs
-subscriptions.getUsagesAsync(subscriptionId, itemId, page, size, code, group, new APICallBack<ListUsagesResponse>() {
-    public void onSuccess(HttpContext context, ListUsagesResponse response) {
         // TODO success callback handler
     }
     public void onFailure(HttpContext context, Throwable error) {
@@ -3285,8 +3382,8 @@ void getOrdersAsync(
 #### Example Usage
 
 ```java
-Integer page = 87;
-Integer size = 87;
+Integer page = 10;
+Integer size = 10;
 String code = "code";
 String status = "status";
 DateTime createdSince = new Date();
@@ -3834,8 +3931,8 @@ void getRecipientsAsync(
 #### Example Usage
 
 ```java
-Integer page = 87;
-Integer size = 87;
+Integer page = 10;
+Integer size = 10;
 // Invoking the API call with sample inputs
 recipients.getRecipientsAsync(page, size, new APICallBack<ListRecipientResponse>() {
     public void onSuccess(HttpContext context, ListRecipientResponse response) {
@@ -3996,8 +4093,8 @@ void getTransfersAsync(
 
 ```java
 String recipientId = "recipient_id";
-Integer page = 87;
-Integer size = 87;
+Integer page = 10;
+Integer size = 10;
 String status = "status";
 DateTime createdSince = new Date();
 DateTime createdUntil = new Date();
@@ -4173,8 +4270,8 @@ void getAnticipationsAsync(
 
 ```java
 String recipientId = "recipient_id";
-Integer page = 87;
-Integer size = 87;
+Integer page = 10;
+Integer size = 10;
 String status = "status";
 String timeframe = "timeframe";
 DateTime paymentDateSince = new Date();
@@ -4394,8 +4491,8 @@ void getSellersAsync(
 #### Example Usage
 
 ```java
-Integer page = 46;
-Integer size = 46;
+Integer page = 10;
+Integer size = 10;
 String name = "name";
 String document = "document";
 String code = "code";
