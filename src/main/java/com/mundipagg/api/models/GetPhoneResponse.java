@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetPhoneResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4902532644480453481L;
+    private static final long serialVersionUID = 4707981559244303308L;
     private String countryCode;
     private String number;
     private String areaCode;

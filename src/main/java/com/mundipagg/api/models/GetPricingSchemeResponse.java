@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetPricingSchemeResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4720350385754358207L;
+    private static final long serialVersionUID = 5405369299697855273L;
     private int price;
     private String schemeType;
     private List<GetPriceBracketResponse> priceBrackets;
