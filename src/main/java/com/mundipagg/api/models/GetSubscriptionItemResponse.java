@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class GetSubscriptionItemResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5544548648894054065L;
+    private static final long serialVersionUID = 4804382738051747213L;
     private String id;
     private String description;
     private String status;

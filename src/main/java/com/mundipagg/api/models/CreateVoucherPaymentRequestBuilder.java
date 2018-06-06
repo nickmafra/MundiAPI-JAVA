@@ -19,14 +19,6 @@ public class CreateVoucherPaymentRequestBuilder {
     }
 
     /**
-     * Indicates if the operation should be only authorization or auth and capture.
-     */
-    public CreateVoucherPaymentRequestBuilder capture(boolean capture) {
-        createVoucherPaymentRequest.setCapture(capture);
-        return this;
-    }
-
-    /**
      * The text that will be shown on the voucher's statement
      */
     public CreateVoucherPaymentRequestBuilder statementDescriptor(String statementDescriptor) {

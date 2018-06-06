@@ -44,11 +44,6 @@ public class GetIncrementResponseBuilder {
         return this;
     }
 
-    public GetIncrementResponseBuilder subscription(GetSubscriptionResponse subscription) {
-        getIncrementResponse.setSubscription(subscription);
-        return this;
-    }
-
     public GetIncrementResponseBuilder cycles(Integer cycles) {
         getIncrementResponse.setCycles(cycles);
         return this;
@@ -61,6 +56,19 @@ public class GetIncrementResponseBuilder {
 
     public GetIncrementResponseBuilder description(String description) {
         getIncrementResponse.setDescription(description);
+        return this;
+    }
+
+    public GetIncrementResponseBuilder subscription(GetSubscriptionResponse subscription) {
+        getIncrementResponse.setSubscription(subscription);
+        return this;
+    }
+
+    /**
+     * The Subscription Item
+     */
+    public GetIncrementResponseBuilder subscriptionItem(GetSubscriptionItemResponse subscriptionItem) {
+        getIncrementResponse.setSubscriptionItem(subscriptionItem);
         return this;
     }
     /**

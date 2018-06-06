@@ -29,12 +29,13 @@ import org.joda.time.DateTime;
     @Type(value = GetVoucherTransactionResponse.class, name = "voucher"),
     @Type(value = GetBankTransferTransactionResponse.class, name = "bank_transfer"),
     @Type(value = GetSafetyPayTransactionResponse.class, name = "safetypay"),
-    @Type(value = GetBoletoTransactionResponse.class, name = "boleto")
+    @Type(value = GetBoletoTransactionResponse.class, name = "boleto"),
+    @Type(value = GetDebitCardTransactionResponse.class, name = "debit_card")
 })
 @JsonInclude(Include.ALWAYS)
 public class GetTransactionResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4830890210648931290L;
+    private static final long serialVersionUID = 5542857894009721868L;
     private String gatewayId;
     private int amount;
     private String status;
@@ -45,6 +46,7 @@ public class GetTransactionResponse
     private int maxAttempts;
     private List<GetSplitResponse> splits;
     private String id;
+    private GetGatewayResponseResponse gatewayResponse;
     private DateTime nextAttempt;
     private String transactionType;
     /** GETTER
@@ -209,6 +211,22 @@ public class GetTransactionResponse
     @JsonSetter("id")
     public void setId (String value) { 
         this.id = value;
+    }
+ 
+    /** GETTER
+     * The Gateway Response
+     */
+    @JsonGetter("gateway_response")
+    public GetGatewayResponseResponse getGatewayResponse ( ) { 
+        return this.gatewayResponse;
+    }
+    
+    /** SETTER
+     * The Gateway Response
+     */
+    @JsonSetter("gateway_response")
+    public void setGatewayResponse (GetGatewayResponseResponse value) { 
+        this.gatewayResponse = value;
     }
  
     /** GETTER

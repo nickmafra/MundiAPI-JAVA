@@ -11,24 +11,24 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateCreditCardPaymentRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5694489051365761431L;
-    private int installments = 1;
+    private static final long serialVersionUID = 5357870953238913182L;
+    private Integer installments = 1;
     private String statementDescriptor;
     private CreateCardRequest card;
-    private int retries;
-    private boolean updateSubscriptionCard;
     private String cardId;
     private String cardToken;
-    private boolean recurrence;
-    private boolean extendedLimitEnabled;
-    private String extendedLimitCode;
+    private Boolean recurrence;
     private Boolean capture = true;
+    private Boolean extendedLimitEnabled;
+    private String extendedLimitCode;
     private Long merchantCategoryCode;
+    private CreatePaymentAuthentiticationRequest authentication;
+    private CreateCardPaymentTokenRequest token;
     /** GETTER
      * Number of installments
      */
     @JsonGetter("installments")
-    public int getInstallments ( ) { 
+    public Integer getInstallments ( ) { 
         return this.installments;
     }
     
@@ -36,7 +36,7 @@ public class CreateCreditCardPaymentRequest
      * Number of installments
      */
     @JsonSetter("installments")
-    public void setInstallments (int value) { 
+    public void setInstallments (Integer value) { 
         this.installments = value;
     }
  
@@ -70,38 +70,6 @@ public class CreateCreditCardPaymentRequest
     @JsonSetter("card")
     public void setCard (CreateCardRequest value) { 
         this.card = value;
-    }
- 
-    /** GETTER
-     * Number of retries
-     */
-    @JsonGetter("retries")
-    public int getRetries ( ) { 
-        return this.retries;
-    }
-    
-    /** SETTER
-     * Number of retries
-     */
-    @JsonSetter("retries")
-    public void setRetries (int value) { 
-        this.retries = value;
-    }
- 
-    /** GETTER
-     * Indicates if the card from the subscription must be updated
-     */
-    @JsonGetter("update_subscription_card")
-    public boolean getUpdateSubscriptionCard ( ) { 
-        return this.updateSubscriptionCard;
-    }
-    
-    /** SETTER
-     * Indicates if the card from the subscription must be updated
-     */
-    @JsonSetter("update_subscription_card")
-    public void setUpdateSubscriptionCard (boolean value) { 
-        this.updateSubscriptionCard = value;
     }
  
     /** GETTER
@@ -140,7 +108,7 @@ public class CreateCreditCardPaymentRequest
      * Indicates a recurrence
      */
     @JsonGetter("recurrence")
-    public boolean getRecurrence ( ) { 
+    public Boolean getRecurrence ( ) { 
         return this.recurrence;
     }
     
@@ -148,15 +116,31 @@ public class CreateCreditCardPaymentRequest
      * Indicates a recurrence
      */
     @JsonSetter("recurrence")
-    public void setRecurrence (boolean value) { 
+    public void setRecurrence (Boolean value) { 
         this.recurrence = value;
+    }
+ 
+    /** GETTER
+     * Indicates if the operation should be only authorization or auth and capture.
+     */
+    @JsonGetter("capture")
+    public Boolean getCapture ( ) { 
+        return this.capture;
+    }
+    
+    /** SETTER
+     * Indicates if the operation should be only authorization or auth and capture.
+     */
+    @JsonSetter("capture")
+    public void setCapture (Boolean value) { 
+        this.capture = value;
     }
  
     /** GETTER
      * Indicates whether the extended label (private label) is enabled
      */
     @JsonGetter("extended_limit_enabled")
-    public boolean getExtendedLimitEnabled ( ) { 
+    public Boolean getExtendedLimitEnabled ( ) { 
         return this.extendedLimitEnabled;
     }
     
@@ -164,7 +148,7 @@ public class CreateCreditCardPaymentRequest
      * Indicates whether the extended label (private label) is enabled
      */
     @JsonSetter("extended_limit_enabled")
-    public void setExtendedLimitEnabled (boolean value) { 
+    public void setExtendedLimitEnabled (Boolean value) { 
         this.extendedLimitEnabled = value;
     }
  
@@ -185,22 +169,6 @@ public class CreateCreditCardPaymentRequest
     }
  
     /** GETTER
-     * Indicates if the operation should be only authorization or auth and capture.
-     */
-    @JsonGetter("capture")
-    public Boolean getCapture ( ) { 
-        return this.capture;
-    }
-    
-    /** SETTER
-     * Indicates if the operation should be only authorization or auth and capture.
-     */
-    @JsonSetter("capture")
-    public void setCapture (Boolean value) { 
-        this.capture = value;
-    }
- 
-    /** GETTER
      * Customer business segment code
      */
     @JsonGetter("merchant_category_code")
@@ -214,6 +182,38 @@ public class CreateCreditCardPaymentRequest
     @JsonSetter("merchant_category_code")
     public void setMerchantCategoryCode (Long value) { 
         this.merchantCategoryCode = value;
+    }
+ 
+    /** GETTER
+     * The payment authentication request
+     */
+    @JsonGetter("authentication")
+    public CreatePaymentAuthentiticationRequest getAuthentication ( ) { 
+        return this.authentication;
+    }
+    
+    /** SETTER
+     * The payment authentication request
+     */
+    @JsonSetter("authentication")
+    public void setAuthentication (CreatePaymentAuthentiticationRequest value) { 
+        this.authentication = value;
+    }
+ 
+    /** GETTER
+     * The Credit card payment token request
+     */
+    @JsonGetter("token")
+    public CreateCardPaymentTokenRequest getToken ( ) { 
+        return this.token;
+    }
+    
+    /** SETTER
+     * The Credit card payment token request
+     */
+    @JsonSetter("token")
+    public void setToken (CreateCardPaymentTokenRequest value) { 
+        this.token = value;
     }
  
 }

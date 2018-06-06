@@ -35,6 +35,14 @@ public class CreatePaymentRequestBuilder {
     }
 
     /**
+     * Settings for debit card payment
+     */
+    public CreatePaymentRequestBuilder debitCard(CreateDebitCardPaymentRequest debitCard) {
+        createPaymentRequest.setDebitCard(debitCard);
+        return this;
+    }
+
+    /**
      * Settings for boleto payment
      */
     public CreatePaymentRequestBuilder boleto(CreateBoletoPaymentRequest boleto) {
@@ -59,34 +67,10 @@ public class CreatePaymentRequestBuilder {
     }
 
     /**
-     * Metadata
-     */
-    public CreatePaymentRequestBuilder metadata(LinkedHashMap<String, String> metadata) {
-        createPaymentRequest.setMetadata(metadata);
-        return this;
-    }
-
-    /**
      * Splits
      */
     public CreatePaymentRequestBuilder split(List<CreateSplitRequest> split) {
         createPaymentRequest.setSplit(split);
-        return this;
-    }
-
-    /**
-     * Customer Id
-     */
-    public CreatePaymentRequestBuilder customerId(String customerId) {
-        createPaymentRequest.setCustomerId(customerId);
-        return this;
-    }
-
-    /**
-     * Customer
-     */
-    public CreatePaymentRequestBuilder customer(CreateCustomerRequest customer) {
-        createPaymentRequest.setCustomer(customer);
         return this;
     }
 
@@ -119,6 +103,30 @@ public class CreatePaymentRequestBuilder {
      */
     public CreatePaymentRequestBuilder checkout(CreateCheckoutPaymentRequest checkout) {
         createPaymentRequest.setCheckout(checkout);
+        return this;
+    }
+
+    /**
+     * Customer Id
+     */
+    public CreatePaymentRequestBuilder customerId(String customerId) {
+        createPaymentRequest.setCustomerId(customerId);
+        return this;
+    }
+
+    /**
+     * Customer
+     */
+    public CreatePaymentRequestBuilder customer(CreateCustomerRequest customer) {
+        createPaymentRequest.setCustomer(customer);
+        return this;
+    }
+
+    /**
+     * Metadata
+     */
+    public CreatePaymentRequestBuilder metadata(LinkedHashMap<String, String> metadata) {
+        createPaymentRequest.setMetadata(metadata);
         return this;
     }
     /**

@@ -73,6 +73,14 @@ public class CreateRecipientRequestBuilder {
         createRecipientRequest.setMetadata(metadata);
         return this;
     }
+
+    /**
+     * Receiver Transfer Information
+     */
+    public CreateRecipientRequestBuilder transferSettings(CreateTransferSettingsRequest transferSettings) {
+        createRecipientRequest.setTransferSettings(transferSettings);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

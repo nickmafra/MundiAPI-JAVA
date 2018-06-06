@@ -100,6 +100,14 @@ public class GetTransactionResponseBuilder {
     }
 
     /**
+     * The Gateway Response
+     */
+    public GetTransactionResponseBuilder gatewayResponse(GetGatewayResponseResponse gatewayResponse) {
+        getTransactionResponse.setGatewayResponse(gatewayResponse);
+        return this;
+    }
+
+    /**
      * Date and time of the next attempt
      */
     public GetTransactionResponseBuilder nextAttempt(DateTime nextAttempt) {

@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class GetPlanResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5521664970289270604L;
+    private static final long serialVersionUID = 4900300889495210968L;
     private String id;
     private String name;
     private String description;

@@ -43,6 +43,14 @@ public class UpdateChargePaymentMethodRequestBuilder {
     }
 
     /**
+     * Debit card data
+     */
+    public UpdateChargePaymentMethodRequestBuilder debitCard(CreateDebitCardPaymentRequest debitCard) {
+        updateChargePaymentMethodRequest.setDebitCard(debitCard);
+        return this;
+    }
+
+    /**
      * Boleto data
      */
     public UpdateChargePaymentMethodRequestBuilder boleto(CreateBoletoPaymentRequest boleto) {
