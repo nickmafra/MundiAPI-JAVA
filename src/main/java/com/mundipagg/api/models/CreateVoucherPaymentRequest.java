@@ -11,28 +11,11 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateVoucherPaymentRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4693148963837544304L;
-    private boolean capture;
+    private static final long serialVersionUID = 5072642166969586158L;
     private String statementDescriptor;
     private String cardId;
     private String cardToken;
     private CreateCardRequest card;
-    /** GETTER
-     * Indicates if the operation should be only authorization or auth and capture.
-     */
-    @JsonGetter("capture")
-    public boolean getCapture ( ) { 
-        return this.capture;
-    }
-    
-    /** SETTER
-     * Indicates if the operation should be only authorization or auth and capture.
-     */
-    @JsonSetter("capture")
-    public void setCapture (boolean value) { 
-        this.capture = value;
-    }
- 
     /** GETTER
      * The text that will be shown on the voucher's statement
      */

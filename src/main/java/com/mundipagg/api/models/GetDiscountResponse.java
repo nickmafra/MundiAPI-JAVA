@@ -15,16 +15,17 @@ import org.joda.time.DateTime;
 
 public class GetDiscountResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5014634328510403474L;
+    private static final long serialVersionUID = 5332905794458009999L;
     private String id;
     private double value;
     private String discountType;
     private String status;
     private DateTime createdAt;
-    private GetSubscriptionResponse subscription;
     private Integer cycles;
     private DateTime deletedAt;
     private String description;
+    private GetSubscriptionResponse subscription;
+    private GetSubscriptionItemResponse subscriptionItem;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -110,22 +111,6 @@ public class GetDiscountResponse
     /** GETTER
      * TODO: Write general description for this method
      */
-    @JsonGetter("subscription")
-    public GetSubscriptionResponse getSubscription ( ) { 
-        return this.subscription;
-    }
-    
-    /** SETTER
-     * TODO: Write general description for this method
-     */
-    @JsonSetter("subscription")
-    public void setSubscription (GetSubscriptionResponse value) { 
-        this.subscription = value;
-    }
- 
-    /** GETTER
-     * TODO: Write general description for this method
-     */
     @JsonGetter("cycles")
     public Integer getCycles ( ) { 
         return this.cycles;
@@ -171,6 +156,38 @@ public class GetDiscountResponse
     @JsonSetter("description")
     public void setDescription (String value) { 
         this.description = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("subscription")
+    public GetSubscriptionResponse getSubscription ( ) { 
+        return this.subscription;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("subscription")
+    public void setSubscription (GetSubscriptionResponse value) { 
+        this.subscription = value;
+    }
+ 
+    /** GETTER
+     * The subscription item
+     */
+    @JsonGetter("subscription_item")
+    public GetSubscriptionItemResponse getSubscriptionItem ( ) { 
+        return this.subscriptionItem;
+    }
+    
+    /** SETTER
+     * The subscription item
+     */
+    @JsonSetter("subscription_item")
+    public void setSubscriptionItem (GetSubscriptionItemResponse value) { 
+        this.subscriptionItem = value;
     }
  
 }

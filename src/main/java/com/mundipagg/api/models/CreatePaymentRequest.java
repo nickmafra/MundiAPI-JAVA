@@ -11,20 +11,21 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreatePaymentRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4819865851392035360L;
+    private static final long serialVersionUID = 4795491238724614928L;
     private String paymentMethod;
     private CreateCreditCardPaymentRequest creditCard;
+    private CreateDebitCardPaymentRequest debitCard;
     private CreateBoletoPaymentRequest boleto;
     private String currency;
     private CreateVoucherPaymentRequest voucher;
-    private LinkedHashMap<String, String> metadata;
     private List<CreateSplitRequest> split;
-    private String customerId;
-    private CreateCustomerRequest customer;
     private CreateBankTransferPaymentRequest bankTransfer;
     private String gatewayAffiliationId;
     private Integer amount;
     private CreateCheckoutPaymentRequest checkout;
+    private String customerId;
+    private CreateCustomerRequest customer;
+    private LinkedHashMap<String, String> metadata;
     /** GETTER
      * Payment method
      */
@@ -55,6 +56,22 @@ public class CreatePaymentRequest
     @JsonSetter("credit_card")
     public void setCreditCard (CreateCreditCardPaymentRequest value) { 
         this.creditCard = value;
+    }
+ 
+    /** GETTER
+     * Settings for debit card payment
+     */
+    @JsonGetter("debit_card")
+    public CreateDebitCardPaymentRequest getDebitCard ( ) { 
+        return this.debitCard;
+    }
+    
+    /** SETTER
+     * Settings for debit card payment
+     */
+    @JsonSetter("debit_card")
+    public void setDebitCard (CreateDebitCardPaymentRequest value) { 
+        this.debitCard = value;
     }
  
     /** GETTER
@@ -106,22 +123,6 @@ public class CreatePaymentRequest
     }
  
     /** GETTER
-     * Metadata
-     */
-    @JsonGetter("metadata")
-    public LinkedHashMap<String, String> getMetadata ( ) { 
-        return this.metadata;
-    }
-    
-    /** SETTER
-     * Metadata
-     */
-    @JsonSetter("metadata")
-    public void setMetadata (LinkedHashMap<String, String> value) { 
-        this.metadata = value;
-    }
- 
-    /** GETTER
      * Splits
      */
     @JsonGetter("split")
@@ -135,38 +136,6 @@ public class CreatePaymentRequest
     @JsonSetter("split")
     public void setSplit (List<CreateSplitRequest> value) { 
         this.split = value;
-    }
- 
-    /** GETTER
-     * Customer Id
-     */
-    @JsonGetter("customer_id")
-    public String getCustomerId ( ) { 
-        return this.customerId;
-    }
-    
-    /** SETTER
-     * Customer Id
-     */
-    @JsonSetter("customer_id")
-    public void setCustomerId (String value) { 
-        this.customerId = value;
-    }
- 
-    /** GETTER
-     * Customer
-     */
-    @JsonGetter("customer")
-    public CreateCustomerRequest getCustomer ( ) { 
-        return this.customer;
-    }
-    
-    /** SETTER
-     * Customer
-     */
-    @JsonSetter("customer")
-    public void setCustomer (CreateCustomerRequest value) { 
-        this.customer = value;
     }
  
     /** GETTER
@@ -231,6 +200,54 @@ public class CreatePaymentRequest
     @JsonSetter("checkout")
     public void setCheckout (CreateCheckoutPaymentRequest value) { 
         this.checkout = value;
+    }
+ 
+    /** GETTER
+     * Customer Id
+     */
+    @JsonGetter("customer_id")
+    public String getCustomerId ( ) { 
+        return this.customerId;
+    }
+    
+    /** SETTER
+     * Customer Id
+     */
+    @JsonSetter("customer_id")
+    public void setCustomerId (String value) { 
+        this.customerId = value;
+    }
+ 
+    /** GETTER
+     * Customer
+     */
+    @JsonGetter("customer")
+    public CreateCustomerRequest getCustomer ( ) { 
+        return this.customer;
+    }
+    
+    /** SETTER
+     * Customer
+     */
+    @JsonSetter("customer")
+    public void setCustomer (CreateCustomerRequest value) { 
+        this.customer = value;
+    }
+ 
+    /** GETTER
+     * Metadata
+     */
+    @JsonGetter("metadata")
+    public LinkedHashMap<String, String> getMetadata ( ) { 
+        return this.metadata;
+    }
+    
+    /** SETTER
+     * Metadata
+     */
+    @JsonSetter("metadata")
+    public void setMetadata (LinkedHashMap<String, String> value) { 
+        this.metadata = value;
     }
  
 }

@@ -261,7 +261,7 @@ public class OkClient implements HttpClient {
 
         return okHttpRequest;
     }
-    
+
     /**
      * Create a simple HTTP GET request with basic authentication
      */
@@ -276,6 +276,22 @@ public class OkClient implements HttpClient {
     public HttpRequest get(String _queryUrl, Map<String, String> _headers,
             List<SimpleEntry<String, Object>> _parameters) {
         return new HttpRequest(HttpMethod.GET, _queryUrl, _headers, _parameters);
+    }
+
+    /**
+     * Create a simple HTTP HEAD request with basic authentication
+     */
+    public HttpRequest head(String _queryUrl, Map<String, String> _headers,
+            List<SimpleEntry<String, Object>> _parameters, String _username, String _password) {
+        return new HttpRequest(HttpMethod.HEAD, _queryUrl, _headers, _parameters, _username, _password);
+    }
+
+    /**
+     * Create a simple HTTP HEAD request
+     */
+    public HttpRequest head(String _queryUrl, Map<String, String> _headers,
+            List<SimpleEntry<String, Object>> _parameters) {
+        return new HttpRequest(HttpMethod.HEAD, _queryUrl, _headers, _parameters);
     }
 
     /**

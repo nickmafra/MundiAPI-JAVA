@@ -21,7 +21,7 @@ public class CreateCreditCardPaymentRequestBuilder {
     /**
      * Number of installments
      */
-    public CreateCreditCardPaymentRequestBuilder installments(int installments) {
+    public CreateCreditCardPaymentRequestBuilder installments(Integer installments) {
         createCreditCardPaymentRequest.setInstallments(installments);
         return this;
     }
@@ -43,22 +43,6 @@ public class CreateCreditCardPaymentRequestBuilder {
     }
 
     /**
-     * Number of retries
-     */
-    public CreateCreditCardPaymentRequestBuilder retries(int retries) {
-        createCreditCardPaymentRequest.setRetries(retries);
-        return this;
-    }
-
-    /**
-     * Indicates if the card from the subscription must be updated
-     */
-    public CreateCreditCardPaymentRequestBuilder updateSubscriptionCard(boolean updateSubscriptionCard) {
-        createCreditCardPaymentRequest.setUpdateSubscriptionCard(updateSubscriptionCard);
-        return this;
-    }
-
-    /**
      * The credit card id
      */
     public CreateCreditCardPaymentRequestBuilder cardId(String cardId) {
@@ -74,15 +58,23 @@ public class CreateCreditCardPaymentRequestBuilder {
     /**
      * Indicates a recurrence
      */
-    public CreateCreditCardPaymentRequestBuilder recurrence(boolean recurrence) {
+    public CreateCreditCardPaymentRequestBuilder recurrence(Boolean recurrence) {
         createCreditCardPaymentRequest.setRecurrence(recurrence);
+        return this;
+    }
+
+    /**
+     * Indicates if the operation should be only authorization or auth and capture.
+     */
+    public CreateCreditCardPaymentRequestBuilder capture(Boolean capture) {
+        createCreditCardPaymentRequest.setCapture(capture);
         return this;
     }
 
     /**
      * Indicates whether the extended label (private label) is enabled
      */
-    public CreateCreditCardPaymentRequestBuilder extendedLimitEnabled(boolean extendedLimitEnabled) {
+    public CreateCreditCardPaymentRequestBuilder extendedLimitEnabled(Boolean extendedLimitEnabled) {
         createCreditCardPaymentRequest.setExtendedLimitEnabled(extendedLimitEnabled);
         return this;
     }
@@ -96,18 +88,26 @@ public class CreateCreditCardPaymentRequestBuilder {
     }
 
     /**
-     * Indicates if the operation should be only authorization or auth and capture.
-     */
-    public CreateCreditCardPaymentRequestBuilder capture(Boolean capture) {
-        createCreditCardPaymentRequest.setCapture(capture);
-        return this;
-    }
-
-    /**
      * Customer business segment code
      */
     public CreateCreditCardPaymentRequestBuilder merchantCategoryCode(Long merchantCategoryCode) {
         createCreditCardPaymentRequest.setMerchantCategoryCode(merchantCategoryCode);
+        return this;
+    }
+
+    /**
+     * The payment authentication request
+     */
+    public CreateCreditCardPaymentRequestBuilder authentication(CreatePaymentAuthentiticationRequest authentication) {
+        createCreditCardPaymentRequest.setAuthentication(authentication);
+        return this;
+    }
+
+    /**
+     * The Credit card payment token request
+     */
+    public CreateCreditCardPaymentRequestBuilder token(CreateCardPaymentTokenRequest token) {
+        createCreditCardPaymentRequest.setToken(token);
         return this;
     }
     /**

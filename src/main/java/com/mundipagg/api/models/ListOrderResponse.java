@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class ListOrderResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5206266898409684790L;
+    private static final long serialVersionUID = 5559318600227818587L;
     private List<GetOrderResponse> data;
     private PagingResponse paging;
     /** GETTER

@@ -77,7 +77,7 @@ public class CustomersController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 5472569838275947947L;
+                    private static final long serialVersionUID = 5129112975945927665L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -186,7 +186,7 @@ public class CustomersController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 4636443478895709387L;
+                    private static final long serialVersionUID = 4940565141684113786L;
                     {
                         put( "customer_id", customerId );
                     }});
@@ -195,7 +195,7 @@ public class CustomersController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 5000949176741013343L;
+                    private static final long serialVersionUID = 5707919818855279067L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -305,7 +305,7 @@ public class CustomersController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5523671171011247099L;
+                    private static final long serialVersionUID = 4836239552995909240L;
                     {
                         put( "customer_id", customerId );
                         put( "card_id", cardId );
@@ -315,7 +315,7 @@ public class CustomersController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 5434473010066649460L;
+                    private static final long serialVersionUID = 4973778081152615262L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -432,7 +432,7 @@ public class CustomersController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5459088695236624032L;
+                    private static final long serialVersionUID = 5367436774911777999L;
                     {
                         put( "customer_id", customerId );
                         put( "address_id", addressId );
@@ -442,7 +442,7 @@ public class CustomersController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 5567716080239227179L;
+                    private static final long serialVersionUID = 5119573059948707938L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -555,7 +555,7 @@ public class CustomersController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5701215014418236025L;
+                    private static final long serialVersionUID = 5107567227800992142L;
                     {
                         put( "customer_id", customerId );
                         put( "address_id", addressId );
@@ -565,7 +565,7 @@ public class CustomersController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 5493641585522517089L;
+                    private static final long serialVersionUID = 4725803618077589173L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -671,7 +671,7 @@ public class CustomersController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5547392490855053568L;
+                    private static final long serialVersionUID = 5415162219499591233L;
                     {
                         put( "customer_id", customerId );
                         put( "address_id", addressId );
@@ -681,7 +681,7 @@ public class CustomersController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 5489499805730267623L;
+                    private static final long serialVersionUID = 5341684268526697536L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -787,7 +787,7 @@ public class CustomersController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5331052407437657897L;
+                    private static final long serialVersionUID = 4669691839971924232L;
                     {
                         put( "customer_id", customerId );
                         put( "card_id", cardId );
@@ -797,7 +797,7 @@ public class CustomersController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 4828466242446718949L;
+                    private static final long serialVersionUID = 5680870781775112067L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -903,7 +903,7 @@ public class CustomersController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5254555754439869895L;
+                    private static final long serialVersionUID = 4861987830236634102L;
                     {
                         put( "customer_id", customerId );
                     }});
@@ -912,7 +912,7 @@ public class CustomersController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 4785801637346338446L;
+                    private static final long serialVersionUID = 5195763885883630233L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -1025,7 +1025,7 @@ public class CustomersController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5315650938469931632L;
+                    private static final long serialVersionUID = 4982467533650933727L;
                     {
                         put( "customer_id", customerId );
                         put( "card_id", cardId );
@@ -1035,7 +1035,7 @@ public class CustomersController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 5097165663461545614L;
+                    private static final long serialVersionUID = 5035389877516633588L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -1141,7 +1141,7 @@ public class CustomersController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5727323211766316003L;
+                    private static final long serialVersionUID = 4628474110918185529L;
                     {
                         put( "customer_id", customerId );
                     }});
@@ -1150,7 +1150,7 @@ public class CustomersController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 5488748541510427940L;
+                    private static final long serialVersionUID = 5667316102969516213L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -1263,7 +1263,7 @@ public class CustomersController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5305355473552341956L;
+                    private static final long serialVersionUID = 4801561693393050104L;
                     {
                         put( "customer_id", customerId );
                     }});
@@ -1272,7 +1272,7 @@ public class CustomersController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 5287851232415897717L;
+                    private static final long serialVersionUID = 4632360304771354121L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -1381,7 +1381,7 @@ public class CustomersController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 4651523297750929145L;
+                    private static final long serialVersionUID = 4842829576798366587L;
                     {
                         put( "customer_id", customerId );
                     }});
@@ -1390,7 +1390,7 @@ public class CustomersController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 4894279636057146112L;
+                    private static final long serialVersionUID = 4776315671349258920L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -1496,7 +1496,7 @@ public class CustomersController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5430122539733051218L;
+                    private static final long serialVersionUID = 5391821060219163902L;
                     {
                         put( "customer_id", customerId );
                         put( "token_id", tokenId );
@@ -1506,7 +1506,7 @@ public class CustomersController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 5606360782391798864L;
+                    private static final long serialVersionUID = 5144117519868466997L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -1612,7 +1612,7 @@ public class CustomersController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5264658502313064411L;
+                    private static final long serialVersionUID = 4639459613875973583L;
                     {
                         put( "customer_id", customerId );
                     }});
@@ -1621,7 +1621,7 @@ public class CustomersController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 4971791206227432984L;
+                    private static final long serialVersionUID = 4812743906221574271L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -1734,7 +1734,7 @@ public class CustomersController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5611672571691800697L;
+                    private static final long serialVersionUID = 5179355575875087372L;
                     {
                         put( "customer_id", customerId );
                         put( "token_id", tokenId );
@@ -1744,7 +1744,7 @@ public class CustomersController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 5425915636442427978L;
+                    private static final long serialVersionUID = 5698018511163786432L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -1850,7 +1850,7 @@ public class CustomersController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5365844140868215106L;
+                    private static final long serialVersionUID = 5552607135633844374L;
                     {
                         put( "customer_id", customerId );
                     }});
@@ -1859,7 +1859,7 @@ public class CustomersController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 4688110416364680053L;
+                    private static final long serialVersionUID = 5435979643475155206L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -1976,14 +1976,14 @@ public class CustomersController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5281263075725415042L;
+                    private static final long serialVersionUID = 5288618250650975969L;
                     {
                         put( "customer_id", customerId );
                     }});
 
                 //process query parameters
                 APIHelper.appendUrlWithQueryParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5482925493015736765L;
+                    private static final long serialVersionUID = 5014294513070069605L;
                     {
                         put( "page", page );
                         put( "size", size );
@@ -1993,7 +1993,7 @@ public class CustomersController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 4900167923777899631L;
+                    private static final long serialVersionUID = 5593156595383617588L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -2103,14 +2103,14 @@ public class CustomersController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 4732874135553956345L;
+                    private static final long serialVersionUID = 5165826210098099421L;
                     {
                         put( "customer_id", customerId );
                     }});
 
                 //process query parameters
                 APIHelper.appendUrlWithQueryParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5485451668779050577L;
+                    private static final long serialVersionUID = 5347295201826715215L;
                     {
                         put( "page", page );
                         put( "size", size );
@@ -2120,7 +2120,7 @@ public class CustomersController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 5726619888864904147L;
+                    private static final long serialVersionUID = 5589653707035428197L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -2230,14 +2230,14 @@ public class CustomersController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5208174663275777200L;
+                    private static final long serialVersionUID = 5442198534578015144L;
                     {
                         put( "customer_id", customerId );
                     }});
 
                 //process query parameters
                 APIHelper.appendUrlWithQueryParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 4663017358492253729L;
+                    private static final long serialVersionUID = 5099320550988366323L;
                     {
                         put( "page", page );
                         put( "size", size );
@@ -2247,7 +2247,7 @@ public class CustomersController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 5269118139776618349L;
+                    private static final long serialVersionUID = 4803164849841446494L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -2369,7 +2369,7 @@ public class CustomersController extends BaseController {
 
                 //process query parameters
                 APIHelper.appendUrlWithQueryParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5136334816883634780L;
+                    private static final long serialVersionUID = 4774269828496867104L;
                     {
                         put( "name", name );
                         put( "document", document );
@@ -2383,7 +2383,7 @@ public class CustomersController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 4635226058843159720L;
+                    private static final long serialVersionUID = 4807922135605973264L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );

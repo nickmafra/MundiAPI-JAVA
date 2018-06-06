@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateRecipientRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5544868559900211021L;
+    private static final long serialVersionUID = 4984005693100629317L;
     private String name;
     private String email;
     private String description;
@@ -19,6 +19,7 @@ public class CreateRecipientRequest
     private String type;
     private CreateBankAccountRequest defaultBankAccount;
     private LinkedHashMap<String, String> metadata;
+    private CreateTransferSettingsRequest transferSettings;
     /** GETTER
      * Recipient name
      */
@@ -129,6 +130,22 @@ public class CreateRecipientRequest
     @JsonSetter("metadata")
     public void setMetadata (LinkedHashMap<String, String> value) { 
         this.metadata = value;
+    }
+ 
+    /** GETTER
+     * Receiver Transfer Information
+     */
+    @JsonGetter("transfer_settings")
+    public CreateTransferSettingsRequest getTransferSettings ( ) { 
+        return this.transferSettings;
+    }
+    
+    /** SETTER
+     * Receiver Transfer Information
+     */
+    @JsonSetter("transfer_settings")
+    public void setTransferSettings (CreateTransferSettingsRequest value) { 
+        this.transferSettings = value;
     }
  
 }

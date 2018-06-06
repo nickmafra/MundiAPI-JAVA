@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class UpdateRecipientBankAccountRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5732072054471973353L;
+    private static final long serialVersionUID = 5351416526696281552L;
     private CreateBankAccountRequest bankAccount;
     /** GETTER
      * Bank account

@@ -44,11 +44,6 @@ public class GetDiscountResponseBuilder {
         return this;
     }
 
-    public GetDiscountResponseBuilder subscription(GetSubscriptionResponse subscription) {
-        getDiscountResponse.setSubscription(subscription);
-        return this;
-    }
-
     public GetDiscountResponseBuilder cycles(Integer cycles) {
         getDiscountResponse.setCycles(cycles);
         return this;
@@ -61,6 +56,19 @@ public class GetDiscountResponseBuilder {
 
     public GetDiscountResponseBuilder description(String description) {
         getDiscountResponse.setDescription(description);
+        return this;
+    }
+
+    public GetDiscountResponseBuilder subscription(GetSubscriptionResponse subscription) {
+        getDiscountResponse.setSubscription(subscription);
+        return this;
+    }
+
+    /**
+     * The subscription item
+     */
+    public GetDiscountResponseBuilder subscriptionItem(GetSubscriptionItemResponse subscriptionItem) {
+        getDiscountResponse.setSubscriptionItem(subscriptionItem);
         return this;
     }
     /**
