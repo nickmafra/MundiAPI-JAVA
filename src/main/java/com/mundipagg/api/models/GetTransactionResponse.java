@@ -30,12 +30,13 @@ import org.joda.time.DateTime;
     @Type(value = GetBankTransferTransactionResponse.class, name = "bank_transfer"),
     @Type(value = GetSafetyPayTransactionResponse.class, name = "safetypay"),
     @Type(value = GetBoletoTransactionResponse.class, name = "boleto"),
-    @Type(value = GetDebitCardTransactionResponse.class, name = "debit_card")
+    @Type(value = GetDebitCardTransactionResponse.class, name = "debit_card"),
+    @Type(value = GetCashTransactionResponse.class, name = "cash")
 })
 @JsonInclude(Include.ALWAYS)
 public class GetTransactionResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5542857894009721868L;
+    private static final long serialVersionUID = 4909363454588726108L;
     private String gatewayId;
     private int amount;
     private String status;

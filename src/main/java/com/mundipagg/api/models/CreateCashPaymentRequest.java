@@ -9,28 +9,11 @@ import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
-public class CreateSetupRequest 
+public class CreateCashPaymentRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5540858828901136139L;
-    private int amount;
+    private static final long serialVersionUID = 4926565817444254980L;
     private String description;
-    private CreatePaymentRequest payment;
-    /** GETTER
-     * Setup amount
-     */
-    @JsonGetter("amount")
-    public int getAmount ( ) { 
-        return this.amount;
-    }
-    
-    /** SETTER
-     * Setup amount
-     */
-    @JsonSetter("amount")
-    public void setAmount (int value) { 
-        this.amount = value;
-    }
- 
+    private boolean confirm;
     /** GETTER
      * Description
      */
@@ -48,19 +31,19 @@ public class CreateSetupRequest
     }
  
     /** GETTER
-     * Payment data
+     * Indicates whether cash collection will be confirmed in the act of creation
      */
-    @JsonGetter("payment")
-    public CreatePaymentRequest getPayment ( ) { 
-        return this.payment;
+    @JsonGetter("confirm")
+    public boolean getConfirm ( ) { 
+        return this.confirm;
     }
     
     /** SETTER
-     * Payment data
+     * Indicates whether cash collection will be confirmed in the act of creation
      */
-    @JsonSetter("payment")
-    public void setPayment (CreatePaymentRequest value) { 
-        this.payment = value;
+    @JsonSetter("confirm")
+    public void setConfirm (boolean value) { 
+        this.confirm = value;
     }
  
 }

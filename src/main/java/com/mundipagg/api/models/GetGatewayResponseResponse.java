@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetGatewayResponseResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5040245358121978285L;
+    private static final long serialVersionUID = 4767645829941738423L;
     private String code;
     private List<GetGatewayErrorResponse> errors;
     /** GETTER

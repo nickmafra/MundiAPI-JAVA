@@ -129,6 +129,14 @@ public class CreatePaymentRequestBuilder {
         createPaymentRequest.setMetadata(metadata);
         return this;
     }
+
+    /**
+     * Settings for cash payment
+     */
+    public CreatePaymentRequestBuilder cash(CreateCashPaymentRequest cash) {
+        createPaymentRequest.setCash(cash);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

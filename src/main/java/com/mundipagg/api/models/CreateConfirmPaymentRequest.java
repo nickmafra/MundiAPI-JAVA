@@ -9,39 +9,56 @@ import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
-public class CreateCaptureChargeRequest 
+public class CreateConfirmPaymentRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4696773050557695334L;
+    private static final long serialVersionUID = 5561175051963234672L;
+    private String description;
     private String code;
     private Integer amount;
     /** GETTER
-     * Code for the charge. Sending this field will update the code send on the charge and order creation.
+     * Description
      */
-    @JsonGetter("code")
+    @JsonGetter("description")
+    public String getDescription ( ) { 
+        return this.description;
+    }
+    
+    /** SETTER
+     * Description
+     */
+    @JsonSetter("description")
+    public void setDescription (String value) { 
+        this.description = value;
+    }
+ 
+    /** GETTER
+     * Code reference
+     */
+    @JsonGetter("Code")
     public String getCode ( ) { 
         return this.code;
     }
     
     /** SETTER
-     * Code for the charge. Sending this field will update the code send on the charge and order creation.
+     * Code reference
      */
-    @JsonSetter("code")
+    @JsonSetter("Code")
     public void setCode (String value) { 
         this.code = value;
     }
  
     /** GETTER
-     * The amount that will be captured
+     * Amount
      */
-    @JsonGetter("amount")
+    @JsonGetter("Amount")
     public Integer getAmount ( ) { 
         return this.amount;
     }
     
     /** SETTER
-     * The amount that will be captured
+     * Amount
      */
-    @JsonSetter("amount")
+    @JsonSetter("Amount")
     public void setAmount (Integer value) { 
         this.amount = value;
     }
