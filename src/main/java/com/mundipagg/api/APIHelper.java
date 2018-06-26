@@ -129,7 +129,7 @@ public class APIHelper {
                     module.addSerializer(cls, serializer);
                     this.registerModule(module);
                 }
-}.writeValueAsString(obj);
+            }.writeValueAsString(obj);
         }
         else {
             final Class<? extends Object> cls = obj.getClass();
@@ -140,7 +140,7 @@ public class APIHelper {
                     SimpleModule module = new SimpleModule();
                     module.addSerializer(cls, serializer);
                     this.registerModule(module);
-}
+                }
             }.writeValueAsString(obj);
         }
     }

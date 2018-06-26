@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreatePaymentRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4795491238724614928L;
+    private static final long serialVersionUID = 5745951559868103400L;
     private String paymentMethod;
     private CreateCreditCardPaymentRequest creditCard;
     private CreateDebitCardPaymentRequest debitCard;
@@ -26,6 +26,7 @@ public class CreatePaymentRequest
     private String customerId;
     private CreateCustomerRequest customer;
     private LinkedHashMap<String, String> metadata;
+    private CreateCashPaymentRequest cash;
     /** GETTER
      * Payment method
      */
@@ -248,6 +249,22 @@ public class CreatePaymentRequest
     @JsonSetter("metadata")
     public void setMetadata (LinkedHashMap<String, String> value) { 
         this.metadata = value;
+    }
+ 
+    /** GETTER
+     * Settings for cash payment
+     */
+    @JsonGetter("cash")
+    public CreateCashPaymentRequest getCash ( ) { 
+        return this.cash;
+    }
+    
+    /** SETTER
+     * Settings for cash payment
+     */
+    @JsonSetter("cash")
+    public void setCash (CreateCashPaymentRequest value) { 
+        this.cash = value;
     }
  
 }

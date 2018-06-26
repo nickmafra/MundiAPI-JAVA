@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateLocationRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5711246220714324155L;
+    private static final long serialVersionUID = 4617944685385227920L;
     private String latitude;
     private String longitude;
     /** GETTER
