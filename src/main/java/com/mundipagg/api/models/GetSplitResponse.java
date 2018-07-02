@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetSplitResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5665386601475533078L;
+    private static final long serialVersionUID = 5615515686076794747L;
     private String type;
     private int amount;
     private GetRecipientResponse recipient;

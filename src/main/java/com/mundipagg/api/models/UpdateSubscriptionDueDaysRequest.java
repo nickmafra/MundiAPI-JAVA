@@ -9,24 +9,24 @@ import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
-public class UpdateSubscriptionAffiliationIdRequest 
+public class UpdateSubscriptionDueDaysRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5637164198647756049L;
-    private String gatewayAffiliationId;
+    private static final long serialVersionUID = 4693727458597794388L;
+    private int boletoDueDays;
     /** GETTER
      * TODO: Write general description for this method
      */
-    @JsonGetter("gateway_affiliation_id")
-    public String getGatewayAffiliationId ( ) { 
-        return this.gatewayAffiliationId;
+    @JsonGetter("boleto_due_days")
+    public int getBoletoDueDays ( ) { 
+        return this.boletoDueDays;
     }
     
     /** SETTER
      * TODO: Write general description for this method
      */
-    @JsonSetter("gateway_affiliation_id")
-    public void setGatewayAffiliationId (String value) { 
-        this.gatewayAffiliationId = value;
+    @JsonSetter("boleto_due_days")
+    public void setBoletoDueDays (int value) { 
+        this.boletoDueDays = value;
     }
  
 }

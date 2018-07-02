@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateCreditCardPaymentRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5200827433746124698L;
+    private static final long serialVersionUID = 5126318487057339402L;
     private Integer installments = 1;
     private String statementDescriptor;
     private CreateCardRequest card;

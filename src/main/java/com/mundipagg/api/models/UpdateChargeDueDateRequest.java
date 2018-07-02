@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class UpdateChargeDueDateRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4636802575351922227L;
+    private static final long serialVersionUID = 5297812494320311584L;
     private DateTime dueAt;
     /** GETTER
      * The charge's new due date
