@@ -79,7 +79,7 @@ public class TokensController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5367559852880954161L;
+                    private static final long serialVersionUID = 5211045084924498035L;
                     {
                         put( "id", id );
                         put( "public_key", publicKey );
@@ -89,7 +89,7 @@ public class TokensController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 4818153675970624823L;
+                    private static final long serialVersionUID = 5129252869713696496L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -194,7 +194,7 @@ public class TokensController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5440695956390230310L;
+                    private static final long serialVersionUID = 5236523754791496846L;
                     {
                         put( "public_key", publicKey );
                     }});
@@ -203,7 +203,7 @@ public class TokensController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 5208829304890884578L;
+                    private static final long serialVersionUID = 5269398149447678825L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );

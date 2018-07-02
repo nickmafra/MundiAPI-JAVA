@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class GetBankAccountResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4784706874045817426L;
+    private static final long serialVersionUID = 5357062937000653134L;
     private String id;
     private String holderName;
     private String holderType;

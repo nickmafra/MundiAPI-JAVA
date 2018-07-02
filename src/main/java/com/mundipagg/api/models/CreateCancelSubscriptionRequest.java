@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateCancelSubscriptionRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5329208366002145772L;
+    private static final long serialVersionUID = 5254645042777794562L;
     private boolean cancelPendingInvoices = true;
     /** GETTER
      * Indicates if the pending invoices must also be canceled.

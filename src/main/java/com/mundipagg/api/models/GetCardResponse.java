@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class GetCardResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5123809793158399972L;
+    private static final long serialVersionUID = 5304456948334143907L;
     private String id;
     private String lastFourDigits;
     private String brand;

@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class UpdateSubscriptionMinimumPriceRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5731741218759573717L;
+    private static final long serialVersionUID = 5719686684205360171L;
     private Integer minimumPrice;
     /** GETTER
      * Valor mínimo da assinatura

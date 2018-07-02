@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class ListAccessTokensResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5520906933148616358L;
+    private static final long serialVersionUID = 5132640652672943520L;
     private List<GetAccessTokenResponse> data;
     private PagingResponse paging;
     /** GETTER
