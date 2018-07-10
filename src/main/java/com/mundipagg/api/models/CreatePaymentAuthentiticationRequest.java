@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreatePaymentAuthentiticationRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5702941098601464262L;
+    private static final long serialVersionUID = 4785671675934505567L;
     private String type;
     private Create3DSAuthentiticationRequest threedSecure;
     /** GETTER

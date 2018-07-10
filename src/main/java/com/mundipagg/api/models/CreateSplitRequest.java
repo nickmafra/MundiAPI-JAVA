@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateSplitRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5400218885595267932L;
+    private static final long serialVersionUID = 4914761507841613962L;
     private String type;
     private int amount;
     private String recipientId;
