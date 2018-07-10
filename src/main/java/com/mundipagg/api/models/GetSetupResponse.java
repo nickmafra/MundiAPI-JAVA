@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetSetupResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5717939421220970707L;
+    private static final long serialVersionUID = 4629855182696898319L;
     private String id;
     private String description;
     private int amount;

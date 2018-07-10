@@ -36,7 +36,7 @@ import org.joda.time.DateTime;
 @JsonInclude(Include.ALWAYS)
 public class GetTransactionResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5421067796760424603L;
+    private static final long serialVersionUID = 5136252158472708214L;
     private String gatewayId;
     private int amount;
     private String status;

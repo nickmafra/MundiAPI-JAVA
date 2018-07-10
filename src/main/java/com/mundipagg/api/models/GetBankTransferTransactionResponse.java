@@ -27,7 +27,7 @@ import org.joda.time.DateTime;
 @JsonInclude(Include.ALWAYS)
 public class GetBankTransferTransactionResponse 
         extends GetTransactionResponse {
-    private static final long serialVersionUID = 5634371131645788095L;
+    private static final long serialVersionUID = 5191919608925276988L;
     private String url;
     private String bankTid;
     private String bank;

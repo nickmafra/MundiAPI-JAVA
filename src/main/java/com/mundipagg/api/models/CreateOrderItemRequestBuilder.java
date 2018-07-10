@@ -65,6 +65,14 @@ public class CreateOrderItemRequestBuilder {
         createOrderItemRequest.setSellerId(sellerId);
         return this;
     }
+
+    /**
+     * The item code passed by the client
+     */
+    public CreateOrderItemRequestBuilder code(String code) {
+        createOrderItemRequest.setCode(code);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */
