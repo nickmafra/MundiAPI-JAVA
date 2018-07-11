@@ -84,7 +84,7 @@ public class PlansController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5679508958533288738L;
+                    private static final long serialVersionUID = 5453984190733643445L;
                     {
                         put( "plan_id", planId );
                         put( "plan_item_id", planItemId );
@@ -94,7 +94,7 @@ public class PlansController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 5152222828599536568L;
+                    private static final long serialVersionUID = 4698700936522825971L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -203,7 +203,7 @@ public class PlansController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5293430947201661988L;
+                    private static final long serialVersionUID = 5119010770645412418L;
                     {
                         put( "plan_id", planId );
                     }});
@@ -212,7 +212,7 @@ public class PlansController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 4646728414425552149L;
+                    private static final long serialVersionUID = 4685892446709623102L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -318,7 +318,7 @@ public class PlansController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5170233457616277759L;
+                    private static final long serialVersionUID = 5059671866589993414L;
                     {
                         put( "plan_id", planId );
                     }});
@@ -327,7 +327,7 @@ public class PlansController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 4669334267957254917L;
+                    private static final long serialVersionUID = 5159070831146178022L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -440,7 +440,7 @@ public class PlansController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5047548472606710353L;
+                    private static final long serialVersionUID = 4913562578868906394L;
                     {
                         put( "plan_id", planId );
                     }});
@@ -449,7 +449,7 @@ public class PlansController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 5505201857067237621L;
+                    private static final long serialVersionUID = 5705937241125697937L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -560,7 +560,7 @@ public class PlansController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 5266102483038824938L;
+                    private static final long serialVersionUID = 5058129620677638806L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -669,7 +669,7 @@ public class PlansController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 4826033287088481071L;
+                    private static final long serialVersionUID = 4858906118810439869L;
                     {
                         put( "plan_id", planId );
                     }});
@@ -678,7 +678,7 @@ public class PlansController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 5148313383691905522L;
+                    private static final long serialVersionUID = 4891456254539068102L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -784,7 +784,7 @@ public class PlansController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 4634333329771712152L;
+                    private static final long serialVersionUID = 5721211962540051452L;
                     {
                         put( "plan_id", planId );
                         put( "plan_item_id", planItemId );
@@ -794,7 +794,7 @@ public class PlansController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 4632355882636726323L;
+                    private static final long serialVersionUID = 5239004625629959925L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -900,7 +900,7 @@ public class PlansController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5612419836085678828L;
+                    private static final long serialVersionUID = 4805870092767586419L;
                     {
                         put( "plan_id", planId );
                         put( "plan_item_id", planItemId );
@@ -910,7 +910,7 @@ public class PlansController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 5575452939545450109L;
+                    private static final long serialVersionUID = 4912249793282134977L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -1016,7 +1016,7 @@ public class PlansController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5439906928833446893L;
+                    private static final long serialVersionUID = 4802244570829096776L;
                     {
                         put( "plan_id", planId );
                     }});
@@ -1025,7 +1025,7 @@ public class PlansController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 5400293646921656483L;
+                    private static final long serialVersionUID = 5403720091224720804L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -1158,7 +1158,7 @@ public class PlansController extends BaseController {
 
                 //process query parameters
                 APIHelper.appendUrlWithQueryParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5435367691761187147L;
+                    private static final long serialVersionUID = 5243552846034260908L;
                     {
                         put( "page", page );
                         put( "size", size );
@@ -1173,7 +1173,7 @@ public class PlansController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 5377795145080419425L;
+                    private static final long serialVersionUID = 4977723194014235741L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );

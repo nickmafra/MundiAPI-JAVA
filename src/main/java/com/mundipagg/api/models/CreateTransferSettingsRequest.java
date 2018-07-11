@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateTransferSettingsRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4899706282589572075L;
+    private static final long serialVersionUID = 5409431396936214090L;
     private boolean transferEnabled;
     private String transferInterval;
     private int transferDay;

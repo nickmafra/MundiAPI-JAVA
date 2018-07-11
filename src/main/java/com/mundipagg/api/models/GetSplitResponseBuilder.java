@@ -41,6 +41,14 @@ public class GetSplitResponseBuilder {
         getSplitResponse.setRecipient(recipient);
         return this;
     }
+
+    /**
+     * The split rule gateway id
+     */
+    public GetSplitResponseBuilder gatewayId(String gatewayId) {
+        getSplitResponse.setGatewayId(gatewayId);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

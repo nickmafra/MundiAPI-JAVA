@@ -25,6 +25,14 @@ public class CreateCancelChargeRequestBuilder {
         createCancelChargeRequest.setAmount(amount);
         return this;
     }
+
+    /**
+     * The split rules request
+     */
+    public CreateCancelChargeRequestBuilder splitRules(List<CreateCancelChargeSplitRulesRequest> splitRules) {
+        createCancelChargeRequest.setSplitRules(splitRules);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

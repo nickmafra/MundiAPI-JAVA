@@ -11,10 +11,11 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetSplitResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4785112126914012140L;
+    private static final long serialVersionUID = 5107150480350895050L;
     private String type;
     private int amount;
     private GetRecipientResponse recipient;
+    private String gatewayId;
     /** GETTER
      * Type
      */
@@ -61,6 +62,22 @@ public class GetSplitResponse
     @JsonSetter("recipient")
     public void setRecipient (GetRecipientResponse value) { 
         this.recipient = value;
+    }
+ 
+    /** GETTER
+     * The split rule gateway id
+     */
+    @JsonGetter("gateway_id")
+    public String getGatewayId ( ) { 
+        return this.gatewayId;
+    }
+    
+    /** SETTER
+     * The split rule gateway id
+     */
+    @JsonSetter("gateway_id")
+    public void setGatewayId (String value) { 
+        this.gatewayId = value;
     }
  
 }
