@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetBalanceResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5156026849507484924L;
+    private static final long serialVersionUID = 5558109580922928187L;
     private String currency;
     private int availableAmount;
     private GetRecipientResponse recipient;

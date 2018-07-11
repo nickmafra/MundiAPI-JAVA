@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetSellerResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5287815727126475371L;
+    private static final long serialVersionUID = 4847456040963053094L;
     private String id;
     private String name;
     private String code;

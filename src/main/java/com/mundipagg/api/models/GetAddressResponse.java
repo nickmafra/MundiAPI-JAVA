@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class GetAddressResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4908100567910673723L;
+    private static final long serialVersionUID = 5062155014415564125L;
     private String id;
     private String street;
     private String number;

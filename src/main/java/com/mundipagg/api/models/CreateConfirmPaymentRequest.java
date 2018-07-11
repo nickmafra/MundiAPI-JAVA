@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateConfirmPaymentRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4861002832149885545L;
+    private static final long serialVersionUID = 4993452227707598647L;
     private String description;
     private String code;
     private Integer amount;

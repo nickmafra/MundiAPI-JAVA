@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetAnticipationLimitsResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5512525213859497141L;
+    private static final long serialVersionUID = 5660215651492860444L;
     private GetAnticipationLimitResponse max;
     private GetAnticipationLimitResponse min;
     /** GETTER
