@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateIncrementRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5651965416061895428L;
+    private static final long serialVersionUID = 5304012092833169570L;
     private double value;
     private String incrementType;
     private String itemId;

@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class ApplePayRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5264715430347120979L;
+    private static final long serialVersionUID = 5445662654992924457L;
     private String version;
     private String data;
     private ApplePayHeaderRequest header;

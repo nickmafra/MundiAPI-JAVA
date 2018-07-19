@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class UpdateRecipientRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5410134869074454177L;
+    private static final long serialVersionUID = 5601779494843495178L;
     private String name;
     private String email;
     private String description;
