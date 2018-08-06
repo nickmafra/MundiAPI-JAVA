@@ -6,6 +6,7 @@
 package com.mundipagg.api.models;
 
 import java.util.*;
+import org.joda.time.DateTime;
 
 public class GetShippingResponseBuilder {
     //the instance to build
@@ -40,6 +41,22 @@ public class GetShippingResponseBuilder {
 
     public GetShippingResponseBuilder address(GetAddressResponse address) {
         getShippingResponse.setAddress(address);
+        return this;
+    }
+
+    /**
+     * Data máxima de entrega
+     */
+    public GetShippingResponseBuilder maxDeliveryDate(DateTime maxDeliveryDate) {
+        getShippingResponse.setMaxDeliveryDate(maxDeliveryDate);
+        return this;
+    }
+
+    /**
+     * Prazo estimado de entrega
+     */
+    public GetShippingResponseBuilder estimatedDeliveryDate(DateTime estimatedDeliveryDate) {
+        getShippingResponse.setEstimatedDeliveryDate(estimatedDeliveryDate);
         return this;
     }
     /**

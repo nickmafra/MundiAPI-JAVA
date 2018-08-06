@@ -8,15 +8,21 @@ package com.mundipagg.api.models;
 import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.mundipagg.api.DateTimeHelper;
+import org.joda.time.DateTime;
 
 public class GetShippingResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4917737120356492829L;
+    private static final long serialVersionUID = 5182648051285053404L;
     private int amount;
     private String description;
     private String recipientName;
     private String recipientPhone;
     private GetAddressResponse address;
+    private DateTime maxDeliveryDate;
+    private DateTime estimatedDeliveryDate;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -95,6 +101,42 @@ public class GetShippingResponse
     @JsonSetter("address")
     public void setAddress (GetAddressResponse value) { 
         this.address = value;
+    }
+ 
+    /** GETTER
+     * Data máxima de entrega
+     */
+    @JsonGetter("max_delivery_date")
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getMaxDeliveryDate ( ) { 
+        return this.maxDeliveryDate;
+    }
+    
+    /** SETTER
+     * Data máxima de entrega
+     */
+    @JsonSetter("max_delivery_date")
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setMaxDeliveryDate (DateTime value) { 
+        this.maxDeliveryDate = value;
+    }
+ 
+    /** GETTER
+     * Prazo estimado de entrega
+     */
+    @JsonGetter("estimated_delivery_date")
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getEstimatedDeliveryDate ( ) { 
+        return this.estimatedDeliveryDate;
+    }
+    
+    /** SETTER
+     * Prazo estimado de entrega
+     */
+    @JsonSetter("estimated_delivery_date")
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setEstimatedDeliveryDate (DateTime value) { 
+        this.estimatedDeliveryDate = value;
     }
  
 }

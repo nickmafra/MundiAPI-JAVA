@@ -11,8 +11,9 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateCheckoutPaymentRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5757074446664782211L;
+    private static final long serialVersionUID = 5511524815036063896L;
     private List<String> acceptedPaymentMethods;
+    private List<Object> acceptedMultiPaymentMethods;
     private String successUrl;
     private boolean skipCheckoutSuccessPage;
     private boolean billingAddressEditable;
@@ -37,6 +38,22 @@ public class CreateCheckoutPaymentRequest
     @JsonSetter("accepted_payment_methods")
     public void setAcceptedPaymentMethods (List<String> value) { 
         this.acceptedPaymentMethods = value;
+    }
+ 
+    /** GETTER
+     * Accepted Multi Payment Methods
+     */
+    @JsonGetter("accepted_multi_payment_methods")
+    public List<Object> getAcceptedMultiPaymentMethods ( ) { 
+        return this.acceptedMultiPaymentMethods;
+    }
+    
+    /** SETTER
+     * Accepted Multi Payment Methods
+     */
+    @JsonSetter("accepted_multi_payment_methods")
+    public void setAcceptedMultiPaymentMethods (List<Object> value) { 
+        this.acceptedMultiPaymentMethods = value;
     }
  
     /** GETTER

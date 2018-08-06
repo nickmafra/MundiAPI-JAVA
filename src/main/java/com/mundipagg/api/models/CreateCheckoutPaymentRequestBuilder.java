@@ -27,6 +27,14 @@ public class CreateCheckoutPaymentRequestBuilder {
     }
 
     /**
+     * Accepted Multi Payment Methods
+     */
+    public CreateCheckoutPaymentRequestBuilder acceptedMultiPaymentMethods(List<Object> acceptedMultiPaymentMethods) {
+        createCheckoutPaymentRequest.setAcceptedMultiPaymentMethods(acceptedMultiPaymentMethods);
+        return this;
+    }
+
+    /**
      * Success url
      */
     public CreateCheckoutPaymentRequestBuilder successUrl(String successUrl) {
