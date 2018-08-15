@@ -204,7 +204,7 @@ public class OkClient implements HttpClient {
 
             // set request body
             requestBody = okhttp3.RequestBody.create(okhttp3.MediaType.parse(contentType),
-                    ((HttpBodyRequest) httpRequest).getBody());
+                    ((HttpBodyRequest) httpRequest).getBody().getBytes());
         } else {
 
             List<SimpleEntry<String, Object>> parameters = httpRequest.getParameters();

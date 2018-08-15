@@ -13,26 +13,26 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.mundipagg.api.DateTimeHelper;
 import org.joda.time.DateTime;
 
-public class UpdateChargeDueDateRequest 
+public class UpdateSubscriptionStartDateRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 94225062932240925L;
-    private DateTime dueAt;
+    private static final long serialVersionUID = 24142546126965319L;
+    private DateTime startAt;
     /** GETTER
-     * The charge's new due date
+     * The date when the subscription periods will start
      */
-    @JsonGetter("due_at")
+    @JsonGetter("start_at")
     @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
-    public DateTime getDueAt ( ) { 
-        return this.dueAt;
+    public DateTime getStartAt ( ) { 
+        return this.startAt;
     }
     
     /** SETTER
-     * The charge's new due date
+     * The date when the subscription periods will start
      */
-    @JsonSetter("due_at")
+    @JsonSetter("start_at")
     @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
-    public void setDueAt (DateTime value) { 
-        this.dueAt = value;
+    public void setStartAt (DateTime value) { 
+        this.startAt = value;
     }
  
 }

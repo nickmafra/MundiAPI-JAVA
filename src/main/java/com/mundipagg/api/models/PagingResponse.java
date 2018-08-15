@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class PagingResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4910424866303750831L;
+    private static final long serialVersionUID = 8015191503057986653L;
     private int total;
     private String previous;
     private String next;

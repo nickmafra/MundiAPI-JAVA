@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class UpdateSellerRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5058739511335932114L;
+    private static final long serialVersionUID = 1343859391138616615L;
     private String name;
     private String code;
     private String description;

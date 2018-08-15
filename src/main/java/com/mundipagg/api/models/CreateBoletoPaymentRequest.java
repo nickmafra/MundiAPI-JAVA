@@ -15,12 +15,13 @@ import org.joda.time.DateTime;
 
 public class CreateBoletoPaymentRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4929711819216361589L;
+    private static final long serialVersionUID = 7377320155188565112L;
     private int retries;
     private String bank;
     private String instructions;
     private CreateAddressRequest billingAddress;
     private String billingAddressId;
+    private String documentNumber;
     private DateTime dueAt;
     private String nossoNumero;
     /** GETTER
@@ -104,6 +105,22 @@ public class CreateBoletoPaymentRequest
     }
  
     /** GETTER
+     * Boleto identification
+     */
+    @JsonGetter("document_number")
+    public String getDocumentNumber ( ) { 
+        return this.documentNumber;
+    }
+    
+    /** SETTER
+     * Boleto identification
+     */
+    @JsonSetter("document_number")
+    public void setDocumentNumber (String value) { 
+        this.documentNumber = value;
+    }
+ 
+    /** GETTER
      * Boleto due date
      */
     @JsonGetter("due_at")
@@ -122,7 +139,7 @@ public class CreateBoletoPaymentRequest
     }
  
     /** GETTER
-     * Número de identificação do cliente com o banco
+     * Customer identification number with the bank
      */
     @JsonGetter("nosso_numero")
     public String getNossoNumero ( ) { 
@@ -130,7 +147,7 @@ public class CreateBoletoPaymentRequest
     }
     
     /** SETTER
-     * Número de identificação do cliente com o banco
+     * Customer identification number with the bank
      */
     @JsonSetter("nosso_numero")
     public void setNossoNumero (String value) { 

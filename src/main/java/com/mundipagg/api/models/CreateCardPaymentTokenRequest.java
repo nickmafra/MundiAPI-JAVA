@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateCardPaymentTokenRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5348451396806876165L;
+    private static final long serialVersionUID = 314650800531564025L;
     private String type;
     private ApplePayRequest applePay;
     /** GETTER

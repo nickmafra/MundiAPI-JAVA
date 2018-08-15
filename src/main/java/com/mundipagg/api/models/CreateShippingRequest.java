@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class CreateShippingRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5445978173612786446L;
+    private static final long serialVersionUID = 8281433325414526851L;
     private int amount;
     private String description;
     private String recipientName;

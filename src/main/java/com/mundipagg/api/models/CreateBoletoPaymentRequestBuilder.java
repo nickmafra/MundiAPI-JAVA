@@ -60,6 +60,14 @@ public class CreateBoletoPaymentRequestBuilder {
     }
 
     /**
+     * Boleto identification
+     */
+    public CreateBoletoPaymentRequestBuilder documentNumber(String documentNumber) {
+        createBoletoPaymentRequest.setDocumentNumber(documentNumber);
+        return this;
+    }
+
+    /**
      * Boleto due date
      */
     public CreateBoletoPaymentRequestBuilder dueAt(DateTime dueAt) {
@@ -68,7 +76,7 @@ public class CreateBoletoPaymentRequestBuilder {
     }
 
     /**
-     * Número de identificação do cliente com o banco
+     * Customer identification number with the bank
      */
     public CreateBoletoPaymentRequestBuilder nossoNumero(String nossoNumero) {
         createBoletoPaymentRequest.setNossoNumero(nossoNumero);

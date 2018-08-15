@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class CreateSubscriptionRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5001454319283030053L;
+    private static final long serialVersionUID = -6648978970350172891L;
     private CreateCustomerRequest customer;
     private CreateCardRequest card;
     private String code;

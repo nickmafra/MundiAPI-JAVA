@@ -79,7 +79,7 @@ public class TokensController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5299620164247421653L;
+                    private static final long serialVersionUID = 8824232651813152895L;
                     {
                         put( "id", id );
                         put( "public_key", publicKey );
@@ -89,7 +89,7 @@ public class TokensController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 4637744576898021121L;
+                    private static final long serialVersionUID = 4605394764995175772L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -194,7 +194,7 @@ public class TokensController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5439581016306805010L;
+                    private static final long serialVersionUID = -3673784709849354486L;
                     {
                         put( "public_key", publicKey );
                     }});
@@ -203,7 +203,7 @@ public class TokensController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 4706138788612675385L;
+                    private static final long serialVersionUID = -1725199462L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );

@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class UpdateSubscriptionDueDaysRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5163744758407105329L;
+    private static final long serialVersionUID = 42421457200859553L;
     private int boletoDueDays;
     /** GETTER
      * TODO: Write general description for this method

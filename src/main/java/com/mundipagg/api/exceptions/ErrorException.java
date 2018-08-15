@@ -13,7 +13,7 @@ import com.mundipagg.api.http.client.HttpContext;
 public class ErrorException 
         extends APIException
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5364085832093649420L;
+    private static final long serialVersionUID = 7330768666678869749L;
     private String message;
     private Object errors;
     private Object request;

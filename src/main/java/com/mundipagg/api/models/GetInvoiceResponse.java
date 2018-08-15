@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class GetInvoiceResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4643195082612711306L;
+    private static final long serialVersionUID = 6586682694961640453L;
     private String id;
     private String code;
     private String url;
