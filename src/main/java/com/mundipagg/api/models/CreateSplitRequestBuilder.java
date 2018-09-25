@@ -41,6 +41,14 @@ public class CreateSplitRequestBuilder {
         createSplitRequest.setRecipientId(recipientId);
         return this;
     }
+
+    /**
+     * The split options request
+     */
+    public CreateSplitRequestBuilder options(CreateSplitOptionsRequest options) {
+        createSplitRequest.setOptions(options);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class GetCardResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = -4297094383865974792L;
+    private static final long serialVersionUID = -4366858445688030472L;
     private String id;
     private String lastFourDigits;
     private String brand;
@@ -30,8 +30,8 @@ public class GetCardResponse
     private LinkedHashMap<String, String> metadata;
     private String type;
     private String holderDocument;
-    private String firstSixDigits;
     private DateTime deletedAt;
+    private String firstSixDigits;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -261,22 +261,6 @@ public class GetCardResponse
     }
  
     /** GETTER
-     * First six digits
-     */
-    @JsonGetter("first_six_digits")
-    public String getFirstSixDigits ( ) { 
-        return this.firstSixDigits;
-    }
-    
-    /** SETTER
-     * First six digits
-     */
-    @JsonSetter("first_six_digits")
-    public void setFirstSixDigits (String value) { 
-        this.firstSixDigits = value;
-    }
- 
-    /** GETTER
      * TODO: Write general description for this method
      */
     @JsonGetter("deleted_at")
@@ -292,6 +276,22 @@ public class GetCardResponse
     @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
     public void setDeletedAt (DateTime value) { 
         this.deletedAt = value;
+    }
+ 
+    /** GETTER
+     * First six digits
+     */
+    @JsonGetter("first_six_digits")
+    public String getFirstSixDigits ( ) { 
+        return this.firstSixDigits;
+    }
+    
+    /** SETTER
+     * First six digits
+     */
+    @JsonSetter("first_six_digits")
+    public void setFirstSixDigits (String value) { 
+        this.firstSixDigits = value;
     }
  
 }

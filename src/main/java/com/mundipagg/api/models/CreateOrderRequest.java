@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateOrderRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = -2031089596808126987L;
+    private static final long serialVersionUID = -6368537495029180531L;
     private List<CreateOrderItemRequest> items;
     private CreateCustomerRequest customer;
     private List<CreatePaymentRequest> payments;
@@ -19,12 +19,12 @@ public class CreateOrderRequest
     private String customerId;
     private CreateShippingRequest shipping;
     private LinkedHashMap<String, String> metadata;
-    private boolean closed = true;
     private Boolean antifraudEnabled;
     private String ip;
     private String sessionId;
     private CreateLocationRequest location;
     private CreateDeviceRequest device;
+    private boolean closed = true;
     private String currency;
     /** GETTER
      * Items
@@ -139,22 +139,6 @@ public class CreateOrderRequest
     }
  
     /** GETTER
-     * TODO: Write general description for this method
-     */
-    @JsonGetter("closed")
-    public boolean getClosed ( ) { 
-        return this.closed;
-    }
-    
-    /** SETTER
-     * TODO: Write general description for this method
-     */
-    @JsonSetter("closed")
-    public void setClosed (boolean value) { 
-        this.closed = value;
-    }
- 
-    /** GETTER
      * Defines whether the order will go through anti-fraud
      */
     @JsonGetter("antifraud_enabled")
@@ -232,6 +216,22 @@ public class CreateOrderRequest
     @JsonSetter("device")
     public void setDevice (CreateDeviceRequest value) { 
         this.device = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("closed")
+    public boolean getClosed ( ) { 
+        return this.closed;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("closed")
+    public void setClosed (boolean value) { 
+        this.closed = value;
     }
  
     /** GETTER

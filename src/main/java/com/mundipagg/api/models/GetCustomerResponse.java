@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class GetCustomerResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = -1250232146121389826L;
+    private static final long serialVersionUID = -1364264056880545034L;
     private String id;
     private String name;
     private String email;
@@ -28,8 +28,8 @@ public class GetCustomerResponse
     private GetAddressResponse address;
     private LinkedHashMap<String, String> metadata;
     private GetPhonesResponse phones;
-    private String code;
     private Long fbId;
+    private String code;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -227,22 +227,6 @@ public class GetCustomerResponse
     }
  
     /** GETTER
-     * Código de referência do cliente no sistema da loja. Max: 52 caracteres
-     */
-    @JsonGetter("code")
-    public String getCode ( ) { 
-        return this.code;
-    }
-    
-    /** SETTER
-     * Código de referência do cliente no sistema da loja. Max: 52 caracteres
-     */
-    @JsonSetter("code")
-    public void setCode (String value) { 
-        this.code = value;
-    }
- 
-    /** GETTER
      * TODO: Write general description for this method
      */
     @JsonGetter("fb_id")
@@ -256,6 +240,22 @@ public class GetCustomerResponse
     @JsonSetter("fb_id")
     public void setFbId (Long value) { 
         this.fbId = value;
+    }
+ 
+    /** GETTER
+     * Código de referência do cliente no sistema da loja. Max: 52 caracteres
+     */
+    @JsonGetter("code")
+    public String getCode ( ) { 
+        return this.code;
+    }
+    
+    /** SETTER
+     * Código de referência do cliente no sistema da loja. Max: 52 caracteres
+     */
+    @JsonSetter("code")
+    public void setCode (String value) { 
+        this.code = value;
     }
  
 }

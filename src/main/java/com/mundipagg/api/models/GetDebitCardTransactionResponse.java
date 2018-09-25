@@ -23,7 +23,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonInclude(Include.ALWAYS)
 public class GetDebitCardTransactionResponse 
         extends GetTransactionResponse {
-    private static final long serialVersionUID = 1034962068309802141L;
+    private static final long serialVersionUID = -1034962798911351299L;
     private String statementDescriptor;
     private String acquirerName;
     private String acquirerAffiliationCode;
@@ -37,7 +37,7 @@ public class GetDebitCardTransactionResponse
     private String mpi;
     private String eci;
     private String authenticationType;
-    private String authenticationUrl;
+    private String threedAuthenticationUrl;
     /** GETTER
      * Text that will appear on the debit card's statement
      */
@@ -247,19 +247,19 @@ public class GetDebitCardTransactionResponse
     }
  
     /** GETTER
-     * Authentication Url
+     * 3D-S Authentication Url
      */
-    @JsonGetter("authentication_url")
-    public String getAuthenticationUrl ( ) { 
-        return this.authenticationUrl;
+    @JsonGetter("threed_authentication_url")
+    public String getThreedAuthenticationUrl ( ) { 
+        return this.threedAuthenticationUrl;
     }
     
     /** SETTER
-     * Authentication Url
+     * 3D-S Authentication Url
      */
-    @JsonSetter("authentication_url")
-    public void setAuthenticationUrl (String value) { 
-        this.authenticationUrl = value;
+    @JsonSetter("threed_authentication_url")
+    public void setThreedAuthenticationUrl (String value) { 
+        this.threedAuthenticationUrl = value;
     }
  
 }

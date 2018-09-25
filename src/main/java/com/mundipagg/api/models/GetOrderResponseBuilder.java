@@ -80,14 +80,6 @@ public class GetOrderResponseBuilder {
     }
 
     /**
-     * Indicates whether the order is closed
-     */
-    public GetOrderResponseBuilder closed(boolean closed) {
-        getOrderResponse.setClosed(closed);
-        return this;
-    }
-
-    /**
      * Checkout Payment Settings Response
      */
     public GetOrderResponseBuilder checkouts(List<GetCheckoutPaymentResponse> checkouts) {
@@ -124,6 +116,14 @@ public class GetOrderResponseBuilder {
      */
     public GetOrderResponseBuilder device(GetDeviceResponse device) {
         getOrderResponse.setDevice(device);
+        return this;
+    }
+
+    /**
+     * Indicates whether the order is closed
+     */
+    public GetOrderResponseBuilder closed(boolean closed) {
+        getOrderResponse.setClosed(closed);
         return this;
     }
     /**

@@ -13,9 +13,9 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.mundipagg.api.DateTimeHelper;
 import org.joda.time.DateTime;
 
-public class UpdateSubscriptionStartDateRequest 
+public class UpdateSubscriptionStartAtRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 24142546126965319L;
+    private static final long serialVersionUID = 77039637047135870L;
     private DateTime startAt;
     /** GETTER
      * The date when the subscription periods will start

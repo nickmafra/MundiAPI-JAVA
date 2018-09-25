@@ -9,9 +9,9 @@ import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
-public class Create3DSAuthentiticationRequest 
+public class CreateThreeDSecureRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = -737634841699352678L;
+    private static final long serialVersionUID = -7964994204079932397L;
     private String mpi;
     private String cavv;
     private String eci;

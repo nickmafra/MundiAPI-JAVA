@@ -124,10 +124,10 @@ public class GetDebitCardTransactionResponseBuilder
     }
 
     /**
-     * Authentication Url
+     * 3D-S Authentication Url
      */
-    public GetDebitCardTransactionResponseBuilder authenticationUrl(String authenticationUrl) {
-        getDebitCardTransactionResponse.setAuthenticationUrl(authenticationUrl);
+    public GetDebitCardTransactionResponseBuilder threedAuthenticationUrl(String threedAuthenticationUrl) {
+        getDebitCardTransactionResponse.setThreedAuthenticationUrl(threedAuthenticationUrl);
         return this;
     }
     /**

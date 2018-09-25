@@ -55,6 +55,11 @@ public class GetBoletoTransactionResponseBuilder
         return this;
     }
 
+    public GetBoletoTransactionResponseBuilder dueAt(DateTime dueAt) {
+        getBoletoTransactionResponse.setDueAt(dueAt);
+        return this;
+    }
+
     public GetBoletoTransactionResponseBuilder qrCode(String qrCode) {
         getBoletoTransactionResponse.setQrCode(qrCode);
         return this;
@@ -75,6 +80,11 @@ public class GetBoletoTransactionResponseBuilder
         return this;
     }
 
+    public GetBoletoTransactionResponseBuilder paidAt(DateTime paidAt) {
+        getBoletoTransactionResponse.setPaidAt(paidAt);
+        return this;
+    }
+
     public GetBoletoTransactionResponseBuilder paidAmount(String paidAmount) {
         getBoletoTransactionResponse.setPaidAmount(paidAmount);
         return this;
@@ -82,16 +92,6 @@ public class GetBoletoTransactionResponseBuilder
 
     public GetBoletoTransactionResponseBuilder type(String type) {
         getBoletoTransactionResponse.setType(type);
-        return this;
-    }
-
-    public GetBoletoTransactionResponseBuilder dueAt(DateTime dueAt) {
-        getBoletoTransactionResponse.setDueAt(dueAt);
-        return this;
-    }
-
-    public GetBoletoTransactionResponseBuilder paidAt(DateTime paidAt) {
-        getBoletoTransactionResponse.setPaidAt(paidAt);
         return this;
     }
     /**

@@ -106,6 +106,14 @@ public class GetCreditCardTransactionResponseBuilder
         getCreditCardTransactionResponse.setInstallments(installments);
         return this;
     }
+
+    /**
+     * 3D-S authentication Url
+     */
+    public GetCreditCardTransactionResponseBuilder threedAuthenticationUrl(String threedAuthenticationUrl) {
+        getCreditCardTransactionResponse.setThreedAuthenticationUrl(threedAuthenticationUrl);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

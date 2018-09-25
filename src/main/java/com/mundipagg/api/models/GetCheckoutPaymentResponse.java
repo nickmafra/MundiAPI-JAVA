@@ -15,8 +15,9 @@ import org.joda.time.DateTime;
 
 public class GetCheckoutPaymentResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = -8782021934552018787L;
+    private static final long serialVersionUID = 6707858489289119342L;
     private String id;
+    private Integer amount;
     private String defaultPaymentMethod;
     private String successUrl;
     private String paymentUrl;
@@ -26,19 +27,19 @@ public class GetCheckoutPaymentResponse
     private boolean skipCheckoutSuccessPage;
     private DateTime createdAt;
     private DateTime updatedAt;
+    private DateTime canceledAt;
     private boolean customerEditable;
     private GetCustomerResponse customer;
     private GetAddressResponse billingaddress;
-    private GetCheckoutCardPaymentResponse creditCard;
+    private GetCheckoutCreditCardPaymentResponse creditCard;
     private GetCheckoutBoletoPaymentResponse boleto;
     private boolean billingAddressEditable;
     private GetShippingResponse shipping;
     private boolean shippable;
-    private String currency;
-    private Integer amount;
-    private DateTime canceledAt;
     private DateTime closedAt;
     private DateTime expiresAt;
+    private String currency;
+    private GetCheckoutDebitCardPaymentResponse debitCard;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -53,6 +54,22 @@ public class GetCheckoutPaymentResponse
     @JsonSetter("id")
     public void setId (String value) { 
         this.id = value;
+    }
+ 
+    /** GETTER
+     * Valor em centavos
+     */
+    @JsonGetter("amount")
+    public Integer getAmount ( ) { 
+        return this.amount;
+    }
+    
+    /** SETTER
+     * Valor em centavos
+     */
+    @JsonSetter("amount")
+    public void setAmount (Integer value) { 
+        this.amount = value;
     }
  
     /** GETTER
@@ -204,6 +221,24 @@ public class GetCheckoutPaymentResponse
     }
  
     /** GETTER
+     * Data de cancelamento
+     */
+    @JsonGetter("canceled_at")
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getCanceledAt ( ) { 
+        return this.canceledAt;
+    }
+    
+    /** SETTER
+     * Data de cancelamento
+     */
+    @JsonSetter("canceled_at")
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setCanceledAt (DateTime value) { 
+        this.canceledAt = value;
+    }
+ 
+    /** GETTER
      * Torna o objeto customer editável
      */
     @JsonGetter("customer_editable")
@@ -255,7 +290,7 @@ public class GetCheckoutPaymentResponse
      * Configurações de cartão de crédito
      */
     @JsonGetter("credit_Card")
-    public GetCheckoutCardPaymentResponse getCreditCard ( ) { 
+    public GetCheckoutCreditCardPaymentResponse getCreditCard ( ) { 
         return this.creditCard;
     }
     
@@ -263,7 +298,7 @@ public class GetCheckoutPaymentResponse
      * Configurações de cartão de crédito
      */
     @JsonSetter("credit_Card")
-    public void setCreditCard (GetCheckoutCardPaymentResponse value) { 
+    public void setCreditCard (GetCheckoutCreditCardPaymentResponse value) { 
         this.creditCard = value;
     }
  
@@ -332,56 +367,6 @@ public class GetCheckoutPaymentResponse
     }
  
     /** GETTER
-     * Moeda
-     */
-    @JsonGetter("currency")
-    public String getCurrency ( ) { 
-        return this.currency;
-    }
-    
-    /** SETTER
-     * Moeda
-     */
-    @JsonSetter("currency")
-    public void setCurrency (String value) { 
-        this.currency = value;
-    }
- 
-    /** GETTER
-     * Valor em centavos
-     */
-    @JsonGetter("amount")
-    public Integer getAmount ( ) { 
-        return this.amount;
-    }
-    
-    /** SETTER
-     * Valor em centavos
-     */
-    @JsonSetter("amount")
-    public void setAmount (Integer value) { 
-        this.amount = value;
-    }
- 
-    /** GETTER
-     * Data de cancelamento
-     */
-    @JsonGetter("canceled_at")
-    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
-    public DateTime getCanceledAt ( ) { 
-        return this.canceledAt;
-    }
-    
-    /** SETTER
-     * Data de cancelamento
-     */
-    @JsonSetter("canceled_at")
-    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
-    public void setCanceledAt (DateTime value) { 
-        this.canceledAt = value;
-    }
- 
-    /** GETTER
      * Data de fechamento
      */
     @JsonGetter("closed_at")
@@ -415,6 +400,38 @@ public class GetCheckoutPaymentResponse
     @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
     public void setExpiresAt (DateTime value) { 
         this.expiresAt = value;
+    }
+ 
+    /** GETTER
+     * Moeda
+     */
+    @JsonGetter("currency")
+    public String getCurrency ( ) { 
+        return this.currency;
+    }
+    
+    /** SETTER
+     * Moeda
+     */
+    @JsonSetter("currency")
+    public void setCurrency (String value) { 
+        this.currency = value;
+    }
+ 
+    /** GETTER
+     * Configurações de cartão de débito
+     */
+    @JsonGetter("debit_card")
+    public GetCheckoutDebitCardPaymentResponse getDebitCard ( ) { 
+        return this.debitCard;
+    }
+    
+    /** SETTER
+     * Configurações de cartão de débito
+     */
+    @JsonSetter("debit_card")
+    public void setDebitCard (GetCheckoutDebitCardPaymentResponse value) { 
+        this.debitCard = value;
     }
  
 }

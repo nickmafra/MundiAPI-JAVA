@@ -27,14 +27,6 @@ public class CreateSellerRequestBuilder {
     }
 
     /**
-     * Metadata
-     */
-    public CreateSellerRequestBuilder metadata(LinkedHashMap<String, String> metadata) {
-        createSellerRequest.setMetadata(metadata);
-        return this;
-    }
-
-    /**
      * Seller's code identification
      */
     public CreateSellerRequestBuilder code(String code) {
@@ -71,6 +63,14 @@ public class CreateSellerRequestBuilder {
      */
     public CreateSellerRequestBuilder type(String type) {
         createSellerRequest.setType(type);
+        return this;
+    }
+
+    /**
+     * Metadata
+     */
+    public CreateSellerRequestBuilder metadata(LinkedHashMap<String, String> metadata) {
+        createSellerRequest.setMetadata(metadata);
         return this;
     }
     /**

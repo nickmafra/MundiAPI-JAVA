@@ -89,9 +89,9 @@ public class ChargesController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -1725199462L;
+                    private static final long serialVersionUID = -5700415734932805526L;
                     {
-                        put( "user-agent", "MundiSDK" );
+                        put( "user-agent", "MundiSDK - Java 0.13.34" );
                         put( "accept", "application/json" );
                         put( "content-type", "application/json" );
                     }
@@ -211,9 +211,9 @@ public class ChargesController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -1725199462L;
+                    private static final long serialVersionUID = -5700415734932805526L;
                     {
-                        put( "user-agent", "MundiSDK" );
+                        put( "user-agent", "MundiSDK - Java 0.13.34" );
                         put( "accept", "application/json" );
                         put( "content-type", "application/json" );
                     }
@@ -322,9 +322,9 @@ public class ChargesController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -1725199462L;
+                    private static final long serialVersionUID = -5700415734932805526L;
                     {
-                        put( "user-agent", "MundiSDK" );
+                        put( "user-agent", "MundiSDK - Java 0.13.34" );
                         put( "accept", "application/json" );
                         put( "content-type", "application/json" );
                     }
@@ -440,9 +440,9 @@ public class ChargesController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 4605394764995175772L;
+                    private static final long serialVersionUID = -5468909177402183950L;
                     {
-                        put( "user-agent", "MundiSDK" );
+                        put( "user-agent", "MundiSDK - Java 0.13.34" );
                         put( "accept", "application/json" );
                     }
                 };
@@ -551,9 +551,9 @@ public class ChargesController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 4605394764995175772L;
+                    private static final long serialVersionUID = -5468909177402183950L;
                     {
-                        put( "user-agent", "MundiSDK" );
+                        put( "user-agent", "MundiSDK - Java 0.13.34" );
                         put( "accept", "application/json" );
                     }
                 };
@@ -702,9 +702,9 @@ public class ChargesController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 4605394764995175772L;
+                    private static final long serialVersionUID = -5468909177402183950L;
                     {
-                        put( "user-agent", "MundiSDK" );
+                        put( "user-agent", "MundiSDK - Java 0.13.34" );
                         put( "accept", "application/json" );
                     }
                 };
@@ -817,9 +817,9 @@ public class ChargesController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -1725199462L;
+                    private static final long serialVersionUID = -5700415734932805526L;
                     {
-                        put( "user-agent", "MundiSDK" );
+                        put( "user-agent", "MundiSDK - Java 0.13.34" );
                         put( "accept", "application/json" );
                         put( "content-type", "application/json" );
                     }
@@ -939,9 +939,9 @@ public class ChargesController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -1725199462L;
+                    private static final long serialVersionUID = -5700415734932805526L;
                     {
-                        put( "user-agent", "MundiSDK" );
+                        put( "user-agent", "MundiSDK - Java 0.13.34" );
                         put( "accept", "application/json" );
                         put( "content-type", "application/json" );
                     }
@@ -1061,9 +1061,9 @@ public class ChargesController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -1725199462L;
+                    private static final long serialVersionUID = -5700415734932805526L;
                     {
-                        put( "user-agent", "MundiSDK" );
+                        put( "user-agent", "MundiSDK - Java 0.13.34" );
                         put( "accept", "application/json" );
                         put( "content-type", "application/json" );
                     }
@@ -1183,9 +1183,9 @@ public class ChargesController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -1725199462L;
+                    private static final long serialVersionUID = -5700415734932805526L;
                     {
-                        put( "user-agent", "MundiSDK" );
+                        put( "user-agent", "MundiSDK - Java 0.13.34" );
                         put( "accept", "application/json" );
                         put( "content-type", "application/json" );
                     }
@@ -1305,9 +1305,9 @@ public class ChargesController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -1725199462L;
+                    private static final long serialVersionUID = -5700415734932805526L;
                     {
-                        put( "user-agent", "MundiSDK" );
+                        put( "user-agent", "MundiSDK - Java 0.13.34" );
                         put( "accept", "application/json" );
                         put( "content-type", "application/json" );
                     }

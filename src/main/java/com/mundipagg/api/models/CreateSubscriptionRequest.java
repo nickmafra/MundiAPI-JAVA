@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class CreateSubscriptionRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = -6648978970350172891L;
+    private static final long serialVersionUID = 3588410155932715053L;
     private CreateCustomerRequest customer;
     private CreateCardRequest card;
     private String code;
@@ -32,7 +32,6 @@ public class CreateSubscriptionRequest
     private List<CreateDiscountRequest> discounts;
     private LinkedHashMap<String, String> metadata;
     private CreateSetupRequest setup;
-    private List<CreateIncrementRequest> increments;
     private String planId;
     private String customerId;
     private String cardId;
@@ -45,6 +44,7 @@ public class CreateSubscriptionRequest
     private String gatewayAffiliationId;
     private Integer quantity;
     private Integer boletoDueDays;
+    private List<CreateIncrementRequest> increments;
     /** GETTER
      * Customer
      */
@@ -302,22 +302,6 @@ public class CreateSubscriptionRequest
     }
  
     /** GETTER
-     * Increments
-     */
-    @JsonGetter("increments")
-    public List<CreateIncrementRequest> getIncrements ( ) { 
-        return this.increments;
-    }
-    
-    /** SETTER
-     * Increments
-     */
-    @JsonSetter("increments")
-    public void setIncrements (List<CreateIncrementRequest> value) { 
-        this.increments = value;
-    }
- 
-    /** GETTER
      * Plan id
      */
     @JsonGetter("plan_id")
@@ -509,6 +493,22 @@ public class CreateSubscriptionRequest
     @JsonSetter("boleto_due_days")
     public void setBoletoDueDays (Integer value) { 
         this.boletoDueDays = value;
+    }
+ 
+    /** GETTER
+     * Increments
+     */
+    @JsonGetter("increments")
+    public List<CreateIncrementRequest> getIncrements ( ) { 
+        return this.increments;
+    }
+    
+    /** SETTER
+     * Increments
+     */
+    @JsonSetter("increments")
+    public void setIncrements (List<CreateIncrementRequest> value) { 
+        this.increments = value;
     }
  
 }

@@ -51,7 +51,7 @@ public class OkClient implements HttpClient {
     */
     public void setTimeout(long timeout) {
         client = client.newBuilder().connectTimeout(timeout, TimeUnit.MILLISECONDS)
-                .writeTimeout(timeout, TimeUnit.MILLISECONDS).readTimeout(timeout, TimeUnit.MILLISECONDS).build();
+            .writeTimeout(timeout, TimeUnit.MILLISECONDS).readTimeout(timeout, TimeUnit.MILLISECONDS).build();
     }
 
     /**

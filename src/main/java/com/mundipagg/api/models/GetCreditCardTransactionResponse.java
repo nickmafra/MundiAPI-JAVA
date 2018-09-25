@@ -23,7 +23,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonInclude(Include.ALWAYS)
 public class GetCreditCardTransactionResponse 
         extends GetTransactionResponse {
-    private static final long serialVersionUID = 6040222112515005441L;
+    private static final long serialVersionUID = 6201224447086610883L;
     private String statementDescriptor;
     private String acquirerName;
     private String acquirerAffiliationCode;
@@ -35,6 +35,7 @@ public class GetCreditCardTransactionResponse
     private String acquirerMessage;
     private String acquirerReturnCode;
     private Integer installments;
+    private String threedAuthenticationUrl;
     /** GETTER
      * Text that will appear on the credit card's statement
      */
@@ -209,6 +210,22 @@ public class GetCreditCardTransactionResponse
     @JsonSetter("installments")
     public void setInstallments (Integer value) { 
         this.installments = value;
+    }
+ 
+    /** GETTER
+     * 3D-S authentication Url
+     */
+    @JsonGetter("threed_authentication_url")
+    public String getThreedAuthenticationUrl ( ) { 
+        return this.threedAuthenticationUrl;
+    }
+    
+    /** SETTER
+     * 3D-S authentication Url
+     */
+    @JsonSetter("threed_authentication_url")
+    public void setThreedAuthenticationUrl (String value) { 
+        this.threedAuthenticationUrl = value;
     }
  
 }

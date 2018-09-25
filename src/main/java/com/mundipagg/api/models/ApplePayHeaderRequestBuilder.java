@@ -19,18 +19,18 @@ public class ApplePayHeaderRequestBuilder {
     }
 
     /**
-     * X.509 encoded key bytes, Base64 encoded as a string
-     */
-    public ApplePayHeaderRequestBuilder ephemeralPublicKey(String ephemeralPublicKey) {
-        applePayHeaderRequest.setEphemeralPublicKey(ephemeralPublicKey);
-        return this;
-    }
-
-    /**
      * SHA–256 hash, Base64 string codified
      */
     public ApplePayHeaderRequestBuilder publicKeyHash(String publicKeyHash) {
         applePayHeaderRequest.setPublicKeyHash(publicKeyHash);
+        return this;
+    }
+
+    /**
+     * X.509 encoded key bytes, Base64 encoded as a string
+     */
+    public ApplePayHeaderRequestBuilder ephemeralPublicKey(String ephemeralPublicKey) {
+        applePayHeaderRequest.setEphemeralPublicKey(ephemeralPublicKey);
         return this;
     }
 

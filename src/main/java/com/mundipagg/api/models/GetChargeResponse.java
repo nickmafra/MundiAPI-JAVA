@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class GetChargeResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = -4882639082224247088L;
+    private static final long serialVersionUID = -5040587428139365660L;
     private String id;
     private String code;
     private String gatewayId;
@@ -33,6 +33,7 @@ public class GetChargeResponse
     private LinkedHashMap<String, String> metadata;
     private DateTime paidAt;
     private DateTime canceledAt;
+    private int canceledAmount;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -313,6 +314,22 @@ public class GetChargeResponse
     @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
     public void setCanceledAt (DateTime value) { 
         this.canceledAt = value;
+    }
+ 
+    /** GETTER
+     * Canceled Amount
+     */
+    @JsonGetter("canceled_amount")
+    public int getCanceledAmount ( ) { 
+        return this.canceledAmount;
+    }
+    
+    /** SETTER
+     * Canceled Amount
+     */
+    @JsonSetter("canceled_amount")
+    public void setCanceledAmount (int value) { 
+        this.canceledAmount = value;
     }
  
 }

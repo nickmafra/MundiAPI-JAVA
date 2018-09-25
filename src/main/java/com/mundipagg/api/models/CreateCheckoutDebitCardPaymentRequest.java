@@ -9,11 +9,11 @@ import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
-public class CreateCheckoutCardPaymentRequest 
+public class CreateCheckoutDebitCardPaymentRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = -296127491453718789L;
+    private static final long serialVersionUID = 6023346449062375754L;
     private String statementDescriptor;
-    private List<CreateCheckoutCardInstallmentOptionRequest> installments;
+    private CreatePaymentAuthenticationRequest authentication;
     /** GETTER
      * Card invoice text descriptor
      */
@@ -31,19 +31,19 @@ public class CreateCheckoutCardPaymentRequest
     }
  
     /** GETTER
-     * Payment installment options
+     * Creates payment authentication
      */
-    @JsonGetter("installments")
-    public List<CreateCheckoutCardInstallmentOptionRequest> getInstallments ( ) { 
-        return this.installments;
+    @JsonGetter("authentication")
+    public CreatePaymentAuthenticationRequest getAuthentication ( ) { 
+        return this.authentication;
     }
     
     /** SETTER
-     * Payment installment options
+     * Creates payment authentication
      */
-    @JsonSetter("installments")
-    public void setInstallments (List<CreateCheckoutCardInstallmentOptionRequest> value) { 
-        this.installments = value;
+    @JsonSetter("authentication")
+    public void setAuthentication (CreatePaymentAuthenticationRequest value) { 
+        this.authentication = value;
     }
  
 }

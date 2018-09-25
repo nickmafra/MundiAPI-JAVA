@@ -92,6 +92,19 @@ public class GetTransactionResponseBuilder {
     }
 
     /**
+     * Date and time of the next attempt
+     */
+    public GetTransactionResponseBuilder nextAttempt(DateTime nextAttempt) {
+        getTransactionResponse.setNextAttempt(nextAttempt);
+        return this;
+    }
+
+    public GetTransactionResponseBuilder transactionType(String transactionType) {
+        getTransactionResponse.setTransactionType(transactionType);
+        return this;
+    }
+
+    /**
      * Código da transação
      */
     public GetTransactionResponseBuilder id(String id) {
@@ -104,19 +117,6 @@ public class GetTransactionResponseBuilder {
      */
     public GetTransactionResponseBuilder gatewayResponse(GetGatewayResponseResponse gatewayResponse) {
         getTransactionResponse.setGatewayResponse(gatewayResponse);
-        return this;
-    }
-
-    /**
-     * Date and time of the next attempt
-     */
-    public GetTransactionResponseBuilder nextAttempt(DateTime nextAttempt) {
-        getTransactionResponse.setNextAttempt(nextAttempt);
-        return this;
-    }
-
-    public GetTransactionResponseBuilder transactionType(String transactionType) {
-        getTransactionResponse.setTransactionType(transactionType);
         return this;
     }
     /**

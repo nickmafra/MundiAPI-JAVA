@@ -11,13 +11,13 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateDebitCardPaymentRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 495556606682451561L;
+    private static final long serialVersionUID = 495268052414225029L;
     private String statementDescriptor;
     private CreateCardRequest card;
     private String cardId;
     private String cardToken;
     private Boolean recurrence;
-    private CreatePaymentAuthentiticationRequest authentication;
+    private CreatePaymentAuthenticationRequest authentication;
     private CreateCardPaymentTokenRequest token;
     /** GETTER
      * The text that will be shown on the debit card's statement
@@ -103,7 +103,7 @@ public class CreateDebitCardPaymentRequest
      * The payment authentication request
      */
     @JsonGetter("authentication")
-    public CreatePaymentAuthentiticationRequest getAuthentication ( ) { 
+    public CreatePaymentAuthenticationRequest getAuthentication ( ) { 
         return this.authentication;
     }
     
@@ -111,7 +111,7 @@ public class CreateDebitCardPaymentRequest
      * The payment authentication request
      */
     @JsonSetter("authentication")
-    public void setAuthentication (CreatePaymentAuthentiticationRequest value) { 
+    public void setAuthentication (CreatePaymentAuthenticationRequest value) { 
         this.authentication = value;
     }
  

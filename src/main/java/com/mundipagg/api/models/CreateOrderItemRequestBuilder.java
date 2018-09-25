@@ -43,14 +43,6 @@ public class CreateOrderItemRequestBuilder {
     }
 
     /**
-     * Category
-     */
-    public CreateOrderItemRequestBuilder category(String category) {
-        createOrderItemRequest.setCategory(category);
-        return this;
-    }
-
-    /**
      * Item seller
      */
     public CreateOrderItemRequestBuilder seller(CreateSellerRequest seller) {
@@ -63,6 +55,14 @@ public class CreateOrderItemRequestBuilder {
      */
     public CreateOrderItemRequestBuilder sellerId(String sellerId) {
         createOrderItemRequest.setSellerId(sellerId);
+        return this;
+    }
+
+    /**
+     * Category
+     */
+    public CreateOrderItemRequestBuilder category(String category) {
+        createOrderItemRequest.setCategory(category);
         return this;
     }
 

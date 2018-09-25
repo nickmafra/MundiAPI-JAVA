@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class GetOrderResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4996105426188350991L;
+    private static final long serialVersionUID = 6882688645881334535L;
     private String id;
     private String code;
     private String currency;
@@ -28,12 +28,12 @@ public class GetOrderResponse
     private String invoiceUrl;
     private GetShippingResponse shipping;
     private LinkedHashMap<String, String> metadata;
-    private boolean closed;
     private List<GetCheckoutPaymentResponse> checkouts;
     private String ip;
     private String sessionId;
     private GetLocationResponse location;
     private GetDeviceResponse device;
+    private boolean closed;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -231,22 +231,6 @@ public class GetOrderResponse
     }
  
     /** GETTER
-     * Indicates whether the order is closed
-     */
-    @JsonGetter("closed")
-    public boolean getClosed ( ) { 
-        return this.closed;
-    }
-    
-    /** SETTER
-     * Indicates whether the order is closed
-     */
-    @JsonSetter("closed")
-    public void setClosed (boolean value) { 
-        this.closed = value;
-    }
- 
-    /** GETTER
      * Checkout Payment Settings Response
      */
     @JsonGetter("checkouts")
@@ -324,6 +308,22 @@ public class GetOrderResponse
     @JsonSetter("device")
     public void setDevice (GetDeviceResponse value) { 
         this.device = value;
+    }
+ 
+    /** GETTER
+     * Indicates whether the order is closed
+     */
+    @JsonGetter("closed")
+    public boolean getClosed ( ) { 
+        return this.closed;
+    }
+    
+    /** SETTER
+     * Indicates whether the order is closed
+     */
+    @JsonSetter("closed")
+    public void setClosed (boolean value) { 
+        this.closed = value;
     }
  
 }

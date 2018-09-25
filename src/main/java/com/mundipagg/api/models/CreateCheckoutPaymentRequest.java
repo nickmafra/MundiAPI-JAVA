@@ -11,19 +11,20 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateCheckoutPaymentRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 7179800025818605254L;
+    private static final long serialVersionUID = 6451207899353542562L;
     private List<String> acceptedPaymentMethods;
     private List<Object> acceptedMultiPaymentMethods;
     private String successUrl;
-    private boolean skipCheckoutSuccessPage;
-    private boolean billingAddressEditable;
-    private CreateAddressRequest billingAddress;
     private String defaultPaymentMethod;
     private String gatewayAffiliationId;
-    private CreateCheckoutCardPaymentRequest creditCard;
+    private CreateCheckoutCreditCardPaymentRequest creditCard;
+    private CreateCheckoutDebitCardPaymentRequest debitCard;
     private CreateCheckoutBoletoPaymentRequest boleto;
     private Boolean customerEditable;
     private Integer expiresIn;
+    private boolean skipCheckoutSuccessPage;
+    private boolean billingAddressEditable;
+    private CreateAddressRequest billingAddress;
     /** GETTER
      * Accepted Payment Methods
      */
@@ -73,54 +74,6 @@ public class CreateCheckoutPaymentRequest
     }
  
     /** GETTER
-     * Pular tela de sucesso pós-pagamento?
-     */
-    @JsonGetter("skip_checkout_success_page")
-    public boolean getSkipCheckoutSuccessPage ( ) { 
-        return this.skipCheckoutSuccessPage;
-    }
-    
-    /** SETTER
-     * Pular tela de sucesso pós-pagamento?
-     */
-    @JsonSetter("skip_checkout_success_page")
-    public void setSkipCheckoutSuccessPage (boolean value) { 
-        this.skipCheckoutSuccessPage = value;
-    }
- 
-    /** GETTER
-     * Torna o objeto billing address editável
-     */
-    @JsonGetter("billing_address_editable")
-    public boolean getBillingAddressEditable ( ) { 
-        return this.billingAddressEditable;
-    }
-    
-    /** SETTER
-     * Torna o objeto billing address editável
-     */
-    @JsonSetter("billing_address_editable")
-    public void setBillingAddressEditable (boolean value) { 
-        this.billingAddressEditable = value;
-    }
- 
-    /** GETTER
-     * Endereço de cobrança
-     */
-    @JsonGetter("billing_address")
-    public CreateAddressRequest getBillingAddress ( ) { 
-        return this.billingAddress;
-    }
-    
-    /** SETTER
-     * Endereço de cobrança
-     */
-    @JsonSetter("billing_address")
-    public void setBillingAddress (CreateAddressRequest value) { 
-        this.billingAddress = value;
-    }
- 
-    /** GETTER
      * Default payment method
      */
     @JsonGetter("default_payment_method")
@@ -153,19 +106,35 @@ public class CreateCheckoutPaymentRequest
     }
  
     /** GETTER
-     * Card payment request
+     * Credit Card payment request
      */
     @JsonGetter("credit_card")
-    public CreateCheckoutCardPaymentRequest getCreditCard ( ) { 
+    public CreateCheckoutCreditCardPaymentRequest getCreditCard ( ) { 
         return this.creditCard;
     }
     
     /** SETTER
-     * Card payment request
+     * Credit Card payment request
      */
     @JsonSetter("credit_card")
-    public void setCreditCard (CreateCheckoutCardPaymentRequest value) { 
+    public void setCreditCard (CreateCheckoutCreditCardPaymentRequest value) { 
         this.creditCard = value;
+    }
+ 
+    /** GETTER
+     * Debit Card payment request
+     */
+    @JsonGetter("debit_card")
+    public CreateCheckoutDebitCardPaymentRequest getDebitCard ( ) { 
+        return this.debitCard;
+    }
+    
+    /** SETTER
+     * Debit Card payment request
+     */
+    @JsonSetter("debit_card")
+    public void setDebitCard (CreateCheckoutDebitCardPaymentRequest value) { 
+        this.debitCard = value;
     }
  
     /** GETTER
@@ -214,6 +183,54 @@ public class CreateCheckoutPaymentRequest
     @JsonSetter("expires_in")
     public void setExpiresIn (Integer value) { 
         this.expiresIn = value;
+    }
+ 
+    /** GETTER
+     * Pular tela de sucesso pós-pagamento?
+     */
+    @JsonGetter("skip_checkout_success_page")
+    public boolean getSkipCheckoutSuccessPage ( ) { 
+        return this.skipCheckoutSuccessPage;
+    }
+    
+    /** SETTER
+     * Pular tela de sucesso pós-pagamento?
+     */
+    @JsonSetter("skip_checkout_success_page")
+    public void setSkipCheckoutSuccessPage (boolean value) { 
+        this.skipCheckoutSuccessPage = value;
+    }
+ 
+    /** GETTER
+     * Torna o objeto billing address editável
+     */
+    @JsonGetter("billing_address_editable")
+    public boolean getBillingAddressEditable ( ) { 
+        return this.billingAddressEditable;
+    }
+    
+    /** SETTER
+     * Torna o objeto billing address editável
+     */
+    @JsonSetter("billing_address_editable")
+    public void setBillingAddressEditable (boolean value) { 
+        this.billingAddressEditable = value;
+    }
+ 
+    /** GETTER
+     * Endereço de cobrança
+     */
+    @JsonGetter("billing_address")
+    public CreateAddressRequest getBillingAddress ( ) { 
+        return this.billingAddress;
+    }
+    
+    /** SETTER
+     * Endereço de cobrança
+     */
+    @JsonSetter("billing_address")
+    public void setBillingAddress (CreateAddressRequest value) { 
+        this.billingAddress = value;
     }
  
 }

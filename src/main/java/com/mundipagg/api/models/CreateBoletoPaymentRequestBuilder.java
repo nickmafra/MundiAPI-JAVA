@@ -44,6 +44,14 @@ public class CreateBoletoPaymentRequestBuilder {
     }
 
     /**
+     * Boleto due date
+     */
+    public CreateBoletoPaymentRequestBuilder dueAt(DateTime dueAt) {
+        createBoletoPaymentRequest.setDueAt(dueAt);
+        return this;
+    }
+
+    /**
      * Card's billing address
      */
     public CreateBoletoPaymentRequestBuilder billingAddress(CreateAddressRequest billingAddress) {
@@ -60,26 +68,18 @@ public class CreateBoletoPaymentRequestBuilder {
     }
 
     /**
-     * Boleto identification
-     */
-    public CreateBoletoPaymentRequestBuilder documentNumber(String documentNumber) {
-        createBoletoPaymentRequest.setDocumentNumber(documentNumber);
-        return this;
-    }
-
-    /**
-     * Boleto due date
-     */
-    public CreateBoletoPaymentRequestBuilder dueAt(DateTime dueAt) {
-        createBoletoPaymentRequest.setDueAt(dueAt);
-        return this;
-    }
-
-    /**
      * Customer identification number with the bank
      */
     public CreateBoletoPaymentRequestBuilder nossoNumero(String nossoNumero) {
         createBoletoPaymentRequest.setNossoNumero(nossoNumero);
+        return this;
+    }
+
+    /**
+     * Boleto identification
+     */
+    public CreateBoletoPaymentRequestBuilder documentNumber(String documentNumber) {
+        createBoletoPaymentRequest.setDocumentNumber(documentNumber);
         return this;
     }
     /**

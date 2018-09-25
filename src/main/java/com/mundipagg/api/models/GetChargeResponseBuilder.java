@@ -103,6 +103,14 @@ public class GetChargeResponseBuilder {
         getChargeResponse.setCanceledAt(canceledAt);
         return this;
     }
+
+    /**
+     * Canceled Amount
+     */
+    public GetChargeResponseBuilder canceledAmount(int canceledAmount) {
+        getChargeResponse.setCanceledAmount(canceledAmount);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

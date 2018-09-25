@@ -11,13 +11,13 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateOrderItemRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5156091534128266486L;
+    private static final long serialVersionUID = -3964707437969955722L;
     private int amount;
     private String description;
     private int quantity;
-    private String category;
     private CreateSellerRequest seller;
     private String sellerId;
+    private String category;
     private String code;
     /** GETTER
      * Amount
@@ -68,22 +68,6 @@ public class CreateOrderItemRequest
     }
  
     /** GETTER
-     * Category
-     */
-    @JsonGetter("category")
-    public String getCategory ( ) { 
-        return this.category;
-    }
-    
-    /** SETTER
-     * Category
-     */
-    @JsonSetter("category")
-    public void setCategory (String value) { 
-        this.category = value;
-    }
- 
-    /** GETTER
      * Item seller
      */
     @JsonGetter("seller")
@@ -113,6 +97,22 @@ public class CreateOrderItemRequest
     @JsonSetter("seller_id")
     public void setSellerId (String value) { 
         this.sellerId = value;
+    }
+ 
+    /** GETTER
+     * Category
+     */
+    @JsonGetter("category")
+    public String getCategory ( ) { 
+        return this.category;
+    }
+    
+    /** SETTER
+     * Category
+     */
+    @JsonSetter("category")
+    public void setCategory (String value) { 
+        this.category = value;
     }
  
     /** GETTER

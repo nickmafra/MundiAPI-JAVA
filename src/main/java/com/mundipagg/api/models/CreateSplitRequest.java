@@ -11,10 +11,11 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateSplitRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = -1307041121135832316L;
+    private static final long serialVersionUID = -6652989674833980098L;
     private String type;
     private int amount;
     private String recipientId;
+    private CreateSplitOptionsRequest options;
     /** GETTER
      * Split type
      */
@@ -61,6 +62,22 @@ public class CreateSplitRequest
     @JsonSetter("recipient_id")
     public void setRecipientId (String value) { 
         this.recipientId = value;
+    }
+ 
+    /** GETTER
+     * The split options request
+     */
+    @JsonGetter("options")
+    public CreateSplitOptionsRequest getOptions ( ) { 
+        return this.options;
+    }
+    
+    /** SETTER
+     * The split options request
+     */
+    @JsonSetter("options")
+    public void setOptions (CreateSplitOptionsRequest value) { 
+        this.options = value;
     }
  
 }

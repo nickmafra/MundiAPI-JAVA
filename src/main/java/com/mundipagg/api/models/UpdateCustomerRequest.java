@@ -11,15 +11,15 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class UpdateCustomerRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = -8906620103669854427L;
+    private static final long serialVersionUID = -8962185943178330779L;
     private String name;
     private String email;
     private String document;
     private String type;
     private CreateAddressRequest address;
     private LinkedHashMap<String, String> metadata;
-    private String code;
     private CreatePhonesRequest phones;
+    private String code;
     /** GETTER
      * Name
      */
@@ -117,22 +117,6 @@ public class UpdateCustomerRequest
     }
  
     /** GETTER
-     * Código de referência do cliente no sistema da loja. Max: 52 caracteres
-     */
-    @JsonGetter("code")
-    public String getCode ( ) { 
-        return this.code;
-    }
-    
-    /** SETTER
-     * Código de referência do cliente no sistema da loja. Max: 52 caracteres
-     */
-    @JsonSetter("code")
-    public void setCode (String value) { 
-        this.code = value;
-    }
- 
-    /** GETTER
      * TODO: Write general description for this method
      */
     @JsonGetter("phones")
@@ -146,6 +130,22 @@ public class UpdateCustomerRequest
     @JsonSetter("phones")
     public void setPhones (CreatePhonesRequest value) { 
         this.phones = value;
+    }
+ 
+    /** GETTER
+     * Código de referência do cliente no sistema da loja. Max: 52 caracteres
+     */
+    @JsonGetter("code")
+    public String getCode ( ) { 
+        return this.code;
+    }
+    
+    /** SETTER
+     * Código de referência do cliente no sistema da loja. Max: 52 caracteres
+     */
+    @JsonSetter("code")
+    public void setCode (String value) { 
+        this.code = value;
     }
  
 }

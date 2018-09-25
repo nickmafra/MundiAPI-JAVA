@@ -11,14 +11,14 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetInvoiceItemResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = -3249474261224733106L;
+    private static final long serialVersionUID = 2099467477990528438L;
     private int amount;
     private String description;
     private GetPricingSchemeResponse pricingScheme;
     private GetPriceBracketResponse priceBracket;
-    private String subscriptionItemId;
     private Integer quantity;
     private String name;
+    private String subscriptionItemId;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -84,22 +84,6 @@ public class GetInvoiceItemResponse
     }
  
     /** GETTER
-     * Subscription Item Id
-     */
-    @JsonGetter("subscription_item_id")
-    public String getSubscriptionItemId ( ) { 
-        return this.subscriptionItemId;
-    }
-    
-    /** SETTER
-     * Subscription Item Id
-     */
-    @JsonSetter("subscription_item_id")
-    public void setSubscriptionItemId (String value) { 
-        this.subscriptionItemId = value;
-    }
- 
-    /** GETTER
      * TODO: Write general description for this method
      */
     @JsonGetter("quantity")
@@ -129,6 +113,22 @@ public class GetInvoiceItemResponse
     @JsonSetter("name")
     public void setName (String value) { 
         this.name = value;
+    }
+ 
+    /** GETTER
+     * Subscription Item Id
+     */
+    @JsonGetter("subscription_item_id")
+    public String getSubscriptionItemId ( ) { 
+        return this.subscriptionItemId;
+    }
+    
+    /** SETTER
+     * Subscription Item Id
+     */
+    @JsonSetter("subscription_item_id")
+    public void setSubscriptionItemId (String value) { 
+        this.subscriptionItemId = value;
     }
  
 }

@@ -67,16 +67,16 @@ public class GetUsageResponseBuilder {
         return this;
     }
 
+    public GetUsageResponseBuilder deletedAt(DateTime deletedAt) {
+        getUsageResponse.setDeletedAt(deletedAt);
+        return this;
+    }
+
     /**
      * Subscription item
      */
     public GetUsageResponseBuilder subscriptionItem(GetSubscriptionItemResponse subscriptionItem) {
         getUsageResponse.setSubscriptionItem(subscriptionItem);
-        return this;
-    }
-
-    public GetUsageResponseBuilder deletedAt(DateTime deletedAt) {
-        getUsageResponse.setDeletedAt(deletedAt);
         return this;
     }
 

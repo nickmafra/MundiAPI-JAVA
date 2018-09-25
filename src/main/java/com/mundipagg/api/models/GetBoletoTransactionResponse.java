@@ -27,7 +27,7 @@ import org.joda.time.DateTime;
 @JsonInclude(Include.ALWAYS)
 public class GetBoletoTransactionResponse 
         extends GetTransactionResponse {
-    private static final long serialVersionUID = -6807160384256729950L;
+    private static final long serialVersionUID = 8358871924758277042L;
     private String url;
     private String barCode;
     private String nossoNumero;
@@ -35,14 +35,14 @@ public class GetBoletoTransactionResponse
     private String documentNumber;
     private String instructions;
     private GetBillingAddressResponse billingAddress;
+    private DateTime dueAt;
     private String qrCode;
     private String line;
     private String pdfPassword;
     private String pdf;
+    private DateTime paidAt;
     private String paidAmount;
     private String type;
-    private DateTime dueAt;
-    private DateTime paidAt;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -158,6 +158,24 @@ public class GetBoletoTransactionResponse
     /** GETTER
      * TODO: Write general description for this method
      */
+    @JsonGetter("due_at")
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getDueAt ( ) { 
+        return this.dueAt;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("due_at")
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setDueAt (DateTime value) { 
+        this.dueAt = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
     @JsonGetter("qr_code")
     public String getQrCode ( ) { 
         return this.qrCode;
@@ -222,6 +240,24 @@ public class GetBoletoTransactionResponse
     /** GETTER
      * TODO: Write general description for this method
      */
+    @JsonGetter("paid_at")
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getPaidAt ( ) { 
+        return this.paidAt;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("paid_at")
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setPaidAt (DateTime value) { 
+        this.paidAt = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
     @JsonGetter("paid_amount")
     public String getPaidAmount ( ) { 
         return this.paidAmount;
@@ -249,42 +285,6 @@ public class GetBoletoTransactionResponse
     @JsonSetter("type")
     public void setType (String value) { 
         this.type = value;
-    }
- 
-    /** GETTER
-     * TODO: Write general description for this method
-     */
-    @JsonGetter("due_at")
-    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
-    public DateTime getDueAt ( ) { 
-        return this.dueAt;
-    }
-    
-    /** SETTER
-     * TODO: Write general description for this method
-     */
-    @JsonSetter("due_at")
-    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
-    public void setDueAt (DateTime value) { 
-        this.dueAt = value;
-    }
- 
-    /** GETTER
-     * TODO: Write general description for this method
-     */
-    @JsonGetter("paid_at")
-    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
-    public DateTime getPaidAt ( ) { 
-        return this.paidAt;
-    }
-    
-    /** SETTER
-     * TODO: Write general description for this method
-     */
-    @JsonSetter("paid_at")
-    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
-    public void setPaidAt (DateTime value) { 
-        this.paidAt = value;
     }
  
 }

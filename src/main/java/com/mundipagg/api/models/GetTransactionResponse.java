@@ -25,18 +25,18 @@ import org.joda.time.DateTime;
           defaultImpl = GetTransactionResponse.class,
           visible = true)
 @JsonSubTypes({
-    @Type(value = GetCreditCardTransactionResponse.class, name = "credit_card"),
     @Type(value = GetVoucherTransactionResponse.class, name = "voucher"),
     @Type(value = GetBankTransferTransactionResponse.class, name = "bank_transfer"),
     @Type(value = GetSafetyPayTransactionResponse.class, name = "safetypay"),
     @Type(value = GetBoletoTransactionResponse.class, name = "boleto"),
     @Type(value = GetDebitCardTransactionResponse.class, name = "debit_card"),
-    @Type(value = GetCashTransactionResponse.class, name = "cash")
+    @Type(value = GetCashTransactionResponse.class, name = "cash"),
+    @Type(value = GetCreditCardTransactionResponse.class, name = "credit_card")
 })
 @JsonInclude(Include.ALWAYS)
 public class GetTransactionResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4962482424447925381L;
+    private static final long serialVersionUID = 7099462940340688149L;
     private String gatewayId;
     private int amount;
     private String status;
@@ -46,10 +46,10 @@ public class GetTransactionResponse
     private int attemptCount;
     private int maxAttempts;
     private List<GetSplitResponse> splits;
-    private String id;
-    private GetGatewayResponseResponse gatewayResponse;
     private DateTime nextAttempt;
     private String transactionType;
+    private String id;
+    private GetGatewayResponseResponse gatewayResponse;
     /** GETTER
      * Gateway transaction id
      */
@@ -199,38 +199,6 @@ public class GetTransactionResponse
     }
  
     /** GETTER
-     * Código da transação
-     */
-    @JsonGetter("id")
-    public String getId ( ) { 
-        return this.id;
-    }
-    
-    /** SETTER
-     * Código da transação
-     */
-    @JsonSetter("id")
-    public void setId (String value) { 
-        this.id = value;
-    }
- 
-    /** GETTER
-     * The Gateway Response
-     */
-    @JsonGetter("gateway_response")
-    public GetGatewayResponseResponse getGatewayResponse ( ) { 
-        return this.gatewayResponse;
-    }
-    
-    /** SETTER
-     * The Gateway Response
-     */
-    @JsonSetter("gateway_response")
-    public void setGatewayResponse (GetGatewayResponseResponse value) { 
-        this.gatewayResponse = value;
-    }
- 
-    /** GETTER
      * Date and time of the next attempt
      */
     @JsonGetter("next_attempt")
@@ -262,6 +230,38 @@ public class GetTransactionResponse
     @JsonSetter("transaction_type")
     public void setTransactionType (String value) { 
         this.transactionType = value;
+    }
+ 
+    /** GETTER
+     * Código da transação
+     */
+    @JsonGetter("id")
+    public String getId ( ) { 
+        return this.id;
+    }
+    
+    /** SETTER
+     * Código da transação
+     */
+    @JsonSetter("id")
+    public void setId (String value) { 
+        this.id = value;
+    }
+ 
+    /** GETTER
+     * The Gateway Response
+     */
+    @JsonGetter("gateway_response")
+    public GetGatewayResponseResponse getGatewayResponse ( ) { 
+        return this.gatewayResponse;
+    }
+    
+    /** SETTER
+     * The Gateway Response
+     */
+    @JsonSetter("gateway_response")
+    public void setGatewayResponse (GetGatewayResponseResponse value) { 
+        this.gatewayResponse = value;
     }
  
 }

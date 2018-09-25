@@ -122,14 +122,6 @@ public class GetSubscriptionResponseBuilder {
         return this;
     }
 
-    /**
-     * Subscription increments
-     */
-    public GetSubscriptionResponseBuilder increments(List<GetIncrementResponse> increments) {
-        getSubscriptionResponse.setIncrements(increments);
-        return this;
-    }
-
     public GetSubscriptionResponseBuilder nextBillingAt(DateTime nextBillingAt) {
         getSubscriptionResponse.setNextBillingAt(nextBillingAt);
         return this;
@@ -155,6 +147,14 @@ public class GetSubscriptionResponseBuilder {
      */
     public GetSubscriptionResponseBuilder discounts(List<GetDiscountResponse> discounts) {
         getSubscriptionResponse.setDiscounts(discounts);
+        return this;
+    }
+
+    /**
+     * Subscription increments
+     */
+    public GetSubscriptionResponseBuilder increments(List<GetIncrementResponse> increments) {
+        getSubscriptionResponse.setIncrements(increments);
         return this;
     }
 

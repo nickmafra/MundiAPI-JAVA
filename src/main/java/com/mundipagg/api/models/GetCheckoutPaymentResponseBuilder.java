@@ -25,6 +25,14 @@ public class GetCheckoutPaymentResponseBuilder {
     }
 
     /**
+     * Valor em centavos
+     */
+    public GetCheckoutPaymentResponseBuilder amount(Integer amount) {
+        getCheckoutPaymentResponse.setAmount(amount);
+        return this;
+    }
+
+    /**
      * Meio de pagamento padrão no checkout
      */
     public GetCheckoutPaymentResponseBuilder defaultPaymentMethod(String defaultPaymentMethod) {
@@ -97,6 +105,14 @@ public class GetCheckoutPaymentResponseBuilder {
     }
 
     /**
+     * Data de cancelamento
+     */
+    public GetCheckoutPaymentResponseBuilder canceledAt(DateTime canceledAt) {
+        getCheckoutPaymentResponse.setCanceledAt(canceledAt);
+        return this;
+    }
+
+    /**
      * Torna o objeto customer editável
      */
     public GetCheckoutPaymentResponseBuilder customerEditable(boolean customerEditable) {
@@ -123,7 +139,7 @@ public class GetCheckoutPaymentResponseBuilder {
     /**
      * Configurações de cartão de crédito
      */
-    public GetCheckoutPaymentResponseBuilder creditCard(GetCheckoutCardPaymentResponse creditCard) {
+    public GetCheckoutPaymentResponseBuilder creditCard(GetCheckoutCreditCardPaymentResponse creditCard) {
         getCheckoutPaymentResponse.setCreditCard(creditCard);
         return this;
     }
@@ -161,30 +177,6 @@ public class GetCheckoutPaymentResponseBuilder {
     }
 
     /**
-     * Moeda
-     */
-    public GetCheckoutPaymentResponseBuilder currency(String currency) {
-        getCheckoutPaymentResponse.setCurrency(currency);
-        return this;
-    }
-
-    /**
-     * Valor em centavos
-     */
-    public GetCheckoutPaymentResponseBuilder amount(Integer amount) {
-        getCheckoutPaymentResponse.setAmount(amount);
-        return this;
-    }
-
-    /**
-     * Data de cancelamento
-     */
-    public GetCheckoutPaymentResponseBuilder canceledAt(DateTime canceledAt) {
-        getCheckoutPaymentResponse.setCanceledAt(canceledAt);
-        return this;
-    }
-
-    /**
      * Data de fechamento
      */
     public GetCheckoutPaymentResponseBuilder closedAt(DateTime closedAt) {
@@ -197,6 +189,22 @@ public class GetCheckoutPaymentResponseBuilder {
      */
     public GetCheckoutPaymentResponseBuilder expiresAt(DateTime expiresAt) {
         getCheckoutPaymentResponse.setExpiresAt(expiresAt);
+        return this;
+    }
+
+    /**
+     * Moeda
+     */
+    public GetCheckoutPaymentResponseBuilder currency(String currency) {
+        getCheckoutPaymentResponse.setCurrency(currency);
+        return this;
+    }
+
+    /**
+     * Configurações de cartão de débito
+     */
+    public GetCheckoutPaymentResponseBuilder debitCard(GetCheckoutDebitCardPaymentResponse debitCard) {
+        getCheckoutPaymentResponse.setDebitCard(debitCard);
         return this;
     }
     /**

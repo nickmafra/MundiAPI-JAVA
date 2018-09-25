@@ -9,13 +9,13 @@ import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
-public class CreatePaymentAuthentiticationRequest 
+public class GetPaymentAuthenticationResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 7287136761500405767L;
+    private static final long serialVersionUID = -6482822798567646488L;
     private String type;
-    private Create3DSAuthentiticationRequest threedSecure;
+    private GetThreeDSecureResponse threedSecure;
     /** GETTER
-     * The Authentication type
+     * TODO: Write general description for this method
      */
     @JsonGetter("type")
     public String getType ( ) { 
@@ -23,7 +23,7 @@ public class CreatePaymentAuthentiticationRequest
     }
     
     /** SETTER
-     * The Authentication type
+     * TODO: Write general description for this method
      */
     @JsonSetter("type")
     public void setType (String value) { 
@@ -31,18 +31,18 @@ public class CreatePaymentAuthentiticationRequest
     }
  
     /** GETTER
-     * The 3D-S authentication object
+     * 3D-S payment authentication response
      */
     @JsonGetter("threed_secure")
-    public Create3DSAuthentiticationRequest getThreedSecure ( ) { 
+    public GetThreeDSecureResponse getThreedSecure ( ) { 
         return this.threedSecure;
     }
     
     /** SETTER
-     * The 3D-S authentication object
+     * 3D-S payment authentication response
      */
     @JsonSetter("threed_secure")
-    public void setThreedSecure (Create3DSAuthentiticationRequest value) { 
+    public void setThreedSecure (GetThreeDSecureResponse value) { 
         this.threedSecure = value;
     }
  

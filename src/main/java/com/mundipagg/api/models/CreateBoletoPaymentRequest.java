@@ -15,15 +15,15 @@ import org.joda.time.DateTime;
 
 public class CreateBoletoPaymentRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 7377320155188565112L;
+    private static final long serialVersionUID = -2646176696593960312L;
     private int retries;
     private String bank;
     private String instructions;
+    private DateTime dueAt;
     private CreateAddressRequest billingAddress;
     private String billingAddressId;
-    private String documentNumber;
-    private DateTime dueAt;
     private String nossoNumero;
+    private String documentNumber;
     /** GETTER
      * Number of retries
      */
@@ -73,6 +73,24 @@ public class CreateBoletoPaymentRequest
     }
  
     /** GETTER
+     * Boleto due date
+     */
+    @JsonGetter("due_at")
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getDueAt ( ) { 
+        return this.dueAt;
+    }
+    
+    /** SETTER
+     * Boleto due date
+     */
+    @JsonSetter("due_at")
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setDueAt (DateTime value) { 
+        this.dueAt = value;
+    }
+ 
+    /** GETTER
      * Card's billing address
      */
     @JsonGetter("billing_address")
@@ -105,40 +123,6 @@ public class CreateBoletoPaymentRequest
     }
  
     /** GETTER
-     * Boleto identification
-     */
-    @JsonGetter("document_number")
-    public String getDocumentNumber ( ) { 
-        return this.documentNumber;
-    }
-    
-    /** SETTER
-     * Boleto identification
-     */
-    @JsonSetter("document_number")
-    public void setDocumentNumber (String value) { 
-        this.documentNumber = value;
-    }
- 
-    /** GETTER
-     * Boleto due date
-     */
-    @JsonGetter("due_at")
-    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
-    public DateTime getDueAt ( ) { 
-        return this.dueAt;
-    }
-    
-    /** SETTER
-     * Boleto due date
-     */
-    @JsonSetter("due_at")
-    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
-    public void setDueAt (DateTime value) { 
-        this.dueAt = value;
-    }
- 
-    /** GETTER
      * Customer identification number with the bank
      */
     @JsonGetter("nosso_numero")
@@ -152,6 +136,22 @@ public class CreateBoletoPaymentRequest
     @JsonSetter("nosso_numero")
     public void setNossoNumero (String value) { 
         this.nossoNumero = value;
+    }
+ 
+    /** GETTER
+     * Boleto identification
+     */
+    @JsonGetter("document_number")
+    public String getDocumentNumber ( ) { 
+        return this.documentNumber;
+    }
+    
+    /** SETTER
+     * Boleto identification
+     */
+    @JsonSetter("document_number")
+    public void setDocumentNumber (String value) { 
+        this.documentNumber = value;
     }
  
 }

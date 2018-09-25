@@ -79,16 +79,16 @@ public class GetCustomerResponseBuilder {
         return this;
     }
 
+    public GetCustomerResponseBuilder fbId(Long fbId) {
+        getCustomerResponse.setFbId(fbId);
+        return this;
+    }
+
     /**
      * Código de referência do cliente no sistema da loja. Max: 52 caracteres
      */
     public GetCustomerResponseBuilder code(String code) {
         getCustomerResponse.setCode(code);
-        return this;
-    }
-
-    public GetCustomerResponseBuilder fbId(Long fbId) {
-        getCustomerResponse.setFbId(fbId);
         return this;
     }
     /**

@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateCreditCardPaymentRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 1537386338155167915L;
+    private static final long serialVersionUID = 1537520666290362759L;
     private Integer installments = 1;
     private String statementDescriptor;
     private CreateCardRequest card;
@@ -22,7 +22,7 @@ public class CreateCreditCardPaymentRequest
     private Boolean extendedLimitEnabled;
     private String extendedLimitCode;
     private Long merchantCategoryCode;
-    private CreatePaymentAuthentiticationRequest authentication;
+    private CreatePaymentAuthenticationRequest authentication;
     private CreateCardPaymentTokenRequest token;
     /** GETTER
      * Number of installments
@@ -188,7 +188,7 @@ public class CreateCreditCardPaymentRequest
      * The payment authentication request
      */
     @JsonGetter("authentication")
-    public CreatePaymentAuthentiticationRequest getAuthentication ( ) { 
+    public CreatePaymentAuthenticationRequest getAuthentication ( ) { 
         return this.authentication;
     }
     
@@ -196,7 +196,7 @@ public class CreateCreditCardPaymentRequest
      * The payment authentication request
      */
     @JsonSetter("authentication")
-    public void setAuthentication (CreatePaymentAuthentiticationRequest value) { 
+    public void setAuthentication (CreatePaymentAuthenticationRequest value) { 
         this.authentication = value;
     }
  

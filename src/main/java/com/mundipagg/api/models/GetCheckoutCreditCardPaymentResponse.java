@@ -9,11 +9,12 @@ import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
-public class GetCheckoutCardPaymentResponse 
+public class GetCheckoutCreditCardPaymentResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 3197454690770728553L;
+    private static final long serialVersionUID = -8924776173332277100L;
     private String statementDescriptor;
     private List<GetCheckoutCardInstallmentOptionsResponse> installments;
+    private GetPaymentAuthenticationResponse authentication;
     /** GETTER
      * Descrição na fatura
      */
@@ -44,6 +45,22 @@ public class GetCheckoutCardPaymentResponse
     @JsonSetter("installments")
     public void setInstallments (List<GetCheckoutCardInstallmentOptionsResponse> value) { 
         this.installments = value;
+    }
+ 
+    /** GETTER
+     * Payment Authentication response
+     */
+    @JsonGetter("authentication")
+    public GetPaymentAuthenticationResponse getAuthentication ( ) { 
+        return this.authentication;
+    }
+    
+    /** SETTER
+     * Payment Authentication response
+     */
+    @JsonSetter("authentication")
+    public void setAuthentication (GetPaymentAuthenticationResponse value) { 
+        this.authentication = value;
     }
  
 }

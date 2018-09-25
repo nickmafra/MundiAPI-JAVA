@@ -11,26 +11,10 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class ApplePayHeaderRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = -1321813828022721135L;
-    private String ephemeralPublicKey;
+    private static final long serialVersionUID = 1944997602397814817L;
     private String publicKeyHash;
+    private String ephemeralPublicKey;
     private String transactionId;
-    /** GETTER
-     * X.509 encoded key bytes, Base64 encoded as a string
-     */
-    @JsonGetter("ephemeral_public_key")
-    public String getEphemeralPublicKey ( ) { 
-        return this.ephemeralPublicKey;
-    }
-    
-    /** SETTER
-     * X.509 encoded key bytes, Base64 encoded as a string
-     */
-    @JsonSetter("ephemeral_public_key")
-    public void setEphemeralPublicKey (String value) { 
-        this.ephemeralPublicKey = value;
-    }
- 
     /** GETTER
      * SHA–256 hash, Base64 string codified
      */
@@ -45,6 +29,22 @@ public class ApplePayHeaderRequest
     @JsonSetter("public_key_hash")
     public void setPublicKeyHash (String value) { 
         this.publicKeyHash = value;
+    }
+ 
+    /** GETTER
+     * X.509 encoded key bytes, Base64 encoded as a string
+     */
+    @JsonGetter("ephemeral_public_key")
+    public String getEphemeralPublicKey ( ) { 
+        return this.ephemeralPublicKey;
+    }
+    
+    /** SETTER
+     * X.509 encoded key bytes, Base64 encoded as a string
+     */
+    @JsonSetter("ephemeral_public_key")
+    public void setEphemeralPublicKey (String value) { 
+        this.ephemeralPublicKey = value;
     }
  
     /** GETTER

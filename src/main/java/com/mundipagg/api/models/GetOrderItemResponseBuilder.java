@@ -42,18 +42,18 @@ public class GetOrderItemResponseBuilder {
     }
 
     /**
-     * Category
-     */
-    public GetOrderItemResponseBuilder category(String category) {
-        getOrderItemResponse.setCategory(category);
-        return this;
-    }
-
-    /**
      * Seller data
      */
     public GetOrderItemResponseBuilder getSellerResponse(GetSellerResponse getSellerResponse) {
         getOrderItemResponse.setGetSellerResponse(getSellerResponse);
+        return this;
+    }
+
+    /**
+     * Category
+     */
+    public GetOrderItemResponseBuilder category(String category) {
+        getOrderItemResponse.setCategory(category);
         return this;
     }
     /**

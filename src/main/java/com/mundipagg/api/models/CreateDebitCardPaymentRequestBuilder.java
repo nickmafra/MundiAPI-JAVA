@@ -61,7 +61,7 @@ public class CreateDebitCardPaymentRequestBuilder {
     /**
      * The payment authentication request
      */
-    public CreateDebitCardPaymentRequestBuilder authentication(CreatePaymentAuthentiticationRequest authentication) {
+    public CreateDebitCardPaymentRequestBuilder authentication(CreatePaymentAuthenticationRequest authentication) {
         createDebitCardPaymentRequest.setAuthentication(authentication);
         return this;
     }

@@ -11,14 +11,14 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateSellerRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 2822762471541805334L;
+    private static final long serialVersionUID = 5938116961970695150L;
     private String name;
-    private LinkedHashMap<String, String> metadata;
     private String code;
     private String description;
     private String document;
     private CreateAddressRequest address;
     private String type;
+    private LinkedHashMap<String, String> metadata;
     /** GETTER
      * Name
      */
@@ -33,22 +33,6 @@ public class CreateSellerRequest
     @JsonSetter("name")
     public void setName (String value) { 
         this.name = value;
-    }
- 
-    /** GETTER
-     * Metadata
-     */
-    @JsonGetter("metadata")
-    public LinkedHashMap<String, String> getMetadata ( ) { 
-        return this.metadata;
-    }
-    
-    /** SETTER
-     * Metadata
-     */
-    @JsonSetter("metadata")
-    public void setMetadata (LinkedHashMap<String, String> value) { 
-        this.metadata = value;
     }
  
     /** GETTER
@@ -129,6 +113,22 @@ public class CreateSellerRequest
     @JsonSetter("type")
     public void setType (String value) { 
         this.type = value;
+    }
+ 
+    /** GETTER
+     * Metadata
+     */
+    @JsonGetter("metadata")
+    public LinkedHashMap<String, String> getMetadata ( ) { 
+        return this.metadata;
+    }
+    
+    /** SETTER
+     * Metadata
+     */
+    @JsonSetter("metadata")
+    public void setMetadata (LinkedHashMap<String, String> value) { 
+        this.metadata = value;
     }
  
 }

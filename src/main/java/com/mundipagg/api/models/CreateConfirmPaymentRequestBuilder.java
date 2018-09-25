@@ -27,18 +27,18 @@ public class CreateConfirmPaymentRequestBuilder {
     }
 
     /**
-     * Code reference
-     */
-    public CreateConfirmPaymentRequestBuilder code(String code) {
-        createConfirmPaymentRequest.setCode(code);
-        return this;
-    }
-
-    /**
      * Amount
      */
     public CreateConfirmPaymentRequestBuilder amount(Integer amount) {
         createConfirmPaymentRequest.setAmount(amount);
+        return this;
+    }
+
+    /**
+     * Code reference
+     */
+    public CreateConfirmPaymentRequestBuilder code(String code) {
+        createConfirmPaymentRequest.setCode(code);
         return this;
     }
     /**

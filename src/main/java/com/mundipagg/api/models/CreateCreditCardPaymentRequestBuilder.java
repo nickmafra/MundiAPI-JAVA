@@ -98,7 +98,7 @@ public class CreateCreditCardPaymentRequestBuilder {
     /**
      * The payment authentication request
      */
-    public CreateCreditCardPaymentRequestBuilder authentication(CreatePaymentAuthentiticationRequest authentication) {
+    public CreateCreditCardPaymentRequestBuilder authentication(CreatePaymentAuthenticationRequest authentication) {
         createCreditCardPaymentRequest.setAuthentication(authentication);
         return this;
     }
