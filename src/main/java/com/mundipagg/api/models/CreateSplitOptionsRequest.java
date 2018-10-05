@@ -11,9 +11,9 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateSplitOptionsRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = -6586678224512336171L;
+    private static final long serialVersionUID = -6586678225519837962L;
     private Boolean liable;
-    private String chargeProcessingFee;
+    private Boolean chargeProcessingFee;
     /** GETTER
      * Liable options
      */
@@ -34,7 +34,7 @@ public class CreateSplitOptionsRequest
      * Charge processing fee
      */
     @JsonGetter("charge_processing_fee")
-    public String getChargeProcessingFee ( ) { 
+    public Boolean getChargeProcessingFee ( ) { 
         return this.chargeProcessingFee;
     }
     
@@ -42,7 +42,7 @@ public class CreateSplitOptionsRequest
      * Charge processing fee
      */
     @JsonSetter("charge_processing_fee")
-    public void setChargeProcessingFee (String value) { 
+    public void setChargeProcessingFee (Boolean value) { 
         this.chargeProcessingFee = value;
     }
  

@@ -29,7 +29,7 @@ public class CreateSplitOptionsRequestBuilder {
     /**
      * Charge processing fee
      */
-    public CreateSplitOptionsRequestBuilder chargeProcessingFee(String chargeProcessingFee) {
+    public CreateSplitOptionsRequestBuilder chargeProcessingFee(Boolean chargeProcessingFee) {
         createSplitOptionsRequest.setChargeProcessingFee(chargeProcessingFee);
         return this;
     }

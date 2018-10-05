@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateCheckoutPaymentRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 6451207899353542562L;
+    private static final long serialVersionUID = 2339210014952537440L;
     private List<String> acceptedPaymentMethods;
     private List<Object> acceptedMultiPaymentMethods;
     private String successUrl;
@@ -25,6 +25,7 @@ public class CreateCheckoutPaymentRequest
     private boolean skipCheckoutSuccessPage;
     private boolean billingAddressEditable;
     private CreateAddressRequest billingAddress;
+    private CreateCheckoutBankTransferRequest bankTransfer;
     /** GETTER
      * Accepted Payment Methods
      */
@@ -154,7 +155,7 @@ public class CreateCheckoutPaymentRequest
     }
  
     /** GETTER
-     * Torna o objeto editável
+     * Customer is editable?
      */
     @JsonGetter("customer_editable")
     public Boolean getCustomerEditable ( ) { 
@@ -162,7 +163,7 @@ public class CreateCheckoutPaymentRequest
     }
     
     /** SETTER
-     * Torna o objeto editável
+     * Customer is editable?
      */
     @JsonSetter("customer_editable")
     public void setCustomerEditable (Boolean value) { 
@@ -170,7 +171,7 @@ public class CreateCheckoutPaymentRequest
     }
  
     /** GETTER
-     * Tempo em minutos para a expiração
+     * Time in minutes for expiration
      */
     @JsonGetter("expires_in")
     public Integer getExpiresIn ( ) { 
@@ -178,7 +179,7 @@ public class CreateCheckoutPaymentRequest
     }
     
     /** SETTER
-     * Tempo em minutos para a expiração
+     * Time in minutes for expiration
      */
     @JsonSetter("expires_in")
     public void setExpiresIn (Integer value) { 
@@ -186,7 +187,7 @@ public class CreateCheckoutPaymentRequest
     }
  
     /** GETTER
-     * Pular tela de sucesso pós-pagamento?
+     * Skip postpay success screen?
      */
     @JsonGetter("skip_checkout_success_page")
     public boolean getSkipCheckoutSuccessPage ( ) { 
@@ -194,7 +195,7 @@ public class CreateCheckoutPaymentRequest
     }
     
     /** SETTER
-     * Pular tela de sucesso pós-pagamento?
+     * Skip postpay success screen?
      */
     @JsonSetter("skip_checkout_success_page")
     public void setSkipCheckoutSuccessPage (boolean value) { 
@@ -202,7 +203,7 @@ public class CreateCheckoutPaymentRequest
     }
  
     /** GETTER
-     * Torna o objeto billing address editável
+     * Billing Address is editable?
      */
     @JsonGetter("billing_address_editable")
     public boolean getBillingAddressEditable ( ) { 
@@ -210,7 +211,7 @@ public class CreateCheckoutPaymentRequest
     }
     
     /** SETTER
-     * Torna o objeto billing address editável
+     * Billing Address is editable?
      */
     @JsonSetter("billing_address_editable")
     public void setBillingAddressEditable (boolean value) { 
@@ -218,7 +219,7 @@ public class CreateCheckoutPaymentRequest
     }
  
     /** GETTER
-     * Endereço de cobrança
+     * Billing Address
      */
     @JsonGetter("billing_address")
     public CreateAddressRequest getBillingAddress ( ) { 
@@ -226,11 +227,27 @@ public class CreateCheckoutPaymentRequest
     }
     
     /** SETTER
-     * Endereço de cobrança
+     * Billing Address
      */
     @JsonSetter("billing_address")
     public void setBillingAddress (CreateAddressRequest value) { 
         this.billingAddress = value;
+    }
+ 
+    /** GETTER
+     * Bank Transfer payment request
+     */
+    @JsonGetter("bank_transfer")
+    public CreateCheckoutBankTransferRequest getBankTransfer ( ) { 
+        return this.bankTransfer;
+    }
+    
+    /** SETTER
+     * Bank Transfer payment request
+     */
+    @JsonSetter("bank_transfer")
+    public void setBankTransfer (CreateCheckoutBankTransferRequest value) { 
+        this.bankTransfer = value;
     }
  
 }

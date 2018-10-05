@@ -83,7 +83,7 @@ public class CreateCheckoutPaymentRequestBuilder {
     }
 
     /**
-     * Torna o objeto editável
+     * Customer is editable?
      */
     public CreateCheckoutPaymentRequestBuilder customerEditable(Boolean customerEditable) {
         createCheckoutPaymentRequest.setCustomerEditable(customerEditable);
@@ -91,7 +91,7 @@ public class CreateCheckoutPaymentRequestBuilder {
     }
 
     /**
-     * Tempo em minutos para a expiração
+     * Time in minutes for expiration
      */
     public CreateCheckoutPaymentRequestBuilder expiresIn(Integer expiresIn) {
         createCheckoutPaymentRequest.setExpiresIn(expiresIn);
@@ -99,7 +99,7 @@ public class CreateCheckoutPaymentRequestBuilder {
     }
 
     /**
-     * Pular tela de sucesso pós-pagamento?
+     * Skip postpay success screen?
      */
     public CreateCheckoutPaymentRequestBuilder skipCheckoutSuccessPage(boolean skipCheckoutSuccessPage) {
         createCheckoutPaymentRequest.setSkipCheckoutSuccessPage(skipCheckoutSuccessPage);
@@ -107,7 +107,7 @@ public class CreateCheckoutPaymentRequestBuilder {
     }
 
     /**
-     * Torna o objeto billing address editável
+     * Billing Address is editable?
      */
     public CreateCheckoutPaymentRequestBuilder billingAddressEditable(boolean billingAddressEditable) {
         createCheckoutPaymentRequest.setBillingAddressEditable(billingAddressEditable);
@@ -115,10 +115,18 @@ public class CreateCheckoutPaymentRequestBuilder {
     }
 
     /**
-     * Endereço de cobrança
+     * Billing Address
      */
     public CreateCheckoutPaymentRequestBuilder billingAddress(CreateAddressRequest billingAddress) {
         createCheckoutPaymentRequest.setBillingAddress(billingAddress);
+        return this;
+    }
+
+    /**
+     * Bank Transfer payment request
+     */
+    public CreateCheckoutPaymentRequestBuilder bankTransfer(CreateCheckoutBankTransferRequest bankTransfer) {
+        createCheckoutPaymentRequest.setBankTransfer(bankTransfer);
         return this;
     }
     /**
