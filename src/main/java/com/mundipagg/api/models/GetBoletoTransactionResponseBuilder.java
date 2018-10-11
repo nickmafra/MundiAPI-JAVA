@@ -94,6 +94,11 @@ public class GetBoletoTransactionResponseBuilder
         getBoletoTransactionResponse.setType(type);
         return this;
     }
+
+    public GetBoletoTransactionResponseBuilder creditAt(DateTime creditAt) {
+        getBoletoTransactionResponse.setCreditAt(creditAt);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

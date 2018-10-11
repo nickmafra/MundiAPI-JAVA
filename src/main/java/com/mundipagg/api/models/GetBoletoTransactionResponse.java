@@ -27,7 +27,7 @@ import org.joda.time.DateTime;
 @JsonInclude(Include.ALWAYS)
 public class GetBoletoTransactionResponse 
         extends GetTransactionResponse {
-    private static final long serialVersionUID = 8358871924758277042L;
+    private static final long serialVersionUID = -3876933085511436245L;
     private String url;
     private String barCode;
     private String nossoNumero;
@@ -43,6 +43,7 @@ public class GetBoletoTransactionResponse
     private DateTime paidAt;
     private String paidAmount;
     private String type;
+    private DateTime creditAt;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -285,6 +286,24 @@ public class GetBoletoTransactionResponse
     @JsonSetter("type")
     public void setType (String value) { 
         this.type = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("credit_at")
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getCreditAt ( ) { 
+        return this.creditAt;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("credit_at")
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setCreditAt (DateTime value) { 
+        this.creditAt = value;
     }
  
 }

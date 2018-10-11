@@ -89,9 +89,9 @@ public class TokensController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -6434271649202216905L;
+                    private static final long serialVersionUID = -5468909176559525980L;
                     {
-                        put( "user-agent", "MundiSDK – Java 0.13.38" );
+                        put( "user-agent", "MundiSDK - Java 0.13.40" );
                         put( "accept", "application/json" );
                     }
                 };
@@ -203,9 +203,9 @@ public class TokensController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 5762232463418484842L;
+                    private static final long serialVersionUID = 6889096014893443178L;
                     {
-                        put( "user-agent", "MundiSDK – Java 0.13.38" );
+                        put( "user-agent", "MundiSDK - Java 0.13.40" );
                         put( "accept", "application/json" );
                         put( "content-type", "application/json" );
                     }
