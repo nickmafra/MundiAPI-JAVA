@@ -8,8 +8,8 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>MundiAPILib</groupId>
-  <artifactId>MundiAPILib</artifactId>
-  <version>0.13.40</version>
+  <artifactId>mundi-apilib</artifactId>
+  <version>0.13.41</version>
   <packaging>jar</packaging>
 
   <name>MundiAPILib</name>
@@ -22,7 +22,7 @@
   </repositories>
 
   <properties>
-    <jackson.version>2.9.0</jackson.version>
+    <jackson.version>2.9.7</jackson.version>
   </properties>
 
   <dependencies>

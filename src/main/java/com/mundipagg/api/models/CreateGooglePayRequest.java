@@ -9,12 +9,12 @@ import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
-public class ApplePayRequest 
+public class CreateGooglePayRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = -6907707460029336652L;
+    private static final long serialVersionUID = 183460458106921865L;
     private String version;
     private String data;
-    private ApplePayHeaderRequest header;
+    private CreateGooglePayHeaderRequest header;
     private String signature;
     private String merchantIdentifier;
     /** GETTER
@@ -50,18 +50,18 @@ public class ApplePayRequest
     }
  
     /** GETTER
-     * The apple pay header request
+     * The GooglePay header request
      */
     @JsonGetter("header")
-    public ApplePayHeaderRequest getHeader ( ) { 
+    public CreateGooglePayHeaderRequest getHeader ( ) { 
         return this.header;
     }
     
     /** SETTER
-     * The apple pay header request
+     * The GooglePay header request
      */
     @JsonSetter("header")
-    public void setHeader (ApplePayHeaderRequest value) { 
+    public void setHeader (CreateGooglePayHeaderRequest value) { 
         this.header = value;
     }
  
@@ -82,7 +82,7 @@ public class ApplePayRequest
     }
  
     /** GETTER
-     * ApplePay Merchant identifier
+     * GooglePay Merchant identifier
      */
     @JsonGetter("merchant_identifier")
     public String getMerchantIdentifier ( ) { 
@@ -90,7 +90,7 @@ public class ApplePayRequest
     }
     
     /** SETTER
-     * ApplePay Merchant identifier
+     * GooglePay Merchant identifier
      */
     @JsonSetter("merchant_identifier")
     public void setMerchantIdentifier (String value) { 

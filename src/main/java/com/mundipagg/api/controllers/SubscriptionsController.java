@@ -90,9 +90,9 @@ public class SubscriptionsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -5468909176559525980L;
+                    private static final long serialVersionUID = -5468909177185388354L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.40" );
+                        put( "user-agent", "MundiSDK - Java 0.13.41" );
                         put( "accept", "application/json" );
                     }
                 };
@@ -205,9 +205,9 @@ public class SubscriptionsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 6889096014893443178L;
+                    private static final long serialVersionUID = -6163530805646170006L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.40" );
+                        put( "user-agent", "MundiSDK - Java 0.13.41" );
                         put( "accept", "application/json" );
                         put( "content-type", "application/json" );
                     }
@@ -327,9 +327,9 @@ public class SubscriptionsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 6889096014893443178L;
+                    private static final long serialVersionUID = -6163530805646170006L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.40" );
+                        put( "user-agent", "MundiSDK - Java 0.13.41" );
                         put( "accept", "application/json" );
                         put( "content-type", "application/json" );
                     }
@@ -454,9 +454,9 @@ public class SubscriptionsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 6889096014893443178L;
+                    private static final long serialVersionUID = -6163530805646170006L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.40" );
+                        put( "user-agent", "MundiSDK - Java 0.13.41" );
                         put( "accept", "application/json" );
                         put( "content-type", "application/json" );
                     }
@@ -581,9 +581,9 @@ public class SubscriptionsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 6889096014893443178L;
+                    private static final long serialVersionUID = -6163530805646170006L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.40" );
+                        put( "user-agent", "MundiSDK - Java 0.13.41" );
                         put( "accept", "application/json" );
                         put( "content-type", "application/json" );
                     }
@@ -699,9 +699,9 @@ public class SubscriptionsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -5468909176559525980L;
+                    private static final long serialVersionUID = -5468909177185388354L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.40" );
+                        put( "user-agent", "MundiSDK - Java 0.13.41" );
                         put( "accept", "application/json" );
                     }
                 };
@@ -814,9 +814,9 @@ public class SubscriptionsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 6889096014893443178L;
+                    private static final long serialVersionUID = -6163530805646170006L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.40" );
+                        put( "user-agent", "MundiSDK - Java 0.13.41" );
                         put( "accept", "application/json" );
                         put( "content-type", "application/json" );
                     }
@@ -925,9 +925,9 @@ public class SubscriptionsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 6889096014893443178L;
+                    private static final long serialVersionUID = -6163530805646170006L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.40" );
+                        put( "user-agent", "MundiSDK - Java 0.13.41" );
                         put( "accept", "application/json" );
                         put( "content-type", "application/json" );
                     }
@@ -1047,9 +1047,9 @@ public class SubscriptionsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 6889096014893443178L;
+                    private static final long serialVersionUID = -6163530805646170006L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.40" );
+                        put( "user-agent", "MundiSDK - Java 0.13.41" );
                         put( "accept", "application/json" );
                         put( "content-type", "application/json" );
                     }
@@ -1169,9 +1169,9 @@ public class SubscriptionsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 6889096014893443178L;
+                    private static final long serialVersionUID = -6163530805646170006L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.40" );
+                        put( "user-agent", "MundiSDK - Java 0.13.41" );
                         put( "accept", "application/json" );
                         put( "content-type", "application/json" );
                     }
@@ -1292,9 +1292,9 @@ public class SubscriptionsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -5468909176559525980L;
+                    private static final long serialVersionUID = -5468909177185388354L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.40" );
+                        put( "user-agent", "MundiSDK - Java 0.13.41" );
                         put( "accept", "application/json" );
                     }
                 };
@@ -1407,9 +1407,9 @@ public class SubscriptionsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 6889096014893443178L;
+                    private static final long serialVersionUID = -6163530805646170006L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.40" );
+                        put( "user-agent", "MundiSDK - Java 0.13.41" );
                         put( "accept", "application/json" );
                         put( "content-type", "application/json" );
                     }
@@ -1530,9 +1530,9 @@ public class SubscriptionsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -5468909176559525980L;
+                    private static final long serialVersionUID = -5468909177185388354L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.40" );
+                        put( "user-agent", "MundiSDK - Java 0.13.41" );
                         put( "accept", "application/json" );
                     }
                 };
@@ -1696,9 +1696,9 @@ public class SubscriptionsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -5468909176559525980L;
+                    private static final long serialVersionUID = -5468909177185388354L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.40" );
+                        put( "user-agent", "MundiSDK - Java 0.13.41" );
                         put( "accept", "application/json" );
                     }
                 };
@@ -1811,9 +1811,9 @@ public class SubscriptionsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 6889096014893443178L;
+                    private static final long serialVersionUID = -6163530805646170006L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.40" );
+                        put( "user-agent", "MundiSDK - Java 0.13.41" );
                         put( "accept", "application/json" );
                         put( "content-type", "application/json" );
                     }
@@ -1934,9 +1934,9 @@ public class SubscriptionsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -5468909176559525980L;
+                    private static final long serialVersionUID = -5468909177185388354L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.40" );
+                        put( "user-agent", "MundiSDK - Java 0.13.41" );
                         put( "accept", "application/json" );
                     }
                 };
@@ -2055,9 +2055,9 @@ public class SubscriptionsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -5468909176559525980L;
+                    private static final long serialVersionUID = -5468909177185388354L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.40" );
+                        put( "user-agent", "MundiSDK - Java 0.13.41" );
                         put( "accept", "application/json" );
                     }
                 };
@@ -2171,9 +2171,9 @@ public class SubscriptionsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -5468909176559525980L;
+                    private static final long serialVersionUID = -5468909177185388354L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.40" );
+                        put( "user-agent", "MundiSDK - Java 0.13.41" );
                         put( "accept", "application/json" );
                     }
                 };
@@ -2286,9 +2286,9 @@ public class SubscriptionsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 6889096014893443178L;
+                    private static final long serialVersionUID = -6163530805646170006L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.40" );
+                        put( "user-agent", "MundiSDK - Java 0.13.41" );
                         put( "accept", "application/json" );
                         put( "content-type", "application/json" );
                     }
@@ -2409,9 +2409,9 @@ public class SubscriptionsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -5468909176559525980L;
+                    private static final long serialVersionUID = -5468909177185388354L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.40" );
+                        put( "user-agent", "MundiSDK - Java 0.13.41" );
                         put( "accept", "application/json" );
                     }
                 };
@@ -2536,9 +2536,9 @@ public class SubscriptionsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -5468909176559525980L;
+                    private static final long serialVersionUID = -5468909177185388354L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.40" );
+                        put( "user-agent", "MundiSDK - Java 0.13.41" );
                         put( "accept", "application/json" );
                     }
                 };
@@ -2651,9 +2651,9 @@ public class SubscriptionsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 6889096014893443178L;
+                    private static final long serialVersionUID = -6163530805646170006L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.40" );
+                        put( "user-agent", "MundiSDK - Java 0.13.41" );
                         put( "accept", "application/json" );
                         put( "content-type", "application/json" );
                     }
@@ -2785,9 +2785,9 @@ public class SubscriptionsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -5468909176559525980L;
+                    private static final long serialVersionUID = -5468909177185388354L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.40" );
+                        put( "user-agent", "MundiSDK - Java 0.13.41" );
                         put( "accept", "application/json" );
                     }
                 };
@@ -2901,9 +2901,9 @@ public class SubscriptionsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -5468909176559525980L;
+                    private static final long serialVersionUID = -5468909177185388354L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.40" );
+                        put( "user-agent", "MundiSDK - Java 0.13.41" );
                         put( "accept", "application/json" );
                     }
                 };
@@ -3043,9 +3043,9 @@ public class SubscriptionsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -5468909176559525980L;
+                    private static final long serialVersionUID = -5468909177185388354L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.40" );
+                        put( "user-agent", "MundiSDK - Java 0.13.41" );
                         put( "accept", "application/json" );
                     }
                 };
@@ -3185,9 +3185,9 @@ public class SubscriptionsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -5468909176559525980L;
+                    private static final long serialVersionUID = -5468909177185388354L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.40" );
+                        put( "user-agent", "MundiSDK - Java 0.13.41" );
                         put( "accept", "application/json" );
                     }
                 };
@@ -3342,9 +3342,9 @@ public class SubscriptionsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -5468909176559525980L;
+                    private static final long serialVersionUID = -5468909177185388354L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.40" );
+                        put( "user-agent", "MundiSDK - Java 0.13.41" );
                         put( "accept", "application/json" );
                     }
                 };
@@ -3457,9 +3457,9 @@ public class SubscriptionsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 6889096014893443178L;
+                    private static final long serialVersionUID = -6163530805646170006L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.40" );
+                        put( "user-agent", "MundiSDK - Java 0.13.41" );
                         put( "accept", "application/json" );
                         put( "content-type", "application/json" );
                     }
@@ -3579,9 +3579,9 @@ public class SubscriptionsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 6889096014893443178L;
+                    private static final long serialVersionUID = -6163530805646170006L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.40" );
+                        put( "user-agent", "MundiSDK - Java 0.13.41" );
                         put( "accept", "application/json" );
                         put( "content-type", "application/json" );
                     }
@@ -3701,9 +3701,9 @@ public class SubscriptionsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 6889096014893443178L;
+                    private static final long serialVersionUID = -6163530805646170006L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.40" );
+                        put( "user-agent", "MundiSDK - Java 0.13.41" );
                         put( "accept", "application/json" );
                         put( "content-type", "application/json" );
                     }
@@ -3823,9 +3823,9 @@ public class SubscriptionsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 6889096014893443178L;
+                    private static final long serialVersionUID = -6163530805646170006L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.40" );
+                        put( "user-agent", "MundiSDK - Java 0.13.41" );
                         put( "accept", "application/json" );
                         put( "content-type", "application/json" );
                     }
@@ -3874,6 +3874,119 @@ public class SubscriptionsController extends BaseController {
                         } catch (IOException ioException) {
                             //let the caller know of the caught IO Exception
                             callBack.onFailure(_context, ioException);
+                        } catch (Exception exception) {
+                            //let the caller know of the caught Exception
+                            callBack.onFailure(_context, exception);
+                        }
+                    }
+                    public void onFailure(HttpContext _context, Throwable _error) {
+                        //invoke the callback after response if its not null
+                        if (getHttpCallBack() != null)
+                        {
+                            getHttpCallBack().OnAfterResponse(_context);
+                        }
+
+                        //let the caller know of the failure
+                        callBack.onFailure(_context, _error);
+                    }
+                });
+            }
+        };
+
+        //execute async using thread pool
+        APIHelper.getScheduler().execute(_responseTask);
+    }
+
+    /**
+     * TODO: type endpoint description here
+     * @param    subscriptionId    Required parameter: Subscription Id
+     * @param    request    Required parameter: Request for updating the end date of the subscription current status
+     * @return    Returns the void response from the API call 
+     */
+    public void updateCurrentCycleStatus(
+                final String subscriptionId,
+                final UpdateCurrentCycleStatusRequest request
+    ) throws Throwable {
+        APICallBackCatcher<Object> callback = new APICallBackCatcher<Object>();
+        updateCurrentCycleStatusAsync(subscriptionId, request, callback);
+        if(!callback.isSuccess())
+            throw callback.getError();
+        callback.getResult();
+    }
+
+    /**
+     * TODO: type endpoint description here
+     * @param    subscriptionId    Required parameter: Subscription Id
+     * @param    request    Required parameter: Request for updating the end date of the subscription current status
+     * @return    Returns the void response from the API call 
+     */
+    public void updateCurrentCycleStatusAsync(
+                final String subscriptionId,
+                final UpdateCurrentCycleStatusRequest request,
+                final APICallBack<Object> callBack
+    ) {
+        Runnable _responseTask = new Runnable() {
+            public void run() {
+                //the base uri for api requests
+                String _baseUri = Configuration.baseUri;
+
+                //prepare query string for API call
+                StringBuilder _queryBuilder = new StringBuilder(_baseUri);
+                _queryBuilder.append("/subscriptions/{subscription_id}/cycle-status");
+
+                //process template parameters
+                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
+                    private static final long serialVersionUID = -7925383432277918432L;
+                    {
+                        put( "subscription_id", subscriptionId );
+                    }});
+                //validate and preprocess url
+                String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+
+                //load all headers for the outgoing API request
+                Map<String, String> _headers = new HashMap<String, String>() {
+                    private static final long serialVersionUID = -843177450756128366L;
+                    {
+                        put( "user-agent", "MundiSDK - Java 0.13.41" );
+                        put( "content-type", "application/json" );
+                    }
+                };
+
+                //prepare and invoke the API call request to fetch the response
+                final HttpRequest _request;
+                try {
+                    _request = getClientInstance().patchBody(_queryUrl, _headers, APIHelper.serialize(request),
+                                                Configuration.basicAuthUserName, Configuration.basicAuthPassword);
+                } catch (JsonProcessingException jsonProcessingException) {
+                    //let the caller know of the error
+                    callBack.onFailure(null, jsonProcessingException);
+                    return;
+                }
+                //invoke the callback before request if its not null
+                if (getHttpCallBack() != null)
+                {
+                    getHttpCallBack().OnBeforeRequest(_request);
+                }
+
+                //invoke request and get response
+                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
+                    public void onSuccess(HttpContext _context, HttpResponse _response) {
+                        try {
+
+                            //invoke the callback after response if its not null
+                            if (getHttpCallBack() != null)	
+                            {
+                                getHttpCallBack().OnAfterResponse(_context);
+                            }
+
+                            //handle errors defined at the API level
+                            validateResponse(_response, _context);
+
+                            //let the caller know of the success
+                            callBack.onSuccess(_context, _context);
+                        } catch (APIException error) {
+                            //let the caller know of the error
+                            callBack.onFailure(_context, error);
                         } catch (Exception exception) {
                             //let the caller know of the caught Exception
                             callBack.onFailure(_context, exception);

@@ -11,9 +11,10 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateCardPaymentTokenRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 314650800531564025L;
+    private static final long serialVersionUID = 6949900181091978407L;
     private String type;
-    private ApplePayRequest applePay;
+    private CreateApplePayRequest applePay;
+    private CreateGooglePayRequest googlePay;
     /** GETTER
      * The authentication type
      */
@@ -31,19 +32,35 @@ public class CreateCardPaymentTokenRequest
     }
  
     /** GETTER
-     * The apple pay authentication request
+     * The ApplePay authentication request
      */
     @JsonGetter("apple_pay")
-    public ApplePayRequest getApplePay ( ) { 
+    public CreateApplePayRequest getApplePay ( ) { 
         return this.applePay;
     }
     
     /** SETTER
-     * The apple pay authentication request
+     * The ApplePay authentication request
      */
     @JsonSetter("apple_pay")
-    public void setApplePay (ApplePayRequest value) { 
+    public void setApplePay (CreateApplePayRequest value) { 
         this.applePay = value;
+    }
+ 
+    /** GETTER
+     * The GooglePay authentication request
+     */
+    @JsonGetter("google_pay")
+    public CreateGooglePayRequest getGooglePay ( ) { 
+        return this.googlePay;
+    }
+    
+    /** SETTER
+     * The GooglePay authentication request
+     */
+    @JsonSetter("google_pay")
+    public void setGooglePay (CreateGooglePayRequest value) { 
+        this.googlePay = value;
     }
  
 }

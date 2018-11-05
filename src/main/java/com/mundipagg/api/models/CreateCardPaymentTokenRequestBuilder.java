@@ -27,10 +27,18 @@ public class CreateCardPaymentTokenRequestBuilder {
     }
 
     /**
-     * The apple pay authentication request
+     * The ApplePay authentication request
      */
-    public CreateCardPaymentTokenRequestBuilder applePay(ApplePayRequest applePay) {
+    public CreateCardPaymentTokenRequestBuilder applePay(CreateApplePayRequest applePay) {
         createCardPaymentTokenRequest.setApplePay(applePay);
+        return this;
+    }
+
+    /**
+     * The GooglePay authentication request
+     */
+    public CreateCardPaymentTokenRequestBuilder googlePay(CreateGooglePayRequest googlePay) {
+        createCardPaymentTokenRequest.setGooglePay(googlePay);
         return this;
     }
     /**
