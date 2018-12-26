@@ -110,6 +110,14 @@ public class CreateCreditCardPaymentRequestBuilder {
         createCreditCardPaymentRequest.setToken(token);
         return this;
     }
+
+    /**
+     * Indicates whether a particular payment will enter the offline retry flow
+     */
+    public CreateCreditCardPaymentRequestBuilder autoRecovery(Boolean autoRecovery) {
+        createCreditCardPaymentRequest.setAutoRecovery(autoRecovery);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

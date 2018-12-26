@@ -111,6 +111,14 @@ public class GetChargeResponseBuilder {
         getChargeResponse.setCanceledAmount(canceledAmount);
         return this;
     }
+
+    /**
+     * Paid amount
+     */
+    public GetChargeResponseBuilder paidAmount(int paidAmount) {
+        getChargeResponse.setPaidAmount(paidAmount);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

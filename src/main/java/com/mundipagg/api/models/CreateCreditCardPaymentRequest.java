@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateCreditCardPaymentRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 1537520666290362759L;
+    private static final long serialVersionUID = -7782203241858090287L;
     private Integer installments = 1;
     private String statementDescriptor;
     private CreateCardRequest card;
@@ -24,6 +24,7 @@ public class CreateCreditCardPaymentRequest
     private Long merchantCategoryCode;
     private CreatePaymentAuthenticationRequest authentication;
     private CreateCardPaymentTokenRequest token;
+    private Boolean autoRecovery;
     /** GETTER
      * Number of installments
      */
@@ -216,5 +217,20 @@ public class CreateCreditCardPaymentRequest
         this.token = value;
     }
  
-}
+    /** GETTER
+     * Indicates whether a particular payment will enter the offline retry flow
+     */
+    @JsonGetter("auto_recovery")
+    public Boolean getAutoRecovery ( ) { 
+        return this.autoRecovery;
+    }
+    
+    /** SETTER
+     * Indicates whether a particular payment will enter the offline retry flow
+     */
+    @JsonSetter("auto_recovery")
+    public void setAutoRecovery (Boolean value) { 
+        this.autoRecovery = value;
+    }
  
+}

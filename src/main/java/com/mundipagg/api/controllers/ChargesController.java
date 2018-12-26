@@ -25,7 +25,7 @@ import com.mundipagg.api.controllers.syncwrapper.APICallBackCatcher;
 
 public class ChargesController extends BaseController {    
     //private static variables for the singleton pattern
-    private static Object syncObject = new Object();
+    private static final Object syncObject = new Object();
     private static ChargesController instance = null;
 
     /**
@@ -33,9 +33,11 @@ public class ChargesController extends BaseController {
      * @return The singleton instance of the ChargesController class 
      */
     public static ChargesController getInstance() {
-        synchronized (syncObject) {
-            if (null == instance) {
-                instance = new ChargesController();
+        if (null == instance) {
+            synchronized (syncObject) {
+                if (null == instance) {
+                    instance = new ChargesController();
+                }
             }
         }
         return instance;
@@ -89,9 +91,9 @@ public class ChargesController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -6163530805646170006L;
+                    private static final long serialVersionUID = 8093872407716587626L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.41" );
+                        put( "user-agent", "MundiSDK - Java 0.13.42" );
                         put( "accept", "application/json" );
                         put( "content-type", "application/json" );
                     }
@@ -211,9 +213,9 @@ public class ChargesController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -6163530805646170006L;
+                    private static final long serialVersionUID = 8093872407716587626L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.41" );
+                        put( "user-agent", "MundiSDK - Java 0.13.42" );
                         put( "accept", "application/json" );
                         put( "content-type", "application/json" );
                     }
@@ -322,9 +324,9 @@ public class ChargesController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -6163530805646170006L;
+                    private static final long serialVersionUID = 8093872407716587626L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.41" );
+                        put( "user-agent", "MundiSDK - Java 0.13.42" );
                         put( "accept", "application/json" );
                         put( "content-type", "application/json" );
                     }
@@ -440,9 +442,9 @@ public class ChargesController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -5468909177185388354L;
+                    private static final long serialVersionUID = -2042397430L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.41" );
+                        put( "user-agent", "MundiSDK - Java 0.13.42" );
                         put( "accept", "application/json" );
                     }
                 };
@@ -551,9 +553,9 @@ public class ChargesController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -5468909177185388354L;
+                    private static final long serialVersionUID = -2042397430L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.41" );
+                        put( "user-agent", "MundiSDK - Java 0.13.42" );
                         put( "accept", "application/json" );
                     }
                 };
@@ -702,9 +704,9 @@ public class ChargesController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -5468909177185388354L;
+                    private static final long serialVersionUID = -2042397430L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.41" );
+                        put( "user-agent", "MundiSDK - Java 0.13.42" );
                         put( "accept", "application/json" );
                     }
                 };
@@ -817,9 +819,9 @@ public class ChargesController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -6163530805646170006L;
+                    private static final long serialVersionUID = 8093872407716587626L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.41" );
+                        put( "user-agent", "MundiSDK - Java 0.13.42" );
                         put( "accept", "application/json" );
                         put( "content-type", "application/json" );
                     }
@@ -939,9 +941,9 @@ public class ChargesController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -6163530805646170006L;
+                    private static final long serialVersionUID = 8093872407716587626L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.41" );
+                        put( "user-agent", "MundiSDK - Java 0.13.42" );
                         put( "accept", "application/json" );
                         put( "content-type", "application/json" );
                     }
@@ -1061,9 +1063,9 @@ public class ChargesController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -6163530805646170006L;
+                    private static final long serialVersionUID = 8093872407716587626L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.41" );
+                        put( "user-agent", "MundiSDK - Java 0.13.42" );
                         put( "accept", "application/json" );
                         put( "content-type", "application/json" );
                     }
@@ -1183,9 +1185,9 @@ public class ChargesController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -6163530805646170006L;
+                    private static final long serialVersionUID = 8093872407716587626L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.41" );
+                        put( "user-agent", "MundiSDK - Java 0.13.42" );
                         put( "accept", "application/json" );
                         put( "content-type", "application/json" );
                     }
@@ -1305,9 +1307,9 @@ public class ChargesController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -6163530805646170006L;
+                    private static final long serialVersionUID = 8093872407716587626L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.41" );
+                        put( "user-agent", "MundiSDK - Java 0.13.42" );
                         put( "accept", "application/json" );
                         put( "content-type", "application/json" );
                     }
@@ -1347,6 +1349,133 @@ public class ChargesController extends BaseController {
                             String _responseBody = ((HttpStringResponse)_response).getBody();
                             GetChargeResponse _result = APIHelper.deserialize(_responseBody,
                                                         new TypeReference<GetChargeResponse>(){});
+
+                            //let the caller know of the success
+                            callBack.onSuccess(_context, _result);
+                        } catch (APIException error) {
+                            //let the caller know of the error
+                            callBack.onFailure(_context, error);
+                        } catch (IOException ioException) {
+                            //let the caller know of the caught IO Exception
+                            callBack.onFailure(_context, ioException);
+                        } catch (Exception exception) {
+                            //let the caller know of the caught Exception
+                            callBack.onFailure(_context, exception);
+                        }
+                    }
+                    public void onFailure(HttpContext _context, Throwable _error) {
+                        //invoke the callback after response if its not null
+                        if (getHttpCallBack() != null)
+                        {
+                            getHttpCallBack().OnAfterResponse(_context);
+                        }
+
+                        //let the caller know of the failure
+                        callBack.onFailure(_context, _error);
+                    }
+                });
+            }
+        };
+
+        //execute async using thread pool
+        APIHelper.getScheduler().execute(_responseTask);
+    }
+
+    /**
+     * TODO: type endpoint description here
+     * @param    chargeId    Required parameter: Charge Id
+     * @param    page    Optional parameter: Page number
+     * @param    size    Optional parameter: Page size
+     * @return    Returns the ListChargeTransactionsResponse response from the API call 
+     */
+    public ListChargeTransactionsResponse getChargeTransactions(
+                final String chargeId,
+                final Integer page,
+                final Integer size
+    ) throws Throwable {
+        APICallBackCatcher<ListChargeTransactionsResponse> callback = new APICallBackCatcher<ListChargeTransactionsResponse>();
+        getChargeTransactionsAsync(chargeId, page, size, callback);
+        if(!callback.isSuccess())
+            throw callback.getError();
+        return callback.getResult();
+    }
+
+    /**
+     * TODO: type endpoint description here
+     * @param    chargeId    Required parameter: Charge Id
+     * @param    page    Optional parameter: Page number
+     * @param    size    Optional parameter: Page size
+     * @return    Returns the void response from the API call 
+     */
+    public void getChargeTransactionsAsync(
+                final String chargeId,
+                final Integer page,
+                final Integer size,
+                final APICallBack<ListChargeTransactionsResponse> callBack
+    ) {
+        Runnable _responseTask = new Runnable() {
+            public void run() {
+                //the base uri for api requests
+                String _baseUri = Configuration.baseUri;
+
+                //prepare query string for API call
+                StringBuilder _queryBuilder = new StringBuilder(_baseUri);
+                _queryBuilder.append("/charges/{charge_id}/transactions");
+
+                //process template parameters
+                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
+                    private static final long serialVersionUID = -6657700938566929829L;
+                    {
+                        put( "charge_id", chargeId );
+                    }});
+
+                //process query parameters
+                APIHelper.appendUrlWithQueryParameters(_queryBuilder, new HashMap<String, Object>() {
+                    private static final long serialVersionUID = -5660802014636199472L;
+                    {
+                        put( "page", page );
+                        put( "size", size );
+                    }});
+                //validate and preprocess url
+                String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+
+                //load all headers for the outgoing API request
+                Map<String, String> _headers = new HashMap<String, String>() {
+                    private static final long serialVersionUID = -2042397430L;
+                    {
+                        put( "user-agent", "MundiSDK - Java 0.13.42" );
+                        put( "accept", "application/json" );
+                    }
+                };
+
+                //prepare and invoke the API call request to fetch the response
+                final HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null,
+                                                Configuration.basicAuthUserName, Configuration.basicAuthPassword);
+
+                //invoke the callback before request if its not null
+                if (getHttpCallBack() != null)
+                {
+                    getHttpCallBack().OnBeforeRequest(_request);
+                }
+
+                //invoke request and get response
+                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
+                    public void onSuccess(HttpContext _context, HttpResponse _response) {
+                        try {
+
+                            //invoke the callback after response if its not null
+                            if (getHttpCallBack() != null)	
+                            {
+                                getHttpCallBack().OnAfterResponse(_context);
+                            }
+
+                            //handle errors defined at the API level
+                            validateResponse(_response, _context);
+
+                            //extract result from the http response
+                            String _responseBody = ((HttpStringResponse)_response).getBody();
+                            ListChargeTransactionsResponse _result = APIHelper.deserialize(_responseBody,
+                                                        new TypeReference<ListChargeTransactionsResponse>(){});
 
                             //let the caller know of the success
                             callBack.onSuccess(_context, _result);

@@ -82,6 +82,14 @@ public class MundiAPIClient {
     }
 
     /**
+     * Singleton access to Transactions controller
+     * @return	Returns the TransactionsController instance 
+     */
+    public TransactionsController getTransactions() {
+        return TransactionsController.getInstance();
+    }
+
+    /**
      * Get the shared http client currently being used for API calls
      * @return The http client instance currently being used
      */

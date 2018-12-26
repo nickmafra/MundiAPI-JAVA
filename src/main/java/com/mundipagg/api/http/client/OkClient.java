@@ -28,7 +28,7 @@ public class OkClient implements HttpClient {
     /**
      * Private variables to implement singleton pattern
      */
-    private static Object synRoot = new Object();
+    private static final Object synRoot = new Object();
     private static HttpClient sharedInstance = null;
     private static okhttp3.OkHttpClient client = new okhttp3.OkHttpClient();
 
@@ -37,12 +37,14 @@ public class OkClient implements HttpClient {
      * @return A shared instance of UnirestClient
      */
     public static HttpClient getSharedInstance() {
-        synchronized (synRoot) {
-            if (sharedInstance == null) {
-                sharedInstance = new OkClient();
+        if (sharedInstance == null) {
+            synchronized(synRoot) {
+                if (sharedInstance == null) {
+                    sharedInstance = new OkClient();
+                }
             }
-            return sharedInstance;
         }
+        return sharedInstance;
     }
 
     /**

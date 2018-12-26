@@ -17,7 +17,7 @@ public abstract class BaseController {
      * Private variable to keep shared reference of client instance
      */
     private static HttpClient clientInstance = null;
-    private static Object syncObject = new Object();
+    private static final Object syncObject = new Object();
 
     /**
      * Protected variable to keep reference of httpCallBack instance if user provides any
@@ -45,10 +45,12 @@ public abstract class BaseController {
      * @return The shared instance of the http client 
      */
     public static HttpClient getClientInstance() {
-        synchronized (syncObject) {
-            if (null == clientInstance) {
-                clientInstance = OkClient.getSharedInstance();
-    }
+        if (null == clientInstance) {
+            synchronized (syncObject) {
+                if (null == clientInstance) {
+                    clientInstance = OkClient.getSharedInstance();
+                }
+            }
         }
         return clientInstance;
     }
@@ -58,9 +60,11 @@ public abstract class BaseController {
      * @param    client    The shared instance of the http client 
      */
     public static void setClientInstance(HttpClient client) {
-        synchronized (syncObject) {
-            if (null != client) {
-                clientInstance = client;
+        if (null != client) {
+            synchronized (syncObject) {
+                if (null != client) {
+                    clientInstance = client;
+                }
             }
         }
     }

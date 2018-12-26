@@ -25,7 +25,7 @@ import com.mundipagg.api.controllers.syncwrapper.APICallBackCatcher;
 
 public class RecipientsController extends BaseController {    
     //private static variables for the singleton pattern
-    private static Object syncObject = new Object();
+    private static final Object syncObject = new Object();
     private static RecipientsController instance = null;
 
     /**
@@ -33,9 +33,11 @@ public class RecipientsController extends BaseController {
      * @return The singleton instance of the RecipientsController class 
      */
     public static RecipientsController getInstance() {
-        synchronized (syncObject) {
-            if (null == instance) {
-                instance = new RecipientsController();
+        if (null == instance) {
+            synchronized (syncObject) {
+                if (null == instance) {
+                    instance = new RecipientsController();
+                }
             }
         }
         return instance;
@@ -89,9 +91,9 @@ public class RecipientsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -6163530805646170006L;
+                    private static final long serialVersionUID = 8093872407716587626L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.41" );
+                        put( "user-agent", "MundiSDK - Java 0.13.42" );
                         put( "accept", "application/json" );
                         put( "content-type", "application/json" );
                     }
@@ -212,9 +214,9 @@ public class RecipientsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -5468909177185388354L;
+                    private static final long serialVersionUID = -2042397430L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.41" );
+                        put( "user-agent", "MundiSDK - Java 0.13.42" );
                         put( "accept", "application/json" );
                     }
                 };
@@ -354,9 +356,9 @@ public class RecipientsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -5468909177185388354L;
+                    private static final long serialVersionUID = -2042397430L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.41" );
+                        put( "user-agent", "MundiSDK - Java 0.13.42" );
                         put( "accept", "application/json" );
                     }
                 };
@@ -469,9 +471,9 @@ public class RecipientsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -6163530805646170006L;
+                    private static final long serialVersionUID = 8093872407716587626L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.41" );
+                        put( "user-agent", "MundiSDK - Java 0.13.42" );
                         put( "accept", "application/json" );
                         put( "content-type", "application/json" );
                     }
@@ -592,9 +594,9 @@ public class RecipientsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -5468909177185388354L;
+                    private static final long serialVersionUID = -2042397430L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.41" );
+                        put( "user-agent", "MundiSDK - Java 0.13.42" );
                         put( "accept", "application/json" );
                     }
                 };
@@ -719,9 +721,9 @@ public class RecipientsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -5468909177185388354L;
+                    private static final long serialVersionUID = -2042397430L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.41" );
+                        put( "user-agent", "MundiSDK - Java 0.13.42" );
                         put( "accept", "application/json" );
                     }
                 };
@@ -876,9 +878,9 @@ public class RecipientsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -5468909177185388354L;
+                    private static final long serialVersionUID = -2042397430L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.41" );
+                        put( "user-agent", "MundiSDK - Java 0.13.42" );
                         put( "accept", "application/json" );
                     }
                 };
@@ -991,9 +993,9 @@ public class RecipientsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -6163530805646170006L;
+                    private static final long serialVersionUID = 8093872407716587626L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.41" );
+                        put( "user-agent", "MundiSDK - Java 0.13.42" );
                         put( "accept", "application/json" );
                         put( "content-type", "application/json" );
                     }
@@ -1113,9 +1115,9 @@ public class RecipientsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -6163530805646170006L;
+                    private static final long serialVersionUID = 8093872407716587626L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.41" );
+                        put( "user-agent", "MundiSDK - Java 0.13.42" );
                         put( "accept", "application/json" );
                         put( "content-type", "application/json" );
                     }
@@ -1231,9 +1233,9 @@ public class RecipientsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -5468909177185388354L;
+                    private static final long serialVersionUID = -2042397430L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.41" );
+                        put( "user-agent", "MundiSDK - Java 0.13.42" );
                         put( "accept", "application/json" );
                     }
                 };
@@ -1347,9 +1349,9 @@ public class RecipientsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -5468909177185388354L;
+                    private static final long serialVersionUID = -2042397430L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.41" );
+                        put( "user-agent", "MundiSDK - Java 0.13.42" );
                         put( "accept", "application/json" );
                     }
                 };
@@ -1458,9 +1460,9 @@ public class RecipientsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -5468909177185388354L;
+                    private static final long serialVersionUID = -2042397430L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.41" );
+                        put( "user-agent", "MundiSDK - Java 0.13.42" );
                         put( "accept", "application/json" );
                     }
                 };
@@ -1573,9 +1575,9 @@ public class RecipientsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -6163530805646170006L;
+                    private static final long serialVersionUID = 8093872407716587626L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.41" );
+                        put( "user-agent", "MundiSDK - Java 0.13.42" );
                         put( "accept", "application/json" );
                         put( "content-type", "application/json" );
                     }
@@ -1684,9 +1686,9 @@ public class RecipientsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -6163530805646170006L;
+                    private static final long serialVersionUID = 8093872407716587626L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.41" );
+                        put( "user-agent", "MundiSDK - Java 0.13.42" );
                         put( "accept", "application/json" );
                         put( "content-type", "application/json" );
                     }
@@ -1806,9 +1808,9 @@ public class RecipientsController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -6163530805646170006L;
+                    private static final long serialVersionUID = 8093872407716587626L;
                     {
-                        put( "user-agent", "MundiSDK - Java 0.13.41" );
+                        put( "user-agent", "MundiSDK - Java 0.13.42" );
                         put( "accept", "application/json" );
                         put( "content-type", "application/json" );
                     }

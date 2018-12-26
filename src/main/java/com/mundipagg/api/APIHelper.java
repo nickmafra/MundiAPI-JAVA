@@ -37,18 +37,20 @@ import com.mundipagg.api.exceptions.APIException;
 public class APIHelper {
     /* used for async execution of API calls using a thread pool */
     private static ExecutorService scheduler = null;
-    private static Object syncRoot = new Object();
+    private static final Object syncRoot = new Object();
   
     /**
      * Singleton access to the threadpool scheduler
      */
     public static ExecutorService getScheduler() {
-        synchronized(syncRoot) {
-            if(null == scheduler) {
-                scheduler = Executors.newCachedThreadPool();
+        if (null == scheduler) {
+            synchronized(syncRoot) {
+                if (null == scheduler) {
+                    scheduler = Executors.newCachedThreadPool();
+                }
             }
-            return scheduler;
         }
+        return scheduler;
     }
 
     /**

@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class GetChargeResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = -5040587428139365660L;
+    private static final long serialVersionUID = 3983060627646305517L;
     private String id;
     private String code;
     private String gatewayId;
@@ -34,6 +34,7 @@ public class GetChargeResponse
     private DateTime paidAt;
     private DateTime canceledAt;
     private int canceledAmount;
+    private int paidAmount;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -332,5 +333,20 @@ public class GetChargeResponse
         this.canceledAmount = value;
     }
  
-}
+    /** GETTER
+     * Paid amount
+     */
+    @JsonGetter("paid_amount")
+    public int getPaidAmount ( ) { 
+        return this.paidAmount;
+    }
+    
+    /** SETTER
+     * Paid amount
+     */
+    @JsonSetter("paid_amount")
+    public void setPaidAmount (int value) { 
+        this.paidAmount = value;
+    }
  
+}
