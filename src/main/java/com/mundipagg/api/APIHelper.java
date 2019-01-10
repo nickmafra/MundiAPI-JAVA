@@ -269,8 +269,8 @@ public class APIHelper {
             return;
 
         //does the query string already has parameters
-        boolean hasParams = (queryBuilder.indexOf("?") > 0) || (queryBuilder.indexOf("http") != 0);
-        queryBuilder.append((hasParams) ? '&' : '?');
+        boolean hasParams = queryBuilder.indexOf("?") > 0;
+        queryBuilder.append(hasParams ? '&' : '?');
 
         encodeObjectAsQueryString("", parameters, queryBuilder);
     }

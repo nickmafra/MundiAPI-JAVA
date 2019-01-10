@@ -77,8 +77,7 @@ public class ChargesController extends BaseController {
                 String _baseUri = Configuration.baseUri;
 
                 //prepare query string for API call
-                StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-                _queryBuilder.append("/charges/{charge_id}/card");
+                StringBuilder _queryBuilder = new StringBuilder("/charges/{charge_id}/card");
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
@@ -87,7 +86,7 @@ public class ChargesController extends BaseController {
                         put( "charge_id", chargeId );
                     }});
                 //validate and preprocess url
-                String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+                String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
@@ -199,8 +198,7 @@ public class ChargesController extends BaseController {
                 String _baseUri = Configuration.baseUri;
 
                 //prepare query string for API call
-                StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-                _queryBuilder.append("/charges/{charge_id}/payment-method");
+                StringBuilder _queryBuilder = new StringBuilder("/charges/{charge_id}/payment-method");
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
@@ -209,7 +207,7 @@ public class ChargesController extends BaseController {
                         put( "charge_id", chargeId );
                     }});
                 //validate and preprocess url
-                String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+                String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
@@ -317,10 +315,9 @@ public class ChargesController extends BaseController {
                 String _baseUri = Configuration.baseUri;
 
                 //prepare query string for API call
-                StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-                _queryBuilder.append("/Charges");
+                StringBuilder _queryBuilder = new StringBuilder("/Charges");
                 //validate and preprocess url
-                String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+                String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
@@ -428,8 +425,7 @@ public class ChargesController extends BaseController {
                 String _baseUri = Configuration.baseUri;
 
                 //prepare query string for API call
-                StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-                _queryBuilder.append("/charges/{charge_id}");
+                StringBuilder _queryBuilder = new StringBuilder("/charges/{charge_id}");
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
@@ -438,7 +434,7 @@ public class ChargesController extends BaseController {
                         put( "charge_id", chargeId );
                     }});
                 //validate and preprocess url
-                String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+                String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
@@ -539,8 +535,7 @@ public class ChargesController extends BaseController {
                 String _baseUri = Configuration.baseUri;
 
                 //prepare query string for API call
-                StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-                _queryBuilder.append("/charges/{charge_id}/retry");
+                StringBuilder _queryBuilder = new StringBuilder("/charges/{charge_id}/retry");
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
@@ -549,7 +544,7 @@ public class ChargesController extends BaseController {
                         put( "charge_id", chargeId );
                     }});
                 //validate and preprocess url
-                String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+                String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
@@ -682,8 +677,7 @@ public class ChargesController extends BaseController {
                 String _baseUri = Configuration.baseUri;
 
                 //prepare query string for API call
-                StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-                _queryBuilder.append("/charges");
+                StringBuilder _queryBuilder = new StringBuilder("/charges");
 
                 //process query parameters
                 APIHelper.appendUrlWithQueryParameters(_queryBuilder, new HashMap<String, Object>() {
@@ -700,7 +694,7 @@ public class ChargesController extends BaseController {
                         put( "created_until", DateTimeHelper.toRfc8601DateTime(createdUntil) );
                     }});
                 //validate and preprocess url
-                String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+                String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
@@ -805,8 +799,7 @@ public class ChargesController extends BaseController {
                 String _baseUri = Configuration.baseUri;
 
                 //prepare query string for API call
-                StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-                _queryBuilder.append("/Charges/{charge_id}/metadata");
+                StringBuilder _queryBuilder = new StringBuilder("/Charges/{charge_id}/metadata");
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
@@ -815,7 +808,7 @@ public class ChargesController extends BaseController {
                         put( "charge_id", chargeId );
                     }});
                 //validate and preprocess url
-                String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+                String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
@@ -927,8 +920,7 @@ public class ChargesController extends BaseController {
                 String _baseUri = Configuration.baseUri;
 
                 //prepare query string for API call
-                StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-                _queryBuilder.append("/charges/{charge_id}");
+                StringBuilder _queryBuilder = new StringBuilder("/charges/{charge_id}");
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
@@ -937,7 +929,7 @@ public class ChargesController extends BaseController {
                         put( "charge_id", chargeId );
                     }});
                 //validate and preprocess url
-                String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+                String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
@@ -1049,8 +1041,7 @@ public class ChargesController extends BaseController {
                 String _baseUri = Configuration.baseUri;
 
                 //prepare query string for API call
-                StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-                _queryBuilder.append("/charges/{charge_id}/capture");
+                StringBuilder _queryBuilder = new StringBuilder("/charges/{charge_id}/capture");
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
@@ -1059,7 +1050,7 @@ public class ChargesController extends BaseController {
                         put( "charge_id", chargeId );
                     }});
                 //validate and preprocess url
-                String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+                String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
@@ -1171,8 +1162,7 @@ public class ChargesController extends BaseController {
                 String _baseUri = Configuration.baseUri;
 
                 //prepare query string for API call
-                StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-                _queryBuilder.append("/Charges/{charge_id}/due-date");
+                StringBuilder _queryBuilder = new StringBuilder("/Charges/{charge_id}/due-date");
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
@@ -1181,7 +1171,7 @@ public class ChargesController extends BaseController {
                         put( "charge_id", chargeId );
                     }});
                 //validate and preprocess url
-                String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+                String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
@@ -1293,8 +1283,7 @@ public class ChargesController extends BaseController {
                 String _baseUri = Configuration.baseUri;
 
                 //prepare query string for API call
-                StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-                _queryBuilder.append("/charges/{charge_id}/confirm-payment");
+                StringBuilder _queryBuilder = new StringBuilder("/charges/{charge_id}/confirm-payment");
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
@@ -1303,7 +1292,7 @@ public class ChargesController extends BaseController {
                         put( "charge_id", chargeId );
                     }});
                 //validate and preprocess url
-                String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+                String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
@@ -1419,8 +1408,7 @@ public class ChargesController extends BaseController {
                 String _baseUri = Configuration.baseUri;
 
                 //prepare query string for API call
-                StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-                _queryBuilder.append("/charges/{charge_id}/transactions");
+                StringBuilder _queryBuilder = new StringBuilder("/charges/{charge_id}/transactions");
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
@@ -1437,7 +1425,7 @@ public class ChargesController extends BaseController {
                         put( "size", size );
                     }});
                 //validate and preprocess url
-                String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+                String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {

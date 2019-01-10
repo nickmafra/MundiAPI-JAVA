@@ -76,8 +76,7 @@ public class TokensController extends BaseController {
                 String _baseUri = Configuration.baseUri;
 
                 //prepare query string for API call
-                StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-                _queryBuilder.append("/tokens/{id}?appId={public_key}");
+                StringBuilder _queryBuilder = new StringBuilder("/tokens/{id}?appId={public_key}");
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
@@ -87,7 +86,7 @@ public class TokensController extends BaseController {
                         put( "public_key", publicKey );
                     }});
                 //validate and preprocess url
-                String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+                String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
@@ -191,8 +190,7 @@ public class TokensController extends BaseController {
                 String _baseUri = Configuration.baseUri;
 
                 //prepare query string for API call
-                StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-                _queryBuilder.append("/tokens?appId={public_key}");
+                StringBuilder _queryBuilder = new StringBuilder("/tokens?appId={public_key}");
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
@@ -201,7 +199,7 @@ public class TokensController extends BaseController {
                         put( "public_key", publicKey );
                     }});
                 //validate and preprocess url
-                String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+                String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
@@ -214,9 +212,11 @@ public class TokensController extends BaseController {
                 };
 
                 //prepare and invoke the API call request to fetch the response
+                String _bodyJson;
                 HttpRequest _request;
                 try {
-                    _request = getClientInstance().postBody(_queryUrl, _headers, APIHelper.serialize(request));
+                    _bodyJson = APIHelper.serialize(request);
+                    _request = getClientInstance().postBody(_queryUrl, _headers, _bodyJson);
                 } catch (JsonProcessingException jsonProcessingException) {
                     //let the caller know of the error
                     callBack.onFailure(null, jsonProcessingException);
