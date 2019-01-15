@@ -41,6 +41,14 @@ public class UpdateSubscriptionPaymentMethodRequestBuilder {
         updateSubscriptionPaymentMethodRequest.setCard(card);
         return this;
     }
+
+    /**
+     * The Card Token
+     */
+    public UpdateSubscriptionPaymentMethodRequestBuilder cardToken(String cardToken) {
+        updateSubscriptionPaymentMethodRequest.setCardToken(cardToken);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

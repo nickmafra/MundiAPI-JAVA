@@ -21,7 +21,7 @@ import com.mundipagg.api.http.response.HttpStringResponse;
 import com.mundipagg.api.http.client.APICallBack;
 import com.mundipagg.api.controllers.syncwrapper.APICallBackCatcher;
 
-public class TransactionsController extends BaseController {    
+public class TransactionsController extends BaseController {
     //private static variables for the singleton pattern
     private static final Object syncObject = new Object();
     private static TransactionsController instance = null;
@@ -74,22 +74,18 @@ public class TransactionsController extends BaseController {
                 StringBuilder _queryBuilder = new StringBuilder("/transactions/{transaction_id}");
 
                 //process template parameters
-                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = -880444519L;
-                    {
-                        put( "transaction_id", transactionId );
-                    }});
+                Map<String, Object> _templateParameters = new HashMap<String, Object>();
+                _templateParameters.put("transaction_id", transactionId);
+                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, _templateParameters);
+
                 //validate and preprocess url
                 String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
 
                 //load all headers for the outgoing API request
-                Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -2042397430L;
-                    {
-                        put( "user-agent", "MundiSDK - Java 0.13.42" );
-                        put( "accept", "application/json" );
-                    }
-                };
+                Map<String, String> _headers = new HashMap<String, String>();
+                _headers.put("user-agent", BaseController.userAgent);
+                _headers.put("accept", "application/json");
+
 
                 //prepare and invoke the API call request to fetch the response
                 final HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null,
