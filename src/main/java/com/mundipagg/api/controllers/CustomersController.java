@@ -22,7 +22,7 @@ import com.mundipagg.api.http.response.HttpStringResponse;
 import com.mundipagg.api.http.client.APICallBack;
 import com.mundipagg.api.controllers.syncwrapper.APICallBackCatcher;
 
-public class CustomersController extends BaseController {    
+public class CustomersController extends BaseController {
     //private static variables for the singleton pattern
     private static final Object syncObject = new Object();
     private static CustomersController instance = null;
@@ -83,24 +83,20 @@ public class CustomersController extends BaseController {
                 StringBuilder _queryBuilder = new StringBuilder("/customers/{customer_id}/cards/{card_id}");
 
                 //process template parameters
-                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = -1457425967L;
-                    {
-                        put( "customer_id", customerId );
-                        put( "card_id", cardId );
-                    }});
+                Map<String, Object> _templateParameters = new HashMap<String, Object>();
+                _templateParameters.put("customer_id", customerId);
+                _templateParameters.put("card_id", cardId);
+                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, _templateParameters);
+
                 //validate and preprocess url
                 String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
 
                 //load all headers for the outgoing API request
-                Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 8093872407716587626L;
-                    {
-                        put( "user-agent", "MundiSDK - Java 0.13.42" );
-                        put( "accept", "application/json" );
-                        put( "content-type", "application/json" );
-                    }
-                };
+                Map<String, String> _headers = new HashMap<String, String>();
+                _headers.put("user-agent", BaseController.userAgent);
+                _headers.put("accept", "application/json");
+                _headers.put("content-type", "application/json");
+
 
                 //prepare and invoke the API call request to fetch the response
                 final HttpRequest _request;
@@ -209,24 +205,20 @@ public class CustomersController extends BaseController {
                 StringBuilder _queryBuilder = new StringBuilder("/customers/{customer_id}/addresses/{address_id}");
 
                 //process template parameters
-                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 1714860015853393472L;
-                    {
-                        put( "customer_id", customerId );
-                        put( "address_id", addressId );
-                    }});
+                Map<String, Object> _templateParameters = new HashMap<String, Object>();
+                _templateParameters.put("customer_id", customerId);
+                _templateParameters.put("address_id", addressId);
+                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, _templateParameters);
+
                 //validate and preprocess url
                 String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
 
                 //load all headers for the outgoing API request
-                Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 8093872407716587626L;
-                    {
-                        put( "user-agent", "MundiSDK - Java 0.13.42" );
-                        put( "accept", "application/json" );
-                        put( "content-type", "application/json" );
-                    }
-                };
+                Map<String, String> _headers = new HashMap<String, String>();
+                _headers.put("user-agent", BaseController.userAgent);
+                _headers.put("accept", "application/json");
+                _headers.put("content-type", "application/json");
+
 
                 //prepare and invoke the API call request to fetch the response
                 final HttpRequest _request;
@@ -325,18 +317,16 @@ public class CustomersController extends BaseController {
 
                 //prepare query string for API call
                 StringBuilder _queryBuilder = new StringBuilder("/customers");
+
                 //validate and preprocess url
                 String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
 
                 //load all headers for the outgoing API request
-                Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 8093872407716587626L;
-                    {
-                        put( "user-agent", "MundiSDK - Java 0.13.42" );
-                        put( "accept", "application/json" );
-                        put( "content-type", "application/json" );
-                    }
-                };
+                Map<String, String> _headers = new HashMap<String, String>();
+                _headers.put("user-agent", BaseController.userAgent);
+                _headers.put("accept", "application/json");
+                _headers.put("content-type", "application/json");
+
 
                 //prepare and invoke the API call request to fetch the response
                 final HttpRequest _request;
@@ -437,22 +427,18 @@ public class CustomersController extends BaseController {
                 StringBuilder _queryBuilder = new StringBuilder("/customers/{customer_id}");
 
                 //process template parameters
-                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = -1111910949L;
-                    {
-                        put( "customer_id", customerId );
-                    }});
+                Map<String, Object> _templateParameters = new HashMap<String, Object>();
+                _templateParameters.put("customer_id", customerId);
+                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, _templateParameters);
+
                 //validate and preprocess url
                 String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
 
                 //load all headers for the outgoing API request
-                Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -2042397430L;
-                    {
-                        put( "user-agent", "MundiSDK - Java 0.13.42" );
-                        put( "accept", "application/json" );
-                    }
-                };
+                Map<String, String> _headers = new HashMap<String, String>();
+                _headers.put("user-agent", BaseController.userAgent);
+                _headers.put("accept", "application/json");
+
 
                 //prepare and invoke the API call request to fetch the response
                 final HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null,
@@ -555,30 +541,28 @@ public class CustomersController extends BaseController {
                 StringBuilder _queryBuilder = new StringBuilder("/customers/{customer_id}/access-tokens");
 
                 //process template parameters
-                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = -1111910949L;
-                    {
-                        put( "customer_id", customerId );
-                    }});
+                Map<String, Object> _templateParameters = new HashMap<String, Object>();
+                _templateParameters.put("customer_id", customerId);
+                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, _templateParameters);
 
-                //process query parameters
-                APIHelper.appendUrlWithQueryParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = -5660802014636199472L;
-                    {
-                        put( "page", page );
-                        put( "size", size );
-                    }});
+                ///process query parameters
+                Map<String, Object> _queryParameters = new HashMap<String, Object>();
+                if (page != null) {
+                    _queryParameters.put("page", page);
+                }
+                if (size != null) {
+                    _queryParameters.put("size", size);
+                }
+                APIHelper.appendUrlWithQueryParameters(_queryBuilder, _queryParameters);
+
                 //validate and preprocess url
                 String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
 
                 //load all headers for the outgoing API request
-                Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -2042397430L;
-                    {
-                        put( "user-agent", "MundiSDK - Java 0.13.42" );
-                        put( "accept", "application/json" );
-                    }
-                };
+                Map<String, String> _headers = new HashMap<String, String>();
+                _headers.put("user-agent", BaseController.userAgent);
+                _headers.put("accept", "application/json");
+
 
                 //prepare and invoke the API call request to fetch the response
                 final HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null,
@@ -681,30 +665,28 @@ public class CustomersController extends BaseController {
                 StringBuilder _queryBuilder = new StringBuilder("/customers/{customer_id}/addresses");
 
                 //process template parameters
-                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = -1111910949L;
-                    {
-                        put( "customer_id", customerId );
-                    }});
+                Map<String, Object> _templateParameters = new HashMap<String, Object>();
+                _templateParameters.put("customer_id", customerId);
+                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, _templateParameters);
 
-                //process query parameters
-                APIHelper.appendUrlWithQueryParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = -5660802014636199472L;
-                    {
-                        put( "page", page );
-                        put( "size", size );
-                    }});
+                ///process query parameters
+                Map<String, Object> _queryParameters = new HashMap<String, Object>();
+                if (page != null) {
+                    _queryParameters.put("page", page);
+                }
+                if (size != null) {
+                    _queryParameters.put("size", size);
+                }
+                APIHelper.appendUrlWithQueryParameters(_queryBuilder, _queryParameters);
+
                 //validate and preprocess url
                 String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
 
                 //load all headers for the outgoing API request
-                Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -2042397430L;
-                    {
-                        put( "user-agent", "MundiSDK - Java 0.13.42" );
-                        put( "accept", "application/json" );
-                    }
-                };
+                Map<String, String> _headers = new HashMap<String, String>();
+                _headers.put("user-agent", BaseController.userAgent);
+                _headers.put("accept", "application/json");
+
 
                 //prepare and invoke the API call request to fetch the response
                 final HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null,
@@ -807,30 +789,28 @@ public class CustomersController extends BaseController {
                 StringBuilder _queryBuilder = new StringBuilder("/customers/{customer_id}/cards");
 
                 //process template parameters
-                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = -1111910949L;
-                    {
-                        put( "customer_id", customerId );
-                    }});
+                Map<String, Object> _templateParameters = new HashMap<String, Object>();
+                _templateParameters.put("customer_id", customerId);
+                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, _templateParameters);
 
-                //process query parameters
-                APIHelper.appendUrlWithQueryParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = -5660802014636199472L;
-                    {
-                        put( "page", page );
-                        put( "size", size );
-                    }});
+                ///process query parameters
+                Map<String, Object> _queryParameters = new HashMap<String, Object>();
+                if (page != null) {
+                    _queryParameters.put("page", page);
+                }
+                if (size != null) {
+                    _queryParameters.put("size", size);
+                }
+                APIHelper.appendUrlWithQueryParameters(_queryBuilder, _queryParameters);
+
                 //validate and preprocess url
                 String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
 
                 //load all headers for the outgoing API request
-                Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -2042397430L;
-                    {
-                        put( "user-agent", "MundiSDK - Java 0.13.42" );
-                        put( "accept", "application/json" );
-                    }
-                };
+                Map<String, String> _headers = new HashMap<String, String>();
+                _headers.put("user-agent", BaseController.userAgent);
+                _headers.put("accept", "application/json");
+
 
                 //prepare and invoke the API call request to fetch the response
                 final HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null,
@@ -925,22 +905,18 @@ public class CustomersController extends BaseController {
                 StringBuilder _queryBuilder = new StringBuilder("/customers/{customer_id}/access-tokens/");
 
                 //process template parameters
-                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = -1111910949L;
-                    {
-                        put( "customer_id", customerId );
-                    }});
+                Map<String, Object> _templateParameters = new HashMap<String, Object>();
+                _templateParameters.put("customer_id", customerId);
+                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, _templateParameters);
+
                 //validate and preprocess url
                 String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
 
                 //load all headers for the outgoing API request
-                Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -2042397430L;
-                    {
-                        put( "user-agent", "MundiSDK - Java 0.13.42" );
-                        put( "accept", "application/json" );
-                    }
-                };
+                Map<String, String> _headers = new HashMap<String, String>();
+                _headers.put("user-agent", BaseController.userAgent);
+                _headers.put("accept", "application/json");
+
 
                 //prepare and invoke the API call request to fetch the response
                 final HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null,
@@ -1039,23 +1015,19 @@ public class CustomersController extends BaseController {
                 StringBuilder _queryBuilder = new StringBuilder("/customers/{customer_id}/access-tokens/{token_id}");
 
                 //process template parameters
-                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = -7967178819584553068L;
-                    {
-                        put( "customer_id", customerId );
-                        put( "token_id", tokenId );
-                    }});
+                Map<String, Object> _templateParameters = new HashMap<String, Object>();
+                _templateParameters.put("customer_id", customerId);
+                _templateParameters.put("token_id", tokenId);
+                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, _templateParameters);
+
                 //validate and preprocess url
                 String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
 
                 //load all headers for the outgoing API request
-                Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -2042397430L;
-                    {
-                        put( "user-agent", "MundiSDK - Java 0.13.42" );
-                        put( "accept", "application/json" );
-                    }
-                };
+                Map<String, String> _headers = new HashMap<String, String>();
+                _headers.put("user-agent", BaseController.userAgent);
+                _headers.put("accept", "application/json");
+
 
                 //prepare and invoke the API call request to fetch the response
                 final HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null,
@@ -1154,23 +1126,19 @@ public class CustomersController extends BaseController {
                 StringBuilder _queryBuilder = new StringBuilder("/customers/{customer_id}/access-tokens");
 
                 //process template parameters
-                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = -1111910949L;
-                    {
-                        put( "customer_id", customerId );
-                    }});
+                Map<String, Object> _templateParameters = new HashMap<String, Object>();
+                _templateParameters.put("customer_id", customerId);
+                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, _templateParameters);
+
                 //validate and preprocess url
                 String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
 
                 //load all headers for the outgoing API request
-                Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 8093872407716587626L;
-                    {
-                        put( "user-agent", "MundiSDK - Java 0.13.42" );
-                        put( "accept", "application/json" );
-                        put( "content-type", "application/json" );
-                    }
-                };
+                Map<String, String> _headers = new HashMap<String, String>();
+                _headers.put("user-agent", BaseController.userAgent);
+                _headers.put("accept", "application/json");
+                _headers.put("content-type", "application/json");
+
 
                 //prepare and invoke the API call request to fetch the response
                 final HttpRequest _request;
@@ -1275,23 +1243,19 @@ public class CustomersController extends BaseController {
                 StringBuilder _queryBuilder = new StringBuilder("/customers/{customer_id}/access-tokens/{token_id}");
 
                 //process template parameters
-                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = -7967178819584553068L;
-                    {
-                        put( "customer_id", customerId );
-                        put( "token_id", tokenId );
-                    }});
+                Map<String, Object> _templateParameters = new HashMap<String, Object>();
+                _templateParameters.put("customer_id", customerId);
+                _templateParameters.put("token_id", tokenId);
+                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, _templateParameters);
+
                 //validate and preprocess url
                 String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
 
                 //load all headers for the outgoing API request
-                Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -2042397430L;
-                    {
-                        put( "user-agent", "MundiSDK - Java 0.13.42" );
-                        put( "accept", "application/json" );
-                    }
-                };
+                Map<String, String> _headers = new HashMap<String, String>();
+                _headers.put("user-agent", BaseController.userAgent);
+                _headers.put("accept", "application/json");
+
 
                 //prepare and invoke the API call request to fetch the response
                 final HttpRequest _request = getClientInstance().delete(_queryUrl, _headers, null,
@@ -1390,23 +1354,19 @@ public class CustomersController extends BaseController {
                 StringBuilder _queryBuilder = new StringBuilder("/Customers/{customer_id}/metadata");
 
                 //process template parameters
-                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = -1111910949L;
-                    {
-                        put( "customer_id", customerId );
-                    }});
+                Map<String, Object> _templateParameters = new HashMap<String, Object>();
+                _templateParameters.put("customer_id", customerId);
+                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, _templateParameters);
+
                 //validate and preprocess url
                 String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
 
                 //load all headers for the outgoing API request
-                Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 8093872407716587626L;
-                    {
-                        put( "user-agent", "MundiSDK - Java 0.13.42" );
-                        put( "accept", "application/json" );
-                        put( "content-type", "application/json" );
-                    }
-                };
+                Map<String, String> _headers = new HashMap<String, String>();
+                _headers.put("user-agent", BaseController.userAgent);
+                _headers.put("accept", "application/json");
+                _headers.put("content-type", "application/json");
+
 
                 //prepare and invoke the API call request to fetch the response
                 final HttpRequest _request;
@@ -1511,23 +1471,19 @@ public class CustomersController extends BaseController {
                 StringBuilder _queryBuilder = new StringBuilder("/customers/{customer_id}");
 
                 //process template parameters
-                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = -1111910949L;
-                    {
-                        put( "customer_id", customerId );
-                    }});
+                Map<String, Object> _templateParameters = new HashMap<String, Object>();
+                _templateParameters.put("customer_id", customerId);
+                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, _templateParameters);
+
                 //validate and preprocess url
                 String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
 
                 //load all headers for the outgoing API request
-                Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 8093872407716587626L;
-                    {
-                        put( "user-agent", "MundiSDK - Java 0.13.42" );
-                        put( "accept", "application/json" );
-                        put( "content-type", "application/json" );
-                    }
-                };
+                Map<String, String> _headers = new HashMap<String, String>();
+                _headers.put("user-agent", BaseController.userAgent);
+                _headers.put("accept", "application/json");
+                _headers.put("content-type", "application/json");
+
 
                 //prepare and invoke the API call request to fetch the response
                 final HttpRequest _request;
@@ -1632,23 +1588,19 @@ public class CustomersController extends BaseController {
                 StringBuilder _queryBuilder = new StringBuilder("/customers/{customer_id}/addresses/{address_id}");
 
                 //process template parameters
-                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 1714860015853393472L;
-                    {
-                        put( "customer_id", customerId );
-                        put( "address_id", addressId );
-                    }});
+                Map<String, Object> _templateParameters = new HashMap<String, Object>();
+                _templateParameters.put("customer_id", customerId);
+                _templateParameters.put("address_id", addressId);
+                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, _templateParameters);
+
                 //validate and preprocess url
                 String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
 
                 //load all headers for the outgoing API request
-                Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -2042397430L;
-                    {
-                        put( "user-agent", "MundiSDK - Java 0.13.42" );
-                        put( "accept", "application/json" );
-                    }
-                };
+                Map<String, String> _headers = new HashMap<String, String>();
+                _headers.put("user-agent", BaseController.userAgent);
+                _headers.put("accept", "application/json");
+
 
                 //prepare and invoke the API call request to fetch the response
                 final HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null,
@@ -1747,23 +1699,19 @@ public class CustomersController extends BaseController {
                 StringBuilder _queryBuilder = new StringBuilder("/customers/{customer_id}/addresses/{address_id}");
 
                 //process template parameters
-                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 1714860015853393472L;
-                    {
-                        put( "customer_id", customerId );
-                        put( "address_id", addressId );
-                    }});
+                Map<String, Object> _templateParameters = new HashMap<String, Object>();
+                _templateParameters.put("customer_id", customerId);
+                _templateParameters.put("address_id", addressId);
+                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, _templateParameters);
+
                 //validate and preprocess url
                 String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
 
                 //load all headers for the outgoing API request
-                Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -2042397430L;
-                    {
-                        put( "user-agent", "MundiSDK - Java 0.13.42" );
-                        put( "accept", "application/json" );
-                    }
-                };
+                Map<String, String> _headers = new HashMap<String, String>();
+                _headers.put("user-agent", BaseController.userAgent);
+                _headers.put("accept", "application/json");
+
 
                 //prepare and invoke the API call request to fetch the response
                 final HttpRequest _request = getClientInstance().delete(_queryUrl, _headers, null,
@@ -1862,23 +1810,19 @@ public class CustomersController extends BaseController {
                 StringBuilder _queryBuilder = new StringBuilder("/customers/{customer_id}/cards/{card_id}");
 
                 //process template parameters
-                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = -1457425967L;
-                    {
-                        put( "customer_id", customerId );
-                        put( "card_id", cardId );
-                    }});
+                Map<String, Object> _templateParameters = new HashMap<String, Object>();
+                _templateParameters.put("customer_id", customerId);
+                _templateParameters.put("card_id", cardId);
+                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, _templateParameters);
+
                 //validate and preprocess url
                 String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
 
                 //load all headers for the outgoing API request
-                Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -2042397430L;
-                    {
-                        put( "user-agent", "MundiSDK - Java 0.13.42" );
-                        put( "accept", "application/json" );
-                    }
-                };
+                Map<String, String> _headers = new HashMap<String, String>();
+                _headers.put("user-agent", BaseController.userAgent);
+                _headers.put("accept", "application/json");
+
 
                 //prepare and invoke the API call request to fetch the response
                 final HttpRequest _request = getClientInstance().delete(_queryUrl, _headers, null,
@@ -1977,23 +1921,19 @@ public class CustomersController extends BaseController {
                 StringBuilder _queryBuilder = new StringBuilder("/customers/{customer_id}/addresses");
 
                 //process template parameters
-                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = -1111910949L;
-                    {
-                        put( "customer_id", customerId );
-                    }});
+                Map<String, Object> _templateParameters = new HashMap<String, Object>();
+                _templateParameters.put("customer_id", customerId);
+                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, _templateParameters);
+
                 //validate and preprocess url
                 String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
 
                 //load all headers for the outgoing API request
-                Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 8093872407716587626L;
-                    {
-                        put( "user-agent", "MundiSDK - Java 0.13.42" );
-                        put( "accept", "application/json" );
-                        put( "content-type", "application/json" );
-                    }
-                };
+                Map<String, String> _headers = new HashMap<String, String>();
+                _headers.put("user-agent", BaseController.userAgent);
+                _headers.put("accept", "application/json");
+                _headers.put("content-type", "application/json");
+
 
                 //prepare and invoke the API call request to fetch the response
                 final HttpRequest _request;
@@ -2098,23 +2038,19 @@ public class CustomersController extends BaseController {
                 StringBuilder _queryBuilder = new StringBuilder("/customers/{customer_id}/cards/{card_id}");
 
                 //process template parameters
-                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = -1457425967L;
-                    {
-                        put( "customer_id", customerId );
-                        put( "card_id", cardId );
-                    }});
+                Map<String, Object> _templateParameters = new HashMap<String, Object>();
+                _templateParameters.put("customer_id", customerId);
+                _templateParameters.put("card_id", cardId);
+                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, _templateParameters);
+
                 //validate and preprocess url
                 String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
 
                 //load all headers for the outgoing API request
-                Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -2042397430L;
-                    {
-                        put( "user-agent", "MundiSDK - Java 0.13.42" );
-                        put( "accept", "application/json" );
-                    }
-                };
+                Map<String, String> _headers = new HashMap<String, String>();
+                _headers.put("user-agent", BaseController.userAgent);
+                _headers.put("accept", "application/json");
+
 
                 //prepare and invoke the API call request to fetch the response
                 final HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null,
@@ -2213,23 +2149,19 @@ public class CustomersController extends BaseController {
                 StringBuilder _queryBuilder = new StringBuilder("/customers/{customer_id}/cards");
 
                 //process template parameters
-                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = -1111910949L;
-                    {
-                        put( "customer_id", customerId );
-                    }});
+                Map<String, Object> _templateParameters = new HashMap<String, Object>();
+                _templateParameters.put("customer_id", customerId);
+                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, _templateParameters);
+
                 //validate and preprocess url
                 String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
 
                 //load all headers for the outgoing API request
-                Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 8093872407716587626L;
-                    {
-                        put( "user-agent", "MundiSDK - Java 0.13.42" );
-                        put( "accept", "application/json" );
-                        put( "content-type", "application/json" );
-                    }
-                };
+                Map<String, String> _headers = new HashMap<String, String>();
+                _headers.put("user-agent", BaseController.userAgent);
+                _headers.put("accept", "application/json");
+                _headers.put("content-type", "application/json");
+
 
                 //prepare and invoke the API call request to fetch the response
                 final HttpRequest _request;
@@ -2349,28 +2281,36 @@ public class CustomersController extends BaseController {
                 //prepare query string for API call
                 StringBuilder _queryBuilder = new StringBuilder("/customers");
 
-                //process query parameters
-                APIHelper.appendUrlWithQueryParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = -2164201678059459317L;
-                    {
-                        put( "name", name );
-                        put( "document", document );
-                        put( "page", (page != null) ? page : 1 );
-                        put( "size", (size != null) ? size : 10 );
-                        put( "email", email );
-                        put( "Code", code );
-                    }});
+                ///process query parameters
+                Map<String, Object> _queryParameters = new HashMap<String, Object>();
+                if (name != null) {
+                    _queryParameters.put("name", name);
+                }
+                if (document != null) {
+                    _queryParameters.put("document", document);
+                }
+                if (page != null) {
+                    _queryParameters.put("page", (page != null) ? page : 1);
+                }
+                if (size != null) {
+                    _queryParameters.put("size", (size != null) ? size : 10);
+                }
+                if (email != null) {
+                    _queryParameters.put("email", email);
+                }
+                if (code != null) {
+                    _queryParameters.put("Code", code);
+                }
+                APIHelper.appendUrlWithQueryParameters(_queryBuilder, _queryParameters);
+
                 //validate and preprocess url
                 String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
 
                 //load all headers for the outgoing API request
-                Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -2042397430L;
-                    {
-                        put( "user-agent", "MundiSDK - Java 0.13.42" );
-                        put( "accept", "application/json" );
-                    }
-                };
+                Map<String, String> _headers = new HashMap<String, String>();
+                _headers.put("user-agent", BaseController.userAgent);
+                _headers.put("accept", "application/json");
+
 
                 //prepare and invoke the API call request to fetch the response
                 final HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null,
@@ -2469,23 +2409,19 @@ public class CustomersController extends BaseController {
                 StringBuilder _queryBuilder = new StringBuilder("/customers/{customer_id}/cards/{card_id}/renew");
 
                 //process template parameters
-                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = -1457425967L;
-                    {
-                        put( "customer_id", customerId );
-                        put( "card_id", cardId );
-                    }});
+                Map<String, Object> _templateParameters = new HashMap<String, Object>();
+                _templateParameters.put("customer_id", customerId);
+                _templateParameters.put("card_id", cardId);
+                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, _templateParameters);
+
                 //validate and preprocess url
                 String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
 
                 //load all headers for the outgoing API request
-                Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = -2042397430L;
-                    {
-                        put( "user-agent", "MundiSDK - Java 0.13.42" );
-                        put( "accept", "application/json" );
-                    }
-                };
+                Map<String, String> _headers = new HashMap<String, String>();
+                _headers.put("user-agent", BaseController.userAgent);
+                _headers.put("accept", "application/json");
+
 
                 //prepare and invoke the API call request to fetch the response
                 final HttpRequest _request = getClientInstance().post(_queryUrl, _headers, null,
