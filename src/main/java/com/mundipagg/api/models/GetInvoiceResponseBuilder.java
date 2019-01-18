@@ -134,6 +134,14 @@ public class GetInvoiceResponseBuilder {
         getInvoiceResponse.setTotalIncrement(totalIncrement);
         return this;
     }
+
+    /**
+     * Subscription Id
+     */
+    public GetInvoiceResponseBuilder subscriptionId(String subscriptionId) {
+        getInvoiceResponse.setSubscriptionId(subscriptionId);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class GetInvoiceResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 6586682694961640453L;
+    private static final long serialVersionUID = -6943366487619134206L;
     private String id;
     private String code;
     private String url;
@@ -38,6 +38,7 @@ public class GetInvoiceResponse
     private DateTime seenAt;
     private Integer totalDiscount;
     private Integer totalIncrement;
+    private String subscriptionId;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -398,6 +399,22 @@ public class GetInvoiceResponse
     @JsonSetter("total_increment")
     public void setTotalIncrement (Integer value) { 
         this.totalIncrement = value;
+    }
+ 
+    /** GETTER
+     * Subscription Id
+     */
+    @JsonGetter("subscription_id")
+    public String getSubscriptionId ( ) { 
+        return this.subscriptionId;
+    }
+    
+    /** SETTER
+     * Subscription Id
+     */
+    @JsonSetter("subscription_id")
+    public void setSubscriptionId (String value) { 
+        this.subscriptionId = value;
     }
  
 }
