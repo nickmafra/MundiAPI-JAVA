@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class CreateShippingRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 8281433325414526851L;
+    private static final long serialVersionUID = 7845437958986733056L;
     private int amount;
     private String description;
     private String recipientName;
@@ -24,6 +24,7 @@ public class CreateShippingRequest
     private CreateAddressRequest address;
     private DateTime maxDeliveryDate;
     private DateTime estimatedDeliveryDate;
+    private String type;
     /** GETTER
      * Shipping amount
      */
@@ -154,6 +155,22 @@ public class CreateShippingRequest
     @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
     public void setEstimatedDeliveryDate (DateTime value) { 
         this.estimatedDeliveryDate = value;
+    }
+ 
+    /** GETTER
+     * Shipping type
+     */
+    @JsonGetter("type")
+    public String getType ( ) { 
+        return this.type;
+    }
+    
+    /** SETTER
+     * Shipping type
+     */
+    @JsonSetter("type")
+    public void setType (String value) { 
+        this.type = value;
     }
  
 }

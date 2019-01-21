@@ -82,6 +82,14 @@ public class CreateShippingRequestBuilder {
         createShippingRequest.setEstimatedDeliveryDate(estimatedDeliveryDate);
         return this;
     }
+
+    /**
+     * Shipping type
+     */
+    public CreateShippingRequestBuilder type(String type) {
+        createShippingRequest.setType(type);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

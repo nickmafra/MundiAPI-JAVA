@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class GetShippingResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = -9182537112343000060L;
+    private static final long serialVersionUID = -7261308018103266201L;
     private int amount;
     private String description;
     private String recipientName;
@@ -23,6 +23,7 @@ public class GetShippingResponse
     private GetAddressResponse address;
     private DateTime maxDeliveryDate;
     private DateTime estimatedDeliveryDate;
+    private String type;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -137,6 +138,22 @@ public class GetShippingResponse
     @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
     public void setEstimatedDeliveryDate (DateTime value) { 
         this.estimatedDeliveryDate = value;
+    }
+ 
+    /** GETTER
+     * Shipping Type
+     */
+    @JsonGetter("type")
+    public String getType ( ) { 
+        return this.type;
+    }
+    
+    /** SETTER
+     * Shipping Type
+     */
+    @JsonSetter("type")
+    public void setType (String value) { 
+        this.type = value;
     }
  
 }

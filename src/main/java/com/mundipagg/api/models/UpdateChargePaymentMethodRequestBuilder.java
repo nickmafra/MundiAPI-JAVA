@@ -65,6 +65,22 @@ public class UpdateChargePaymentMethodRequestBuilder {
         updateChargePaymentMethodRequest.setVoucher(voucher);
         return this;
     }
+
+    /**
+     * Cash data
+     */
+    public UpdateChargePaymentMethodRequestBuilder cash(CreateCashPaymentRequest cash) {
+        updateChargePaymentMethodRequest.setCash(cash);
+        return this;
+    }
+
+    /**
+     * Bank Transfer data
+     */
+    public UpdateChargePaymentMethodRequestBuilder bankTransfer(CreateBankTransferPaymentRequest bankTransfer) {
+        updateChargePaymentMethodRequest.setBankTransfer(bankTransfer);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

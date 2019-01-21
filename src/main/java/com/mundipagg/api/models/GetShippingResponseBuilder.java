@@ -59,6 +59,14 @@ public class GetShippingResponseBuilder {
         getShippingResponse.setEstimatedDeliveryDate(estimatedDeliveryDate);
         return this;
     }
+
+    /**
+     * Shipping Type
+     */
+    public GetShippingResponseBuilder type(String type) {
+        getShippingResponse.setType(type);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */
