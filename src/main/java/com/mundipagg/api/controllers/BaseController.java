@@ -5,6 +5,7 @@
  */
 package com.mundipagg.api.controllers;
 
+
 import com.mundipagg.api.exceptions.*;
 import com.mundipagg.api.http.client.HttpClient;
 import com.mundipagg.api.http.client.HttpContext;
@@ -18,7 +19,7 @@ public abstract class BaseController {
      */
     private static HttpClient clientInstance = null;
     private static final Object syncObject = new Object();
-    protected static final String userAgent = "MundiSDK - Java 0.14.1";
+    protected static final String userAgent = "MundiSDK - Java 0.15.1";
 
     /**
      * Protected variable to keep reference of httpCallBack instance if user provides any
@@ -69,35 +70,41 @@ public abstract class BaseController {
             }
         }
     }
-
     /**
      * Validates the response against HTTP errors defined at the API level
-     * @param   response    The response recieved
+     * @param   _response    The response recieved
      * @param   context     Context of the request and the recieved response 
      */
-    protected void validateResponse(HttpResponse response, HttpContext context) 
+    protected void validateResponse(HttpResponse _response, HttpContext context) 
             throws APIException {
         //get response status code to validate
-        int responseCode = response.getStatusCode();
-        if (responseCode == 400)
+        int responseCode = _response.getStatusCode();
+        if (responseCode == 400) {
             throw new ErrorException("Invalid request", context);
+        }
 
-        if (responseCode == 401)
+        if (responseCode == 401) {
             throw new ErrorException("Invalid API key", context);
+        }
 
-        if (responseCode == 404)
+        if (responseCode == 404) {
             throw new ErrorException("An informed resource was not found", context);
+        }
 
-        if (responseCode == 412)
+        if (responseCode == 412) {
             throw new ErrorException("Business validation error", context);
+        }
 
-        if (responseCode == 422)
+        if (responseCode == 422) {
             throw new ErrorException("Contract validation error", context);
+        }
 
-        if (responseCode == 500)
+        if (responseCode == 500) {
             throw new ErrorException("Internal server error", context);
+        }
 
-        if ((responseCode < 200) || (responseCode > 208)) //[200,208] = HTTP OK
+        if ((responseCode < 200) || (responseCode > 208)) { //[200,208] = HTTP OK
             throw new APIException("HTTP Response Not OK", context);
+        }
     }
 }

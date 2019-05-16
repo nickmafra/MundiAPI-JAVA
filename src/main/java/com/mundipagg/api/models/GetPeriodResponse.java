@@ -8,19 +8,27 @@ package com.mundipagg.api.models;
 import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.mundipagg.api.DateTimeHelper;
 import org.joda.time.DateTime;
 
+@JsonInclude(Include.ALWAYS)
 public class GetPeriodResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 2272840524717846342L;
+    private static final long serialVersionUID = 4963097508378842617L;
     private DateTime startAt;
     private DateTime endAt;
     private String id;
     private DateTime billingAt;
     private GetSubscriptionResponse subscription;
+    private String status;
+    private int duration;
+    private String createdAt;
+    private String updatedAt;
+    private int cycle;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -105,6 +113,86 @@ public class GetPeriodResponse
     @JsonSetter("subscription")
     public void setSubscription (GetSubscriptionResponse value) { 
         this.subscription = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("status")
+    public String getStatus ( ) { 
+        return this.status;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("status")
+    public void setStatus (String value) { 
+        this.status = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("duration")
+    public int getDuration ( ) { 
+        return this.duration;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("duration")
+    public void setDuration (int value) { 
+        this.duration = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("created_at")
+    public String getCreatedAt ( ) { 
+        return this.createdAt;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("created_at")
+    public void setCreatedAt (String value) { 
+        this.createdAt = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("updated_at")
+    public String getUpdatedAt ( ) { 
+        return this.updatedAt;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("updated_at")
+    public void setUpdatedAt (String value) { 
+        this.updatedAt = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("cycle")
+    public int getCycle ( ) { 
+        return this.cycle;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("cycle")
+    public void setCycle (int value) { 
+        this.cycle = value;
     }
  
 }

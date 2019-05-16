@@ -8,10 +8,13 @@ package com.mundipagg.api.models;
 import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+@JsonInclude(Include.ALWAYS)
 public class CreateOrderRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = -6368537495029180531L;
+    private static final long serialVersionUID = -3859228860367948594L;
     private List<CreateOrderItemRequest> items;
     private CreateCustomerRequest customer;
     private List<CreatePaymentRequest> payments;
@@ -26,6 +29,7 @@ public class CreateOrderRequest
     private CreateDeviceRequest device;
     private boolean closed = true;
     private String currency;
+    private CreateAntifraudRequest antifraud;
     /** GETTER
      * Items
      */
@@ -248,6 +252,22 @@ public class CreateOrderRequest
     @JsonSetter("currency")
     public void setCurrency (String value) { 
         this.currency = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("antifraud")
+    public CreateAntifraudRequest getAntifraud ( ) { 
+        return this.antifraud;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("antifraud")
+    public void setAntifraud (CreateAntifraudRequest value) { 
+        this.antifraud = value;
     }
  
 }

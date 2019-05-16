@@ -36,7 +36,7 @@ import org.joda.time.DateTime;
 @JsonInclude(Include.ALWAYS)
 public class GetTransactionResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 7099462940340688149L;
+    private static final long serialVersionUID = 3347458409500098310L;
     private String gatewayId;
     private int amount;
     private String status;
@@ -50,6 +50,7 @@ public class GetTransactionResponse
     private String transactionType;
     private String id;
     private GetGatewayResponseResponse gatewayResponse;
+    private GetAntifraudResponse antifraudResponse;
     /** GETTER
      * Gateway transaction id
      */
@@ -262,6 +263,22 @@ public class GetTransactionResponse
     @JsonSetter("gateway_response")
     public void setGatewayResponse (GetGatewayResponseResponse value) { 
         this.gatewayResponse = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("antifraud_response")
+    public GetAntifraudResponse getAntifraudResponse ( ) { 
+        return this.antifraudResponse;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("antifraud_response")
+    public void setAntifraudResponse (GetAntifraudResponse value) { 
+        this.antifraudResponse = value;
     }
  
 }

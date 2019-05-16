@@ -119,6 +119,11 @@ public class GetTransactionResponseBuilder {
         getTransactionResponse.setGatewayResponse(gatewayResponse);
         return this;
     }
+
+    public GetTransactionResponseBuilder antifraudResponse(GetAntifraudResponse antifraudResponse) {
+        getTransactionResponse.setAntifraudResponse(antifraudResponse);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

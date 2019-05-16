@@ -8,14 +8,17 @@ package com.mundipagg.api.models;
 import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.mundipagg.api.DateTimeHelper;
 import org.joda.time.DateTime;
 
+@JsonInclude(Include.ALWAYS)
 public class CreateChargeRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = -5150370166677126649L;
+    private static final long serialVersionUID = -4281364036029315612L;
     private String code;
     private int amount;
     private String customerId;
@@ -23,6 +26,7 @@ public class CreateChargeRequest
     private CreatePaymentRequest payment;
     private LinkedHashMap<String, String> metadata;
     private DateTime dueAt;
+    private CreateAntifraudRequest antifraud;
     /** GETTER
      * Code
      */
@@ -135,6 +139,22 @@ public class CreateChargeRequest
     @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
     public void setDueAt (DateTime value) { 
         this.dueAt = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("antifraud")
+    public CreateAntifraudRequest getAntifraud ( ) { 
+        return this.antifraud;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("antifraud")
+    public void setAntifraud (CreateAntifraudRequest value) { 
+        this.antifraud = value;
     }
  
 }

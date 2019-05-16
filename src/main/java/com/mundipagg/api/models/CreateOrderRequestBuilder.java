@@ -126,6 +126,11 @@ public class CreateOrderRequestBuilder {
         createOrderRequest.setCurrency(currency);
         return this;
     }
+
+    public CreateOrderRequestBuilder antifraud(CreateAntifraudRequest antifraud) {
+        createOrderRequest.setAntifraud(antifraud);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

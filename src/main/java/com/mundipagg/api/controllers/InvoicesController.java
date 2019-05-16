@@ -51,11 +51,12 @@ public class InvoicesController extends BaseController {
     public GetInvoiceResponse cancelInvoice(
                 final String invoiceId
     ) throws Throwable {
-        APICallBackCatcher<GetInvoiceResponse> callback = new APICallBackCatcher<GetInvoiceResponse>();
-        cancelInvoiceAsync(invoiceId, callback);
-        if(!callback.isSuccess())
-            throw callback.getError();
-        return callback.getResult();
+
+        HttpRequest _request = _buildCancelInvoiceRequest(invoiceId);
+        HttpResponse _response = getClientInstance().executeAsString(_request);
+        HttpContext _context = new HttpContext(_request, _response);
+
+        return _handleCancelInvoiceResponse(_context);
     }
 
     /**
@@ -69,84 +70,96 @@ public class InvoicesController extends BaseController {
     ) {
         Runnable _responseTask = new Runnable() {
             public void run() {
-                //the base uri for api requests
-                String _baseUri = Configuration.baseUri;
 
-                //prepare query string for API call
-                StringBuilder _queryBuilder = new StringBuilder("/invoices/{invoice_id}");
-
-                //process template parameters
-                Map<String, Object> _templateParameters = new HashMap<String, Object>();
-                _templateParameters.put("invoice_id", invoiceId);
-                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, _templateParameters);
-
-                //validate and preprocess url
-                String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
-
-                //load all headers for the outgoing API request
-                Map<String, String> _headers = new HashMap<String, String>();
-                _headers.put("user-agent", BaseController.userAgent);
-                _headers.put("accept", "application/json");
-
-
-                //prepare and invoke the API call request to fetch the response
-                final HttpRequest _request = getClientInstance().delete(_queryUrl, _headers, null,
-                                                Configuration.basicAuthUserName, Configuration.basicAuthPassword);
-
-                //invoke the callback before request if its not null
-                if (getHttpCallBack() != null)
-                {
-                    getHttpCallBack().OnBeforeRequest(_request);
+                HttpRequest _request;
+                try {
+                    _request = _buildCancelInvoiceRequest(invoiceId);
+                } catch (Exception e) {
+                    callBack.onFailure(null, e);
+                    return;
                 }
 
-                //invoke request and get response
+                // Invoke request and get response
                 getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
                     public void onSuccess(HttpContext _context, HttpResponse _response) {
                         try {
-
-                            //invoke the callback after response if its not null
-                            if (getHttpCallBack() != null)	
-                            {
-                                getHttpCallBack().OnAfterResponse(_context);
-                            }
-
-                            //handle errors defined at the API level
-                            validateResponse(_response, _context);
-
-                            //extract result from the http response
-                            String _responseBody = ((HttpStringResponse)_response).getBody();
-                            GetInvoiceResponse _result = APIHelper.deserialize(_responseBody,
-                                                        new TypeReference<GetInvoiceResponse>(){});
-
-                            //let the caller know of the success
-                            callBack.onSuccess(_context, _result);
-                        } catch (APIException error) {
-                            //let the caller know of the error
-                            callBack.onFailure(_context, error);
-                        } catch (IOException ioException) {
-                            //let the caller know of the caught IO Exception
-                            callBack.onFailure(_context, ioException);
-                        } catch (Exception exception) {
-                            //let the caller know of the caught Exception
-                            callBack.onFailure(_context, exception);
+                            GetInvoiceResponse returnValue = _handleCancelInvoiceResponse(_context);
+                            callBack.onSuccess(_context, returnValue);
+                        } catch (Exception e) {
+                            callBack.onFailure(_context, e);
                         }
                     }
-                    public void onFailure(HttpContext _context, Throwable _error) {
-                        //invoke the callback after response if its not null
-                        if (getHttpCallBack() != null)
-                        {
-                            getHttpCallBack().OnAfterResponse(_context);
-                        }
 
-                        //let the caller know of the failure
-                        callBack.onFailure(_context, _error);
+                    public void onFailure(HttpContext _context, Throwable _exception) {
+                        // Let the caller know of the failure
+                        callBack.onFailure(_context, _exception);
                     }
                 });
             }
         };
 
-        //execute async using thread pool
+        // Execute async using thread pool
         APIHelper.getScheduler().execute(_responseTask);
+    }
+
+    /**
+     * Builds the HttpRequest object for cancelInvoice
+     */
+    private HttpRequest _buildCancelInvoiceRequest(
+                final String invoiceId) throws IOException, APIException {
+        //the base uri for api requests
+        String _baseUri = Configuration.baseUri;
+
+        //prepare query string for API call
+        StringBuilder _queryBuilder = new StringBuilder(_baseUri + "/invoices/{invoice_id}");
+
+        //process template parameters
+        Map<String, Object> _templateParameters = new HashMap<String, Object>();
+        _templateParameters.put("invoice_id", invoiceId);
+        APIHelper.appendUrlWithTemplateParameters(_queryBuilder, _templateParameters);
+        //validate and preprocess url
+        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+
+        //load all headers for the outgoing API request
+        Map<String, String> _headers = new HashMap<String, String>();
+        _headers.put("user-agent", BaseController.userAgent);
+        _headers.put("accept", "application/json");
+
+
+        //prepare and invoke the API call request to fetch the response
+        HttpRequest _request = getClientInstance().delete(_queryUrl, _headers, null,
+                Configuration.basicAuthUserName, Configuration.basicAuthPassword);
+
+        // Invoke the callback before request if its not null
+        if (getHttpCallBack() != null) {
+            getHttpCallBack().OnBeforeRequest(_request);
+        }
+
+        return _request;
+    }
+
+    /**
+     * Processes the response for cancelInvoice
+     * @return An object of type void
+     */
+    private GetInvoiceResponse _handleCancelInvoiceResponse(HttpContext _context)
+            throws APIException, IOException {
+        HttpResponse _response = _context.getResponse();
+
+        //invoke the callback after response if its not null
+        if (getHttpCallBack() != null) {
+            getHttpCallBack().OnAfterResponse(_context);
+        }
+
+        //handle errors defined at the API level
+        validateResponse(_response, _context);
+
+        //extract result from the http response
+        String _responseBody = ((HttpStringResponse)_response).getBody();
+        GetInvoiceResponse _result = APIHelper.deserialize(_responseBody,
+                                                        new TypeReference<GetInvoiceResponse>(){});
+
+        return _result;
     }
 
     /**
@@ -157,11 +170,12 @@ public class InvoicesController extends BaseController {
     public GetInvoiceResponse getInvoice(
                 final String invoiceId
     ) throws Throwable {
-        APICallBackCatcher<GetInvoiceResponse> callback = new APICallBackCatcher<GetInvoiceResponse>();
-        getInvoiceAsync(invoiceId, callback);
-        if(!callback.isSuccess())
-            throw callback.getError();
-        return callback.getResult();
+
+        HttpRequest _request = _buildGetInvoiceRequest(invoiceId);
+        HttpResponse _response = getClientInstance().executeAsString(_request);
+        HttpContext _context = new HttpContext(_request, _response);
+
+        return _handleGetInvoiceResponse(_context);
     }
 
     /**
@@ -175,84 +189,96 @@ public class InvoicesController extends BaseController {
     ) {
         Runnable _responseTask = new Runnable() {
             public void run() {
-                //the base uri for api requests
-                String _baseUri = Configuration.baseUri;
 
-                //prepare query string for API call
-                StringBuilder _queryBuilder = new StringBuilder("/invoices/{invoice_id}");
-
-                //process template parameters
-                Map<String, Object> _templateParameters = new HashMap<String, Object>();
-                _templateParameters.put("invoice_id", invoiceId);
-                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, _templateParameters);
-
-                //validate and preprocess url
-                String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
-
-                //load all headers for the outgoing API request
-                Map<String, String> _headers = new HashMap<String, String>();
-                _headers.put("user-agent", BaseController.userAgent);
-                _headers.put("accept", "application/json");
-
-
-                //prepare and invoke the API call request to fetch the response
-                final HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null,
-                                                Configuration.basicAuthUserName, Configuration.basicAuthPassword);
-
-                //invoke the callback before request if its not null
-                if (getHttpCallBack() != null)
-                {
-                    getHttpCallBack().OnBeforeRequest(_request);
+                HttpRequest _request;
+                try {
+                    _request = _buildGetInvoiceRequest(invoiceId);
+                } catch (Exception e) {
+                    callBack.onFailure(null, e);
+                    return;
                 }
 
-                //invoke request and get response
+                // Invoke request and get response
                 getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
                     public void onSuccess(HttpContext _context, HttpResponse _response) {
                         try {
-
-                            //invoke the callback after response if its not null
-                            if (getHttpCallBack() != null)	
-                            {
-                                getHttpCallBack().OnAfterResponse(_context);
-                            }
-
-                            //handle errors defined at the API level
-                            validateResponse(_response, _context);
-
-                            //extract result from the http response
-                            String _responseBody = ((HttpStringResponse)_response).getBody();
-                            GetInvoiceResponse _result = APIHelper.deserialize(_responseBody,
-                                                        new TypeReference<GetInvoiceResponse>(){});
-
-                            //let the caller know of the success
-                            callBack.onSuccess(_context, _result);
-                        } catch (APIException error) {
-                            //let the caller know of the error
-                            callBack.onFailure(_context, error);
-                        } catch (IOException ioException) {
-                            //let the caller know of the caught IO Exception
-                            callBack.onFailure(_context, ioException);
-                        } catch (Exception exception) {
-                            //let the caller know of the caught Exception
-                            callBack.onFailure(_context, exception);
+                            GetInvoiceResponse returnValue = _handleGetInvoiceResponse(_context);
+                            callBack.onSuccess(_context, returnValue);
+                        } catch (Exception e) {
+                            callBack.onFailure(_context, e);
                         }
                     }
-                    public void onFailure(HttpContext _context, Throwable _error) {
-                        //invoke the callback after response if its not null
-                        if (getHttpCallBack() != null)
-                        {
-                            getHttpCallBack().OnAfterResponse(_context);
-                        }
 
-                        //let the caller know of the failure
-                        callBack.onFailure(_context, _error);
+                    public void onFailure(HttpContext _context, Throwable _exception) {
+                        // Let the caller know of the failure
+                        callBack.onFailure(_context, _exception);
                     }
                 });
             }
         };
 
-        //execute async using thread pool
+        // Execute async using thread pool
         APIHelper.getScheduler().execute(_responseTask);
+    }
+
+    /**
+     * Builds the HttpRequest object for getInvoice
+     */
+    private HttpRequest _buildGetInvoiceRequest(
+                final String invoiceId) throws IOException, APIException {
+        //the base uri for api requests
+        String _baseUri = Configuration.baseUri;
+
+        //prepare query string for API call
+        StringBuilder _queryBuilder = new StringBuilder(_baseUri + "/invoices/{invoice_id}");
+
+        //process template parameters
+        Map<String, Object> _templateParameters = new HashMap<String, Object>();
+        _templateParameters.put("invoice_id", invoiceId);
+        APIHelper.appendUrlWithTemplateParameters(_queryBuilder, _templateParameters);
+        //validate and preprocess url
+        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+
+        //load all headers for the outgoing API request
+        Map<String, String> _headers = new HashMap<String, String>();
+        _headers.put("user-agent", BaseController.userAgent);
+        _headers.put("accept", "application/json");
+
+
+        //prepare and invoke the API call request to fetch the response
+        HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null,
+                Configuration.basicAuthUserName, Configuration.basicAuthPassword);
+
+        // Invoke the callback before request if its not null
+        if (getHttpCallBack() != null) {
+            getHttpCallBack().OnBeforeRequest(_request);
+        }
+
+        return _request;
+    }
+
+    /**
+     * Processes the response for getInvoice
+     * @return An object of type void
+     */
+    private GetInvoiceResponse _handleGetInvoiceResponse(HttpContext _context)
+            throws APIException, IOException {
+        HttpResponse _response = _context.getResponse();
+
+        //invoke the callback after response if its not null
+        if (getHttpCallBack() != null) {
+            getHttpCallBack().OnAfterResponse(_context);
+        }
+
+        //handle errors defined at the API level
+        validateResponse(_response, _context);
+
+        //extract result from the http response
+        String _responseBody = ((HttpStringResponse)_response).getBody();
+        GetInvoiceResponse _result = APIHelper.deserialize(_responseBody,
+                                                        new TypeReference<GetInvoiceResponse>(){});
+
+        return _result;
     }
 
     /**
@@ -267,11 +293,12 @@ public class InvoicesController extends BaseController {
                 final String cycleId,
                 final CreateInvoiceRequest request
     ) throws Throwable {
-        APICallBackCatcher<GetInvoiceResponse> callback = new APICallBackCatcher<GetInvoiceResponse>();
-        createInvoiceAsync(subscriptionId, cycleId, request, callback);
-        if(!callback.isSuccess())
-            throw callback.getError();
-        return callback.getResult();
+
+        HttpRequest _request = _buildCreateInvoiceRequest(subscriptionId, cycleId, request);
+        HttpResponse _response = getClientInstance().executeAsString(_request);
+        HttpContext _context = new HttpContext(_request, _response);
+
+        return _handleCreateInvoiceResponse(_context);
     }
 
     /**
@@ -289,92 +316,100 @@ public class InvoicesController extends BaseController {
     ) {
         Runnable _responseTask = new Runnable() {
             public void run() {
-                //the base uri for api requests
-                String _baseUri = Configuration.baseUri;
 
-                //prepare query string for API call
-                StringBuilder _queryBuilder = new StringBuilder("/subscriptions/{subscription_id}/cycles/{cycle_id}/pay");
-
-                //process template parameters
-                Map<String, Object> _templateParameters = new HashMap<String, Object>();
-                _templateParameters.put("subscription_id", subscriptionId);
-                _templateParameters.put("cycle_id", cycleId);
-                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, _templateParameters);
-
-                //validate and preprocess url
-                String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
-
-                //load all headers for the outgoing API request
-                Map<String, String> _headers = new HashMap<String, String>();
-                _headers.put("user-agent", BaseController.userAgent);
-                _headers.put("accept", "application/json");
-                _headers.put("content-type", "application/json");
-
-
-                //prepare and invoke the API call request to fetch the response
-                final HttpRequest _request;
+                HttpRequest _request;
                 try {
-                    _request = getClientInstance().postBody(_queryUrl, _headers, APIHelper.serialize(request),
-                                                Configuration.basicAuthUserName, Configuration.basicAuthPassword);
-                } catch (JsonProcessingException jsonProcessingException) {
-                    //let the caller know of the error
-                    callBack.onFailure(null, jsonProcessingException);
+                    _request = _buildCreateInvoiceRequest(subscriptionId, cycleId, request);
+                } catch (Exception e) {
+                    callBack.onFailure(null, e);
                     return;
                 }
-                //invoke the callback before request if its not null
-                if (getHttpCallBack() != null)
-                {
-                    getHttpCallBack().OnBeforeRequest(_request);
-                }
 
-                //invoke request and get response
+                // Invoke request and get response
                 getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
                     public void onSuccess(HttpContext _context, HttpResponse _response) {
                         try {
-
-                            //invoke the callback after response if its not null
-                            if (getHttpCallBack() != null)	
-                            {
-                                getHttpCallBack().OnAfterResponse(_context);
-                            }
-
-                            //handle errors defined at the API level
-                            validateResponse(_response, _context);
-
-                            //extract result from the http response
-                            String _responseBody = ((HttpStringResponse)_response).getBody();
-                            GetInvoiceResponse _result = APIHelper.deserialize(_responseBody,
-                                                        new TypeReference<GetInvoiceResponse>(){});
-
-                            //let the caller know of the success
-                            callBack.onSuccess(_context, _result);
-                        } catch (APIException error) {
-                            //let the caller know of the error
-                            callBack.onFailure(_context, error);
-                        } catch (IOException ioException) {
-                            //let the caller know of the caught IO Exception
-                            callBack.onFailure(_context, ioException);
-                        } catch (Exception exception) {
-                            //let the caller know of the caught Exception
-                            callBack.onFailure(_context, exception);
+                            GetInvoiceResponse returnValue = _handleCreateInvoiceResponse(_context);
+                            callBack.onSuccess(_context, returnValue);
+                        } catch (Exception e) {
+                            callBack.onFailure(_context, e);
                         }
                     }
-                    public void onFailure(HttpContext _context, Throwable _error) {
-                        //invoke the callback after response if its not null
-                        if (getHttpCallBack() != null)
-                        {
-                            getHttpCallBack().OnAfterResponse(_context);
-                        }
 
-                        //let the caller know of the failure
-                        callBack.onFailure(_context, _error);
+                    public void onFailure(HttpContext _context, Throwable _exception) {
+                        // Let the caller know of the failure
+                        callBack.onFailure(_context, _exception);
                     }
                 });
             }
         };
 
-        //execute async using thread pool
+        // Execute async using thread pool
         APIHelper.getScheduler().execute(_responseTask);
+    }
+
+    /**
+     * Builds the HttpRequest object for createInvoice
+     */
+    private HttpRequest _buildCreateInvoiceRequest(
+                final String subscriptionId,
+                final String cycleId,
+                final CreateInvoiceRequest request) throws IOException, APIException {
+        //the base uri for api requests
+        String _baseUri = Configuration.baseUri;
+
+        //prepare query string for API call
+        StringBuilder _queryBuilder = new StringBuilder(_baseUri + "/subscriptions/{subscription_id}/cycles/{cycle_id}/pay");
+
+        //process template parameters
+        Map<String, Object> _templateParameters = new HashMap<String, Object>();
+        _templateParameters.put("subscription_id", subscriptionId);
+        _templateParameters.put("cycle_id", cycleId);
+        APIHelper.appendUrlWithTemplateParameters(_queryBuilder, _templateParameters);
+        //validate and preprocess url
+        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+
+        //load all headers for the outgoing API request
+        Map<String, String> _headers = new HashMap<String, String>();
+        _headers.put("user-agent", BaseController.userAgent);
+        _headers.put("accept", "application/json");
+        _headers.put("content-type", "application/json");
+
+
+        //prepare and invoke the API call request to fetch the response
+        HttpRequest _request = getClientInstance().postBody(_queryUrl, _headers, APIHelper.serialize(request),
+                Configuration.basicAuthUserName, Configuration.basicAuthPassword);
+
+        // Invoke the callback before request if its not null
+        if (getHttpCallBack() != null) {
+            getHttpCallBack().OnBeforeRequest(_request);
+        }
+
+        return _request;
+    }
+
+    /**
+     * Processes the response for createInvoice
+     * @return An object of type void
+     */
+    private GetInvoiceResponse _handleCreateInvoiceResponse(HttpContext _context)
+            throws APIException, IOException {
+        HttpResponse _response = _context.getResponse();
+
+        //invoke the callback after response if its not null
+        if (getHttpCallBack() != null) {
+            getHttpCallBack().OnAfterResponse(_context);
+        }
+
+        //handle errors defined at the API level
+        validateResponse(_response, _context);
+
+        //extract result from the http response
+        String _responseBody = ((HttpStringResponse)_response).getBody();
+        GetInvoiceResponse _result = APIHelper.deserialize(_responseBody,
+                                                        new TypeReference<GetInvoiceResponse>(){});
+
+        return _result;
     }
 
     /**
@@ -387,11 +422,12 @@ public class InvoicesController extends BaseController {
                 final String invoiceId,
                 final UpdateInvoiceStatusRequest request
     ) throws Throwable {
-        APICallBackCatcher<GetInvoiceResponse> callback = new APICallBackCatcher<GetInvoiceResponse>();
-        updateInvoiceStatusAsync(invoiceId, request, callback);
-        if(!callback.isSuccess())
-            throw callback.getError();
-        return callback.getResult();
+
+        HttpRequest _request = _buildUpdateInvoiceStatusRequest(invoiceId, request);
+        HttpResponse _response = getClientInstance().executeAsString(_request);
+        HttpContext _context = new HttpContext(_request, _response);
+
+        return _handleUpdateInvoiceStatusResponse(_context);
     }
 
     /**
@@ -407,91 +443,98 @@ public class InvoicesController extends BaseController {
     ) {
         Runnable _responseTask = new Runnable() {
             public void run() {
-                //the base uri for api requests
-                String _baseUri = Configuration.baseUri;
 
-                //prepare query string for API call
-                StringBuilder _queryBuilder = new StringBuilder("/invoices/{invoice_id}/status");
-
-                //process template parameters
-                Map<String, Object> _templateParameters = new HashMap<String, Object>();
-                _templateParameters.put("invoice_id", invoiceId);
-                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, _templateParameters);
-
-                //validate and preprocess url
-                String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
-
-                //load all headers for the outgoing API request
-                Map<String, String> _headers = new HashMap<String, String>();
-                _headers.put("user-agent", BaseController.userAgent);
-                _headers.put("accept", "application/json");
-                _headers.put("content-type", "application/json");
-
-
-                //prepare and invoke the API call request to fetch the response
-                final HttpRequest _request;
+                HttpRequest _request;
                 try {
-                    _request = getClientInstance().patchBody(_queryUrl, _headers, APIHelper.serialize(request),
-                                                Configuration.basicAuthUserName, Configuration.basicAuthPassword);
-                } catch (JsonProcessingException jsonProcessingException) {
-                    //let the caller know of the error
-                    callBack.onFailure(null, jsonProcessingException);
+                    _request = _buildUpdateInvoiceStatusRequest(invoiceId, request);
+                } catch (Exception e) {
+                    callBack.onFailure(null, e);
                     return;
                 }
-                //invoke the callback before request if its not null
-                if (getHttpCallBack() != null)
-                {
-                    getHttpCallBack().OnBeforeRequest(_request);
-                }
 
-                //invoke request and get response
+                // Invoke request and get response
                 getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
                     public void onSuccess(HttpContext _context, HttpResponse _response) {
                         try {
-
-                            //invoke the callback after response if its not null
-                            if (getHttpCallBack() != null)	
-                            {
-                                getHttpCallBack().OnAfterResponse(_context);
-                            }
-
-                            //handle errors defined at the API level
-                            validateResponse(_response, _context);
-
-                            //extract result from the http response
-                            String _responseBody = ((HttpStringResponse)_response).getBody();
-                            GetInvoiceResponse _result = APIHelper.deserialize(_responseBody,
-                                                        new TypeReference<GetInvoiceResponse>(){});
-
-                            //let the caller know of the success
-                            callBack.onSuccess(_context, _result);
-                        } catch (APIException error) {
-                            //let the caller know of the error
-                            callBack.onFailure(_context, error);
-                        } catch (IOException ioException) {
-                            //let the caller know of the caught IO Exception
-                            callBack.onFailure(_context, ioException);
-                        } catch (Exception exception) {
-                            //let the caller know of the caught Exception
-                            callBack.onFailure(_context, exception);
+                            GetInvoiceResponse returnValue = _handleUpdateInvoiceStatusResponse(_context);
+                            callBack.onSuccess(_context, returnValue);
+                        } catch (Exception e) {
+                            callBack.onFailure(_context, e);
                         }
                     }
-                    public void onFailure(HttpContext _context, Throwable _error) {
-                        //invoke the callback after response if its not null
-                        if (getHttpCallBack() != null)
-                        {
-                            getHttpCallBack().OnAfterResponse(_context);
-                        }
 
-                        //let the caller know of the failure
-                        callBack.onFailure(_context, _error);
+                    public void onFailure(HttpContext _context, Throwable _exception) {
+                        // Let the caller know of the failure
+                        callBack.onFailure(_context, _exception);
                     }
                 });
             }
         };
 
-        //execute async using thread pool
+        // Execute async using thread pool
         APIHelper.getScheduler().execute(_responseTask);
+    }
+
+    /**
+     * Builds the HttpRequest object for updateInvoiceStatus
+     */
+    private HttpRequest _buildUpdateInvoiceStatusRequest(
+                final String invoiceId,
+                final UpdateInvoiceStatusRequest request) throws IOException, APIException {
+        //the base uri for api requests
+        String _baseUri = Configuration.baseUri;
+
+        //prepare query string for API call
+        StringBuilder _queryBuilder = new StringBuilder(_baseUri + "/invoices/{invoice_id}/status");
+
+        //process template parameters
+        Map<String, Object> _templateParameters = new HashMap<String, Object>();
+        _templateParameters.put("invoice_id", invoiceId);
+        APIHelper.appendUrlWithTemplateParameters(_queryBuilder, _templateParameters);
+        //validate and preprocess url
+        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+
+        //load all headers for the outgoing API request
+        Map<String, String> _headers = new HashMap<String, String>();
+        _headers.put("user-agent", BaseController.userAgent);
+        _headers.put("accept", "application/json");
+        _headers.put("content-type", "application/json");
+
+
+        //prepare and invoke the API call request to fetch the response
+        HttpRequest _request = getClientInstance().patchBody(_queryUrl, _headers, APIHelper.serialize(request),
+                Configuration.basicAuthUserName, Configuration.basicAuthPassword);
+
+        // Invoke the callback before request if its not null
+        if (getHttpCallBack() != null) {
+            getHttpCallBack().OnBeforeRequest(_request);
+        }
+
+        return _request;
+    }
+
+    /**
+     * Processes the response for updateInvoiceStatus
+     * @return An object of type void
+     */
+    private GetInvoiceResponse _handleUpdateInvoiceStatusResponse(HttpContext _context)
+            throws APIException, IOException {
+        HttpResponse _response = _context.getResponse();
+
+        //invoke the callback after response if its not null
+        if (getHttpCallBack() != null) {
+            getHttpCallBack().OnAfterResponse(_context);
+        }
+
+        //handle errors defined at the API level
+        validateResponse(_response, _context);
+
+        //extract result from the http response
+        String _responseBody = ((HttpStringResponse)_response).getBody();
+        GetInvoiceResponse _result = APIHelper.deserialize(_responseBody,
+                                                        new TypeReference<GetInvoiceResponse>(){});
+
+        return _result;
     }
 
     /**
@@ -520,11 +563,12 @@ public class InvoicesController extends BaseController {
                 final DateTime dueSince,
                 final DateTime dueUntil
     ) throws Throwable {
-        APICallBackCatcher<ListInvoicesResponse> callback = new APICallBackCatcher<ListInvoicesResponse>();
-        getInvoicesAsync(page, size, code, customerId, subscriptionId, createdSince, createdUntil, status, dueSince, dueUntil, callback);
-        if(!callback.isSuccess())
-            throw callback.getError();
-        return callback.getResult();
+
+        HttpRequest _request = _buildGetInvoicesRequest(page, size, code, customerId, subscriptionId, createdSince, createdUntil, status, dueSince, dueUntil);
+        HttpResponse _response = getClientInstance().executeAsString(_request);
+        HttpContext _context = new HttpContext(_request, _response);
+
+        return _handleGetInvoicesResponse(_context);
     }
 
     /**
@@ -556,113 +600,134 @@ public class InvoicesController extends BaseController {
     ) {
         Runnable _responseTask = new Runnable() {
             public void run() {
-                //the base uri for api requests
-                String _baseUri = Configuration.baseUri;
 
-                //prepare query string for API call
-                StringBuilder _queryBuilder = new StringBuilder("/invoices");
-
-                ///process query parameters
-                Map<String, Object> _queryParameters = new HashMap<String, Object>();
-                if (page != null) {
-                    _queryParameters.put("page", page);
-                }
-                if (size != null) {
-                    _queryParameters.put("size", size);
-                }
-                if (code != null) {
-                    _queryParameters.put("code", code);
-                }
-                if (customerId != null) {
-                    _queryParameters.put("customer_id", customerId);
-                }
-                if (subscriptionId != null) {
-                    _queryParameters.put("subscription_id", subscriptionId);
-                }
-                if (createdSince != null) {
-                    _queryParameters.put("created_since", DateTimeHelper.toRfc8601DateTime(createdSince));
-                }
-                if (createdUntil != null) {
-                    _queryParameters.put("created_until", DateTimeHelper.toRfc8601DateTime(createdUntil));
-                }
-                if (status != null) {
-                    _queryParameters.put("status", status);
-                }
-                if (dueSince != null) {
-                    _queryParameters.put("due_since", DateTimeHelper.toRfc8601DateTime(dueSince));
-                }
-                if (dueUntil != null) {
-                    _queryParameters.put("due_until", DateTimeHelper.toRfc8601DateTime(dueUntil));
-                }
-                APIHelper.appendUrlWithQueryParameters(_queryBuilder, _queryParameters);
-
-                //validate and preprocess url
-                String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
-
-                //load all headers for the outgoing API request
-                Map<String, String> _headers = new HashMap<String, String>();
-                _headers.put("user-agent", BaseController.userAgent);
-                _headers.put("accept", "application/json");
-
-
-                //prepare and invoke the API call request to fetch the response
-                final HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null,
-                                                Configuration.basicAuthUserName, Configuration.basicAuthPassword);
-
-                //invoke the callback before request if its not null
-                if (getHttpCallBack() != null)
-                {
-                    getHttpCallBack().OnBeforeRequest(_request);
+                HttpRequest _request;
+                try {
+                    _request = _buildGetInvoicesRequest(page, size, code, customerId, subscriptionId, createdSince, createdUntil, status, dueSince, dueUntil);
+                } catch (Exception e) {
+                    callBack.onFailure(null, e);
+                    return;
                 }
 
-                //invoke request and get response
+                // Invoke request and get response
                 getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
                     public void onSuccess(HttpContext _context, HttpResponse _response) {
                         try {
-
-                            //invoke the callback after response if its not null
-                            if (getHttpCallBack() != null)	
-                            {
-                                getHttpCallBack().OnAfterResponse(_context);
-                            }
-
-                            //handle errors defined at the API level
-                            validateResponse(_response, _context);
-
-                            //extract result from the http response
-                            String _responseBody = ((HttpStringResponse)_response).getBody();
-                            ListInvoicesResponse _result = APIHelper.deserialize(_responseBody,
-                                                        new TypeReference<ListInvoicesResponse>(){});
-
-                            //let the caller know of the success
-                            callBack.onSuccess(_context, _result);
-                        } catch (APIException error) {
-                            //let the caller know of the error
-                            callBack.onFailure(_context, error);
-                        } catch (IOException ioException) {
-                            //let the caller know of the caught IO Exception
-                            callBack.onFailure(_context, ioException);
-                        } catch (Exception exception) {
-                            //let the caller know of the caught Exception
-                            callBack.onFailure(_context, exception);
+                            ListInvoicesResponse returnValue = _handleGetInvoicesResponse(_context);
+                            callBack.onSuccess(_context, returnValue);
+                        } catch (Exception e) {
+                            callBack.onFailure(_context, e);
                         }
                     }
-                    public void onFailure(HttpContext _context, Throwable _error) {
-                        //invoke the callback after response if its not null
-                        if (getHttpCallBack() != null)
-                        {
-                            getHttpCallBack().OnAfterResponse(_context);
-                        }
 
-                        //let the caller know of the failure
-                        callBack.onFailure(_context, _error);
+                    public void onFailure(HttpContext _context, Throwable _exception) {
+                        // Let the caller know of the failure
+                        callBack.onFailure(_context, _exception);
                     }
                 });
             }
         };
 
-        //execute async using thread pool
+        // Execute async using thread pool
         APIHelper.getScheduler().execute(_responseTask);
+    }
+
+    /**
+     * Builds the HttpRequest object for getInvoices
+     */
+    private HttpRequest _buildGetInvoicesRequest(
+                final Integer page,
+                final Integer size,
+                final String code,
+                final String customerId,
+                final String subscriptionId,
+                final DateTime createdSince,
+                final DateTime createdUntil,
+                final String status,
+                final DateTime dueSince,
+                final DateTime dueUntil) throws IOException, APIException {
+        //the base uri for api requests
+        String _baseUri = Configuration.baseUri;
+
+        //prepare query string for API call
+        StringBuilder _queryBuilder = new StringBuilder(_baseUri + "/invoices");
+
+        //process query parameters
+        Map<String, Object> _queryParameters = new HashMap<String, Object>();
+        if (page != null) {
+            _queryParameters.put("page", page);
+        }
+        if (size != null) {
+            _queryParameters.put("size", size);
+        }
+        if (code != null) {
+            _queryParameters.put("code", code);
+        }
+        if (customerId != null) {
+            _queryParameters.put("customer_id", customerId);
+        }
+        if (subscriptionId != null) {
+            _queryParameters.put("subscription_id", subscriptionId);
+        }
+        if (createdSince != null) {
+            _queryParameters.put("created_since", DateTimeHelper.toRfc8601DateTime(createdSince));
+        }
+        if (createdUntil != null) {
+            _queryParameters.put("created_until", DateTimeHelper.toRfc8601DateTime(createdUntil));
+        }
+        if (status != null) {
+            _queryParameters.put("status", status);
+        }
+        if (dueSince != null) {
+            _queryParameters.put("due_since", DateTimeHelper.toRfc8601DateTime(dueSince));
+        }
+        if (dueUntil != null) {
+            _queryParameters.put("due_until", DateTimeHelper.toRfc8601DateTime(dueUntil));
+        }
+        APIHelper.appendUrlWithQueryParameters(_queryBuilder, _queryParameters);
+        //validate and preprocess url
+        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+
+        //load all headers for the outgoing API request
+        Map<String, String> _headers = new HashMap<String, String>();
+        _headers.put("user-agent", BaseController.userAgent);
+        _headers.put("accept", "application/json");
+
+
+        //prepare and invoke the API call request to fetch the response
+        HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null,
+                Configuration.basicAuthUserName, Configuration.basicAuthPassword);
+
+        // Invoke the callback before request if its not null
+        if (getHttpCallBack() != null) {
+            getHttpCallBack().OnBeforeRequest(_request);
+        }
+
+        return _request;
+    }
+
+    /**
+     * Processes the response for getInvoices
+     * @return An object of type void
+     */
+    private ListInvoicesResponse _handleGetInvoicesResponse(HttpContext _context)
+            throws APIException, IOException {
+        HttpResponse _response = _context.getResponse();
+
+        //invoke the callback after response if its not null
+        if (getHttpCallBack() != null) {
+            getHttpCallBack().OnAfterResponse(_context);
+        }
+
+        //handle errors defined at the API level
+        validateResponse(_response, _context);
+
+        //extract result from the http response
+        String _responseBody = ((HttpStringResponse)_response).getBody();
+        ListInvoicesResponse _result = APIHelper.deserialize(_responseBody,
+                                                        new TypeReference<ListInvoicesResponse>(){});
+
+        return _result;
     }
 
     /**
@@ -675,11 +740,12 @@ public class InvoicesController extends BaseController {
                 final String invoiceId,
                 final UpdateMetadataRequest request
     ) throws Throwable {
-        APICallBackCatcher<GetInvoiceResponse> callback = new APICallBackCatcher<GetInvoiceResponse>();
-        updateInvoiceMetadataAsync(invoiceId, request, callback);
-        if(!callback.isSuccess())
-            throw callback.getError();
-        return callback.getResult();
+
+        HttpRequest _request = _buildUpdateInvoiceMetadataRequest(invoiceId, request);
+        HttpResponse _response = getClientInstance().executeAsString(_request);
+        HttpContext _context = new HttpContext(_request, _response);
+
+        return _handleUpdateInvoiceMetadataResponse(_context);
     }
 
     /**
@@ -695,91 +761,217 @@ public class InvoicesController extends BaseController {
     ) {
         Runnable _responseTask = new Runnable() {
             public void run() {
-                //the base uri for api requests
-                String _baseUri = Configuration.baseUri;
 
-                //prepare query string for API call
-                StringBuilder _queryBuilder = new StringBuilder("/invoices/{invoice_id}/metadata");
-
-                //process template parameters
-                Map<String, Object> _templateParameters = new HashMap<String, Object>();
-                _templateParameters.put("invoice_id", invoiceId);
-                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, _templateParameters);
-
-                //validate and preprocess url
-                String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
-
-                //load all headers for the outgoing API request
-                Map<String, String> _headers = new HashMap<String, String>();
-                _headers.put("user-agent", BaseController.userAgent);
-                _headers.put("accept", "application/json");
-                _headers.put("content-type", "application/json");
-
-
-                //prepare and invoke the API call request to fetch the response
-                final HttpRequest _request;
+                HttpRequest _request;
                 try {
-                    _request = getClientInstance().patchBody(_queryUrl, _headers, APIHelper.serialize(request),
-                                                Configuration.basicAuthUserName, Configuration.basicAuthPassword);
-                } catch (JsonProcessingException jsonProcessingException) {
-                    //let the caller know of the error
-                    callBack.onFailure(null, jsonProcessingException);
+                    _request = _buildUpdateInvoiceMetadataRequest(invoiceId, request);
+                } catch (Exception e) {
+                    callBack.onFailure(null, e);
                     return;
                 }
-                //invoke the callback before request if its not null
-                if (getHttpCallBack() != null)
-                {
-                    getHttpCallBack().OnBeforeRequest(_request);
-                }
 
-                //invoke request and get response
+                // Invoke request and get response
                 getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
                     public void onSuccess(HttpContext _context, HttpResponse _response) {
                         try {
-
-                            //invoke the callback after response if its not null
-                            if (getHttpCallBack() != null)	
-                            {
-                                getHttpCallBack().OnAfterResponse(_context);
-                            }
-
-                            //handle errors defined at the API level
-                            validateResponse(_response, _context);
-
-                            //extract result from the http response
-                            String _responseBody = ((HttpStringResponse)_response).getBody();
-                            GetInvoiceResponse _result = APIHelper.deserialize(_responseBody,
-                                                        new TypeReference<GetInvoiceResponse>(){});
-
-                            //let the caller know of the success
-                            callBack.onSuccess(_context, _result);
-                        } catch (APIException error) {
-                            //let the caller know of the error
-                            callBack.onFailure(_context, error);
-                        } catch (IOException ioException) {
-                            //let the caller know of the caught IO Exception
-                            callBack.onFailure(_context, ioException);
-                        } catch (Exception exception) {
-                            //let the caller know of the caught Exception
-                            callBack.onFailure(_context, exception);
+                            GetInvoiceResponse returnValue = _handleUpdateInvoiceMetadataResponse(_context);
+                            callBack.onSuccess(_context, returnValue);
+                        } catch (Exception e) {
+                            callBack.onFailure(_context, e);
                         }
                     }
-                    public void onFailure(HttpContext _context, Throwable _error) {
-                        //invoke the callback after response if its not null
-                        if (getHttpCallBack() != null)
-                        {
-                            getHttpCallBack().OnAfterResponse(_context);
-                        }
 
-                        //let the caller know of the failure
-                        callBack.onFailure(_context, _error);
+                    public void onFailure(HttpContext _context, Throwable _exception) {
+                        // Let the caller know of the failure
+                        callBack.onFailure(_context, _exception);
                     }
                 });
             }
         };
 
-        //execute async using thread pool
+        // Execute async using thread pool
         APIHelper.getScheduler().execute(_responseTask);
+    }
+
+    /**
+     * Builds the HttpRequest object for updateInvoiceMetadata
+     */
+    private HttpRequest _buildUpdateInvoiceMetadataRequest(
+                final String invoiceId,
+                final UpdateMetadataRequest request) throws IOException, APIException {
+        //the base uri for api requests
+        String _baseUri = Configuration.baseUri;
+
+        //prepare query string for API call
+        StringBuilder _queryBuilder = new StringBuilder(_baseUri + "/invoices/{invoice_id}/metadata");
+
+        //process template parameters
+        Map<String, Object> _templateParameters = new HashMap<String, Object>();
+        _templateParameters.put("invoice_id", invoiceId);
+        APIHelper.appendUrlWithTemplateParameters(_queryBuilder, _templateParameters);
+        //validate and preprocess url
+        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+
+        //load all headers for the outgoing API request
+        Map<String, String> _headers = new HashMap<String, String>();
+        _headers.put("user-agent", BaseController.userAgent);
+        _headers.put("accept", "application/json");
+        _headers.put("content-type", "application/json");
+
+
+        //prepare and invoke the API call request to fetch the response
+        HttpRequest _request = getClientInstance().patchBody(_queryUrl, _headers, APIHelper.serialize(request),
+                Configuration.basicAuthUserName, Configuration.basicAuthPassword);
+
+        // Invoke the callback before request if its not null
+        if (getHttpCallBack() != null) {
+            getHttpCallBack().OnBeforeRequest(_request);
+        }
+
+        return _request;
+    }
+
+    /**
+     * Processes the response for updateInvoiceMetadata
+     * @return An object of type void
+     */
+    private GetInvoiceResponse _handleUpdateInvoiceMetadataResponse(HttpContext _context)
+            throws APIException, IOException {
+        HttpResponse _response = _context.getResponse();
+
+        //invoke the callback after response if its not null
+        if (getHttpCallBack() != null) {
+            getHttpCallBack().OnAfterResponse(_context);
+        }
+
+        //handle errors defined at the API level
+        validateResponse(_response, _context);
+
+        //extract result from the http response
+        String _responseBody = ((HttpStringResponse)_response).getBody();
+        GetInvoiceResponse _result = APIHelper.deserialize(_responseBody,
+                                                        new TypeReference<GetInvoiceResponse>(){});
+
+        return _result;
+    }
+
+    /**
+     * TODO: type endpoint description here
+     * @param    subscriptionId    Required parameter: Subscription Id
+     * @return    Returns the GetInvoiceResponse response from the API call 
+     */
+    public GetInvoiceResponse getPartialInvoice(
+                final String subscriptionId
+    ) throws Throwable {
+
+        HttpRequest _request = _buildGetPartialInvoiceRequest(subscriptionId);
+        HttpResponse _response = getClientInstance().executeAsString(_request);
+        HttpContext _context = new HttpContext(_request, _response);
+
+        return _handleGetPartialInvoiceResponse(_context);
+    }
+
+    /**
+     * TODO: type endpoint description here
+     * @param    subscriptionId    Required parameter: Subscription Id
+     * @return    Returns the void response from the API call 
+     */
+    public void getPartialInvoiceAsync(
+                final String subscriptionId,
+                final APICallBack<GetInvoiceResponse> callBack
+    ) {
+        Runnable _responseTask = new Runnable() {
+            public void run() {
+
+                HttpRequest _request;
+                try {
+                    _request = _buildGetPartialInvoiceRequest(subscriptionId);
+                } catch (Exception e) {
+                    callBack.onFailure(null, e);
+                    return;
+                }
+
+                // Invoke request and get response
+                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
+                    public void onSuccess(HttpContext _context, HttpResponse _response) {
+                        try {
+                            GetInvoiceResponse returnValue = _handleGetPartialInvoiceResponse(_context);
+                            callBack.onSuccess(_context, returnValue);
+                        } catch (Exception e) {
+                            callBack.onFailure(_context, e);
+                        }
+                    }
+
+                    public void onFailure(HttpContext _context, Throwable _exception) {
+                        // Let the caller know of the failure
+                        callBack.onFailure(_context, _exception);
+                    }
+                });
+            }
+        };
+
+        // Execute async using thread pool
+        APIHelper.getScheduler().execute(_responseTask);
+    }
+
+    /**
+     * Builds the HttpRequest object for getPartialInvoice
+     */
+    private HttpRequest _buildGetPartialInvoiceRequest(
+                final String subscriptionId) throws IOException, APIException {
+        //the base uri for api requests
+        String _baseUri = Configuration.baseUri;
+
+        //prepare query string for API call
+        StringBuilder _queryBuilder = new StringBuilder(_baseUri + "/subscriptions/{subscription_id}/partial-invoice");
+
+        //process template parameters
+        Map<String, Object> _templateParameters = new HashMap<String, Object>();
+        _templateParameters.put("subscription_id", subscriptionId);
+        APIHelper.appendUrlWithTemplateParameters(_queryBuilder, _templateParameters);
+        //validate and preprocess url
+        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+
+        //load all headers for the outgoing API request
+        Map<String, String> _headers = new HashMap<String, String>();
+        _headers.put("user-agent", BaseController.userAgent);
+        _headers.put("accept", "application/json");
+
+
+        //prepare and invoke the API call request to fetch the response
+        HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null,
+                Configuration.basicAuthUserName, Configuration.basicAuthPassword);
+
+        // Invoke the callback before request if its not null
+        if (getHttpCallBack() != null) {
+            getHttpCallBack().OnBeforeRequest(_request);
+        }
+
+        return _request;
+    }
+
+    /**
+     * Processes the response for getPartialInvoice
+     * @return An object of type void
+     */
+    private GetInvoiceResponse _handleGetPartialInvoiceResponse(HttpContext _context)
+            throws APIException, IOException {
+        HttpResponse _response = _context.getResponse();
+
+        //invoke the callback after response if its not null
+        if (getHttpCallBack() != null) {
+            getHttpCallBack().OnAfterResponse(_context);
+        }
+
+        //handle errors defined at the API level
+        validateResponse(_response, _context);
+
+        //extract result from the http response
+        String _responseBody = ((HttpStringResponse)_response).getBody();
+        GetInvoiceResponse _result = APIHelper.deserialize(_responseBody,
+                                                        new TypeReference<GetInvoiceResponse>(){});
+
+        return _result;
     }
 
 }

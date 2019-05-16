@@ -43,6 +43,31 @@ public class GetPeriodResponseBuilder {
         getPeriodResponse.setSubscription(subscription);
         return this;
     }
+
+    public GetPeriodResponseBuilder status(String status) {
+        getPeriodResponse.setStatus(status);
+        return this;
+    }
+
+    public GetPeriodResponseBuilder duration(int duration) {
+        getPeriodResponse.setDuration(duration);
+        return this;
+    }
+
+    public GetPeriodResponseBuilder createdAt(String createdAt) {
+        getPeriodResponse.setCreatedAt(createdAt);
+        return this;
+    }
+
+    public GetPeriodResponseBuilder updatedAt(String updatedAt) {
+        getPeriodResponse.setUpdatedAt(updatedAt);
+        return this;
+    }
+
+    public GetPeriodResponseBuilder cycle(int cycle) {
+        getPeriodResponse.setCycle(cycle);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

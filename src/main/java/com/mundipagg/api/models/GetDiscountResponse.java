@@ -8,11 +8,14 @@ package com.mundipagg.api.models;
 import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.mundipagg.api.DateTimeHelper;
 import org.joda.time.DateTime;
 
+@JsonInclude(Include.ALWAYS)
 public class GetDiscountResponse 
         implements java.io.Serializable {
     private static final long serialVersionUID = -4860166110558289665L;

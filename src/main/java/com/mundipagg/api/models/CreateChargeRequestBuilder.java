@@ -74,6 +74,11 @@ public class CreateChargeRequestBuilder {
         createChargeRequest.setDueAt(dueAt);
         return this;
     }
+
+    public CreateChargeRequestBuilder antifraud(CreateAntifraudRequest antifraud) {
+        createChargeRequest.setAntifraud(antifraud);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

@@ -8,14 +8,17 @@ package com.mundipagg.api.models;
 import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.mundipagg.api.DateTimeHelper;
 import org.joda.time.DateTime;
 
+@JsonInclude(Include.ALWAYS)
 public class CreateSubscriptionRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 3588410155932715053L;
+    private static final long serialVersionUID = -7009710924141794472L;
     private CreateCustomerRequest customer;
     private CreateCardRequest card;
     private String code;
@@ -45,6 +48,7 @@ public class CreateSubscriptionRequest
     private Integer quantity;
     private Integer boletoDueDays;
     private List<CreateIncrementRequest> increments;
+    private CreatePeriodRequest period;
     /** GETTER
      * Customer
      */
@@ -509,6 +513,22 @@ public class CreateSubscriptionRequest
     @JsonSetter("increments")
     public void setIncrements (List<CreateIncrementRequest> value) { 
         this.increments = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("period")
+    public CreatePeriodRequest getPeriod ( ) { 
+        return this.period;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("period")
+    public void setPeriod (CreatePeriodRequest value) { 
+        this.period = value;
     }
  
 }

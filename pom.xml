@@ -9,7 +9,7 @@
 
   <groupId>MundiAPILib</groupId>
   <artifactId>mundi-apilib</artifactId>
-  <version>0.14.1</version>
+  <version>0.15.1</version>
   <packaging>jar</packaging>
 
   <name>MundiAPILib</name>
@@ -87,7 +87,7 @@
     <dependency>
       <groupId>com.squareup.okhttp3</groupId>
       <artifactId>okhttp</artifactId>
-      <version>3.10.0</version>
+      <version>3.12.1</version>
     </dependency>
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>

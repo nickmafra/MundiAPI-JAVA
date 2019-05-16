@@ -250,6 +250,11 @@ public class CreateSubscriptionRequestBuilder {
         createSubscriptionRequest.setIncrements(increments);
         return this;
     }
+
+    public CreateSubscriptionRequestBuilder period(CreatePeriodRequest period) {
+        createSubscriptionRequest.setPeriod(period);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */
