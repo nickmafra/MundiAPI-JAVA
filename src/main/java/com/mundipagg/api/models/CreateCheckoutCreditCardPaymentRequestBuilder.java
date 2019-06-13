@@ -41,6 +41,14 @@ public class CreateCheckoutCreditCardPaymentRequestBuilder {
         createCheckoutCreditCardPaymentRequest.setAuthentication(authentication);
         return this;
     }
+
+    /**
+     * Authorize and capture?
+     */
+    public CreateCheckoutCreditCardPaymentRequestBuilder capture(Boolean capture) {
+        createCheckoutCreditCardPaymentRequest.setCapture(capture);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

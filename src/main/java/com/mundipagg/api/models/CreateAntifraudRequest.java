@@ -14,9 +14,9 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonInclude(Include.ALWAYS)
 public class CreateAntifraudRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5552014858307485172L;
+    private static final long serialVersionUID = 5552014859102239083L;
     private String type;
-    private ClearSaleRequest clearsale;
+    private CreateClearSaleRequest clearsale;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -37,7 +37,7 @@ public class CreateAntifraudRequest
      * TODO: Write general description for this method
      */
     @JsonGetter("clearsale")
-    public ClearSaleRequest getClearsale ( ) { 
+    public CreateClearSaleRequest getClearsale ( ) { 
         return this.clearsale;
     }
     
@@ -45,7 +45,7 @@ public class CreateAntifraudRequest
      * TODO: Write general description for this method
      */
     @JsonSetter("clearsale")
-    public void setClearsale (ClearSaleRequest value) { 
+    public void setClearsale (CreateClearSaleRequest value) { 
         this.clearsale = value;
     }
  
