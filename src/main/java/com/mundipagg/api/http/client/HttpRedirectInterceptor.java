@@ -24,7 +24,6 @@ public class HttpRedirectInterceptor implements Interceptor {
         this.followSslRedirects = followSslRedirects;
     }
 
-    @Override
     public Response intercept(Chain it) throws IOException {
         Request request = it.request();
         Response response = it.proceed(request);
