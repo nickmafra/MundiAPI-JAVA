@@ -78,6 +78,14 @@ public class UpdateCustomerRequestBuilder {
         updateCustomerRequest.setCode(code);
         return this;
     }
+
+    /**
+     * Gênero do cliente
+     */
+    public UpdateCustomerRequestBuilder gender(String gender) {
+        updateCustomerRequest.setGender(gender);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

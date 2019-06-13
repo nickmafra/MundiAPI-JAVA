@@ -18,7 +18,7 @@ import org.joda.time.DateTime;
 @JsonInclude(Include.ALWAYS)
 public class GetCheckoutPaymentResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 6707858489289119342L;
+    private static final long serialVersionUID = -3095590659912452538L;
     private String id;
     private Integer amount;
     private String defaultPaymentMethod;
@@ -43,6 +43,7 @@ public class GetCheckoutPaymentResponse
     private DateTime expiresAt;
     private String currency;
     private GetCheckoutDebitCardPaymentResponse debitCard;
+    private GetCheckoutBankTransferPaymentResponse bankTransfer;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -292,7 +293,7 @@ public class GetCheckoutPaymentResponse
     /** GETTER
      * Configurações de cartão de crédito
      */
-    @JsonGetter("credit_Card")
+    @JsonGetter("credit_card")
     public GetCheckoutCreditCardPaymentResponse getCreditCard ( ) { 
         return this.creditCard;
     }
@@ -300,7 +301,7 @@ public class GetCheckoutPaymentResponse
     /** SETTER
      * Configurações de cartão de crédito
      */
-    @JsonSetter("credit_Card")
+    @JsonSetter("credit_card")
     public void setCreditCard (GetCheckoutCreditCardPaymentResponse value) { 
         this.creditCard = value;
     }
@@ -435,6 +436,22 @@ public class GetCheckoutPaymentResponse
     @JsonSetter("debit_card")
     public void setDebitCard (GetCheckoutDebitCardPaymentResponse value) { 
         this.debitCard = value;
+    }
+ 
+    /** GETTER
+     * Bank transfer payment response
+     */
+    @JsonGetter("bank_transfer")
+    public GetCheckoutBankTransferPaymentResponse getBankTransfer ( ) { 
+        return this.bankTransfer;
+    }
+    
+    /** SETTER
+     * Bank transfer payment response
+     */
+    @JsonSetter("bank_transfer")
+    public void setBankTransfer (GetCheckoutBankTransferPaymentResponse value) { 
+        this.bankTransfer = value;
     }
  
 }

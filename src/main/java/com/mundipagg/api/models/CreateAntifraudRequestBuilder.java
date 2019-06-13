@@ -23,7 +23,7 @@ public class CreateAntifraudRequestBuilder {
         return this;
     }
 
-    public CreateAntifraudRequestBuilder clearsale(ClearSaleRequest clearsale) {
+    public CreateAntifraudRequestBuilder clearsale(CreateClearSaleRequest clearsale) {
         createAntifraudRequest.setClearsale(clearsale);
         return this;
     }

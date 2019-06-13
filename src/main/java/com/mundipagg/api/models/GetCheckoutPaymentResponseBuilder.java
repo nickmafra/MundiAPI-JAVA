@@ -207,6 +207,14 @@ public class GetCheckoutPaymentResponseBuilder {
         getCheckoutPaymentResponse.setDebitCard(debitCard);
         return this;
     }
+
+    /**
+     * Bank transfer payment response
+     */
+    public GetCheckoutPaymentResponseBuilder bankTransfer(GetCheckoutBankTransferPaymentResponse bankTransfer) {
+        getCheckoutPaymentResponse.setBankTransfer(bankTransfer);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

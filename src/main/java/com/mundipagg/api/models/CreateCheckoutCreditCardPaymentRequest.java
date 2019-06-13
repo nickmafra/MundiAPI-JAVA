@@ -14,10 +14,11 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonInclude(Include.ALWAYS)
 public class CreateCheckoutCreditCardPaymentRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = -8135430315731460866L;
+    private static final long serialVersionUID = 2302812790917672499L;
     private String statementDescriptor;
     private List<CreateCheckoutCardInstallmentOptionRequest> installments;
     private CreatePaymentAuthenticationRequest authentication;
+    private Boolean capture;
     /** GETTER
      * Card invoice text descriptor
      */
@@ -64,6 +65,22 @@ public class CreateCheckoutCreditCardPaymentRequest
     @JsonSetter("authentication")
     public void setAuthentication (CreatePaymentAuthenticationRequest value) { 
         this.authentication = value;
+    }
+ 
+    /** GETTER
+     * Authorize and capture?
+     */
+    @JsonGetter("capture")
+    public Boolean getCapture ( ) { 
+        return this.capture;
+    }
+    
+    /** SETTER
+     * Authorize and capture?
+     */
+    @JsonSetter("capture")
+    public void setCapture (Boolean value) { 
+        this.capture = value;
     }
  
 }
