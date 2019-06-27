@@ -41,25 +41,24 @@ public class CreatePlan {
         request.setPaymentMethods(listPaymentMethods);
 
 
-        CreatePlanItemRequest planItem = new CreatePlanItemRequest();
-        planItem.setName("Musculação");
-        planItem.setQuantity(1);
-        planItem.setPricingScheme(new CreatePricingSchemeRequest());
-        planItem.getPricingScheme().setPrice(18990);
-        ArrayList<CreatePlanItemRequest> listPlanItem = new ArrayList<>();
-        listPlanItem.add(planItem);
-        request.setItems(listPlanItem);
-
-
+        CreatePlanItemRequest planItemOne = new CreatePlanItemRequest();
+        planItemOne.setName("Musculação");
+        planItemOne.setQuantity(1);
+        planItemOne.setPricingScheme(new CreatePricingSchemeRequest());
+        planItemOne.getPricingScheme().setPrice(18990);
+        
         CreatePlanItemRequest planItemTwo = new CreatePlanItemRequest();
         planItemTwo.setName("Matrícula");
         planItemTwo.setCycles(1);
         planItemTwo.setQuantity(1);
         planItemTwo.setPricingScheme(new CreatePricingSchemeRequest());
         planItemTwo.getPricingScheme().setPrice(18990);
-        ArrayList<CreatePlanItemRequest> listPlanItemTwo = new ArrayList<>();
-        listPlanItemTwo.add(planItemTwo);
-        request.setItems(listPlanItemTwo);
+        
+        List<CreatePlanItemRequest> listPlan = new ArrayList<CreatePlanItemRequest>();
+        listPlan.add(planItemOne);
+        listPlan.add(planItemTwo);
+        request.setItems(listPlan);
+        
 
 
 

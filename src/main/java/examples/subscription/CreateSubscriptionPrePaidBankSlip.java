@@ -56,20 +56,19 @@ public class CreateSubscriptionPrePaidBankSlip {
         create_subscription_item_request_one.setQuantity(1);
         create_subscription_item_request_one.setPricingScheme(new CreatePricingSchemeRequest());
         create_subscription_item_request_one.getPricingScheme().setPrice(18990);
-        ArrayList<CreateSubscriptionItemRequest> listSubscriptionItemOne = new ArrayList<CreateSubscriptionItemRequest>();
-        listSubscriptionItemOne.add(create_subscription_item_request_one);
-        request.setItems(listSubscriptionItemOne);
-
-
+        
         CreateSubscriptionItemRequest create_subscription_item_request_two = new CreateSubscriptionItemRequest();
         create_subscription_item_request_two.setDescription("Matrícula");
         create_subscription_item_request_two.setQuantity(1);
         create_subscription_item_request_two.setCycles(1);
         create_subscription_item_request_two.setPricingScheme(new CreatePricingSchemeRequest());
         create_subscription_item_request_two.getPricingScheme().setPrice(5990);
-        ArrayList<CreateSubscriptionItemRequest> listSubscriptionItemTwo = new ArrayList<CreateSubscriptionItemRequest>();
-        listSubscriptionItemTwo.add(create_subscription_item_request_two);
-        request.setItems(listSubscriptionItemTwo);
+        
+        List<CreateSubscriptionItemRequest> listItem = new ArrayList<CreateSubscriptionItemRequest>();
+        listItem.add(create_subscription_item_request_one);
+        listItem.add(create_subscription_item_request_two);
+
+        request.setItems(listItem);
 
         subscriptions_controller.createSubscriptionAsync(request, new APICallBack<GetSubscriptionResponse>() {
             public void onSuccess(HttpContext context, GetSubscriptionResponse response) {
