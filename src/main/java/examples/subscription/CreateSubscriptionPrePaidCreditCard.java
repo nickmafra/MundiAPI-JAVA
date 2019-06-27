@@ -6,7 +6,7 @@ import com.mundipagg.api.http.client.APICallBack;
 import com.mundipagg.api.http.client.HttpContext;
 import com.mundipagg.api.models.*;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class CreateSubscriptionPrePaidCreditCard {
 	
