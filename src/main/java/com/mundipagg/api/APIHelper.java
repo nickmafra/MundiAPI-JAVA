@@ -77,20 +77,11 @@ public class APIHelper {
      * @param  serializerAnnotation The Annotation containing information about the serializer
      * @return The JsonSerializer instance of the required type
      */
-    private static JsonSerializer getSerializer(Annotation serializerAnnotation)
+    private static JsonSerializer getSerializer(JsonSerialize serializerAnnotation)
     {
-        String sa = serializerAnnotation.toString();
-        sa = sa.substring(sa.indexOf("using=class ") + 12);
-        sa = sa.substring(0, sa.indexOf(','));
         try {
-            return (JsonSerializer) Class.forName(sa).newInstance();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-            return null;
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-            return null;
-        } catch (ClassNotFoundException e) {
+            return serializerAnnotation.using().getDeclaredConstructor().newInstance();
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
@@ -537,7 +528,7 @@ public class APIHelper {
                 try {
                     //load key value pair
                     Object value = method.invoke(obj);
-                    Annotation serializerAnnotation = method.getAnnotation(JsonSerialize.class);
+                    JsonSerialize serializerAnnotation = method.getAnnotation(JsonSerialize.class);
                     if (serializerAnnotation != null)
                         loadKeyValuePairForEncoding(key, value, objectList, processed, serializerAnnotation);
                     else
@@ -594,7 +585,7 @@ public class APIHelper {
      */
     private static void loadKeyValuePairForEncoding(
             String key, Object value, List<SimpleEntry<String, Object>> objectList, HashSet<Integer> processed,
-            Annotation serializerAnnotation)
+            JsonSerialize serializerAnnotation)
     throws InvalidObjectException {
         if(value == null)
             return;

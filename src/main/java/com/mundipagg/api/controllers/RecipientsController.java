@@ -47,14 +47,16 @@ public class RecipientsController extends BaseController {
      * Updates recipient metadata
      * @param    recipientId    Required parameter: Recipient id
      * @param    request    Required parameter: Metadata
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetRecipientResponse response from the API call 
      */
     public GetRecipientResponse updateRecipientMetadata(
                 final String recipientId,
-                final UpdateMetadataRequest request
+                final UpdateMetadataRequest request,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildUpdateRecipientMetadataRequest(recipientId, request);
+        HttpRequest _request = _buildUpdateRecipientMetadataRequest(recipientId, request, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -65,11 +67,13 @@ public class RecipientsController extends BaseController {
      * Updates recipient metadata
      * @param    recipientId    Required parameter: Recipient id
      * @param    request    Required parameter: Metadata
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void updateRecipientMetadataAsync(
                 final String recipientId,
                 final UpdateMetadataRequest request,
+                final String idempotencyKey,
                 final APICallBack<GetRecipientResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -77,7 +81,7 @@ public class RecipientsController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildUpdateRecipientMetadataRequest(recipientId, request);
+                    _request = _buildUpdateRecipientMetadataRequest(recipientId, request, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -111,7 +115,8 @@ public class RecipientsController extends BaseController {
      */
     private HttpRequest _buildUpdateRecipientMetadataRequest(
                 final String recipientId,
-                final UpdateMetadataRequest request) throws IOException, APIException {
+                final UpdateMetadataRequest request,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -127,6 +132,9 @@ public class RecipientsController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
         _headers.put("content-type", "application/json");
@@ -460,14 +468,16 @@ public class RecipientsController extends BaseController {
      * Creates an anticipation
      * @param    recipientId    Required parameter: Recipient id
      * @param    request    Required parameter: Anticipation data
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetAnticipationResponse response from the API call 
      */
     public GetAnticipationResponse createAnticipation(
                 final String recipientId,
-                final CreateAnticipationRequest request
+                final CreateAnticipationRequest request,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildCreateAnticipationRequest(recipientId, request);
+        HttpRequest _request = _buildCreateAnticipationRequest(recipientId, request, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -478,11 +488,13 @@ public class RecipientsController extends BaseController {
      * Creates an anticipation
      * @param    recipientId    Required parameter: Recipient id
      * @param    request    Required parameter: Anticipation data
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void createAnticipationAsync(
                 final String recipientId,
                 final CreateAnticipationRequest request,
+                final String idempotencyKey,
                 final APICallBack<GetAnticipationResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -490,7 +502,7 @@ public class RecipientsController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildCreateAnticipationRequest(recipientId, request);
+                    _request = _buildCreateAnticipationRequest(recipientId, request, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -524,7 +536,8 @@ public class RecipientsController extends BaseController {
      */
     private HttpRequest _buildCreateAnticipationRequest(
                 final String recipientId,
-                final CreateAnticipationRequest request) throws IOException, APIException {
+                final CreateAnticipationRequest request,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -540,6 +553,9 @@ public class RecipientsController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
         _headers.put("content-type", "application/json");
@@ -1032,14 +1048,16 @@ public class RecipientsController extends BaseController {
      * Updates a recipient
      * @param    recipientId    Required parameter: Recipient id
      * @param    request    Required parameter: Recipient data
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetRecipientResponse response from the API call 
      */
     public GetRecipientResponse updateRecipient(
                 final String recipientId,
-                final UpdateRecipientRequest request
+                final UpdateRecipientRequest request,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildUpdateRecipientRequest(recipientId, request);
+        HttpRequest _request = _buildUpdateRecipientRequest(recipientId, request, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -1050,11 +1068,13 @@ public class RecipientsController extends BaseController {
      * Updates a recipient
      * @param    recipientId    Required parameter: Recipient id
      * @param    request    Required parameter: Recipient data
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void updateRecipientAsync(
                 final String recipientId,
                 final UpdateRecipientRequest request,
+                final String idempotencyKey,
                 final APICallBack<GetRecipientResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -1062,7 +1082,7 @@ public class RecipientsController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildUpdateRecipientRequest(recipientId, request);
+                    _request = _buildUpdateRecipientRequest(recipientId, request, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -1096,7 +1116,8 @@ public class RecipientsController extends BaseController {
      */
     private HttpRequest _buildUpdateRecipientRequest(
                 final String recipientId,
-                final UpdateRecipientRequest request) throws IOException, APIException {
+                final UpdateRecipientRequest request,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -1112,6 +1133,9 @@ public class RecipientsController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
         _headers.put("content-type", "application/json");
@@ -1157,14 +1181,16 @@ public class RecipientsController extends BaseController {
      * Updates the default bank account from a recipient
      * @param    recipientId    Required parameter: Recipient id
      * @param    request    Required parameter: Bank account data
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetRecipientResponse response from the API call 
      */
     public GetRecipientResponse updateRecipientDefaultBankAccount(
                 final String recipientId,
-                final UpdateRecipientBankAccountRequest request
+                final UpdateRecipientBankAccountRequest request,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildUpdateRecipientDefaultBankAccountRequest(recipientId, request);
+        HttpRequest _request = _buildUpdateRecipientDefaultBankAccountRequest(recipientId, request, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -1175,11 +1201,13 @@ public class RecipientsController extends BaseController {
      * Updates the default bank account from a recipient
      * @param    recipientId    Required parameter: Recipient id
      * @param    request    Required parameter: Bank account data
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void updateRecipientDefaultBankAccountAsync(
                 final String recipientId,
                 final UpdateRecipientBankAccountRequest request,
+                final String idempotencyKey,
                 final APICallBack<GetRecipientResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -1187,7 +1215,7 @@ public class RecipientsController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildUpdateRecipientDefaultBankAccountRequest(recipientId, request);
+                    _request = _buildUpdateRecipientDefaultBankAccountRequest(recipientId, request, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -1221,7 +1249,8 @@ public class RecipientsController extends BaseController {
      */
     private HttpRequest _buildUpdateRecipientDefaultBankAccountRequest(
                 final String recipientId,
-                final UpdateRecipientBankAccountRequest request) throws IOException, APIException {
+                final UpdateRecipientBankAccountRequest request,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -1237,6 +1266,9 @@ public class RecipientsController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
         _headers.put("content-type", "application/json");
@@ -1649,14 +1681,16 @@ public class RecipientsController extends BaseController {
      * Creates a transfer for a recipient
      * @param    recipientId    Required parameter: Recipient Id
      * @param    request    Required parameter: Transfer data
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetTransferResponse response from the API call 
      */
     public GetTransferResponse createTransfer(
                 final String recipientId,
-                final CreateTransferRequest request
+                final CreateTransferRequest request,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildCreateTransferRequest(recipientId, request);
+        HttpRequest _request = _buildCreateTransferRequest(recipientId, request, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -1667,11 +1701,13 @@ public class RecipientsController extends BaseController {
      * Creates a transfer for a recipient
      * @param    recipientId    Required parameter: Recipient Id
      * @param    request    Required parameter: Transfer data
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void createTransferAsync(
                 final String recipientId,
                 final CreateTransferRequest request,
+                final String idempotencyKey,
                 final APICallBack<GetTransferResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -1679,7 +1715,7 @@ public class RecipientsController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildCreateTransferRequest(recipientId, request);
+                    _request = _buildCreateTransferRequest(recipientId, request, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -1713,7 +1749,8 @@ public class RecipientsController extends BaseController {
      */
     private HttpRequest _buildCreateTransferRequest(
                 final String recipientId,
-                final CreateTransferRequest request) throws IOException, APIException {
+                final CreateTransferRequest request,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -1729,6 +1766,9 @@ public class RecipientsController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
         _headers.put("content-type", "application/json");
@@ -1773,13 +1813,15 @@ public class RecipientsController extends BaseController {
     /**
      * Creates a new recipient
      * @param    request    Required parameter: Recipient data
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetRecipientResponse response from the API call 
      */
     public GetRecipientResponse createRecipient(
-                final CreateRecipientRequest request
+                final CreateRecipientRequest request,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildCreateRecipientRequest(request);
+        HttpRequest _request = _buildCreateRecipientRequest(request, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -1789,10 +1831,12 @@ public class RecipientsController extends BaseController {
     /**
      * Creates a new recipient
      * @param    request    Required parameter: Recipient data
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void createRecipientAsync(
                 final CreateRecipientRequest request,
+                final String idempotencyKey,
                 final APICallBack<GetRecipientResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -1800,7 +1844,7 @@ public class RecipientsController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildCreateRecipientRequest(request);
+                    _request = _buildCreateRecipientRequest(request, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -1833,7 +1877,8 @@ public class RecipientsController extends BaseController {
      * Builds the HttpRequest object for createRecipient
      */
     private HttpRequest _buildCreateRecipientRequest(
-                final CreateRecipientRequest request) throws IOException, APIException {
+                final CreateRecipientRequest request,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -1844,6 +1889,9 @@ public class RecipientsController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
         _headers.put("content-type", "application/json");
@@ -1889,14 +1937,16 @@ public class RecipientsController extends BaseController {
      * TODO: type endpoint description here
      * @param    recipientId    Required parameter: Recipient Identificator
      * @param    request    Required parameter: Example: 
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetRecipientResponse response from the API call 
      */
     public GetRecipientResponse updateRecipientTransferSettings(
                 final String recipientId,
-                final UpdateTransferSettingsRequest request
+                final UpdateTransferSettingsRequest request,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildUpdateRecipientTransferSettingsRequest(recipientId, request);
+        HttpRequest _request = _buildUpdateRecipientTransferSettingsRequest(recipientId, request, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -1907,11 +1957,13 @@ public class RecipientsController extends BaseController {
      * TODO: type endpoint description here
      * @param    recipientId    Required parameter: Recipient Identificator
      * @param    request    Required parameter: Example: 
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void updateRecipientTransferSettingsAsync(
                 final String recipientId,
                 final UpdateTransferSettingsRequest request,
+                final String idempotencyKey,
                 final APICallBack<GetRecipientResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -1919,7 +1971,7 @@ public class RecipientsController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildUpdateRecipientTransferSettingsRequest(recipientId, request);
+                    _request = _buildUpdateRecipientTransferSettingsRequest(recipientId, request, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -1953,7 +2005,8 @@ public class RecipientsController extends BaseController {
      */
     private HttpRequest _buildUpdateRecipientTransferSettingsRequest(
                 final String recipientId,
-                final UpdateTransferSettingsRequest request) throws IOException, APIException {
+                final UpdateTransferSettingsRequest request,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -1969,6 +2022,9 @@ public class RecipientsController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
         _headers.put("content-type", "application/json");

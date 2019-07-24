@@ -56,6 +56,14 @@ public class GetOrderItemResponseBuilder {
         getOrderItemResponse.setCategory(category);
         return this;
     }
+
+    /**
+     * Code
+     */
+    public GetOrderItemResponseBuilder code(String code) {
+        getOrderItemResponse.setCode(code);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */
