@@ -47,14 +47,16 @@ public class PlansController extends BaseController {
      * Adds a new item to a plan
      * @param    planId    Required parameter: Plan id
      * @param    request    Required parameter: Request for creating a plan item
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetPlanItemResponse response from the API call 
      */
     public GetPlanItemResponse createPlanItem(
                 final String planId,
-                final CreatePlanItemRequest request
+                final CreatePlanItemRequest request,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildCreatePlanItemRequest(planId, request);
+        HttpRequest _request = _buildCreatePlanItemRequest(planId, request, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -65,11 +67,13 @@ public class PlansController extends BaseController {
      * Adds a new item to a plan
      * @param    planId    Required parameter: Plan id
      * @param    request    Required parameter: Request for creating a plan item
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void createPlanItemAsync(
                 final String planId,
                 final CreatePlanItemRequest request,
+                final String idempotencyKey,
                 final APICallBack<GetPlanItemResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -77,7 +81,7 @@ public class PlansController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildCreatePlanItemRequest(planId, request);
+                    _request = _buildCreatePlanItemRequest(planId, request, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -111,7 +115,8 @@ public class PlansController extends BaseController {
      */
     private HttpRequest _buildCreatePlanItemRequest(
                 final String planId,
-                final CreatePlanItemRequest request) throws IOException, APIException {
+                final CreatePlanItemRequest request,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -127,6 +132,9 @@ public class PlansController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
         _headers.put("content-type", "application/json");
@@ -173,15 +181,17 @@ public class PlansController extends BaseController {
      * @param    planId    Required parameter: Plan id
      * @param    planItemId    Required parameter: Plan item id
      * @param    body    Required parameter: Request for updating the plan item
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetPlanItemResponse response from the API call 
      */
     public GetPlanItemResponse updatePlanItem(
                 final String planId,
                 final String planItemId,
-                final UpdatePlanItemRequest body
+                final UpdatePlanItemRequest body,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildUpdatePlanItemRequest(planId, planItemId, body);
+        HttpRequest _request = _buildUpdatePlanItemRequest(planId, planItemId, body, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -193,12 +203,14 @@ public class PlansController extends BaseController {
      * @param    planId    Required parameter: Plan id
      * @param    planItemId    Required parameter: Plan item id
      * @param    body    Required parameter: Request for updating the plan item
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void updatePlanItemAsync(
                 final String planId,
                 final String planItemId,
                 final UpdatePlanItemRequest body,
+                final String idempotencyKey,
                 final APICallBack<GetPlanItemResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -206,7 +218,7 @@ public class PlansController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildUpdatePlanItemRequest(planId, planItemId, body);
+                    _request = _buildUpdatePlanItemRequest(planId, planItemId, body, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -241,7 +253,8 @@ public class PlansController extends BaseController {
     private HttpRequest _buildUpdatePlanItemRequest(
                 final String planId,
                 final String planItemId,
-                final UpdatePlanItemRequest body) throws IOException, APIException {
+                final UpdatePlanItemRequest body,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -258,6 +271,9 @@ public class PlansController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
         _headers.put("content-type", "application/json");
@@ -421,13 +437,15 @@ public class PlansController extends BaseController {
     /**
      * Deletes a plan
      * @param    planId    Required parameter: Plan id
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetPlanResponse response from the API call 
      */
     public GetPlanResponse deletePlan(
-                final String planId
+                final String planId,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildDeletePlanRequest(planId);
+        HttpRequest _request = _buildDeletePlanRequest(planId, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -437,10 +455,12 @@ public class PlansController extends BaseController {
     /**
      * Deletes a plan
      * @param    planId    Required parameter: Plan id
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void deletePlanAsync(
                 final String planId,
+                final String idempotencyKey,
                 final APICallBack<GetPlanResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -448,7 +468,7 @@ public class PlansController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildDeletePlanRequest(planId);
+                    _request = _buildDeletePlanRequest(planId, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -481,7 +501,8 @@ public class PlansController extends BaseController {
      * Builds the HttpRequest object for deletePlan
      */
     private HttpRequest _buildDeletePlanRequest(
-                final String planId) throws IOException, APIException {
+                final String planId,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -497,6 +518,9 @@ public class PlansController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
 
@@ -541,14 +565,16 @@ public class PlansController extends BaseController {
      * Updates a plan
      * @param    planId    Required parameter: Plan id
      * @param    request    Required parameter: Request for updating a plan
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetPlanResponse response from the API call 
      */
     public GetPlanResponse updatePlan(
                 final String planId,
-                final UpdatePlanRequest request
+                final UpdatePlanRequest request,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildUpdatePlanRequest(planId, request);
+        HttpRequest _request = _buildUpdatePlanRequest(planId, request, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -559,11 +585,13 @@ public class PlansController extends BaseController {
      * Updates a plan
      * @param    planId    Required parameter: Plan id
      * @param    request    Required parameter: Request for updating a plan
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void updatePlanAsync(
                 final String planId,
                 final UpdatePlanRequest request,
+                final String idempotencyKey,
                 final APICallBack<GetPlanResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -571,7 +599,7 @@ public class PlansController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildUpdatePlanRequest(planId, request);
+                    _request = _buildUpdatePlanRequest(planId, request, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -605,7 +633,8 @@ public class PlansController extends BaseController {
      */
     private HttpRequest _buildUpdatePlanRequest(
                 final String planId,
-                final UpdatePlanRequest request) throws IOException, APIException {
+                final UpdatePlanRequest request,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -621,6 +650,9 @@ public class PlansController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
         _headers.put("content-type", "application/json");
@@ -665,13 +697,15 @@ public class PlansController extends BaseController {
     /**
      * Creates a new plan
      * @param    body    Required parameter: Request for creating a plan
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetPlanResponse response from the API call 
      */
     public GetPlanResponse createPlan(
-                final CreatePlanRequest body
+                final CreatePlanRequest body,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildCreatePlanRequest(body);
+        HttpRequest _request = _buildCreatePlanRequest(body, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -681,10 +715,12 @@ public class PlansController extends BaseController {
     /**
      * Creates a new plan
      * @param    body    Required parameter: Request for creating a plan
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void createPlanAsync(
                 final CreatePlanRequest body,
+                final String idempotencyKey,
                 final APICallBack<GetPlanResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -692,7 +728,7 @@ public class PlansController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildCreatePlanRequest(body);
+                    _request = _buildCreatePlanRequest(body, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -725,7 +761,8 @@ public class PlansController extends BaseController {
      * Builds the HttpRequest object for createPlan
      */
     private HttpRequest _buildCreatePlanRequest(
-                final CreatePlanRequest body) throws IOException, APIException {
+                final CreatePlanRequest body,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -736,6 +773,9 @@ public class PlansController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
         _headers.put("content-type", "application/json");
@@ -950,14 +990,16 @@ public class PlansController extends BaseController {
      * Updates the metadata from a plan
      * @param    planId    Required parameter: The plan id
      * @param    request    Required parameter: Request for updating the plan metadata
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetPlanResponse response from the API call 
      */
     public GetPlanResponse updatePlanMetadata(
                 final String planId,
-                final UpdateMetadataRequest request
+                final UpdateMetadataRequest request,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildUpdatePlanMetadataRequest(planId, request);
+        HttpRequest _request = _buildUpdatePlanMetadataRequest(planId, request, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -968,11 +1010,13 @@ public class PlansController extends BaseController {
      * Updates the metadata from a plan
      * @param    planId    Required parameter: The plan id
      * @param    request    Required parameter: Request for updating the plan metadata
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void updatePlanMetadataAsync(
                 final String planId,
                 final UpdateMetadataRequest request,
+                final String idempotencyKey,
                 final APICallBack<GetPlanResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -980,7 +1024,7 @@ public class PlansController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildUpdatePlanMetadataRequest(planId, request);
+                    _request = _buildUpdatePlanMetadataRequest(planId, request, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -1014,7 +1058,8 @@ public class PlansController extends BaseController {
      */
     private HttpRequest _buildUpdatePlanMetadataRequest(
                 final String planId,
-                final UpdateMetadataRequest request) throws IOException, APIException {
+                final UpdateMetadataRequest request,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -1030,6 +1075,9 @@ public class PlansController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
         _headers.put("content-type", "application/json");
@@ -1200,14 +1248,16 @@ public class PlansController extends BaseController {
      * Removes an item from a plan
      * @param    planId    Required parameter: Plan id
      * @param    planItemId    Required parameter: Plan item id
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetPlanItemResponse response from the API call 
      */
     public GetPlanItemResponse deletePlanItem(
                 final String planId,
-                final String planItemId
+                final String planItemId,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildDeletePlanItemRequest(planId, planItemId);
+        HttpRequest _request = _buildDeletePlanItemRequest(planId, planItemId, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -1218,11 +1268,13 @@ public class PlansController extends BaseController {
      * Removes an item from a plan
      * @param    planId    Required parameter: Plan id
      * @param    planItemId    Required parameter: Plan item id
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void deletePlanItemAsync(
                 final String planId,
                 final String planItemId,
+                final String idempotencyKey,
                 final APICallBack<GetPlanItemResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -1230,7 +1282,7 @@ public class PlansController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildDeletePlanItemRequest(planId, planItemId);
+                    _request = _buildDeletePlanItemRequest(planId, planItemId, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -1264,7 +1316,8 @@ public class PlansController extends BaseController {
      */
     private HttpRequest _buildDeletePlanItemRequest(
                 final String planId,
-                final String planItemId) throws IOException, APIException {
+                final String planItemId,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -1281,6 +1334,9 @@ public class PlansController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
 

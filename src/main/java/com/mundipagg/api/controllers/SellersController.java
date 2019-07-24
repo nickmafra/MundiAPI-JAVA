@@ -165,13 +165,15 @@ public class SellersController extends BaseController {
     /**
      * TODO: type endpoint description here
      * @param    sellerId    Required parameter: Seller Id
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetSellerResponse response from the API call 
      */
     public GetSellerResponse deleteSeller(
-                final String sellerId
+                final String sellerId,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildDeleteSellerRequest(sellerId);
+        HttpRequest _request = _buildDeleteSellerRequest(sellerId, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -181,10 +183,12 @@ public class SellersController extends BaseController {
     /**
      * TODO: type endpoint description here
      * @param    sellerId    Required parameter: Seller Id
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void deleteSellerAsync(
                 final String sellerId,
+                final String idempotencyKey,
                 final APICallBack<GetSellerResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -192,7 +196,7 @@ public class SellersController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildDeleteSellerRequest(sellerId);
+                    _request = _buildDeleteSellerRequest(sellerId, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -225,7 +229,8 @@ public class SellersController extends BaseController {
      * Builds the HttpRequest object for deleteSeller
      */
     private HttpRequest _buildDeleteSellerRequest(
-                final String sellerId) throws IOException, APIException {
+                final String sellerId,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -241,6 +246,9 @@ public class SellersController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
 
@@ -284,13 +292,15 @@ public class SellersController extends BaseController {
     /**
      * TODO: type endpoint description here
      * @param    request    Required parameter: Seller Model
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetSellerResponse response from the API call 
      */
     public GetSellerResponse createSeller(
-                final CreateSellerRequest request
+                final CreateSellerRequest request,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildCreateSellerRequest(request);
+        HttpRequest _request = _buildCreateSellerRequest(request, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -300,10 +310,12 @@ public class SellersController extends BaseController {
     /**
      * TODO: type endpoint description here
      * @param    request    Required parameter: Seller Model
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void createSellerAsync(
                 final CreateSellerRequest request,
+                final String idempotencyKey,
                 final APICallBack<GetSellerResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -311,7 +323,7 @@ public class SellersController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildCreateSellerRequest(request);
+                    _request = _buildCreateSellerRequest(request, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -344,7 +356,8 @@ public class SellersController extends BaseController {
      * Builds the HttpRequest object for createSeller
      */
     private HttpRequest _buildCreateSellerRequest(
-                final CreateSellerRequest request) throws IOException, APIException {
+                final CreateSellerRequest request,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -355,6 +368,9 @@ public class SellersController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
         _headers.put("content-type", "application/json");
@@ -585,14 +601,16 @@ public class SellersController extends BaseController {
      * TODO: type endpoint description here
      * @param    id    Required parameter: Example: 
      * @param    request    Required parameter: Update Seller model
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetSellerResponse response from the API call 
      */
     public GetSellerResponse updateSeller(
                 final String id,
-                final UpdateSellerRequest request
+                final UpdateSellerRequest request,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildUpdateSellerRequest(id, request);
+        HttpRequest _request = _buildUpdateSellerRequest(id, request, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -603,11 +621,13 @@ public class SellersController extends BaseController {
      * TODO: type endpoint description here
      * @param    id    Required parameter: Example: 
      * @param    request    Required parameter: Update Seller model
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void updateSellerAsync(
                 final String id,
                 final UpdateSellerRequest request,
+                final String idempotencyKey,
                 final APICallBack<GetSellerResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -615,7 +635,7 @@ public class SellersController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildUpdateSellerRequest(id, request);
+                    _request = _buildUpdateSellerRequest(id, request, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -649,7 +669,8 @@ public class SellersController extends BaseController {
      */
     private HttpRequest _buildUpdateSellerRequest(
                 final String id,
-                final UpdateSellerRequest request) throws IOException, APIException {
+                final UpdateSellerRequest request,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -665,6 +686,9 @@ public class SellersController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
         _headers.put("content-type", "application/json");
@@ -710,14 +734,16 @@ public class SellersController extends BaseController {
      * TODO: type endpoint description here
      * @param    sellerId    Required parameter: Seller Id
      * @param    request    Required parameter: Request for updating the charge metadata
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetSellerResponse response from the API call 
      */
     public GetSellerResponse updateSellerMetadata(
                 final String sellerId,
-                final UpdateMetadataRequest request
+                final UpdateMetadataRequest request,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildUpdateSellerMetadataRequest(sellerId, request);
+        HttpRequest _request = _buildUpdateSellerMetadataRequest(sellerId, request, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -728,11 +754,13 @@ public class SellersController extends BaseController {
      * TODO: type endpoint description here
      * @param    sellerId    Required parameter: Seller Id
      * @param    request    Required parameter: Request for updating the charge metadata
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void updateSellerMetadataAsync(
                 final String sellerId,
                 final UpdateMetadataRequest request,
+                final String idempotencyKey,
                 final APICallBack<GetSellerResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -740,7 +768,7 @@ public class SellersController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildUpdateSellerMetadataRequest(sellerId, request);
+                    _request = _buildUpdateSellerMetadataRequest(sellerId, request, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -774,7 +802,8 @@ public class SellersController extends BaseController {
      */
     private HttpRequest _buildUpdateSellerMetadataRequest(
                 final String sellerId,
-                final UpdateMetadataRequest request) throws IOException, APIException {
+                final UpdateMetadataRequest request,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -790,6 +819,9 @@ public class SellersController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
         _headers.put("content-type", "application/json");

@@ -46,13 +46,15 @@ public class InvoicesController extends BaseController {
     /**
      * Cancels an invoice
      * @param    invoiceId    Required parameter: Invoice id
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetInvoiceResponse response from the API call 
      */
     public GetInvoiceResponse cancelInvoice(
-                final String invoiceId
+                final String invoiceId,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildCancelInvoiceRequest(invoiceId);
+        HttpRequest _request = _buildCancelInvoiceRequest(invoiceId, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -62,10 +64,12 @@ public class InvoicesController extends BaseController {
     /**
      * Cancels an invoice
      * @param    invoiceId    Required parameter: Invoice id
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void cancelInvoiceAsync(
                 final String invoiceId,
+                final String idempotencyKey,
                 final APICallBack<GetInvoiceResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -73,7 +77,7 @@ public class InvoicesController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildCancelInvoiceRequest(invoiceId);
+                    _request = _buildCancelInvoiceRequest(invoiceId, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -106,7 +110,8 @@ public class InvoicesController extends BaseController {
      * Builds the HttpRequest object for cancelInvoice
      */
     private HttpRequest _buildCancelInvoiceRequest(
-                final String invoiceId) throws IOException, APIException {
+                final String invoiceId,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -122,6 +127,9 @@ public class InvoicesController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
 
@@ -286,15 +294,17 @@ public class InvoicesController extends BaseController {
      * @param    subscriptionId    Required parameter: Subscription Id
      * @param    cycleId    Required parameter: Cycle Id
      * @param    request    Optional parameter: Example: 
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetInvoiceResponse response from the API call 
      */
     public GetInvoiceResponse createInvoice(
                 final String subscriptionId,
                 final String cycleId,
-                final CreateInvoiceRequest request
+                final CreateInvoiceRequest request,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildCreateInvoiceRequest(subscriptionId, cycleId, request);
+        HttpRequest _request = _buildCreateInvoiceRequest(subscriptionId, cycleId, request, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -306,12 +316,14 @@ public class InvoicesController extends BaseController {
      * @param    subscriptionId    Required parameter: Subscription Id
      * @param    cycleId    Required parameter: Cycle Id
      * @param    request    Optional parameter: Example: 
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void createInvoiceAsync(
                 final String subscriptionId,
                 final String cycleId,
                 final CreateInvoiceRequest request,
+                final String idempotencyKey,
                 final APICallBack<GetInvoiceResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -319,7 +331,7 @@ public class InvoicesController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildCreateInvoiceRequest(subscriptionId, cycleId, request);
+                    _request = _buildCreateInvoiceRequest(subscriptionId, cycleId, request, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -354,7 +366,8 @@ public class InvoicesController extends BaseController {
     private HttpRequest _buildCreateInvoiceRequest(
                 final String subscriptionId,
                 final String cycleId,
-                final CreateInvoiceRequest request) throws IOException, APIException {
+                final CreateInvoiceRequest request,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -371,6 +384,9 @@ public class InvoicesController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
         _headers.put("content-type", "application/json");
@@ -416,14 +432,16 @@ public class InvoicesController extends BaseController {
      * Updates the status from an invoice
      * @param    invoiceId    Required parameter: Invoice Id
      * @param    request    Required parameter: Request for updating an invoice's status
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetInvoiceResponse response from the API call 
      */
     public GetInvoiceResponse updateInvoiceStatus(
                 final String invoiceId,
-                final UpdateInvoiceStatusRequest request
+                final UpdateInvoiceStatusRequest request,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildUpdateInvoiceStatusRequest(invoiceId, request);
+        HttpRequest _request = _buildUpdateInvoiceStatusRequest(invoiceId, request, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -434,11 +452,13 @@ public class InvoicesController extends BaseController {
      * Updates the status from an invoice
      * @param    invoiceId    Required parameter: Invoice Id
      * @param    request    Required parameter: Request for updating an invoice's status
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void updateInvoiceStatusAsync(
                 final String invoiceId,
                 final UpdateInvoiceStatusRequest request,
+                final String idempotencyKey,
                 final APICallBack<GetInvoiceResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -446,7 +466,7 @@ public class InvoicesController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildUpdateInvoiceStatusRequest(invoiceId, request);
+                    _request = _buildUpdateInvoiceStatusRequest(invoiceId, request, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -480,7 +500,8 @@ public class InvoicesController extends BaseController {
      */
     private HttpRequest _buildUpdateInvoiceStatusRequest(
                 final String invoiceId,
-                final UpdateInvoiceStatusRequest request) throws IOException, APIException {
+                final UpdateInvoiceStatusRequest request,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -496,6 +517,9 @@ public class InvoicesController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
         _headers.put("content-type", "application/json");
@@ -734,14 +758,16 @@ public class InvoicesController extends BaseController {
      * Updates the metadata from an invoice
      * @param    invoiceId    Required parameter: The invoice id
      * @param    request    Required parameter: Request for updating the invoice metadata
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetInvoiceResponse response from the API call 
      */
     public GetInvoiceResponse updateInvoiceMetadata(
                 final String invoiceId,
-                final UpdateMetadataRequest request
+                final UpdateMetadataRequest request,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildUpdateInvoiceMetadataRequest(invoiceId, request);
+        HttpRequest _request = _buildUpdateInvoiceMetadataRequest(invoiceId, request, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -752,11 +778,13 @@ public class InvoicesController extends BaseController {
      * Updates the metadata from an invoice
      * @param    invoiceId    Required parameter: The invoice id
      * @param    request    Required parameter: Request for updating the invoice metadata
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void updateInvoiceMetadataAsync(
                 final String invoiceId,
                 final UpdateMetadataRequest request,
+                final String idempotencyKey,
                 final APICallBack<GetInvoiceResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -764,7 +792,7 @@ public class InvoicesController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildUpdateInvoiceMetadataRequest(invoiceId, request);
+                    _request = _buildUpdateInvoiceMetadataRequest(invoiceId, request, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -798,7 +826,8 @@ public class InvoicesController extends BaseController {
      */
     private HttpRequest _buildUpdateInvoiceMetadataRequest(
                 final String invoiceId,
-                final UpdateMetadataRequest request) throws IOException, APIException {
+                final UpdateMetadataRequest request,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -814,6 +843,9 @@ public class InvoicesController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
         _headers.put("content-type", "application/json");

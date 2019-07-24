@@ -47,14 +47,16 @@ public class ChargesController extends BaseController {
      * Updates the card from a charge
      * @param    chargeId    Required parameter: Charge id
      * @param    request    Required parameter: Request for updating a charge's card
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetChargeResponse response from the API call 
      */
     public GetChargeResponse updateChargeCard(
                 final String chargeId,
-                final UpdateChargeCardRequest request
+                final UpdateChargeCardRequest request,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildUpdateChargeCardRequest(chargeId, request);
+        HttpRequest _request = _buildUpdateChargeCardRequest(chargeId, request, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -65,11 +67,13 @@ public class ChargesController extends BaseController {
      * Updates the card from a charge
      * @param    chargeId    Required parameter: Charge id
      * @param    request    Required parameter: Request for updating a charge's card
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void updateChargeCardAsync(
                 final String chargeId,
                 final UpdateChargeCardRequest request,
+                final String idempotencyKey,
                 final APICallBack<GetChargeResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -77,7 +81,7 @@ public class ChargesController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildUpdateChargeCardRequest(chargeId, request);
+                    _request = _buildUpdateChargeCardRequest(chargeId, request, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -111,7 +115,8 @@ public class ChargesController extends BaseController {
      */
     private HttpRequest _buildUpdateChargeCardRequest(
                 final String chargeId,
-                final UpdateChargeCardRequest request) throws IOException, APIException {
+                final UpdateChargeCardRequest request,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -127,6 +132,9 @@ public class ChargesController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
         _headers.put("content-type", "application/json");
@@ -172,14 +180,16 @@ public class ChargesController extends BaseController {
      * Updates a charge's payment method
      * @param    chargeId    Required parameter: Charge id
      * @param    request    Required parameter: Request for updating the payment method from a charge
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetChargeResponse response from the API call 
      */
     public GetChargeResponse updateChargePaymentMethod(
                 final String chargeId,
-                final UpdateChargePaymentMethodRequest request
+                final UpdateChargePaymentMethodRequest request,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildUpdateChargePaymentMethodRequest(chargeId, request);
+        HttpRequest _request = _buildUpdateChargePaymentMethodRequest(chargeId, request, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -190,11 +200,13 @@ public class ChargesController extends BaseController {
      * Updates a charge's payment method
      * @param    chargeId    Required parameter: Charge id
      * @param    request    Required parameter: Request for updating the payment method from a charge
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void updateChargePaymentMethodAsync(
                 final String chargeId,
                 final UpdateChargePaymentMethodRequest request,
+                final String idempotencyKey,
                 final APICallBack<GetChargeResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -202,7 +214,7 @@ public class ChargesController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildUpdateChargePaymentMethodRequest(chargeId, request);
+                    _request = _buildUpdateChargePaymentMethodRequest(chargeId, request, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -236,7 +248,8 @@ public class ChargesController extends BaseController {
      */
     private HttpRequest _buildUpdateChargePaymentMethodRequest(
                 final String chargeId,
-                final UpdateChargePaymentMethodRequest request) throws IOException, APIException {
+                final UpdateChargePaymentMethodRequest request,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -252,6 +265,9 @@ public class ChargesController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
         _headers.put("content-type", "application/json");
@@ -296,13 +312,15 @@ public class ChargesController extends BaseController {
     /**
      * Creates a new charge
      * @param    request    Required parameter: Request for creating a charge
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetChargeResponse response from the API call 
      */
     public GetChargeResponse createCharge(
-                final CreateChargeRequest request
+                final CreateChargeRequest request,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildCreateChargeRequest(request);
+        HttpRequest _request = _buildCreateChargeRequest(request, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -312,10 +330,12 @@ public class ChargesController extends BaseController {
     /**
      * Creates a new charge
      * @param    request    Required parameter: Request for creating a charge
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void createChargeAsync(
                 final CreateChargeRequest request,
+                final String idempotencyKey,
                 final APICallBack<GetChargeResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -323,7 +343,7 @@ public class ChargesController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildCreateChargeRequest(request);
+                    _request = _buildCreateChargeRequest(request, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -356,7 +376,8 @@ public class ChargesController extends BaseController {
      * Builds the HttpRequest object for createCharge
      */
     private HttpRequest _buildCreateChargeRequest(
-                final CreateChargeRequest request) throws IOException, APIException {
+                final CreateChargeRequest request,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -367,6 +388,9 @@ public class ChargesController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
         _headers.put("content-type", "application/json");
@@ -530,13 +554,15 @@ public class ChargesController extends BaseController {
     /**
      * Retries a charge
      * @param    chargeId    Required parameter: Charge id
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetChargeResponse response from the API call 
      */
     public GetChargeResponse retryCharge(
-                final String chargeId
+                final String chargeId,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildRetryChargeRequest(chargeId);
+        HttpRequest _request = _buildRetryChargeRequest(chargeId, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -546,10 +572,12 @@ public class ChargesController extends BaseController {
     /**
      * Retries a charge
      * @param    chargeId    Required parameter: Charge id
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void retryChargeAsync(
                 final String chargeId,
+                final String idempotencyKey,
                 final APICallBack<GetChargeResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -557,7 +585,7 @@ public class ChargesController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildRetryChargeRequest(chargeId);
+                    _request = _buildRetryChargeRequest(chargeId, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -590,7 +618,8 @@ public class ChargesController extends BaseController {
      * Builds the HttpRequest object for retryCharge
      */
     private HttpRequest _buildRetryChargeRequest(
-                final String chargeId) throws IOException, APIException {
+                final String chargeId,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -606,6 +635,9 @@ public class ChargesController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
 
@@ -835,14 +867,16 @@ public class ChargesController extends BaseController {
      * Updates the metadata from a charge
      * @param    chargeId    Required parameter: The charge id
      * @param    request    Required parameter: Request for updating the charge metadata
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetChargeResponse response from the API call 
      */
     public GetChargeResponse updateChargeMetadata(
                 final String chargeId,
-                final UpdateMetadataRequest request
+                final UpdateMetadataRequest request,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildUpdateChargeMetadataRequest(chargeId, request);
+        HttpRequest _request = _buildUpdateChargeMetadataRequest(chargeId, request, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -853,11 +887,13 @@ public class ChargesController extends BaseController {
      * Updates the metadata from a charge
      * @param    chargeId    Required parameter: The charge id
      * @param    request    Required parameter: Request for updating the charge metadata
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void updateChargeMetadataAsync(
                 final String chargeId,
                 final UpdateMetadataRequest request,
+                final String idempotencyKey,
                 final APICallBack<GetChargeResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -865,7 +901,7 @@ public class ChargesController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildUpdateChargeMetadataRequest(chargeId, request);
+                    _request = _buildUpdateChargeMetadataRequest(chargeId, request, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -899,7 +935,8 @@ public class ChargesController extends BaseController {
      */
     private HttpRequest _buildUpdateChargeMetadataRequest(
                 final String chargeId,
-                final UpdateMetadataRequest request) throws IOException, APIException {
+                final UpdateMetadataRequest request,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -915,6 +952,9 @@ public class ChargesController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
         _headers.put("content-type", "application/json");
@@ -960,14 +1000,16 @@ public class ChargesController extends BaseController {
      * Cancel a charge
      * @param    chargeId    Required parameter: Charge id
      * @param    request    Optional parameter: Request for cancelling a charge
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetChargeResponse response from the API call 
      */
     public GetChargeResponse cancelCharge(
                 final String chargeId,
-                final CreateCancelChargeRequest request
+                final CreateCancelChargeRequest request,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildCancelChargeRequest(chargeId, request);
+        HttpRequest _request = _buildCancelChargeRequest(chargeId, request, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -978,11 +1020,13 @@ public class ChargesController extends BaseController {
      * Cancel a charge
      * @param    chargeId    Required parameter: Charge id
      * @param    request    Optional parameter: Request for cancelling a charge
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void cancelChargeAsync(
                 final String chargeId,
                 final CreateCancelChargeRequest request,
+                final String idempotencyKey,
                 final APICallBack<GetChargeResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -990,7 +1034,7 @@ public class ChargesController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildCancelChargeRequest(chargeId, request);
+                    _request = _buildCancelChargeRequest(chargeId, request, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -1024,7 +1068,8 @@ public class ChargesController extends BaseController {
      */
     private HttpRequest _buildCancelChargeRequest(
                 final String chargeId,
-                final CreateCancelChargeRequest request) throws IOException, APIException {
+                final CreateCancelChargeRequest request,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -1040,6 +1085,9 @@ public class ChargesController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
         _headers.put("content-type", "application/json");
@@ -1085,14 +1133,16 @@ public class ChargesController extends BaseController {
      * Captures a charge
      * @param    chargeId    Required parameter: Charge id
      * @param    request    Optional parameter: Request for capturing a charge
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetChargeResponse response from the API call 
      */
     public GetChargeResponse captureCharge(
                 final String chargeId,
-                final CreateCaptureChargeRequest request
+                final CreateCaptureChargeRequest request,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildCaptureChargeRequest(chargeId, request);
+        HttpRequest _request = _buildCaptureChargeRequest(chargeId, request, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -1103,11 +1153,13 @@ public class ChargesController extends BaseController {
      * Captures a charge
      * @param    chargeId    Required parameter: Charge id
      * @param    request    Optional parameter: Request for capturing a charge
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void captureChargeAsync(
                 final String chargeId,
                 final CreateCaptureChargeRequest request,
+                final String idempotencyKey,
                 final APICallBack<GetChargeResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -1115,7 +1167,7 @@ public class ChargesController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildCaptureChargeRequest(chargeId, request);
+                    _request = _buildCaptureChargeRequest(chargeId, request, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -1149,7 +1201,8 @@ public class ChargesController extends BaseController {
      */
     private HttpRequest _buildCaptureChargeRequest(
                 final String chargeId,
-                final CreateCaptureChargeRequest request) throws IOException, APIException {
+                final CreateCaptureChargeRequest request,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -1165,6 +1218,9 @@ public class ChargesController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
         _headers.put("content-type", "application/json");
@@ -1210,14 +1266,16 @@ public class ChargesController extends BaseController {
      * Updates the due date from a charge
      * @param    chargeId    Required parameter: Charge Id
      * @param    request    Required parameter: Request for updating the due date
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetChargeResponse response from the API call 
      */
     public GetChargeResponse updateChargeDueDate(
                 final String chargeId,
-                final UpdateChargeDueDateRequest request
+                final UpdateChargeDueDateRequest request,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildUpdateChargeDueDateRequest(chargeId, request);
+        HttpRequest _request = _buildUpdateChargeDueDateRequest(chargeId, request, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -1228,11 +1286,13 @@ public class ChargesController extends BaseController {
      * Updates the due date from a charge
      * @param    chargeId    Required parameter: Charge Id
      * @param    request    Required parameter: Request for updating the due date
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void updateChargeDueDateAsync(
                 final String chargeId,
                 final UpdateChargeDueDateRequest request,
+                final String idempotencyKey,
                 final APICallBack<GetChargeResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -1240,7 +1300,7 @@ public class ChargesController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildUpdateChargeDueDateRequest(chargeId, request);
+                    _request = _buildUpdateChargeDueDateRequest(chargeId, request, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -1274,7 +1334,8 @@ public class ChargesController extends BaseController {
      */
     private HttpRequest _buildUpdateChargeDueDateRequest(
                 final String chargeId,
-                final UpdateChargeDueDateRequest request) throws IOException, APIException {
+                final UpdateChargeDueDateRequest request,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -1290,6 +1351,9 @@ public class ChargesController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
         _headers.put("content-type", "application/json");
@@ -1335,14 +1399,16 @@ public class ChargesController extends BaseController {
      * TODO: type endpoint description here
      * @param    chargeId    Required parameter: Example: 
      * @param    request    Optional parameter: Request for confirm payment
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetChargeResponse response from the API call 
      */
     public GetChargeResponse confirmPayment(
                 final String chargeId,
-                final CreateConfirmPaymentRequest request
+                final CreateConfirmPaymentRequest request,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildConfirmPaymentRequest(chargeId, request);
+        HttpRequest _request = _buildConfirmPaymentRequest(chargeId, request, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -1353,11 +1419,13 @@ public class ChargesController extends BaseController {
      * TODO: type endpoint description here
      * @param    chargeId    Required parameter: Example: 
      * @param    request    Optional parameter: Request for confirm payment
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void confirmPaymentAsync(
                 final String chargeId,
                 final CreateConfirmPaymentRequest request,
+                final String idempotencyKey,
                 final APICallBack<GetChargeResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -1365,7 +1433,7 @@ public class ChargesController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildConfirmPaymentRequest(chargeId, request);
+                    _request = _buildConfirmPaymentRequest(chargeId, request, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -1399,7 +1467,8 @@ public class ChargesController extends BaseController {
      */
     private HttpRequest _buildConfirmPaymentRequest(
                 final String chargeId,
-                final CreateConfirmPaymentRequest request) throws IOException, APIException {
+                final CreateConfirmPaymentRequest request,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -1415,6 +1484,9 @@ public class ChargesController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
         _headers.put("content-type", "application/json");

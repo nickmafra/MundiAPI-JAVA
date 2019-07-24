@@ -47,15 +47,17 @@ public class CustomersController extends BaseController {
      * @param    customerId    Required parameter: Customer Id
      * @param    cardId    Required parameter: Card id
      * @param    request    Required parameter: Request for updating a card
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetCardResponse response from the API call 
      */
     public GetCardResponse updateCard(
                 final String customerId,
                 final String cardId,
-                final UpdateCardRequest request
+                final UpdateCardRequest request,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildUpdateCardRequest(customerId, cardId, request);
+        HttpRequest _request = _buildUpdateCardRequest(customerId, cardId, request, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -67,12 +69,14 @@ public class CustomersController extends BaseController {
      * @param    customerId    Required parameter: Customer Id
      * @param    cardId    Required parameter: Card id
      * @param    request    Required parameter: Request for updating a card
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void updateCardAsync(
                 final String customerId,
                 final String cardId,
                 final UpdateCardRequest request,
+                final String idempotencyKey,
                 final APICallBack<GetCardResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -80,7 +84,7 @@ public class CustomersController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildUpdateCardRequest(customerId, cardId, request);
+                    _request = _buildUpdateCardRequest(customerId, cardId, request, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -115,7 +119,8 @@ public class CustomersController extends BaseController {
     private HttpRequest _buildUpdateCardRequest(
                 final String customerId,
                 final String cardId,
-                final UpdateCardRequest request) throws IOException, APIException {
+                final UpdateCardRequest request,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -132,6 +137,9 @@ public class CustomersController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
         _headers.put("content-type", "application/json");
@@ -178,15 +186,17 @@ public class CustomersController extends BaseController {
      * @param    customerId    Required parameter: Customer Id
      * @param    addressId    Required parameter: Address Id
      * @param    request    Required parameter: Request for updating an address
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetAddressResponse response from the API call 
      */
     public GetAddressResponse updateAddress(
                 final String customerId,
                 final String addressId,
-                final UpdateAddressRequest request
+                final UpdateAddressRequest request,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildUpdateAddressRequest(customerId, addressId, request);
+        HttpRequest _request = _buildUpdateAddressRequest(customerId, addressId, request, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -198,12 +208,14 @@ public class CustomersController extends BaseController {
      * @param    customerId    Required parameter: Customer Id
      * @param    addressId    Required parameter: Address Id
      * @param    request    Required parameter: Request for updating an address
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void updateAddressAsync(
                 final String customerId,
                 final String addressId,
                 final UpdateAddressRequest request,
+                final String idempotencyKey,
                 final APICallBack<GetAddressResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -211,7 +223,7 @@ public class CustomersController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildUpdateAddressRequest(customerId, addressId, request);
+                    _request = _buildUpdateAddressRequest(customerId, addressId, request, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -246,7 +258,8 @@ public class CustomersController extends BaseController {
     private HttpRequest _buildUpdateAddressRequest(
                 final String customerId,
                 final String addressId,
-                final UpdateAddressRequest request) throws IOException, APIException {
+                final UpdateAddressRequest request,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -263,6 +276,9 @@ public class CustomersController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
         _headers.put("content-type", "application/json");
@@ -1088,14 +1104,16 @@ public class CustomersController extends BaseController {
      * Creates a access token for a customer
      * @param    customerId    Required parameter: Customer Id
      * @param    request    Required parameter: Request for creating a access token
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetAccessTokenResponse response from the API call 
      */
     public GetAccessTokenResponse createAccessToken(
                 final String customerId,
-                final CreateAccessTokenRequest request
+                final CreateAccessTokenRequest request,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildCreateAccessTokenRequest(customerId, request);
+        HttpRequest _request = _buildCreateAccessTokenRequest(customerId, request, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -1106,11 +1124,13 @@ public class CustomersController extends BaseController {
      * Creates a access token for a customer
      * @param    customerId    Required parameter: Customer Id
      * @param    request    Required parameter: Request for creating a access token
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void createAccessTokenAsync(
                 final String customerId,
                 final CreateAccessTokenRequest request,
+                final String idempotencyKey,
                 final APICallBack<GetAccessTokenResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -1118,7 +1138,7 @@ public class CustomersController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildCreateAccessTokenRequest(customerId, request);
+                    _request = _buildCreateAccessTokenRequest(customerId, request, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -1152,7 +1172,8 @@ public class CustomersController extends BaseController {
      */
     private HttpRequest _buildCreateAccessTokenRequest(
                 final String customerId,
-                final CreateAccessTokenRequest request) throws IOException, APIException {
+                final CreateAccessTokenRequest request,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -1168,6 +1189,9 @@ public class CustomersController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
         _headers.put("content-type", "application/json");
@@ -1213,14 +1237,16 @@ public class CustomersController extends BaseController {
      * Delete a customer's access token
      * @param    customerId    Required parameter: Customer Id
      * @param    tokenId    Required parameter: Token Id
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetAccessTokenResponse response from the API call 
      */
     public GetAccessTokenResponse deleteAccessToken(
                 final String customerId,
-                final String tokenId
+                final String tokenId,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildDeleteAccessTokenRequest(customerId, tokenId);
+        HttpRequest _request = _buildDeleteAccessTokenRequest(customerId, tokenId, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -1231,11 +1257,13 @@ public class CustomersController extends BaseController {
      * Delete a customer's access token
      * @param    customerId    Required parameter: Customer Id
      * @param    tokenId    Required parameter: Token Id
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void deleteAccessTokenAsync(
                 final String customerId,
                 final String tokenId,
+                final String idempotencyKey,
                 final APICallBack<GetAccessTokenResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -1243,7 +1271,7 @@ public class CustomersController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildDeleteAccessTokenRequest(customerId, tokenId);
+                    _request = _buildDeleteAccessTokenRequest(customerId, tokenId, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -1277,7 +1305,8 @@ public class CustomersController extends BaseController {
      */
     private HttpRequest _buildDeleteAccessTokenRequest(
                 final String customerId,
-                final String tokenId) throws IOException, APIException {
+                final String tokenId,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -1294,6 +1323,9 @@ public class CustomersController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
 
@@ -1338,14 +1370,16 @@ public class CustomersController extends BaseController {
      * Updates the metadata a customer
      * @param    customerId    Required parameter: The customer id
      * @param    request    Required parameter: Request for updating the customer metadata
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetCustomerResponse response from the API call 
      */
     public GetCustomerResponse updateCustomerMetadata(
                 final String customerId,
-                final UpdateMetadataRequest request
+                final UpdateMetadataRequest request,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildUpdateCustomerMetadataRequest(customerId, request);
+        HttpRequest _request = _buildUpdateCustomerMetadataRequest(customerId, request, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -1356,11 +1390,13 @@ public class CustomersController extends BaseController {
      * Updates the metadata a customer
      * @param    customerId    Required parameter: The customer id
      * @param    request    Required parameter: Request for updating the customer metadata
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void updateCustomerMetadataAsync(
                 final String customerId,
                 final UpdateMetadataRequest request,
+                final String idempotencyKey,
                 final APICallBack<GetCustomerResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -1368,7 +1404,7 @@ public class CustomersController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildUpdateCustomerMetadataRequest(customerId, request);
+                    _request = _buildUpdateCustomerMetadataRequest(customerId, request, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -1402,7 +1438,8 @@ public class CustomersController extends BaseController {
      */
     private HttpRequest _buildUpdateCustomerMetadataRequest(
                 final String customerId,
-                final UpdateMetadataRequest request) throws IOException, APIException {
+                final UpdateMetadataRequest request,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -1418,6 +1455,9 @@ public class CustomersController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
         _headers.put("content-type", "application/json");
@@ -1463,14 +1503,16 @@ public class CustomersController extends BaseController {
      * Updates a customer
      * @param    customerId    Required parameter: Customer id
      * @param    request    Required parameter: Request for updating a customer
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetCustomerResponse response from the API call 
      */
     public GetCustomerResponse updateCustomer(
                 final String customerId,
-                final UpdateCustomerRequest request
+                final UpdateCustomerRequest request,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildUpdateCustomerRequest(customerId, request);
+        HttpRequest _request = _buildUpdateCustomerRequest(customerId, request, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -1481,11 +1523,13 @@ public class CustomersController extends BaseController {
      * Updates a customer
      * @param    customerId    Required parameter: Customer id
      * @param    request    Required parameter: Request for updating a customer
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void updateCustomerAsync(
                 final String customerId,
                 final UpdateCustomerRequest request,
+                final String idempotencyKey,
                 final APICallBack<GetCustomerResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -1493,7 +1537,7 @@ public class CustomersController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildUpdateCustomerRequest(customerId, request);
+                    _request = _buildUpdateCustomerRequest(customerId, request, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -1527,7 +1571,8 @@ public class CustomersController extends BaseController {
      */
     private HttpRequest _buildUpdateCustomerRequest(
                 final String customerId,
-                final UpdateCustomerRequest request) throws IOException, APIException {
+                final UpdateCustomerRequest request,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -1543,6 +1588,9 @@ public class CustomersController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
         _headers.put("content-type", "application/json");
@@ -1713,14 +1761,16 @@ public class CustomersController extends BaseController {
      * Delete a Customer's address
      * @param    customerId    Required parameter: Customer Id
      * @param    addressId    Required parameter: Address Id
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetAddressResponse response from the API call 
      */
     public GetAddressResponse deleteAddress(
                 final String customerId,
-                final String addressId
+                final String addressId,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildDeleteAddressRequest(customerId, addressId);
+        HttpRequest _request = _buildDeleteAddressRequest(customerId, addressId, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -1731,11 +1781,13 @@ public class CustomersController extends BaseController {
      * Delete a Customer's address
      * @param    customerId    Required parameter: Customer Id
      * @param    addressId    Required parameter: Address Id
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void deleteAddressAsync(
                 final String customerId,
                 final String addressId,
+                final String idempotencyKey,
                 final APICallBack<GetAddressResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -1743,7 +1795,7 @@ public class CustomersController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildDeleteAddressRequest(customerId, addressId);
+                    _request = _buildDeleteAddressRequest(customerId, addressId, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -1777,7 +1829,8 @@ public class CustomersController extends BaseController {
      */
     private HttpRequest _buildDeleteAddressRequest(
                 final String customerId,
-                final String addressId) throws IOException, APIException {
+                final String addressId,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -1794,6 +1847,9 @@ public class CustomersController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
 
@@ -1838,14 +1894,16 @@ public class CustomersController extends BaseController {
      * Delete a customer's card
      * @param    customerId    Required parameter: Customer Id
      * @param    cardId    Required parameter: Card Id
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetCardResponse response from the API call 
      */
     public GetCardResponse deleteCard(
                 final String customerId,
-                final String cardId
+                final String cardId,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildDeleteCardRequest(customerId, cardId);
+        HttpRequest _request = _buildDeleteCardRequest(customerId, cardId, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -1856,11 +1914,13 @@ public class CustomersController extends BaseController {
      * Delete a customer's card
      * @param    customerId    Required parameter: Customer Id
      * @param    cardId    Required parameter: Card Id
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void deleteCardAsync(
                 final String customerId,
                 final String cardId,
+                final String idempotencyKey,
                 final APICallBack<GetCardResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -1868,7 +1928,7 @@ public class CustomersController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildDeleteCardRequest(customerId, cardId);
+                    _request = _buildDeleteCardRequest(customerId, cardId, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -1902,7 +1962,8 @@ public class CustomersController extends BaseController {
      */
     private HttpRequest _buildDeleteCardRequest(
                 final String customerId,
-                final String cardId) throws IOException, APIException {
+                final String cardId,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -1919,6 +1980,9 @@ public class CustomersController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
 
@@ -1963,14 +2027,16 @@ public class CustomersController extends BaseController {
      * Creates a new address for a customer
      * @param    customerId    Required parameter: Customer Id
      * @param    request    Required parameter: Request for creating an address
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetAddressResponse response from the API call 
      */
     public GetAddressResponse createAddress(
                 final String customerId,
-                final CreateAddressRequest request
+                final CreateAddressRequest request,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildCreateAddressRequest(customerId, request);
+        HttpRequest _request = _buildCreateAddressRequest(customerId, request, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -1981,11 +2047,13 @@ public class CustomersController extends BaseController {
      * Creates a new address for a customer
      * @param    customerId    Required parameter: Customer Id
      * @param    request    Required parameter: Request for creating an address
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void createAddressAsync(
                 final String customerId,
                 final CreateAddressRequest request,
+                final String idempotencyKey,
                 final APICallBack<GetAddressResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -1993,7 +2061,7 @@ public class CustomersController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildCreateAddressRequest(customerId, request);
+                    _request = _buildCreateAddressRequest(customerId, request, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -2027,7 +2095,8 @@ public class CustomersController extends BaseController {
      */
     private HttpRequest _buildCreateAddressRequest(
                 final String customerId,
-                final CreateAddressRequest request) throws IOException, APIException {
+                final CreateAddressRequest request,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -2043,6 +2112,9 @@ public class CustomersController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
         _headers.put("content-type", "application/json");
@@ -2213,14 +2285,16 @@ public class CustomersController extends BaseController {
      * Creates a new card for a customer
      * @param    customerId    Required parameter: Customer id
      * @param    request    Required parameter: Request for creating a card
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetCardResponse response from the API call 
      */
     public GetCardResponse createCard(
                 final String customerId,
-                final CreateCardRequest request
+                final CreateCardRequest request,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildCreateCardRequest(customerId, request);
+        HttpRequest _request = _buildCreateCardRequest(customerId, request, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -2231,11 +2305,13 @@ public class CustomersController extends BaseController {
      * Creates a new card for a customer
      * @param    customerId    Required parameter: Customer id
      * @param    request    Required parameter: Request for creating a card
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void createCardAsync(
                 final String customerId,
                 final CreateCardRequest request,
+                final String idempotencyKey,
                 final APICallBack<GetCardResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -2243,7 +2319,7 @@ public class CustomersController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildCreateCardRequest(customerId, request);
+                    _request = _buildCreateCardRequest(customerId, request, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -2277,7 +2353,8 @@ public class CustomersController extends BaseController {
      */
     private HttpRequest _buildCreateCardRequest(
                 final String customerId,
-                final CreateCardRequest request) throws IOException, APIException {
+                final CreateCardRequest request,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -2293,6 +2370,9 @@ public class CustomersController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
         _headers.put("content-type", "application/json");
@@ -2499,14 +2579,16 @@ public class CustomersController extends BaseController {
      * Renew a card
      * @param    customerId    Required parameter: Customer id
      * @param    cardId    Required parameter: Card Id
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetCardResponse response from the API call 
      */
     public GetCardResponse renewCard(
                 final String customerId,
-                final String cardId
+                final String cardId,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildRenewCardRequest(customerId, cardId);
+        HttpRequest _request = _buildRenewCardRequest(customerId, cardId, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -2517,11 +2599,13 @@ public class CustomersController extends BaseController {
      * Renew a card
      * @param    customerId    Required parameter: Customer id
      * @param    cardId    Required parameter: Card Id
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void renewCardAsync(
                 final String customerId,
                 final String cardId,
+                final String idempotencyKey,
                 final APICallBack<GetCardResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -2529,7 +2613,7 @@ public class CustomersController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildRenewCardRequest(customerId, cardId);
+                    _request = _buildRenewCardRequest(customerId, cardId, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -2563,7 +2647,8 @@ public class CustomersController extends BaseController {
      */
     private HttpRequest _buildRenewCardRequest(
                 final String customerId,
-                final String cardId) throws IOException, APIException {
+                final String cardId,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -2580,6 +2665,9 @@ public class CustomersController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
 
@@ -2623,13 +2711,15 @@ public class CustomersController extends BaseController {
     /**
      * Creates a new customer
      * @param    request    Required parameter: Request for creating a customer
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetCustomerResponse response from the API call 
      */
     public GetCustomerResponse createCustomer(
-                final CreateCustomerRequest request
+                final CreateCustomerRequest request,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildCreateCustomerRequest(request);
+        HttpRequest _request = _buildCreateCustomerRequest(request, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -2639,10 +2729,12 @@ public class CustomersController extends BaseController {
     /**
      * Creates a new customer
      * @param    request    Required parameter: Request for creating a customer
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void createCustomerAsync(
                 final CreateCustomerRequest request,
+                final String idempotencyKey,
                 final APICallBack<GetCustomerResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -2650,7 +2742,7 @@ public class CustomersController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildCreateCustomerRequest(request);
+                    _request = _buildCreateCustomerRequest(request, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -2683,7 +2775,8 @@ public class CustomersController extends BaseController {
      * Builds the HttpRequest object for createCustomer
      */
     private HttpRequest _buildCreateCustomerRequest(
-                final CreateCustomerRequest request) throws IOException, APIException {
+                final CreateCustomerRequest request,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -2694,6 +2787,9 @@ public class CustomersController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
         _headers.put("content-type", "application/json");

@@ -170,14 +170,16 @@ public class TokensController extends BaseController {
      * TODO: type endpoint description here
      * @param    publicKey    Required parameter: Public key
      * @param    request    Required parameter: Request for creating a token
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the GetTokenResponse response from the API call 
      */
     public GetTokenResponse createToken(
                 final String publicKey,
-                final CreateTokenRequest request
+                final CreateTokenRequest request,
+                final String idempotencyKey
     ) throws Throwable {
 
-        HttpRequest _request = _buildCreateTokenRequest(publicKey, request);
+        HttpRequest _request = _buildCreateTokenRequest(publicKey, request, idempotencyKey);
         HttpResponse _response = getClientInstance().executeAsString(_request);
         HttpContext _context = new HttpContext(_request, _response);
 
@@ -188,11 +190,13 @@ public class TokensController extends BaseController {
      * TODO: type endpoint description here
      * @param    publicKey    Required parameter: Public key
      * @param    request    Required parameter: Request for creating a token
+     * @param    idempotencyKey    Optional parameter: Example: 
      * @return    Returns the void response from the API call 
      */
     public void createTokenAsync(
                 final String publicKey,
                 final CreateTokenRequest request,
+                final String idempotencyKey,
                 final APICallBack<GetTokenResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -200,7 +204,7 @@ public class TokensController extends BaseController {
 
                 HttpRequest _request;
                 try {
-                    _request = _buildCreateTokenRequest(publicKey, request);
+                    _request = _buildCreateTokenRequest(publicKey, request, idempotencyKey);
                 } catch (Exception e) {
                     callBack.onFailure(null, e);
                     return;
@@ -234,7 +238,8 @@ public class TokensController extends BaseController {
      */
     private HttpRequest _buildCreateTokenRequest(
                 final String publicKey,
-                final CreateTokenRequest request) throws IOException, APIException {
+                final CreateTokenRequest request,
+                final String idempotencyKey) throws IOException, APIException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
 
@@ -250,6 +255,9 @@ public class TokensController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>();
+        if (idempotencyKey != null) {
+            _headers.put("idempotency-key", idempotencyKey);
+        }
         _headers.put("user-agent", BaseController.userAgent);
         _headers.put("accept", "application/json");
         _headers.put("content-type", "application/json");
