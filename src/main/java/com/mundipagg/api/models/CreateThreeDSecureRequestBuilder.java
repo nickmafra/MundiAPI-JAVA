@@ -57,6 +57,22 @@ public class CreateThreeDSecureRequestBuilder {
         createThreeDSecureRequest.setSuccessUrl(successUrl);
         return this;
     }
+
+    /**
+     * Directory Service Transaction Identifier
+     */
+    public CreateThreeDSecureRequestBuilder dsTransactionId(String dsTransactionId) {
+        createThreeDSecureRequest.setDsTransactionId(dsTransactionId);
+        return this;
+    }
+
+    /**
+     * ThreeDSecure Version
+     */
+    public CreateThreeDSecureRequestBuilder version(String version) {
+        createThreeDSecureRequest.setVersion(version);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

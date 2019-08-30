@@ -10,19 +10,19 @@ import com.mundipagg.api.http.client.HttpClient;
 
 public class MundiAPIClient {
     /**
-     * Singleton access to Orders controller
-     * @return	Returns the OrdersController instance 
-     */
-    public OrdersController getOrders() {
-        return OrdersController.getInstance();
-    }
-
-    /**
      * Singleton access to Subscriptions controller
      * @return	Returns the SubscriptionsController instance 
      */
     public SubscriptionsController getSubscriptions() {
         return SubscriptionsController.getInstance();
+    }
+
+    /**
+     * Singleton access to Orders controller
+     * @return	Returns the OrdersController instance 
+     */
+    public OrdersController getOrders() {
+        return OrdersController.getInstance();
     }
 
     /**
