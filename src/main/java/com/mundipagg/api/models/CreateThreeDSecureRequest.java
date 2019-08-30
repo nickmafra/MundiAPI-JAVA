@@ -14,12 +14,14 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonInclude(Include.ALWAYS)
 public class CreateThreeDSecureRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = -7964994204079932397L;
+    private static final long serialVersionUID = 1864531804494748015L;
     private String mpi;
     private String cavv;
     private String eci;
     private String transactionId;
     private String successUrl;
+    private String dsTransactionId;
+    private String version;
     /** GETTER
      * The MPI Vendor (MerchantPlugin)
      */
@@ -98,6 +100,38 @@ public class CreateThreeDSecureRequest
     @JsonSetter("success_url")
     public void setSuccessUrl (String value) { 
         this.successUrl = value;
+    }
+ 
+    /** GETTER
+     * Directory Service Transaction Identifier
+     */
+    @JsonGetter("ds_transaction_id")
+    public String getDsTransactionId ( ) { 
+        return this.dsTransactionId;
+    }
+    
+    /** SETTER
+     * Directory Service Transaction Identifier
+     */
+    @JsonSetter("ds_transaction_id")
+    public void setDsTransactionId (String value) { 
+        this.dsTransactionId = value;
+    }
+ 
+    /** GETTER
+     * ThreeDSecure Version
+     */
+    @JsonGetter("version")
+    public String getVersion ( ) { 
+        return this.version;
+    }
+    
+    /** SETTER
+     * ThreeDSecure Version
+     */
+    @JsonSetter("version")
+    public void setVersion (String value) { 
+        this.version = value;
     }
  
 }

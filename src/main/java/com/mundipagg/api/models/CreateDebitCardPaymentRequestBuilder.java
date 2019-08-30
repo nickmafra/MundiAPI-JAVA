@@ -69,7 +69,7 @@ public class CreateDebitCardPaymentRequestBuilder {
     /**
      * The Debit card payment token request
      */
-    public CreateDebitCardPaymentRequestBuilder token(CreateCardPaymentTokenRequest token) {
+    public CreateDebitCardPaymentRequestBuilder token(CreateCardPaymentContactlessRequest token) {
         createDebitCardPaymentRequest.setToken(token);
         return this;
     }

@@ -106,7 +106,7 @@ public class CreateCreditCardPaymentRequestBuilder {
     /**
      * The Credit card payment contactless request
      */
-    public CreateCreditCardPaymentRequestBuilder contactless(CreateCardPaymentTokenRequest contactless) {
+    public CreateCreditCardPaymentRequestBuilder contactless(CreateCardPaymentContactlessRequest contactless) {
         createCreditCardPaymentRequest.setContactless(contactless);
         return this;
     }
