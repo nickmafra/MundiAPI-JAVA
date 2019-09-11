@@ -4846,4 +4846,129 @@ public class SubscriptionsController extends BaseController {
         return _result;
     }
 
+    /**
+     * TODO: type endpoint description here
+     * @param    subscriptionId    Required parameter: The subscription Id
+     * @param    periodId    Required parameter: The period Id
+     * @return    Returns the GetUsageReportResponse response from the API call 
+     */
+    public GetUsageReportResponse getUsageReport(
+                final String subscriptionId,
+                final String periodId
+    ) throws Throwable {
+
+        HttpRequest _request = _buildGetUsageReportRequest(subscriptionId, periodId);
+        HttpResponse _response = getClientInstance().executeAsString(_request);
+        HttpContext _context = new HttpContext(_request, _response);
+
+        return _handleGetUsageReportResponse(_context);
+    }
+
+    /**
+     * TODO: type endpoint description here
+     * @param    subscriptionId    Required parameter: The subscription Id
+     * @param    periodId    Required parameter: The period Id
+     * @return    Returns the void response from the API call 
+     */
+    public void getUsageReportAsync(
+                final String subscriptionId,
+                final String periodId,
+                final APICallBack<GetUsageReportResponse> callBack
+    ) {
+        Runnable _responseTask = new Runnable() {
+            public void run() {
+
+                HttpRequest _request;
+                try {
+                    _request = _buildGetUsageReportRequest(subscriptionId, periodId);
+                } catch (Exception e) {
+                    callBack.onFailure(null, e);
+                    return;
+                }
+
+                // Invoke request and get response
+                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
+                    public void onSuccess(HttpContext _context, HttpResponse _response) {
+                        try {
+                            GetUsageReportResponse returnValue = _handleGetUsageReportResponse(_context);
+                            callBack.onSuccess(_context, returnValue);
+                        } catch (Exception e) {
+                            callBack.onFailure(_context, e);
+                        }
+                    }
+
+                    public void onFailure(HttpContext _context, Throwable _exception) {
+                        // Let the caller know of the failure
+                        callBack.onFailure(_context, _exception);
+                    }
+                });
+            }
+        };
+
+        // Execute async using thread pool
+        APIHelper.getScheduler().execute(_responseTask);
+    }
+
+    /**
+     * Builds the HttpRequest object for getUsageReport
+     */
+    private HttpRequest _buildGetUsageReportRequest(
+                final String subscriptionId,
+                final String periodId) throws IOException, APIException {
+        //the base uri for api requests
+        String _baseUri = Configuration.baseUri;
+
+        //prepare query string for API call
+        StringBuilder _queryBuilder = new StringBuilder(_baseUri + "/subscriptions/{subscription_id}/periods/{period_id}/usages/report");
+
+        //process template parameters
+        Map<String, Object> _templateParameters = new HashMap<String, Object>();
+        _templateParameters.put("subscription_id", subscriptionId);
+        _templateParameters.put("period_id", periodId);
+        APIHelper.appendUrlWithTemplateParameters(_queryBuilder, _templateParameters);
+        //validate and preprocess url
+        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+
+        //load all headers for the outgoing API request
+        Map<String, String> _headers = new HashMap<String, String>();
+        _headers.put("user-agent", BaseController.userAgent);
+        _headers.put("accept", "application/json");
+
+
+        //prepare and invoke the API call request to fetch the response
+        HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null,
+                Configuration.basicAuthUserName, Configuration.basicAuthPassword);
+
+        // Invoke the callback before request if its not null
+        if (getHttpCallBack() != null) {
+            getHttpCallBack().OnBeforeRequest(_request);
+        }
+
+        return _request;
+    }
+
+    /**
+     * Processes the response for getUsageReport
+     * @return An object of type void
+     */
+    private GetUsageReportResponse _handleGetUsageReportResponse(HttpContext _context)
+            throws APIException, IOException {
+        HttpResponse _response = _context.getResponse();
+
+        //invoke the callback after response if its not null
+        if (getHttpCallBack() != null) {
+            getHttpCallBack().OnAfterResponse(_context);
+        }
+
+        //handle errors defined at the API level
+        validateResponse(_response, _context);
+
+        //extract result from the http response
+        String _responseBody = ((HttpStringResponse)_response).getBody();
+        GetUsageReportResponse _result = APIHelper.deserialize(_responseBody,
+                                                        new TypeReference<GetUsageReportResponse>(){});
+
+        return _result;
+    }
+
 }
