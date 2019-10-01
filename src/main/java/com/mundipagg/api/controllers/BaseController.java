@@ -80,27 +80,27 @@ public abstract class BaseController {
         //get response status code to validate
         int responseCode = _response.getStatusCode();
         if (responseCode == 400) {
-            throw new ErrorException("Invalid request", context);
+            throw new MErrorException("Invalid request", context);
         }
 
         if (responseCode == 401) {
-            throw new ErrorException("Invalid API key", context);
+            throw new MErrorException("Invalid API key", context);
         }
 
         if (responseCode == 404) {
-            throw new ErrorException("An informed resource was not found", context);
+            throw new MErrorException("An informed resource was not found", context);
         }
 
         if (responseCode == 412) {
-            throw new ErrorException("Business validation error", context);
+            throw new MErrorException("Business validation error", context);
         }
 
         if (responseCode == 422) {
-            throw new ErrorException("Contract validation error", context);
+            throw new MErrorException("Contract validation error", context);
         }
 
         if (responseCode == 500) {
-            throw new ErrorException("Internal server error", context);
+            throw new MErrorException("Internal server error", context);
         }
 
         if ((responseCode < 200) || (responseCode > 208)) { //[200,208] = HTTP OK
