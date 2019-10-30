@@ -25,12 +25,12 @@ import org.joda.time.DateTime;
           defaultImpl = GetTransactionResponse.class,
           visible = true)
 @JsonSubTypes({
-    @Type(value = GetVoucherTransactionResponse.class, name = "voucher"),
     @Type(value = GetBankTransferTransactionResponse.class, name = "bank_transfer"),
-    @Type(value = GetSafetyPayTransactionResponse.class, name = "safetypay"),
-    @Type(value = GetBoletoTransactionResponse.class, name = "boleto"),
     @Type(value = GetDebitCardTransactionResponse.class, name = "debit_card"),
+    @Type(value = GetVoucherTransactionResponse.class, name = "voucher"),
+    @Type(value = GetBoletoTransactionResponse.class, name = "boleto"),
     @Type(value = GetCashTransactionResponse.class, name = "cash"),
+    @Type(value = GetSafetyPayTransactionResponse.class, name = "safetypay"),
     @Type(value = GetCreditCardTransactionResponse.class, name = "credit_card")
 })
 @JsonInclude(Include.ALWAYS)
