@@ -115,6 +115,7 @@ MundiAPIClient client = new MundiAPIClient(basicAuthUserName, basicAuthPassword)
 * [TokensController](#tokens_controller)
 * [PlansController](#plans_controller)
 * [TransactionsController](#transactions_controller)
+* [TransfersController](#transfers_controller)
 
 ## <a name="customers_controller"></a>![Class: ](https://apidocs.io/img/class.png "com.mundipagg.api.controllers.CustomersController") CustomersController
 
@@ -312,8 +313,8 @@ void getAddressesAsync(
 
 ```java
 String customerId = "customer_id";
-Integer page = 182;
-Integer size = 182;
+Integer page = 107;
+Integer size = 107;
 // Invoking the API call with sample inputs
 customers.getAddressesAsync(customerId, page, size, new APICallBack<ListAddressesResponse>() {
     public void onSuccess(HttpContext context, ListAddressesResponse response) {
@@ -605,8 +606,8 @@ void getAccessTokensAsync(
 
 ```java
 String customerId = "customer_id";
-Integer page = 182;
-Integer size = 182;
+Integer page = 107;
+Integer size = 107;
 // Invoking the API call with sample inputs
 customers.getAccessTokensAsync(customerId, page, size, new APICallBack<ListAccessTokensResponse>() {
     public void onSuccess(HttpContext context, ListAccessTokensResponse response) {
@@ -780,8 +781,8 @@ void getCardsAsync(
 
 ```java
 String customerId = "customer_id";
-Integer page = 182;
-Integer size = 182;
+Integer page = 107;
+Integer size = 107;
 // Invoking the API call with sample inputs
 customers.getCardsAsync(customerId, page, size, new APICallBack<ListCardsResponse>() {
     public void onSuccess(HttpContext context, ListCardsResponse response) {
@@ -1184,8 +1185,8 @@ void getChargesAsync(
 #### Example Usage
 
 ```java
-Integer page = 182;
-Integer size = 182;
+Integer page = 107;
+Integer size = 107;
 String code = "code";
 String status = "status";
 String paymentMethod = "payment_method";
@@ -1537,8 +1538,8 @@ void getChargeTransactionsAsync(
 
 ```java
 String chargeId = "charge_id";
-Integer page = 182;
-Integer size = 182;
+Integer page = 65;
+Integer size = 65;
 // Invoking the API call with sample inputs
 charges.getChargeTransactionsAsync(chargeId, page, size, new APICallBack<ListChargeTransactionsResponse>() {
     public void onSuccess(HttpContext context, ListChargeTransactionsResponse response) {
@@ -1756,8 +1757,8 @@ void getRecipientsAsync(
 #### Example Usage
 
 ```java
-Integer page = 18;
-Integer size = 18;
+Integer page = 65;
+Integer size = 65;
 // Invoking the API call with sample inputs
 recipients.getRecipientsAsync(page, size, new APICallBack<ListRecipientResponse>() {
     public void onSuccess(HttpContext context, ListRecipientResponse response) {
@@ -1844,8 +1845,8 @@ void getAnticipationsAsync(
 
 ```java
 String recipientId = "recipient_id";
-Integer page = 18;
-Integer size = 18;
+Integer page = 65;
+Integer size = 65;
 String status = "status";
 String timeframe = "timeframe";
 DateTime paymentDateSince = new Date();
@@ -2060,8 +2061,8 @@ void getTransfersAsync(
 
 ```java
 String recipientId = "recipient_id";
-Integer page = 18;
-Integer size = 18;
+Integer page = 65;
+Integer size = 65;
 String status = "status";
 DateTime createdSince = new Date();
 DateTime createdUntil = new Date();
@@ -2241,6 +2242,136 @@ DateTime paymentDate = new Date();
 // Invoking the API call with sample inputs
 recipients.getAnticipationLimitsAsync(recipientId, timeframe, paymentDate, new APICallBack<GetAnticipationLimitResponse>() {
     public void onSuccess(HttpContext context, GetAnticipationLimitResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
+
+```
+
+
+### <a name="create_withdraw_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.RecipientsController.createWithdrawAsync") createWithdrawAsync
+
+> TODO: Add a method description
+
+
+```java
+void createWithdrawAsync(
+        final String recipientId,
+        final CreateWithdrawRequest request,
+        final APICallBack<GetWithdrawResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| recipientId |  ``` Required ```  | TODO: Add a parameter description |
+| request |  ``` Required ```  | TODO: Add a parameter description |
+
+
+#### Example Usage
+
+```java
+try {
+    String recipientId = "recipient_id";
+    CreateWithdrawRequest request = new CreateWithdrawRequest();
+    // Invoking the API call with sample inputs
+    recipients.createWithdrawAsync(recipientId, request, new APICallBack<GetWithdrawResponse>() {
+        public void onSuccess(HttpContext context, GetWithdrawResponse response) {
+            // TODO success callback handler
+        }
+        public void onFailure(HttpContext context, Throwable error) {
+            // TODO failure callback handler
+        }
+    });
+} catch(JsonProcessingException e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+}
+```
+
+
+### <a name="get_withdraw_by_id_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.RecipientsController.getWithdrawByIdAsync") getWithdrawByIdAsync
+
+> TODO: Add a method description
+
+
+```java
+void getWithdrawByIdAsync(
+        final String recipientId,
+        final String withdrawalId,
+        final APICallBack<GetWithdrawResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| recipientId |  ``` Required ```  | TODO: Add a parameter description |
+| withdrawalId |  ``` Required ```  | TODO: Add a parameter description |
+
+
+#### Example Usage
+
+```java
+String recipientId = "recipient_id";
+String withdrawalId = "withdrawal_id";
+// Invoking the API call with sample inputs
+recipients.getWithdrawByIdAsync(recipientId, withdrawalId, new APICallBack<GetWithdrawResponse>() {
+    public void onSuccess(HttpContext context, GetWithdrawResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
+
+```
+
+
+### <a name="get_withdrawals_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.RecipientsController.getWithdrawalsAsync") getWithdrawalsAsync
+
+> Gets a paginated list of transfers for the recipient
+
+
+```java
+void getWithdrawalsAsync(
+        final String recipientId,
+        final Integer page,
+        final Integer size,
+        final String status,
+        final DateTime createdSince,
+        final DateTime createdUntil,
+        final APICallBack<ListWithdrawals> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| recipientId |  ``` Required ```  | TODO: Add a parameter description |
+| page |  ``` Optional ```  | TODO: Add a parameter description |
+| size |  ``` Optional ```  | TODO: Add a parameter description |
+| status |  ``` Optional ```  | TODO: Add a parameter description |
+| createdSince |  ``` Optional ```  | TODO: Add a parameter description |
+| createdUntil |  ``` Optional ```  | TODO: Add a parameter description |
+
+
+#### Example Usage
+
+```java
+String recipientId = "recipient_id";
+Integer page = 65;
+Integer size = 65;
+String status = "status";
+DateTime createdSince = new Date();
+DateTime createdUntil = new Date();
+// Invoking the API call with sample inputs
+recipients.getWithdrawalsAsync(recipientId, page, size, status, createdSince, createdUntil, new APICallBack<ListWithdrawals>() {
+    public void onSuccess(HttpContext context, ListWithdrawals response) {
         // TODO success callback handler
     }
     public void onFailure(HttpContext context, Throwable error) {
@@ -2724,8 +2855,8 @@ void getUsagesDetailsAsync(
 ```java
 String subscriptionId = "subscription_id";
 String cycleId = "cycle_id";
-Integer size = 18;
-Integer page = 18;
+Integer size = 65;
+Integer page = 65;
 String itemId = "item_id";
 String group = "group";
 // Invoking the API call with sample inputs
@@ -2973,8 +3104,8 @@ void getIncrementsAsync(
 
 ```java
 String subscriptionId = "subscription_id";
-Integer page = 18;
-Integer size = 18;
+Integer page = 65;
+Integer size = 65;
 // Invoking the API call with sample inputs
 subscriptions.getIncrementsAsync(subscriptionId, page, size, new APICallBack<ListIncrementsResponse>() {
     public void onSuccess(HttpContext context, ListIncrementsResponse response) {
@@ -3114,8 +3245,8 @@ void getUsagesAsync(
 ```java
 String subscriptionId = "subscription_id";
 String itemId = "item_id";
-Integer page = 18;
-Integer size = 18;
+Integer page = 65;
+Integer size = 65;
 String code = "code";
 String group = "group";
 // Invoking the API call with sample inputs
@@ -3544,8 +3675,8 @@ void getDiscountsAsync(
 
 ```java
 String subscriptionId = "subscription_id";
-int page = 18;
-int size = 18;
+int page = 65;
+int size = 65;
 // Invoking the API call with sample inputs
 subscriptions.getDiscountsAsync(subscriptionId, page, size, new APICallBack<ListDiscountsResponse>() {
     public void onSuccess(HttpContext context, ListDiscountsResponse response) {
@@ -3647,8 +3778,8 @@ void getSubscriptionsAsync(
 #### Example Usage
 
 ```java
-Integer page = 18;
-Integer size = 18;
+Integer page = 65;
+Integer size = 65;
 String code = "code";
 String billingType = "billing_type";
 String customerId = "customer_id";
@@ -3748,8 +3879,8 @@ void getSubscriptionItemsAsync(
 
 ```java
 String subscriptionId = "subscription_id";
-Integer page = 18;
-Integer size = 18;
+Integer page = 65;
+Integer size = 65;
 String name = "name";
 String code = "code";
 String status = "status";
@@ -4149,8 +4280,8 @@ void getInvoicesAsync(
 #### Example Usage
 
 ```java
-Integer page = 18;
-Integer size = 18;
+Integer page = 157;
+Integer size = 157;
 String code = "code";
 String customerId = "customer_id";
 String subscriptionId = "subscription_id";
@@ -4345,8 +4476,8 @@ void getOrdersAsync(
 #### Example Usage
 
 ```java
-Integer page = 18;
-Integer size = 18;
+Integer page = 157;
+Integer size = 157;
 String code = "code";
 String status = "status";
 DateTime createdSince = new Date();
@@ -4750,8 +4881,8 @@ void getSellersAsync(
 #### Example Usage
 
 ```java
-Integer page = 109;
-Integer size = 109;
+Integer page = 157;
+Integer size = 157;
 String name = "name";
 String document = "document";
 String code = "code";
@@ -5127,8 +5258,8 @@ void getPlansAsync(
 #### Example Usage
 
 ```java
-Integer page = 109;
-Integer size = 109;
+Integer page = 157;
+Integer size = 157;
 String name = "name";
 String status = "status";
 String billingType = "billing_type";
@@ -5468,6 +5599,117 @@ String transactionId = "transaction_id";
 // Invoking the API call with sample inputs
 transactions.getTransactionAsync(transactionId, new APICallBack<GetTransactionResponse>() {
     public void onSuccess(HttpContext context, GetTransactionResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
+
+```
+
+
+[Back to List of Controllers](#list_of_controllers)
+
+## <a name="transfers_controller"></a>![Class: ](https://apidocs.io/img/class.png "com.mundipagg.api.controllers.TransfersController") TransfersController
+
+### Get singleton instance
+
+The singleton instance of the ``` TransfersController ``` class can be accessed from the API Client.
+
+```java
+TransfersController transfers = client.getTransfers();
+```
+
+### <a name="create_transfer_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.TransfersController.createTransferAsync") createTransferAsync
+
+> TODO: Add a method description
+
+
+```java
+void createTransferAsync(
+        final CreateTransfer request,
+        final APICallBack<GetTransfer> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| request |  ``` Required ```  | TODO: Add a parameter description |
+
+
+#### Example Usage
+
+```java
+try {
+    CreateTransfer request = new CreateTransfer();
+    // Invoking the API call with sample inputs
+    transfers.createTransferAsync(request, new APICallBack<GetTransfer>() {
+        public void onSuccess(HttpContext context, GetTransfer response) {
+            // TODO success callback handler
+        }
+        public void onFailure(HttpContext context, Throwable error) {
+            // TODO failure callback handler
+        }
+    });
+} catch(JsonProcessingException e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+}
+```
+
+
+### <a name="get_transfer_by_id_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.TransfersController.getTransferByIdAsync") getTransferByIdAsync
+
+> TODO: Add a method description
+
+
+```java
+void getTransferByIdAsync(
+        final String transferId,
+        final APICallBack<GetTransfer> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| transferId |  ``` Required ```  | TODO: Add a parameter description |
+
+
+#### Example Usage
+
+```java
+String transferId = "transfer_id";
+// Invoking the API call with sample inputs
+transfers.getTransferByIdAsync(transferId, new APICallBack<GetTransfer>() {
+    public void onSuccess(HttpContext context, GetTransfer response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
+
+```
+
+
+### <a name="get_transfers_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.TransfersController.getTransfersAsync") getTransfersAsync
+
+> Gets all transfers
+
+
+```java
+void getTransfersAsync(final APICallBack<ListTransfers> callBack)
+```
+
+#### Example Usage
+
+```java
+// Invoking the API call with sample inputs
+transfers.getTransfersAsync(new APICallBack<ListTransfers>() {
+    public void onSuccess(HttpContext context, ListTransfers response) {
         // TODO success callback handler
     }
     public void onFailure(HttpContext context, Throwable error) {

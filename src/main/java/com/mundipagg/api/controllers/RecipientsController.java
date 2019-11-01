@@ -2066,4 +2066,417 @@ public class RecipientsController extends BaseController {
         return _result;
     }
 
+    /**
+     * TODO: type endpoint description here
+     * @param    recipientId    Required parameter: Example: 
+     * @param    request    Required parameter: Example: 
+     * @return    Returns the GetWithdrawResponse response from the API call 
+     */
+    public GetWithdrawResponse createWithdraw(
+                final String recipientId,
+                final CreateWithdrawRequest request
+    ) throws Throwable {
+
+        HttpRequest _request = _buildCreateWithdrawRequest(recipientId, request);
+        HttpResponse _response = getClientInstance().executeAsString(_request);
+        HttpContext _context = new HttpContext(_request, _response);
+
+        return _handleCreateWithdrawResponse(_context);
+    }
+
+    /**
+     * TODO: type endpoint description here
+     * @param    recipientId    Required parameter: Example: 
+     * @param    request    Required parameter: Example: 
+     * @return    Returns the void response from the API call 
+     */
+    public void createWithdrawAsync(
+                final String recipientId,
+                final CreateWithdrawRequest request,
+                final APICallBack<GetWithdrawResponse> callBack
+    ) {
+        Runnable _responseTask = new Runnable() {
+            public void run() {
+
+                HttpRequest _request;
+                try {
+                    _request = _buildCreateWithdrawRequest(recipientId, request);
+                } catch (Exception e) {
+                    callBack.onFailure(null, e);
+                    return;
+                }
+
+                // Invoke request and get response
+                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
+                    public void onSuccess(HttpContext _context, HttpResponse _response) {
+                        try {
+                            GetWithdrawResponse returnValue = _handleCreateWithdrawResponse(_context);
+                            callBack.onSuccess(_context, returnValue);
+                        } catch (Exception e) {
+                            callBack.onFailure(_context, e);
+                        }
+                    }
+
+                    public void onFailure(HttpContext _context, Throwable _exception) {
+                        // Let the caller know of the failure
+                        callBack.onFailure(_context, _exception);
+                    }
+                });
+            }
+        };
+
+        // Execute async using thread pool
+        APIHelper.getScheduler().execute(_responseTask);
+    }
+
+    /**
+     * Builds the HttpRequest object for createWithdraw
+     */
+    private HttpRequest _buildCreateWithdrawRequest(
+                final String recipientId,
+                final CreateWithdrawRequest request) throws IOException, APIException {
+        //the base uri for api requests
+        String _baseUri = Configuration.baseUri;
+
+        //prepare query string for API call
+        StringBuilder _queryBuilder = new StringBuilder(_baseUri + "/recipients/{recipient_id}/withdrawals");
+
+        //process template parameters
+        Map<String, Object> _templateParameters = new HashMap<String, Object>();
+        _templateParameters.put("recipient_id", recipientId);
+        APIHelper.appendUrlWithTemplateParameters(_queryBuilder, _templateParameters);
+        //validate and preprocess url
+        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+
+        //load all headers for the outgoing API request
+        Map<String, String> _headers = new HashMap<String, String>();
+        _headers.put("user-agent", BaseController.userAgent);
+        _headers.put("accept", "application/json");
+        _headers.put("content-type", "application/json");
+
+
+        //prepare and invoke the API call request to fetch the response
+        HttpRequest _request = getClientInstance().postBody(_queryUrl, _headers, APIHelper.serialize(request),
+                Configuration.basicAuthUserName, Configuration.basicAuthPassword);
+
+        // Invoke the callback before request if its not null
+        if (getHttpCallBack() != null) {
+            getHttpCallBack().OnBeforeRequest(_request);
+        }
+
+        return _request;
+    }
+
+    /**
+     * Processes the response for createWithdraw
+     * @return An object of type void
+     */
+    private GetWithdrawResponse _handleCreateWithdrawResponse(HttpContext _context)
+            throws APIException, IOException {
+        HttpResponse _response = _context.getResponse();
+
+        //invoke the callback after response if its not null
+        if (getHttpCallBack() != null) {
+            getHttpCallBack().OnAfterResponse(_context);
+        }
+
+        //handle errors defined at the API level
+        validateResponse(_response, _context);
+
+        //extract result from the http response
+        String _responseBody = ((HttpStringResponse)_response).getBody();
+        GetWithdrawResponse _result = APIHelper.deserialize(_responseBody,
+                                                        new TypeReference<GetWithdrawResponse>(){});
+
+        return _result;
+    }
+
+    /**
+     * TODO: type endpoint description here
+     * @param    recipientId    Required parameter: Example: 
+     * @param    withdrawalId    Required parameter: Example: 
+     * @return    Returns the GetWithdrawResponse response from the API call 
+     */
+    public GetWithdrawResponse getWithdrawById(
+                final String recipientId,
+                final String withdrawalId
+    ) throws Throwable {
+
+        HttpRequest _request = _buildGetWithdrawByIdRequest(recipientId, withdrawalId);
+        HttpResponse _response = getClientInstance().executeAsString(_request);
+        HttpContext _context = new HttpContext(_request, _response);
+
+        return _handleGetWithdrawByIdResponse(_context);
+    }
+
+    /**
+     * TODO: type endpoint description here
+     * @param    recipientId    Required parameter: Example: 
+     * @param    withdrawalId    Required parameter: Example: 
+     * @return    Returns the void response from the API call 
+     */
+    public void getWithdrawByIdAsync(
+                final String recipientId,
+                final String withdrawalId,
+                final APICallBack<GetWithdrawResponse> callBack
+    ) {
+        Runnable _responseTask = new Runnable() {
+            public void run() {
+
+                HttpRequest _request;
+                try {
+                    _request = _buildGetWithdrawByIdRequest(recipientId, withdrawalId);
+                } catch (Exception e) {
+                    callBack.onFailure(null, e);
+                    return;
+                }
+
+                // Invoke request and get response
+                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
+                    public void onSuccess(HttpContext _context, HttpResponse _response) {
+                        try {
+                            GetWithdrawResponse returnValue = _handleGetWithdrawByIdResponse(_context);
+                            callBack.onSuccess(_context, returnValue);
+                        } catch (Exception e) {
+                            callBack.onFailure(_context, e);
+                        }
+                    }
+
+                    public void onFailure(HttpContext _context, Throwable _exception) {
+                        // Let the caller know of the failure
+                        callBack.onFailure(_context, _exception);
+                    }
+                });
+            }
+        };
+
+        // Execute async using thread pool
+        APIHelper.getScheduler().execute(_responseTask);
+    }
+
+    /**
+     * Builds the HttpRequest object for getWithdrawById
+     */
+    private HttpRequest _buildGetWithdrawByIdRequest(
+                final String recipientId,
+                final String withdrawalId) throws IOException, APIException {
+        //the base uri for api requests
+        String _baseUri = Configuration.baseUri;
+
+        //prepare query string for API call
+        StringBuilder _queryBuilder = new StringBuilder(_baseUri + "/recipients/{recipient_id}/withdrawals/{withdrawal_id}");
+
+        //process template parameters
+        Map<String, Object> _templateParameters = new HashMap<String, Object>();
+        _templateParameters.put("recipient_id", recipientId);
+        _templateParameters.put("withdrawal_id", withdrawalId);
+        APIHelper.appendUrlWithTemplateParameters(_queryBuilder, _templateParameters);
+        //validate and preprocess url
+        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+
+        //load all headers for the outgoing API request
+        Map<String, String> _headers = new HashMap<String, String>();
+        _headers.put("user-agent", BaseController.userAgent);
+        _headers.put("accept", "application/json");
+
+
+        //prepare and invoke the API call request to fetch the response
+        HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null,
+                Configuration.basicAuthUserName, Configuration.basicAuthPassword);
+
+        // Invoke the callback before request if its not null
+        if (getHttpCallBack() != null) {
+            getHttpCallBack().OnBeforeRequest(_request);
+        }
+
+        return _request;
+    }
+
+    /**
+     * Processes the response for getWithdrawById
+     * @return An object of type void
+     */
+    private GetWithdrawResponse _handleGetWithdrawByIdResponse(HttpContext _context)
+            throws APIException, IOException {
+        HttpResponse _response = _context.getResponse();
+
+        //invoke the callback after response if its not null
+        if (getHttpCallBack() != null) {
+            getHttpCallBack().OnAfterResponse(_context);
+        }
+
+        //handle errors defined at the API level
+        validateResponse(_response, _context);
+
+        //extract result from the http response
+        String _responseBody = ((HttpStringResponse)_response).getBody();
+        GetWithdrawResponse _result = APIHelper.deserialize(_responseBody,
+                                                        new TypeReference<GetWithdrawResponse>(){});
+
+        return _result;
+    }
+
+    /**
+     * Gets a paginated list of transfers for the recipient
+     * @param    recipientId    Required parameter: Example: 
+     * @param    page    Optional parameter: Example: 
+     * @param    size    Optional parameter: Example: 
+     * @param    status    Optional parameter: Example: 
+     * @param    createdSince    Optional parameter: Example: 
+     * @param    createdUntil    Optional parameter: Example: 
+     * @return    Returns the ListWithdrawals response from the API call 
+     */
+    public ListWithdrawals getWithdrawals(
+                final String recipientId,
+                final Integer page,
+                final Integer size,
+                final String status,
+                final DateTime createdSince,
+                final DateTime createdUntil
+    ) throws Throwable {
+
+        HttpRequest _request = _buildGetWithdrawalsRequest(recipientId, page, size, status, createdSince, createdUntil);
+        HttpResponse _response = getClientInstance().executeAsString(_request);
+        HttpContext _context = new HttpContext(_request, _response);
+
+        return _handleGetWithdrawalsResponse(_context);
+    }
+
+    /**
+     * Gets a paginated list of transfers for the recipient
+     * @param    recipientId    Required parameter: Example: 
+     * @param    page    Optional parameter: Example: 
+     * @param    size    Optional parameter: Example: 
+     * @param    status    Optional parameter: Example: 
+     * @param    createdSince    Optional parameter: Example: 
+     * @param    createdUntil    Optional parameter: Example: 
+     * @return    Returns the void response from the API call 
+     */
+    public void getWithdrawalsAsync(
+                final String recipientId,
+                final Integer page,
+                final Integer size,
+                final String status,
+                final DateTime createdSince,
+                final DateTime createdUntil,
+                final APICallBack<ListWithdrawals> callBack
+    ) {
+        Runnable _responseTask = new Runnable() {
+            public void run() {
+
+                HttpRequest _request;
+                try {
+                    _request = _buildGetWithdrawalsRequest(recipientId, page, size, status, createdSince, createdUntil);
+                } catch (Exception e) {
+                    callBack.onFailure(null, e);
+                    return;
+                }
+
+                // Invoke request and get response
+                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
+                    public void onSuccess(HttpContext _context, HttpResponse _response) {
+                        try {
+                            ListWithdrawals returnValue = _handleGetWithdrawalsResponse(_context);
+                            callBack.onSuccess(_context, returnValue);
+                        } catch (Exception e) {
+                            callBack.onFailure(_context, e);
+                        }
+                    }
+
+                    public void onFailure(HttpContext _context, Throwable _exception) {
+                        // Let the caller know of the failure
+                        callBack.onFailure(_context, _exception);
+                    }
+                });
+            }
+        };
+
+        // Execute async using thread pool
+        APIHelper.getScheduler().execute(_responseTask);
+    }
+
+    /**
+     * Builds the HttpRequest object for getWithdrawals
+     */
+    private HttpRequest _buildGetWithdrawalsRequest(
+                final String recipientId,
+                final Integer page,
+                final Integer size,
+                final String status,
+                final DateTime createdSince,
+                final DateTime createdUntil) throws IOException, APIException {
+        //the base uri for api requests
+        String _baseUri = Configuration.baseUri;
+
+        //prepare query string for API call
+        StringBuilder _queryBuilder = new StringBuilder(_baseUri + "/recipients/{recipient_id}/withdrawals");
+
+        //process template parameters
+        Map<String, Object> _templateParameters = new HashMap<String, Object>();
+        _templateParameters.put("recipient_id", recipientId);
+        APIHelper.appendUrlWithTemplateParameters(_queryBuilder, _templateParameters);
+
+        //process query parameters
+        Map<String, Object> _queryParameters = new HashMap<String, Object>();
+        if (page != null) {
+            _queryParameters.put("page", page);
+        }
+        if (size != null) {
+            _queryParameters.put("size", size);
+        }
+        if (status != null) {
+            _queryParameters.put("status", status);
+        }
+        if (createdSince != null) {
+            _queryParameters.put("created_since", DateTimeHelper.toRfc8601DateTime(createdSince));
+        }
+        if (createdUntil != null) {
+            _queryParameters.put("created_until", DateTimeHelper.toRfc8601DateTime(createdUntil));
+        }
+        APIHelper.appendUrlWithQueryParameters(_queryBuilder, _queryParameters);
+        //validate and preprocess url
+        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+
+        //load all headers for the outgoing API request
+        Map<String, String> _headers = new HashMap<String, String>();
+        _headers.put("user-agent", BaseController.userAgent);
+        _headers.put("accept", "application/json");
+
+
+        //prepare and invoke the API call request to fetch the response
+        HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null,
+                Configuration.basicAuthUserName, Configuration.basicAuthPassword);
+
+        // Invoke the callback before request if its not null
+        if (getHttpCallBack() != null) {
+            getHttpCallBack().OnBeforeRequest(_request);
+        }
+
+        return _request;
+    }
+
+    /**
+     * Processes the response for getWithdrawals
+     * @return An object of type void
+     */
+    private ListWithdrawals _handleGetWithdrawalsResponse(HttpContext _context)
+            throws APIException, IOException {
+        HttpResponse _response = _context.getResponse();
+
+        //invoke the callback after response if its not null
+        if (getHttpCallBack() != null) {
+            getHttpCallBack().OnAfterResponse(_context);
+        }
+
+        //handle errors defined at the API level
+        validateResponse(_response, _context);
+
+        //extract result from the http response
+        String _responseBody = ((HttpStringResponse)_response).getBody();
+        ListWithdrawals _result = APIHelper.deserialize(_responseBody,
+                                                        new TypeReference<ListWithdrawals>(){});
+
+        return _result;
+    }
+
 }

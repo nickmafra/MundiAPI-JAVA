@@ -90,6 +90,14 @@ public class MundiAPIClient {
     }
 
     /**
+     * Singleton access to Transfers controller
+     * @return	Returns the TransfersController instance 
+     */
+    public TransfersController getTransfers() {
+        return TransfersController.getInstance();
+    }
+
+    /**
      * Get the shared http client currently being used for API calls
      * @return The http client instance currently being used
      */
