@@ -37,6 +37,11 @@ public class GetAntifraudResponseBuilder {
         getAntifraudResponse.setProviderName(providerName);
         return this;
     }
+
+    public GetAntifraudResponseBuilder score(String score) {
+        getAntifraudResponse.setScore(score);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

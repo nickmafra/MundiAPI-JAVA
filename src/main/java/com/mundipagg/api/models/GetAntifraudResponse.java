@@ -14,11 +14,12 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonInclude(Include.ALWAYS)
 public class GetAntifraudResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = -2960962418350399732L;
+    private static final long serialVersionUID = -8594217577777045374L;
     private String status;
     private String returnCode;
     private String returnMessage;
     private String providerName;
+    private String score;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -81,6 +82,22 @@ public class GetAntifraudResponse
     @JsonSetter("provider_name")
     public void setProviderName (String value) { 
         this.providerName = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("score")
+    public String getScore ( ) { 
+        return this.score;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("score")
+    public void setScore (String value) { 
+        this.score = value;
     }
  
 }
