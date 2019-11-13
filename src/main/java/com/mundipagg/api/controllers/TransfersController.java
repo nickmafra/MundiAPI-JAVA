@@ -61,7 +61,6 @@ public class TransfersController extends BaseController {
     /**
      * TODO: type endpoint description here
      * @param    request    Required parameter: Example: 
-     * @return    Returns the void response from the API call 
      */
     public void createTransferAsync(
                 final CreateTransfer request,
@@ -135,7 +134,7 @@ public class TransfersController extends BaseController {
 
     /**
      * Processes the response for createTransfer
-     * @return An object of type void
+     * @return An object of type GetTransfer
      */
     private GetTransfer _handleCreateTransferResponse(HttpContext _context)
             throws APIException, IOException {
@@ -176,7 +175,6 @@ public class TransfersController extends BaseController {
     /**
      * TODO: type endpoint description here
      * @param    transferId    Required parameter: Example: 
-     * @return    Returns the void response from the API call 
      */
     public void getTransferByIdAsync(
                 final String transferId,
@@ -254,7 +252,7 @@ public class TransfersController extends BaseController {
 
     /**
      * Processes the response for getTransferById
-     * @return An object of type void
+     * @return An object of type GetTransfer
      */
     private GetTransfer _handleGetTransferByIdResponse(HttpContext _context)
             throws APIException, IOException {
@@ -292,7 +290,6 @@ public class TransfersController extends BaseController {
 
     /**
      * Gets all transfers
-     * @return    Returns the void response from the API call 
      */
     public void getTransfersAsync(
                 final APICallBack<ListTransfers> callBack
@@ -363,7 +360,7 @@ public class TransfersController extends BaseController {
 
     /**
      * Processes the response for getTransfers
-     * @return An object of type void
+     * @return An object of type ListTransfers
      */
     private ListTransfers _handleGetTransfersResponse(HttpContext _context)
             throws APIException, IOException {

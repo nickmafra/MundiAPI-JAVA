@@ -60,7 +60,6 @@ public class TransactionsController extends BaseController {
     /**
      * TODO: type endpoint description here
      * @param    transactionId    Required parameter: Example: 
-     * @return    Returns the void response from the API call 
      */
     public void getTransactionAsync(
                 final String transactionId,
@@ -138,7 +137,7 @@ public class TransactionsController extends BaseController {
 
     /**
      * Processes the response for getTransaction
-     * @return An object of type void
+     * @return An object of type GetTransactionResponse
      */
     private GetTransactionResponse _handleGetTransactionResponse(HttpContext _context)
             throws APIException, IOException {

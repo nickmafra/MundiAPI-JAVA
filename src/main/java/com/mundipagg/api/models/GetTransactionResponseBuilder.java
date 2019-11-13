@@ -124,6 +124,11 @@ public class GetTransactionResponseBuilder {
         getTransactionResponse.setAntifraudResponse(antifraudResponse);
         return this;
     }
+
+    public GetTransactionResponseBuilder metadata(LinkedHashMap<String, String> metadata) {
+        getTransactionResponse.setMetadata(metadata);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

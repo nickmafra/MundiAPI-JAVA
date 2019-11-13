@@ -25,18 +25,18 @@ import org.joda.time.DateTime;
           defaultImpl = GetTransactionResponse.class,
           visible = true)
 @JsonSubTypes({
-    @Type(value = GetBankTransferTransactionResponse.class, name = "bank_transfer"),
-    @Type(value = GetDebitCardTransactionResponse.class, name = "debit_card"),
     @Type(value = GetVoucherTransactionResponse.class, name = "voucher"),
-    @Type(value = GetBoletoTransactionResponse.class, name = "boleto"),
-    @Type(value = GetCashTransactionResponse.class, name = "cash"),
+    @Type(value = GetBankTransferTransactionResponse.class, name = "bank_transfer"),
     @Type(value = GetSafetyPayTransactionResponse.class, name = "safetypay"),
+    @Type(value = GetBoletoTransactionResponse.class, name = "boleto"),
+    @Type(value = GetDebitCardTransactionResponse.class, name = "debit_card"),
+    @Type(value = GetCashTransactionResponse.class, name = "cash"),
     @Type(value = GetCreditCardTransactionResponse.class, name = "credit_card")
 })
 @JsonInclude(Include.ALWAYS)
 public class GetTransactionResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 3347458409500098310L;
+    private static final long serialVersionUID = 5754788919610665812L;
     private String gatewayId;
     private int amount;
     private String status;
@@ -51,6 +51,7 @@ public class GetTransactionResponse
     private String id;
     private GetGatewayResponseResponse gatewayResponse;
     private GetAntifraudResponse antifraudResponse;
+    private LinkedHashMap<String, String> metadata;
     /** GETTER
      * Gateway transaction id
      */
@@ -279,6 +280,22 @@ public class GetTransactionResponse
     @JsonSetter("antifraud_response")
     public void setAntifraudResponse (GetAntifraudResponse value) { 
         this.antifraudResponse = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("metadata")
+    public LinkedHashMap<String, String> getMetadata ( ) { 
+        return this.metadata;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("metadata")
+    public void setMetadata (LinkedHashMap<String, String> value) { 
+        this.metadata = value;
     }
  
 }
