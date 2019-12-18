@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonInclude(Include.ALWAYS)
 public class UpdateChargePaymentMethodRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = -4180584844471306668L;
+    private static final long serialVersionUID = 1454816263909885485L;
     private boolean updateSubscription;
     private String paymentMethod;
     private CreateCreditCardPaymentRequest creditCard;
@@ -23,6 +23,7 @@ public class UpdateChargePaymentMethodRequest
     private CreateVoucherPaymentRequest voucher;
     private CreateCashPaymentRequest cash;
     private CreateBankTransferPaymentRequest bankTransfer;
+    private CreatePrivateLabelPaymentRequest privateLabel;
     /** GETTER
      * Indicates if the payment method from the subscription must also be updated
      */
@@ -149,6 +150,22 @@ public class UpdateChargePaymentMethodRequest
     @JsonSetter("bank_transfer")
     public void setBankTransfer (CreateBankTransferPaymentRequest value) { 
         this.bankTransfer = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("private_label")
+    public CreatePrivateLabelPaymentRequest getPrivateLabel ( ) { 
+        return this.privateLabel;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("private_label")
+    public void setPrivateLabel (CreatePrivateLabelPaymentRequest value) { 
+        this.privateLabel = value;
     }
  
 }

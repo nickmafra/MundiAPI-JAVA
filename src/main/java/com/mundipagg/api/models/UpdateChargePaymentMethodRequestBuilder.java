@@ -81,6 +81,11 @@ public class UpdateChargePaymentMethodRequestBuilder {
         updateChargePaymentMethodRequest.setBankTransfer(bankTransfer);
         return this;
     }
+
+    public UpdateChargePaymentMethodRequestBuilder privateLabel(CreatePrivateLabelPaymentRequest privateLabel) {
+        updateChargePaymentMethodRequest.setPrivateLabel(privateLabel);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

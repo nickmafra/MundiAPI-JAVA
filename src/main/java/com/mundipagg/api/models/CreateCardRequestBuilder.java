@@ -121,6 +121,11 @@ public class CreateCardRequestBuilder {
         createCardRequest.setPrivateLabel(privateLabel);
         return this;
     }
+
+    public CreateCardRequestBuilder label(String label) {
+        createCardRequest.setLabel(label);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

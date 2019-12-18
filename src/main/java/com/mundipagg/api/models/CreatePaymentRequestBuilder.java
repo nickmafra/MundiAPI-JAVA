@@ -137,6 +137,14 @@ public class CreatePaymentRequestBuilder {
         createPaymentRequest.setCash(cash);
         return this;
     }
+
+    /**
+     * Settings for private label payment
+     */
+    public CreatePaymentRequestBuilder privateLabel(CreatePrivateLabelPaymentRequest privateLabel) {
+        createPaymentRequest.setPrivateLabel(privateLabel);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

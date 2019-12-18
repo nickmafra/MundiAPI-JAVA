@@ -14,13 +14,14 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonInclude(Include.ALWAYS)
 public class UpdateCardRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = -3288304107349821615L;
+    private static final long serialVersionUID = 5047304574631942482L;
     private String holderName;
     private int expMonth;
     private int expYear;
     private String billingAddressId;
     private CreateAddressRequest billingAddress;
     private LinkedHashMap<String, String> metadata;
+    private String label;
     /** GETTER
      * Holder name
      */
@@ -115,6 +116,22 @@ public class UpdateCardRequest
     @JsonSetter("metadata")
     public void setMetadata (LinkedHashMap<String, String> value) { 
         this.metadata = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("label")
+    public String getLabel ( ) { 
+        return this.label;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("label")
+    public void setLabel (String value) { 
+        this.label = value;
     }
  
 }

@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonInclude(Include.ALWAYS)
 public class GetCardTokenResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = -1927250366866082378L;
+    private static final long serialVersionUID = 7915153816906755285L;
     private String lastFourDigits;
     private String holderName;
     private String holderDocument;
@@ -22,6 +22,7 @@ public class GetCardTokenResponse
     private String expYear;
     private String brand;
     private String type;
+    private String label;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -132,6 +133,22 @@ public class GetCardTokenResponse
     @JsonSetter("type")
     public void setType (String value) { 
         this.type = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("label")
+    public String getLabel ( ) { 
+        return this.label;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("label")
+    public void setLabel (String value) { 
+        this.label = value;
     }
  
 }

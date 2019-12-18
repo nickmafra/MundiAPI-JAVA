@@ -18,7 +18,7 @@ import org.joda.time.DateTime;
 @JsonInclude(Include.ALWAYS)
 public class GetCardResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = -4366858445688030472L;
+    private static final long serialVersionUID = 8171376221344186379L;
     private String id;
     private String lastFourDigits;
     private String brand;
@@ -35,6 +35,7 @@ public class GetCardResponse
     private String holderDocument;
     private DateTime deletedAt;
     private String firstSixDigits;
+    private String label;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -295,6 +296,22 @@ public class GetCardResponse
     @JsonSetter("first_six_digits")
     public void setFirstSixDigits (String value) { 
         this.firstSixDigits = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("label")
+    public String getLabel ( ) { 
+        return this.label;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("label")
+    public void setLabel (String value) { 
+        this.label = value;
     }
  
 }

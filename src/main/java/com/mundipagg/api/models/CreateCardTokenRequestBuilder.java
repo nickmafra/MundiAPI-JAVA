@@ -65,6 +65,11 @@ public class CreateCardTokenRequestBuilder {
         createCardTokenRequest.setBrand(brand);
         return this;
     }
+
+    public CreateCardTokenRequestBuilder label(String label) {
+        createCardTokenRequest.setLabel(label);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

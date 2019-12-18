@@ -14,13 +14,14 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonInclude(Include.ALWAYS)
 public class CreateCardTokenRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 8817025319070640944L;
+    private static final long serialVersionUID = 6027791501788058355L;
     private String number;
     private String holderName;
     private int expMonth;
     private int expYear;
     private String cvv;
     private String brand;
+    private String label;
     /** GETTER
      * Credit card number
      */
@@ -115,6 +116,22 @@ public class CreateCardTokenRequest
     @JsonSetter("brand")
     public void setBrand (String value) { 
         this.brand = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("label")
+    public String getLabel ( ) { 
+        return this.label;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("label")
+    public void setLabel (String value) { 
+        this.label = value;
     }
  
 }

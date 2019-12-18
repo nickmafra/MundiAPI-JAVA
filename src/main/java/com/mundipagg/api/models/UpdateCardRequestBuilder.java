@@ -65,6 +65,11 @@ public class UpdateCardRequestBuilder {
         updateCardRequest.setMetadata(metadata);
         return this;
     }
+
+    public UpdateCardRequestBuilder label(String label) {
+        updateCardRequest.setLabel(label);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

@@ -107,6 +107,11 @@ public class GetCardResponseBuilder {
         getCardResponse.setFirstSixDigits(firstSixDigits);
         return this;
     }
+
+    public GetCardResponseBuilder label(String label) {
+        getCardResponse.setLabel(label);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

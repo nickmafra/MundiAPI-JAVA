@@ -52,6 +52,11 @@ public class GetCardTokenResponseBuilder {
         getCardTokenResponse.setType(type);
         return this;
     }
+
+    public GetCardTokenResponseBuilder label(String label) {
+        getCardTokenResponse.setLabel(label);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */
