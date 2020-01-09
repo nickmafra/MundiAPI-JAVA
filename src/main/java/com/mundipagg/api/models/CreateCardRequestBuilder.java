@@ -126,6 +126,22 @@ public class CreateCardRequestBuilder {
         createCardRequest.setLabel(label);
         return this;
     }
+
+    /**
+     * Identifier
+     */
+    public CreateCardRequestBuilder id(String id) {
+        createCardRequest.setId(id);
+        return this;
+    }
+
+    /**
+     * token identifier
+     */
+    public CreateCardRequestBuilder token(String token) {
+        createCardRequest.setToken(token);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */
