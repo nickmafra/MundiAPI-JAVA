@@ -22,6 +22,16 @@ public class GetUsageReportResponseBuilder {
         getUsageReportResponse.setUrl(url);
         return this;
     }
+
+    public GetUsageReportResponseBuilder usageReportUrl(String usageReportUrl) {
+        getUsageReportResponse.setUsageReportUrl(usageReportUrl);
+        return this;
+    }
+
+    public GetUsageReportResponseBuilder groupedReportUrl(String groupedReportUrl) {
+        getUsageReportResponse.setGroupedReportUrl(groupedReportUrl);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

@@ -14,8 +14,10 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonInclude(Include.ALWAYS)
 public class GetUsageReportResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 71762151327968801L;
+    private static final long serialVersionUID = -476802600442931274L;
     private String url;
+    private String usageReportUrl;
+    private String groupedReportUrl;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -30,6 +32,38 @@ public class GetUsageReportResponse
     @JsonSetter("url")
     public void setUrl (String value) { 
         this.url = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("usage_report_url")
+    public String getUsageReportUrl ( ) { 
+        return this.usageReportUrl;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("usage_report_url")
+    public void setUsageReportUrl (String value) { 
+        this.usageReportUrl = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("grouped_report_url")
+    public String getGroupedReportUrl ( ) { 
+        return this.groupedReportUrl;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("grouped_report_url")
+    public void setGroupedReportUrl (String value) { 
+        this.groupedReportUrl = value;
     }
  
 }
