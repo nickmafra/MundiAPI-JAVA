@@ -14,14 +14,14 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonInclude(Include.ALWAYS)
 public class ListCyclesResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 8948644361410195580L;
-    private GetPeriodResponse data;
+    private static final long serialVersionUID = 8948852067562596855L;
+    private List<GetPeriodResponse> data;
     private PagingResponse paging;
     /** GETTER
      * The subscription cycles objects
      */
     @JsonGetter("data")
-    public GetPeriodResponse getData ( ) { 
+    public List<GetPeriodResponse> getData ( ) { 
         return this.data;
     }
     
@@ -29,7 +29,7 @@ public class ListCyclesResponse
      * The subscription cycles objects
      */
     @JsonSetter("data")
-    public void setData (GetPeriodResponse value) { 
+    public void setData (List<GetPeriodResponse> value) { 
         this.data = value;
     }
  

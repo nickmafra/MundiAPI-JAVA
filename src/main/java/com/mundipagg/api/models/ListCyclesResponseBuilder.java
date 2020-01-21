@@ -21,7 +21,7 @@ public class ListCyclesResponseBuilder {
     /**
      * The subscription cycles objects
      */
-    public ListCyclesResponseBuilder data(GetPeriodResponse data) {
+    public ListCyclesResponseBuilder data(List<GetPeriodResponse> data) {
         listCyclesResponse.setData(data);
         return this;
     }
