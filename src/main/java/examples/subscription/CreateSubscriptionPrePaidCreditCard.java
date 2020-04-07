@@ -45,7 +45,7 @@ public class CreateSubscriptionPrePaidCreditCard {
 
         request.getCard().setBillingAddress(new CreateAddressRequest());
         request.getCard().getBillingAddress().setLine1("375  Av. General Justo  Centro");
-        request.getCard().getBillingAddress().setLine2("8º andar");
+        request.getCard().getBillingAddress().setLine2("8Âº andar");
         request.getCard().getBillingAddress().setZipCode("20021130");
         request.getCard().getBillingAddress().setCity("Rio de Janeiro");
         request.getCard().getBillingAddress().setState("RJ");
@@ -67,13 +67,13 @@ public class CreateSubscriptionPrePaidCreditCard {
         request.setIncrements(listIncrementItem);
 
         CreateSubscriptionItemRequest create_subscription_item_request_one = new CreateSubscriptionItemRequest();
-        create_subscription_item_request_one.setDescription("Musculação");
+        create_subscription_item_request_one.setDescription("MusculaÃ§Ã£o");
         create_subscription_item_request_one.setQuantity(1);
         create_subscription_item_request_one.setPricingScheme(new CreatePricingSchemeRequest());
         create_subscription_item_request_one.getPricingScheme().setPrice(18990);
         
         CreateSubscriptionItemRequest create_subscription_item_request_two = new CreateSubscriptionItemRequest();
-        create_subscription_item_request_two.setDescription("Matrícula");
+        create_subscription_item_request_two.setDescription("MatrÃ­cula");
         create_subscription_item_request_two.setQuantity(1);
         create_subscription_item_request_two.setCycles(1);
         create_subscription_item_request_two.setPricingScheme(new CreatePricingSchemeRequest());
@@ -87,7 +87,7 @@ public class CreateSubscriptionPrePaidCreditCard {
         request.setItems(listItem);
 
 
-        subscriptions_controller.createSubscriptionAsync(request, new APICallBack<GetSubscriptionResponse>() {
+        subscriptions_controller.createSubscriptionAsync(request, null, new APICallBack<GetSubscriptionResponse>() {
             public void onSuccess(HttpContext context, GetSubscriptionResponse response) {
 
                 System.out.println("Subscription pre paid credit card !");

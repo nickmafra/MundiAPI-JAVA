@@ -43,7 +43,7 @@ public class CreateOrderBankTransfer {
         lisPaymentItem.add(paymentItem);
         request.setPayments(lisPaymentItem);
 
-        orders_controller.createOrderAsync(request, new APICallBack<GetOrderResponse>() {
+        orders_controller.createOrderAsync(request, null, new APICallBack<GetOrderResponse>() {
             public void onSuccess(HttpContext context, GetOrderResponse response) {
 
                 System.out.println("Order bank transfer create !");

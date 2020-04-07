@@ -34,7 +34,7 @@ public class CreateCard {
         //Billing Address
         request.setBillingAddress(new CreateAddressRequest());
         request.getBillingAddress().setLine1("10880, Malibu Point, Malibu Central");
-        request.getBillingAddress().setLine2("7บ floor");
+        request.getBillingAddress().setLine2("7ยบ floor");
         request.getBillingAddress().setZipCode("90265");
         request.getBillingAddress().setCity("Malibu");
         request.getBillingAddress().setState("CA");
@@ -44,7 +44,7 @@ public class CreateCard {
         request.setOptions(new CreateCardOptionsRequest());
         request.getOptions().setVerifyCard(true);
 
-        customers_controller.createCardAsync(customerId, request, new APICallBack<GetCardResponse>() {
+        customers_controller.createCardAsync(customerId, request, null, new APICallBack<GetCardResponse>() {
             @Override
             public void onSuccess(HttpContext context, GetCardResponse response) {
                 System.out.println("Card create !");

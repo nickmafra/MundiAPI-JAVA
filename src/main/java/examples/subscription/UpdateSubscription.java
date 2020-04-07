@@ -29,13 +29,13 @@ public class UpdateSubscription {
 
         request.getCard().setBillingAddress(new CreateAddressRequest());
         request.getCard().getBillingAddress().setLine1("375  Av. General Justo  Centro");
-        request.getCard().getBillingAddress().setLine2("8บ andar");
+        request.getCard().getBillingAddress().setLine2("8ยบ andar");
         request.getCard().getBillingAddress().setZipCode("20021130");
         request.getCard().getBillingAddress().setCity("Rio de Janeiro");
         request.getCard().getBillingAddress().setState("RJ");
         request.getCard().getBillingAddress().setCountry("BR");
 
-        subscriptions_controller.updateSubscriptionCardAsync(subscriptionId, request, new APICallBack<GetSubscriptionResponse>() {
+        subscriptions_controller.updateSubscriptionCardAsync(subscriptionId, request, null, new APICallBack<GetSubscriptionResponse>() {
             public void onSuccess(HttpContext context, GetSubscriptionResponse response) {
                 System.out.println("Card updated !");
                 System.out.println("Status response: " + context.getResponse().getStatusCode());

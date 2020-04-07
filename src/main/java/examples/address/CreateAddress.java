@@ -35,7 +35,7 @@ public class CreateAddress {
         updateMetadata.setMetadata(metadata);
         request.setMetadata(updateMetadata.getMetadata());
         
-        customers_controller.createAddressAsync(customerId, request, new APICallBack<GetAddressResponse>() {
+        customers_controller.createAddressAsync(customerId, request, null, new APICallBack<GetAddressResponse>() {
             @Override
             public void onSuccess(HttpContext context, GetAddressResponse response) {
 

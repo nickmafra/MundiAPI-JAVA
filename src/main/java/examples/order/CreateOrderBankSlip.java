@@ -33,7 +33,7 @@ public class CreateOrderBankSlip {
 
         CreateBoletoPaymentRequest create_boleto_payment_request = new CreateBoletoPaymentRequest();
         create_boleto_payment_request.setBank("033");
-        create_boleto_payment_request.setInstructions("Pagar até o vencimento");
+        create_boleto_payment_request.setInstructions("Pagar atÃ© o vencimento");
         create_boleto_payment_request.setDueAt(DateTime.parse("2019-12-31T00:00:00Z"));
 
         CreateOrderRequest request = new CreateOrderRequest();
@@ -55,7 +55,7 @@ public class CreateOrderBankSlip {
         request.setPayments(lisPaymentItem);
 
 
-        orders_controller.createOrderAsync(request, new APICallBack<GetOrderResponse>() {
+        orders_controller.createOrderAsync(request, null, new APICallBack<GetOrderResponse>() {
             public void onSuccess(HttpContext context, GetOrderResponse response) {
 
                 System.out.println("Order bank slip create !");

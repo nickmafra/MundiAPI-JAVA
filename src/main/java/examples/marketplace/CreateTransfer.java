@@ -22,7 +22,7 @@ public class CreateTransfer {
 
         String recipientId = "rp_RElaP4NMCJu08V9m";
 
-        recipients_controller.createTransferAsync(recipientId, request, new APICallBack<GetTransferResponse>() {
+        recipients_controller.createTransferAsync(recipientId, request, null, new APICallBack<GetTransferResponse>() {
             @Override
             public void onSuccess(HttpContext context, GetTransferResponse response) {
 

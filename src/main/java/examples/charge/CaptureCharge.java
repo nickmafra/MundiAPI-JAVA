@@ -24,7 +24,7 @@ public class CaptureCharge {
 
         request.setCode("capture_total_operation");
 
-        charges_controller.captureChargeAsync(chargeId, request, new APICallBack<GetChargeResponse>() {
+        charges_controller.captureChargeAsync(chargeId, request, null, new APICallBack<GetChargeResponse>() {
             @Override
             public void onSuccess(HttpContext context, GetChargeResponse response) {
 

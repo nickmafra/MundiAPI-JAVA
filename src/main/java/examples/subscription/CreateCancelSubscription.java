@@ -22,7 +22,7 @@ public class CreateCancelSubscription {
 
         request.setCancelPendingInvoices(true);
 
-        subscriptions_controller.cancelSubscriptionAsync(subscriptionId, request, new APICallBack<GetSubscriptionResponse>() {
+        subscriptions_controller.cancelSubscriptionAsync(subscriptionId, request, null, new APICallBack<GetSubscriptionResponse>() {
             public void onSuccess(HttpContext context, GetSubscriptionResponse response) {
 
                 System.out.println("Status response: " + context.getResponse().getStatusCode());

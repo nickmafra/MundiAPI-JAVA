@@ -21,7 +21,7 @@ public class CreateCancelCharge {
 
         CreateCancelChargeRequest request = new CreateCancelChargeRequest();
 
-        charges_controller.cancelChargeAsync(chargeId, request, new APICallBack<GetChargeResponse>() {
+        charges_controller.cancelChargeAsync(chargeId, request, null, new APICallBack<GetChargeResponse>() {
             @Override
             public void onSuccess(HttpContext context, GetChargeResponse response) {
 

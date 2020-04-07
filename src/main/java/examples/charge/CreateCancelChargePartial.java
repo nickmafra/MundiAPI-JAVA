@@ -24,7 +24,7 @@ public class CreateCancelChargePartial {
 
         request.setAmount(100);
 
-        charges_controller.cancelChargeAsync(chargeId, request, new APICallBack<GetChargeResponse>() {
+        charges_controller.cancelChargeAsync(chargeId, request, null, new APICallBack<GetChargeResponse>() {
             @Override
             public void onSuccess(HttpContext context, GetChargeResponse response) {
 

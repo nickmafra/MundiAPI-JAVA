@@ -11,7 +11,7 @@ public class CreateCustomer {
 	
 	public static void main(String[] args) {
 
-        String basicAuthUserName = "sk_test_4tdVXpseumRmqbo"; // The username to use with basic authentication
+        String basicAuthUserName = "sk_test_EegqODfvktNJn4YA"; // The username to use with basic authentication
         String basicAuthPassword = ""; // The password to use with basic authentication
 
         MundiAPIClient client = new MundiAPIClient(basicAuthUserName, basicAuthPassword);
@@ -27,7 +27,7 @@ public class CreateCustomer {
 
         request.setAddress(new CreateAddressRequest());
         request.getAddress().setLine1("375, Av. General Justo, Centro");
-        request.getAddress().setLine2("8º andar");
+        request.getAddress().setLine2("8ï¿½ andar");
         request.getAddress().setZipCode("20021130");
         request.getAddress().setCity("Rio de Janeiro");
         request.getAddress().setState("RJ");
@@ -48,7 +48,7 @@ public class CreateCustomer {
         request.getPhones().getMobilePhone().setCountryCode("55");
         request.getPhones().getMobilePhone().setNumber("000000000");
 
-        customers_controller.createCustomerAsync(request, new APICallBack<GetCustomerResponse>() {
+        customers_controller.createCustomerAsync(request, null, new APICallBack<GetCustomerResponse>() {
             @Override
             public void onSuccess(HttpContext context, GetCustomerResponse response) {
 

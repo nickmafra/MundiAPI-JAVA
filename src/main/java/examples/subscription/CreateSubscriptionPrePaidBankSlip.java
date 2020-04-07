@@ -52,13 +52,13 @@ public class CreateSubscriptionPrePaidBankSlip {
 
 
         CreateSubscriptionItemRequest create_subscription_item_request_one = new CreateSubscriptionItemRequest();
-        create_subscription_item_request_one.setDescription("Musculação");
+        create_subscription_item_request_one.setDescription("MusculaÃ§Ã£o");
         create_subscription_item_request_one.setQuantity(1);
         create_subscription_item_request_one.setPricingScheme(new CreatePricingSchemeRequest());
         create_subscription_item_request_one.getPricingScheme().setPrice(18990);
         
         CreateSubscriptionItemRequest create_subscription_item_request_two = new CreateSubscriptionItemRequest();
-        create_subscription_item_request_two.setDescription("Matrícula");
+        create_subscription_item_request_two.setDescription("MatrÃ­cula");
         create_subscription_item_request_two.setQuantity(1);
         create_subscription_item_request_two.setCycles(1);
         create_subscription_item_request_two.setPricingScheme(new CreatePricingSchemeRequest());
@@ -70,7 +70,7 @@ public class CreateSubscriptionPrePaidBankSlip {
 
         request.setItems(listItem);
 
-        subscriptions_controller.createSubscriptionAsync(request, new APICallBack<GetSubscriptionResponse>() {
+        subscriptions_controller.createSubscriptionAsync(request, null, new APICallBack<GetSubscriptionResponse>() {
             public void onSuccess(HttpContext context, GetSubscriptionResponse response) {
 
                 System.out.println("Subscription pre paid bank slip !");

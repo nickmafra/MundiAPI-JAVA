@@ -26,7 +26,7 @@ public class CreateAnticipation {
 
         String recipientId = "rp_RElaP4NMCJu08V9m";
 
-        recipients_controller.createAnticipationAsync(recipientId, request, new APICallBack<GetAnticipationResponse>() {
+        recipients_controller.createAnticipationAsync(recipientId, request, null, new APICallBack<GetAnticipationResponse>() {
             @Override
             public void onSuccess(HttpContext context, GetAnticipationResponse response) {
                 System.out.println("Anticipation create!");

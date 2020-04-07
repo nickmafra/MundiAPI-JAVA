@@ -19,7 +19,7 @@ public class RetryCharge {
 
         String chargeId = "ch_8dla503fAUdNXgz2";
 
-        charges_controller.retryChargeAsync(chargeId, new APICallBack<GetChargeResponse>() {
+        charges_controller.retryChargeAsync(chargeId, null, new APICallBack<GetChargeResponse>() {
             @Override
             public void onSuccess(HttpContext context, GetChargeResponse response) {
 

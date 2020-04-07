@@ -42,13 +42,13 @@ public class CreatePlan {
 
 
         CreatePlanItemRequest planItemOne = new CreatePlanItemRequest();
-        planItemOne.setName("Musculação");
+        planItemOne.setName("MusculaÃ§Ã£o");
         planItemOne.setQuantity(1);
         planItemOne.setPricingScheme(new CreatePricingSchemeRequest());
         planItemOne.getPricingScheme().setPrice(18990);
         
         CreatePlanItemRequest planItemTwo = new CreatePlanItemRequest();
-        planItemTwo.setName("Matrícula");
+        planItemTwo.setName("MatrÃ­cula");
         planItemTwo.setCycles(1);
         planItemTwo.setQuantity(1);
         planItemTwo.setPricingScheme(new CreatePricingSchemeRequest());
@@ -62,7 +62,7 @@ public class CreatePlan {
 
 
 
-        plans_controller.createPlanAsync(request, new APICallBack<GetPlanResponse>() {
+        plans_controller.createPlanAsync(request, null, new APICallBack<GetPlanResponse>() {
             @Override
             public void onSuccess(HttpContext context, GetPlanResponse response) {
 

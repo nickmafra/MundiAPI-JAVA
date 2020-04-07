@@ -25,7 +25,7 @@ public class UpdateCustomer {
 
         String customerId = "cus_YL6zwglSxhg2X14g";
 
-        customers_controller.updateCustomerAsync(customerId, request, new APICallBack<GetCustomerResponse>() {
+        customers_controller.updateCustomerAsync(customerId, request, null, new APICallBack<GetCustomerResponse>() {
             @Override
             public void onSuccess(HttpContext context, GetCustomerResponse response) {
 

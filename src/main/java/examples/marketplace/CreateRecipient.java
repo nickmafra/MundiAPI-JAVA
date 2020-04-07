@@ -39,7 +39,7 @@ public class CreateRecipient {
         request.getDefaultBankAccount().setAccountCheckDigit("6");
         request.getDefaultBankAccount().setType("checking");
 
-        recipients_controller.createRecipientAsync(request, new APICallBack<GetRecipientResponse>() {
+        recipients_controller.createRecipientAsync(request, null, new APICallBack<GetRecipientResponse>() {
             @Override
             public void onSuccess(HttpContext context, GetRecipientResponse response) {
 
