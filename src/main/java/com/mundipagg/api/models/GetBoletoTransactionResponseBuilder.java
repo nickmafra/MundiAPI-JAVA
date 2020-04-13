@@ -25,8 +25,8 @@ public class GetBoletoTransactionResponseBuilder
         return this;
     }
 
-    public GetBoletoTransactionResponseBuilder barCode(String barCode) {
-        getBoletoTransactionResponse.setBarCode(barCode);
+    public GetBoletoTransactionResponseBuilder barcode(String barcode) {
+        getBoletoTransactionResponse.setBarcode(barcode);
         return this;
     }
 

@@ -18,12 +18,13 @@ import org.joda.time.DateTime;
 @JsonInclude(Include.ALWAYS)
 public class CreateUsageRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = -4479622059130320905L;
+    private static final long serialVersionUID = -1929560107209129961L;
     private int quantity;
     private String description;
     private DateTime usedAt;
     private String code;
     private String group;
+    private Integer amount;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -104,6 +105,22 @@ public class CreateUsageRequest
     @JsonSetter("group")
     public void setGroup (String value) { 
         this.group = value;
+    }
+ 
+    /** GETTER
+     * Field used in item scheme type 'Percent'
+     */
+    @JsonGetter("amount")
+    public Integer getAmount ( ) { 
+        return this.amount;
+    }
+    
+    /** SETTER
+     * Field used in item scheme type 'Percent'
+     */
+    @JsonSetter("amount")
+    public void setAmount (Integer value) { 
+        this.amount = value;
     }
  
 }

@@ -95,6 +95,14 @@ public class GetUsageResponseBuilder {
         getUsageResponse.setGroup(group);
         return this;
     }
+
+    /**
+     * Field used in item scheme type 'Percent'
+     */
+    public GetUsageResponseBuilder amount(Integer amount) {
+        getUsageResponse.setAmount(amount);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

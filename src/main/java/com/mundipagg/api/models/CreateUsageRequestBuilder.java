@@ -49,6 +49,14 @@ public class CreateUsageRequestBuilder {
         createUsageRequest.setGroup(group);
         return this;
     }
+
+    /**
+     * Field used in item scheme type 'Percent'
+     */
+    public CreateUsageRequestBuilder amount(Integer amount) {
+        createUsageRequest.setAmount(amount);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

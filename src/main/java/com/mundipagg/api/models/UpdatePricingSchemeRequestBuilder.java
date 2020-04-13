@@ -49,6 +49,14 @@ public class UpdatePricingSchemeRequestBuilder {
         updatePricingSchemeRequest.setMinimumPrice(minimumPrice);
         return this;
     }
+
+    /**
+     * percentual value used in pricing_scheme Percent
+     */
+    public UpdatePricingSchemeRequestBuilder percentage(Double percentage) {
+        updatePricingSchemeRequest.setPercentage(percentage);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

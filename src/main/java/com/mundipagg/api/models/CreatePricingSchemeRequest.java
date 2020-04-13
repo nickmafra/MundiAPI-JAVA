@@ -14,11 +14,12 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonInclude(Include.ALWAYS)
 public class CreatePricingSchemeRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 532188052574859489L;
+    private static final long serialVersionUID = 281474676855056943L;
     private String schemeType;
     private List<CreatePriceBracketRequest> priceBrackets;
     private Integer price;
     private Integer minimumPrice;
+    private Double percentage;
     /** GETTER
      * Scheme type
      */
@@ -81,6 +82,22 @@ public class CreatePricingSchemeRequest
     @JsonSetter("minimum_price")
     public void setMinimumPrice (Integer value) { 
         this.minimumPrice = value;
+    }
+ 
+    /** GETTER
+     * percentual value used in pricing_scheme Percent
+     */
+    @JsonGetter("percentage")
+    public Double getPercentage ( ) { 
+        return this.percentage;
+    }
+    
+    /** SETTER
+     * percentual value used in pricing_scheme Percent
+     */
+    @JsonSetter("percentage")
+    public void setPercentage (Double value) { 
+        this.percentage = value;
     }
  
 }
