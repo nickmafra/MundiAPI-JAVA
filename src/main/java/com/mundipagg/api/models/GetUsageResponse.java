@@ -18,7 +18,7 @@ import org.joda.time.DateTime;
 @JsonInclude(Include.ALWAYS)
 public class GetUsageResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 8636021037060466068L;
+    private static final long serialVersionUID = -3181406911054728500L;
     private String id;
     private int quantity;
     private String description;
@@ -29,6 +29,7 @@ public class GetUsageResponse
     private GetSubscriptionItemResponse subscriptionItem;
     private String code;
     private String group;
+    private Integer amount;
     /** GETTER
      * Id
      */
@@ -193,6 +194,22 @@ public class GetUsageResponse
     @JsonSetter("group")
     public void setGroup (String value) { 
         this.group = value;
+    }
+ 
+    /** GETTER
+     * Field used in item scheme type 'Percent'
+     */
+    @JsonGetter("amount")
+    public Integer getAmount ( ) { 
+        return this.amount;
+    }
+    
+    /** SETTER
+     * Field used in item scheme type 'Percent'
+     */
+    @JsonSetter("amount")
+    public void setAmount (Integer value) { 
+        this.amount = value;
     }
  
 }

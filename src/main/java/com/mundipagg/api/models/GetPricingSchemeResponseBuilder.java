@@ -37,6 +37,14 @@ public class GetPricingSchemeResponseBuilder {
         getPricingSchemeResponse.setMinimumPrice(minimumPrice);
         return this;
     }
+
+    /**
+     * percentual value used in pricing_scheme Percent
+     */
+    public GetPricingSchemeResponseBuilder percentage(Double percentage) {
+        getPricingSchemeResponse.setPercentage(percentage);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

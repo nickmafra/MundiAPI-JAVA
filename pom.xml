@@ -9,7 +9,7 @@
 
   <groupId>MundiAPILib</groupId>
   <artifactId>mundi-apilib</artifactId>
-  <version>0.16.9</version>
+  <version>0.16.10</version>
   <packaging>jar</packaging>
 
   <name>MundiAPILib</name>

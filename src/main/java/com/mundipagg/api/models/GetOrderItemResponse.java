@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonInclude(Include.ALWAYS)
 public class GetOrderItemResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5684764484483954619L;
+    private static final long serialVersionUID = 1248361567937746779L;
     private String id;
     private int amount;
     private String description;
@@ -25,7 +25,7 @@ public class GetOrderItemResponse
     /** GETTER
      * Id
      */
-    @JsonGetter("Id")
+    @JsonGetter("id")
     public String getId ( ) { 
         return this.id;
     }
@@ -33,7 +33,7 @@ public class GetOrderItemResponse
     /** SETTER
      * Id
      */
-    @JsonSetter("Id")
+    @JsonSetter("id")
     public void setId (String value) { 
         this.id = value;
     }
