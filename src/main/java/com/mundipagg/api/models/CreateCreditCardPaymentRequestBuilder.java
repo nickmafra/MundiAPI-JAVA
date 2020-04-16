@@ -118,6 +118,14 @@ public class CreateCreditCardPaymentRequestBuilder {
         createCreditCardPaymentRequest.setAutoRecovery(autoRecovery);
         return this;
     }
+
+    /**
+     * AuthOnly, AuthAndCapture, PreAuth
+     */
+    public CreateCreditCardPaymentRequestBuilder operationType(String operationType) {
+        createCreditCardPaymentRequest.setOperationType(operationType);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */
