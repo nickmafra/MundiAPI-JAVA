@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonInclude(Include.ALWAYS)
 public class CreateCreditCardPaymentRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = -7887412136943293543L;
+    private static final long serialVersionUID = 1056363807367210571L;
     private Integer installments = 1;
     private String statementDescriptor;
     private CreateCardRequest card;
@@ -28,6 +28,7 @@ public class CreateCreditCardPaymentRequest
     private CreatePaymentAuthenticationRequest authentication;
     private CreateCardPaymentContactlessRequest contactless;
     private Boolean autoRecovery;
+    private String operationType;
     /** GETTER
      * Number of installments
      */
@@ -234,6 +235,22 @@ public class CreateCreditCardPaymentRequest
     @JsonSetter("auto_recovery")
     public void setAutoRecovery (Boolean value) { 
         this.autoRecovery = value;
+    }
+ 
+    /** GETTER
+     * AuthOnly, AuthAndCapture, PreAuth
+     */
+    @JsonGetter("operation_type")
+    public String getOperationType ( ) { 
+        return this.operationType;
+    }
+    
+    /** SETTER
+     * AuthOnly, AuthAndCapture, PreAuth
+     */
+    @JsonSetter("operation_type")
+    public void setOperationType (String value) { 
+        this.operationType = value;
     }
  
 }
