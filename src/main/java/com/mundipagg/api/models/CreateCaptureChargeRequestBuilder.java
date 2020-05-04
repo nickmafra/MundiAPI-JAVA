@@ -33,6 +33,19 @@ public class CreateCaptureChargeRequestBuilder {
         createCaptureChargeRequest.setAmount(amount);
         return this;
     }
+
+    /**
+     * Splits
+     */
+    public CreateCaptureChargeRequestBuilder split(List<CreateSplitRequest> split) {
+        createCaptureChargeRequest.setSplit(split);
+        return this;
+    }
+
+    public CreateCaptureChargeRequestBuilder operationReference(String operationReference) {
+        createCaptureChargeRequest.setOperationReference(operationReference);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

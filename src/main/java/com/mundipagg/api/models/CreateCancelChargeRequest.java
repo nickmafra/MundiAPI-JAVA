@@ -14,9 +14,11 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonInclude(Include.ALWAYS)
 public class CreateCancelChargeRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = -3574134554035954985L;
+    private static final long serialVersionUID = -1205350500177026052L;
     private Integer amount;
     private List<CreateCancelChargeSplitRulesRequest> splitRules;
+    private List<CreateSplitRequest> split;
+    private String operationReference;
     /** GETTER
      * The amount that will be canceled.
      */
@@ -47,6 +49,38 @@ public class CreateCancelChargeRequest
     @JsonSetter("split_rules")
     public void setSplitRules (List<CreateCancelChargeSplitRulesRequest> value) { 
         this.splitRules = value;
+    }
+ 
+    /** GETTER
+     * Splits
+     */
+    @JsonGetter("split")
+    public List<CreateSplitRequest> getSplit ( ) { 
+        return this.split;
+    }
+    
+    /** SETTER
+     * Splits
+     */
+    @JsonSetter("split")
+    public void setSplit (List<CreateSplitRequest> value) { 
+        this.split = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("operation_reference")
+    public String getOperationReference ( ) { 
+        return this.operationReference;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("operation_reference")
+    public void setOperationReference (String value) { 
+        this.operationReference = value;
     }
  
 }

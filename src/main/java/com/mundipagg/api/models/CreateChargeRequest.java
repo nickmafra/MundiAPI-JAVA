@@ -18,7 +18,7 @@ import org.joda.time.DateTime;
 @JsonInclude(Include.ALWAYS)
 public class CreateChargeRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = -4281364036029315612L;
+    private static final long serialVersionUID = -393861842257300667L;
     private String code;
     private int amount;
     private String customerId;
@@ -27,6 +27,7 @@ public class CreateChargeRequest
     private LinkedHashMap<String, String> metadata;
     private DateTime dueAt;
     private CreateAntifraudRequest antifraud;
+    private String orderId;
     /** GETTER
      * Code
      */
@@ -155,6 +156,22 @@ public class CreateChargeRequest
     @JsonSetter("antifraud")
     public void setAntifraud (CreateAntifraudRequest value) { 
         this.antifraud = value;
+    }
+ 
+    /** GETTER
+     * Order Id
+     */
+    @JsonGetter("order_id")
+    public String getOrderId ( ) { 
+        return this.orderId;
+    }
+    
+    /** SETTER
+     * Order Id
+     */
+    @JsonSetter("order_id")
+    public void setOrderId (String value) { 
+        this.orderId = value;
     }
  
 }

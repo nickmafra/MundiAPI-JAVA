@@ -14,9 +14,11 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonInclude(Include.ALWAYS)
 public class CreateCaptureChargeRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5258886448138400601L;
+    private static final long serialVersionUID = 5178838949840272818L;
     private String code;
     private Integer amount;
+    private List<CreateSplitRequest> split;
+    private String operationReference;
     /** GETTER
      * Code for the charge. Sending this field will update the code send on the charge and order creation.
      */
@@ -47,6 +49,38 @@ public class CreateCaptureChargeRequest
     @JsonSetter("amount")
     public void setAmount (Integer value) { 
         this.amount = value;
+    }
+ 
+    /** GETTER
+     * Splits
+     */
+    @JsonGetter("split")
+    public List<CreateSplitRequest> getSplit ( ) { 
+        return this.split;
+    }
+    
+    /** SETTER
+     * Splits
+     */
+    @JsonSetter("split")
+    public void setSplit (List<CreateSplitRequest> value) { 
+        this.split = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("operation_reference")
+    public String getOperationReference ( ) { 
+        return this.operationReference;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("operation_reference")
+    public void setOperationReference (String value) { 
+        this.operationReference = value;
     }
  
 }

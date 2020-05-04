@@ -33,6 +33,19 @@ public class CreateCancelChargeRequestBuilder {
         createCancelChargeRequest.setSplitRules(splitRules);
         return this;
     }
+
+    /**
+     * Splits
+     */
+    public CreateCancelChargeRequestBuilder split(List<CreateSplitRequest> split) {
+        createCancelChargeRequest.setSplit(split);
+        return this;
+    }
+
+    public CreateCancelChargeRequestBuilder operationReference(String operationReference) {
+        createCancelChargeRequest.setOperationReference(operationReference);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

@@ -79,6 +79,14 @@ public class CreateChargeRequestBuilder {
         createChargeRequest.setAntifraud(antifraud);
         return this;
     }
+
+    /**
+     * Order Id
+     */
+    public CreateChargeRequestBuilder orderId(String orderId) {
+        createChargeRequest.setOrderId(orderId);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */
