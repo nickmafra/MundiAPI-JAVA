@@ -12,41 +12,41 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @JsonInclude(Include.ALWAYS)
-public class CreateSplitOptionsRequest 
+public class GetSplitOptionsResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 7647789587604588898L;
-    private Boolean liable;
-    private Boolean chargeProcessingFee;
-    private Boolean chargeRemainderFee;
+    private static final long serialVersionUID = 5808561537441955439L;
+    private boolean liable;
+    private boolean chargeProcessingFee;
+    private String chargeRemainderFee;
     /** GETTER
-     * Liable options
+     * TODO: Write general description for this method
      */
     @JsonGetter("liable")
-    public Boolean getLiable ( ) { 
+    public boolean getLiable ( ) { 
         return this.liable;
     }
     
     /** SETTER
-     * Liable options
+     * TODO: Write general description for this method
      */
     @JsonSetter("liable")
-    public void setLiable (Boolean value) { 
+    public void setLiable (boolean value) { 
         this.liable = value;
     }
  
     /** GETTER
-     * Charge processing fee
+     * TODO: Write general description for this method
      */
     @JsonGetter("charge_processing_fee")
-    public Boolean getChargeProcessingFee ( ) { 
+    public boolean getChargeProcessingFee ( ) { 
         return this.chargeProcessingFee;
     }
     
     /** SETTER
-     * Charge processing fee
+     * TODO: Write general description for this method
      */
     @JsonSetter("charge_processing_fee")
-    public void setChargeProcessingFee (Boolean value) { 
+    public void setChargeProcessingFee (boolean value) { 
         this.chargeProcessingFee = value;
     }
  
@@ -54,7 +54,7 @@ public class CreateSplitOptionsRequest
      * TODO: Write general description for this method
      */
     @JsonGetter("charge_remainder_fee")
-    public Boolean getChargeRemainderFee ( ) { 
+    public String getChargeRemainderFee ( ) { 
         return this.chargeRemainderFee;
     }
     
@@ -62,7 +62,7 @@ public class CreateSplitOptionsRequest
      * TODO: Write general description for this method
      */
     @JsonSetter("charge_remainder_fee")
-    public void setChargeRemainderFee (Boolean value) { 
+    public void setChargeRemainderFee (String value) { 
         this.chargeRemainderFee = value;
     }
  

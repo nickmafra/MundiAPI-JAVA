@@ -122,6 +122,11 @@ public class GetRecipientResponseBuilder {
         getRecipientResponse.setMetadata(metadata);
         return this;
     }
+
+    public GetRecipientResponseBuilder automaticAnticipationSettings(GetAutomaticAnticipationResponse automaticAnticipationSettings) {
+        getRecipientResponse.setAutomaticAnticipationSettings(automaticAnticipationSettings);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

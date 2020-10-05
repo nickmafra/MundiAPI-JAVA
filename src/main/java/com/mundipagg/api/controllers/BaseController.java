@@ -19,7 +19,7 @@ public abstract class BaseController {
      */
     private static HttpClient clientInstance = null;
     private static final Object syncObject = new Object();
-    protected static final String userAgent = "MundiSDK - Java 0.16.12";
+    protected static final String userAgent = "MundiSDK - Java 0.16.13";
 
     /**
      * Protected variable to keep reference of httpCallBack instance if user provides any

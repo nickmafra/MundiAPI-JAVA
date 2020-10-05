@@ -10,38 +10,6 @@ import com.mundipagg.api.http.client.HttpClient;
 
 public class MundiAPIClient {
     /**
-     * Singleton access to Subscriptions controller
-     * @return	Returns the SubscriptionsController instance 
-     */
-    public SubscriptionsController getSubscriptions() {
-        return SubscriptionsController.getInstance();
-    }
-
-    /**
-     * Singleton access to Orders controller
-     * @return	Returns the OrdersController instance 
-     */
-    public OrdersController getOrders() {
-        return OrdersController.getInstance();
-    }
-
-    /**
-     * Singleton access to Plans controller
-     * @return	Returns the PlansController instance 
-     */
-    public PlansController getPlans() {
-        return PlansController.getInstance();
-    }
-
-    /**
-     * Singleton access to Invoices controller
-     * @return	Returns the InvoicesController instance 
-     */
-    public InvoicesController getInvoices() {
-        return InvoicesController.getInstance();
-    }
-
-    /**
      * Singleton access to Customers controller
      * @return	Returns the CustomersController instance 
      */
@@ -66,11 +34,27 @@ public class MundiAPIClient {
     }
 
     /**
-     * Singleton access to Tokens controller
-     * @return	Returns the TokensController instance 
+     * Singleton access to Subscriptions controller
+     * @return	Returns the SubscriptionsController instance 
      */
-    public TokensController getTokens() {
-        return TokensController.getInstance();
+    public SubscriptionsController getSubscriptions() {
+        return SubscriptionsController.getInstance();
+    }
+
+    /**
+     * Singleton access to Invoices controller
+     * @return	Returns the InvoicesController instance 
+     */
+    public InvoicesController getInvoices() {
+        return InvoicesController.getInstance();
+    }
+
+    /**
+     * Singleton access to Orders controller
+     * @return	Returns the OrdersController instance 
+     */
+    public OrdersController getOrders() {
+        return OrdersController.getInstance();
     }
 
     /**
@@ -79,6 +63,22 @@ public class MundiAPIClient {
      */
     public SellersController getSellers() {
         return SellersController.getInstance();
+    }
+
+    /**
+     * Singleton access to Tokens controller
+     * @return	Returns the TokensController instance 
+     */
+    public TokensController getTokens() {
+        return TokensController.getInstance();
+    }
+
+    /**
+     * Singleton access to Plans controller
+     * @return	Returns the PlansController instance 
+     */
+    public PlansController getPlans() {
+        return PlansController.getInstance();
     }
 
     /**

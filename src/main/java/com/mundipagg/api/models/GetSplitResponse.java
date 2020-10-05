@@ -14,11 +14,12 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonInclude(Include.ALWAYS)
 public class GetSplitResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = -3275244325974240831L;
+    private static final long serialVersionUID = 5703186813290341221L;
     private String type;
     private int amount;
     private GetRecipientResponse recipient;
     private String gatewayId;
+    private GetSplitOptionsResponse options;
     /** GETTER
      * Type
      */
@@ -81,6 +82,22 @@ public class GetSplitResponse
     @JsonSetter("gateway_id")
     public void setGatewayId (String value) { 
         this.gatewayId = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("options")
+    public GetSplitOptionsResponse getOptions ( ) { 
+        return this.options;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("options")
+    public void setOptions (GetSplitOptionsResponse value) { 
+        this.options = value;
     }
  
 }

@@ -33,6 +33,11 @@ public class CreateSplitOptionsRequestBuilder {
         createSplitOptionsRequest.setChargeProcessingFee(chargeProcessingFee);
         return this;
     }
+
+    public CreateSplitOptionsRequestBuilder chargeRemainderFee(Boolean chargeRemainderFee) {
+        createSplitOptionsRequest.setChargeRemainderFee(chargeRemainderFee);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

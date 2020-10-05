@@ -25,19 +25,19 @@ import org.joda.time.DateTime;
           defaultImpl = GetTransactionResponse.class,
           visible = true)
 @JsonSubTypes({
-    @Type(value = GetVoucherTransactionResponse.class, name = "voucher"),
     @Type(value = GetBankTransferTransactionResponse.class, name = "bank_transfer"),
-    @Type(value = GetSafetyPayTransactionResponse.class, name = "safetypay"),
-    @Type(value = GetBoletoTransactionResponse.class, name = "boleto"),
     @Type(value = GetDebitCardTransactionResponse.class, name = "debit_card"),
+    @Type(value = GetVoucherTransactionResponse.class, name = "voucher"),
+    @Type(value = GetBoletoTransactionResponse.class, name = "boleto"),
     @Type(value = GetCashTransactionResponse.class, name = "cash"),
+    @Type(value = GetSafetyPayTransactionResponse.class, name = "safetypay"),
     @Type(value = GetCreditCardTransactionResponse.class, name = "credit_card"),
     @Type(value = GetPrivateLabelTransactionResponse.class, name = "private_label")
 })
 @JsonInclude(Include.ALWAYS)
 public class GetTransactionResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5754788919610665812L;
+    private static final long serialVersionUID = -1432529684995687665L;
     private String gatewayId;
     private int amount;
     private String status;
@@ -53,6 +53,7 @@ public class GetTransactionResponse
     private GetGatewayResponseResponse gatewayResponse;
     private GetAntifraudResponse antifraudResponse;
     private LinkedHashMap<String, String> metadata;
+    private List<GetSplitResponse> split;
     /** GETTER
      * Gateway transaction id
      */
@@ -297,6 +298,22 @@ public class GetTransactionResponse
     @JsonSetter("metadata")
     public void setMetadata (LinkedHashMap<String, String> value) { 
         this.metadata = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("split")
+    public List<GetSplitResponse> getSplit ( ) { 
+        return this.split;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("split")
+    public void setSplit (List<GetSplitResponse> value) { 
+        this.split = value;
     }
  
 }

@@ -49,6 +49,11 @@ public class GetSplitResponseBuilder {
         getSplitResponse.setGatewayId(gatewayId);
         return this;
     }
+
+    public GetSplitResponseBuilder options(GetSplitOptionsResponse options) {
+        getSplitResponse.setOptions(options);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

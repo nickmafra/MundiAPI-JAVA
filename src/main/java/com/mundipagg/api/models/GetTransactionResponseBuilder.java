@@ -129,6 +129,11 @@ public class GetTransactionResponseBuilder {
         getTransactionResponse.setMetadata(metadata);
         return this;
     }
+
+    public GetTransactionResponseBuilder split(List<GetSplitResponse> split) {
+        getTransactionResponse.setSplit(split);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */
