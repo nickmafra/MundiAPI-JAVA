@@ -18,7 +18,7 @@ import org.joda.time.DateTime;
 @JsonInclude(Include.ALWAYS)
 public class CreateSubscriptionRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = -7009710924141794472L;
+    private static final long serialVersionUID = 420275169467957478L;
     private CreateCustomerRequest customer;
     private CreateCardRequest card;
     private String code;
@@ -49,6 +49,7 @@ public class CreateSubscriptionRequest
     private Integer boletoDueDays;
     private List<CreateIncrementRequest> increments;
     private CreatePeriodRequest period;
+    private CreateSubMerchantRequest submerchant;
     /** GETTER
      * Customer
      */
@@ -529,6 +530,22 @@ public class CreateSubscriptionRequest
     @JsonSetter("period")
     public void setPeriod (CreatePeriodRequest value) { 
         this.period = value;
+    }
+ 
+    /** GETTER
+     * SubMerchant
+     */
+    @JsonGetter("submerchant")
+    public CreateSubMerchantRequest getSubmerchant ( ) { 
+        return this.submerchant;
+    }
+    
+    /** SETTER
+     * SubMerchant
+     */
+    @JsonSetter("submerchant")
+    public void setSubmerchant (CreateSubMerchantRequest value) { 
+        this.submerchant = value;
     }
  
 }

@@ -255,6 +255,14 @@ public class CreateSubscriptionRequestBuilder {
         createSubscriptionRequest.setPeriod(period);
         return this;
     }
+
+    /**
+     * SubMerchant
+     */
+    public CreateSubscriptionRequestBuilder submerchant(CreateSubMerchantRequest submerchant) {
+        createSubscriptionRequest.setSubmerchant(submerchant);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */
