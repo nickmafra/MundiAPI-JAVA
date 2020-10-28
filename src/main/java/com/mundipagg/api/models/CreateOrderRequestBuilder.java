@@ -131,6 +131,14 @@ public class CreateOrderRequestBuilder {
         createOrderRequest.setAntifraud(antifraud);
         return this;
     }
+
+    /**
+     * SubMerchant
+     */
+    public CreateOrderRequestBuilder submerchant(CreateSubMerchantRequest submerchant) {
+        createOrderRequest.setSubmerchant(submerchant);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonInclude(Include.ALWAYS)
 public class CreateOrderRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = -3859228860367948594L;
+    private static final long serialVersionUID = -4709111399684235256L;
     private List<CreateOrderItemRequest> items;
     private CreateCustomerRequest customer;
     private List<CreatePaymentRequest> payments;
@@ -30,6 +30,7 @@ public class CreateOrderRequest
     private boolean closed = true;
     private String currency;
     private CreateAntifraudRequest antifraud;
+    private CreateSubMerchantRequest submerchant;
     /** GETTER
      * Items
      */
@@ -268,6 +269,22 @@ public class CreateOrderRequest
     @JsonSetter("antifraud")
     public void setAntifraud (CreateAntifraudRequest value) { 
         this.antifraud = value;
+    }
+ 
+    /** GETTER
+     * SubMerchant
+     */
+    @JsonGetter("submerchant")
+    public CreateSubMerchantRequest getSubmerchant ( ) { 
+        return this.submerchant;
+    }
+    
+    /** SETTER
+     * SubMerchant
+     */
+    @JsonSetter("submerchant")
+    public void setSubmerchant (CreateSubMerchantRequest value) { 
+        this.submerchant = value;
     }
  
 }
