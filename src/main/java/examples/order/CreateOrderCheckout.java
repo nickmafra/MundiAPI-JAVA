@@ -45,7 +45,7 @@ public class CreateOrderCheckout {
         paymentTwo.add("credit_card");
         paymentTwo.add("boleto");
         multiPayments.add(paymentTwo);
-        create_checkout_payment_request.setAcceptedMultiPaymentMethods(Collections.singletonList(multiPayments));
+        create_checkout_payment_request.setAcceptedMultiPaymentMethods(Collections.<Object>singletonList(multiPayments));
 
         create_checkout_payment_request.setSuccessUrl("https://www.mundipagg.com'");
 
